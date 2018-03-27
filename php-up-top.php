@@ -1,5 +1,6 @@
-<?php 
-	include($_SERVER['DOCUMENT_ROOT'] . '/php/standard-includes.php');
+<?php
+	$inc_file = '/php/standard-includes.php');
+	include($_SERVER['DOCUMENT_ROOT'] . $inc_file);
 ?>
 <?php 
 	display_errors("1");
