@@ -1,5 +1,5 @@
 /* scripts.js */
-if(typeof console !== "undefined"){	console.debug("loading scripts.js.");}
+try { console.debug("loading scripts.js."); } catch (e){ }
 
 defineThings = function(){
 	if(typeof console != "undefined" && typeof console.info != "undefined"){	info = function(msg){	console.info(msg);	}}
@@ -78,4 +78,4 @@ sir.appendDiv = function(html){
 }
 
 
-if(typeof console !== "undefined"){	console.debug("done loading scripts.js.");}
+try { console.debug("done loading scripts.js."); } catch (e) { }
