@@ -121,4 +121,8 @@ sir.appendDiv = function(html){
 }
 
 
-try { console.debug("done loading scripts.js."); } catch (e) { }
+try {
+	console.debug("done loading scripts.js."); 
+} 
+catch (e) {}
+
