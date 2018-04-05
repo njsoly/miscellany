@@ -10,11 +10,11 @@
 @call :pull M:\Java_Misc
 @call :pull M:\miscellany
 @call :pull M:\raz-follower
-@call :pull M:\arduino-sketchbook
-@call :pull D:\Users\njsoly\git\hackerrank
+::@call :pull M:\arduino-sketchbook
+::@call :pull D:\Users\njsoly\git\hackerrank
 @call :pull D:\Users\njsoly\git\Java_Misc
-@call :pull M:\base
-@call :pull D:\Users\njsoly\arduino-sketchbook
+::@call :pull M:\base
+::@call :pull D:\Users\njsoly\arduino-sketchbook
 
 @goto done
 
