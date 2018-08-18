@@ -39,11 +39,23 @@ __initLoggerShortcuts = function(){
 
 __initLoggerShortcuts();
 
+/** 
+ * Toggle the visibility of an object or array or list of objects.
+ * In writing this function, I expected the object(s) in question 
+ * to be a visible DOM element.
+ * 
+ * I'm not sure whether current the jQuery-marked-up objects behave 
+ * properly or not.
+ * @TESTME toggleVisibility :: jQuery
+ * 
+ */ 
 toggleVisibility = function(x){
+	/* if there is no parameter passed, log a warning about it. */
 	if(typeof x == "undefined"){
-		console.error("toggleVisibiity(): undefined param.");
+		console.warn("toggleVisibiity(): undefined param.");
 		return;
 	}
+	
 	// if the object is an array or list
 	if(typeof x.length != "undefined"){
 		for(i = 0; i < x.length; i++){
@@ -52,6 +64,7 @@ toggleVisibility = function(x){
 			
 		}
 	}
+	
 	// if the object is just one thing.
 	else {
 		x.style["display"] = (x.style["display"]=="none") ? "" : "none";
