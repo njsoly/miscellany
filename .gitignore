@@ -37,4 +37,9 @@ uvision/*/Listings/
 uvision/*/*~*TMP
 
 .git-credentials
-"*.--help" 
+
+# commonly used throwaway help/manpage output suffixes of mine
+*.--help 
+*.help.out
+
+
