@@ -37,3 +37,4 @@ uvision/*/Listings/
 uvision/*/*~*TMP
 
 .git-credentials
+"*.--help" 
