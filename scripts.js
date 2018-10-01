@@ -1,12 +1,16 @@
 /* scripts.js */
 try { console.debug("loading scripts.js."); } catch (e){ }
 
-// definitions to save some 
+// definitions to save some exceptions that needn't happen
 if(typeof body == "undefined") 
 	body = document.body;
 if(typeof DEBUG == "undefined") 
 	DEBUG = false;
 
+/** 
+ * For console.info, .debug, .log, .warn, and .error, 
+ * create new shortcuts to them without the "console.".
+ */
 __initLoggerShortcuts = function(){
 	if(typeof console != "undefined"){
 		if(typeof console.info != "undefined"){	
@@ -72,6 +76,10 @@ toggleVisibility = function(x){
 	}
 }
 
+/** Pass in a DOM block element, and enable or disable its visibility.
+ * @param x the object of which to assign [in]visibility.  
+ * @param visible a boolean, designating whether to display the element.
+ */
 setVisibility = function(x,visible){
 	if(typeof x == "undefined") return;
 	x.style["display"] = (typeof visible == "undefined" || visible == true) ? "" : "none";
