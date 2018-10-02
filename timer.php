@@ -30,10 +30,10 @@
 	fieldset {
 		background-color: rgba(0,48,20,0.4);
 	}
-html {
-background-color: #292933;
-color: rgb(222,224,240);
-}
+	html {
+		background-color: #292933;
+		color: rgb(222,224,240);
+	}
 	</style>
 </head>
 <body>
