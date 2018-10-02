@@ -15,7 +15,7 @@
 	/* ignore same errors from same line in */
 	ini_set("ignore_repeated_errors","off");
 	$x =8;
-	$x = $y;
+	$x = $y; /* intentional error to test INI settings (undef $y) */
 ?>
 <!DOCTYPE HTML>
 <html>
