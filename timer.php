@@ -25,7 +25,8 @@
 		font-family: monospace;
 	}
 	button {
-		font-size: 3em;
+		font-size: 2em;
+		padding: .3em;
 	}
 	fieldset {
 		background-color: rgba(0,48,20,0.4);
@@ -80,6 +81,7 @@
 			));
 			// this making too many timers
 			timerRunning = true;
+			toggleButton.innerText = "stop";
 		};
 		
 		// this does not work.
@@ -90,16 +92,15 @@
 				console.error("didn't stop timer.");
 			}
 			timerRunning = false;
+			toggleButton.innerText = "start";
 		};
 		function toggleTimer(){
 			toggleButton = document.getElementById("timerToggle");
 			if(timerRunning == true){
 				stopTimer();
-				toggleButton.value = "start";
 			}
 			else {
 				startTimer();
-				toggleButton.value = "stop";
 			}
 			return timerRunning;
 		};
