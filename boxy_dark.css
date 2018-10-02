@@ -11,6 +11,24 @@ h1, h2, h3, h4, h5, h6, body > div {
 	margin: 0.5vh 1vw;
 	color: rgb(255,192,192);
 }
+h1, h2, h3, h4, h5, h6 {
+	background-color: darkMagenta;
+	padding: .33em;
+	text-align: center;
+	color: #ddd;
+	text-shadow: 0.11em 0.11em black;
+}
+
+a {
+	color: slate;
+	margin: .5em .5em;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	background-color: rgb(77,77,100);
+}
 
 button {
 	font-size: 1.50em;
