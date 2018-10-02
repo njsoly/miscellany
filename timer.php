@@ -1,16 +1,12 @@
-<?php
-	include_once($_SERVER['DOCUMENT_ROOT'] . '/php/standard-includes.php');
-
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
 
 	<title id=counterTitle>counter </title>
-	<script src="x.js" type="text/javascript"></script>
+	<script src="scripts.js" type="text/javascript"></script>
 	<meta charset="utf-8" />
 	<meta http-equiv='Pragma' content='no-cache' />
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="boxy_dark.css" />
 	
 
 	<style>
@@ -25,6 +21,8 @@
 		font-size: 2.5em;
 		text-align: center;
 		padding-top: 2.24vh;
+		background-color: #835;
+		font-family: monospace;
 	}
 	button {
 		font-size: 3em;
