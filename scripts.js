@@ -148,8 +148,12 @@ sir.appendDiv = function(html){
 
 }
 
+var intervalIDs = [];
+var theTime;
 
-try {
-	console.debug("done loading scripts.js."); 
-}  catch (e) {}
+intervalIDs.push(setInterval(function(){
+	theTime = Date();
+}, 900));
+
+try {	console.debug("done loading scripts.js."); }  catch (e) {}
 
