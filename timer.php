@@ -44,12 +44,13 @@
 			<div id="timerDiv" title="the timer.">
 			</div>
 			<div class=btns>
-				<fieldset>
+				<fieldset title="timer control buttons">
 					<button onclick="toggleTimer();" id=timerToggle>
 					stop
 					</button>
-
-					<button onclick="resetTimer();">reset</button>
+					<button onclick="resetTimer();">
+					reset
+					</button>
 				</fieldset>			
 			</div>
 
@@ -67,9 +68,6 @@
 		};
 		resetTimer = function(){
 			timerCounter = -1;
-			/*if(timerRunning == true){
-				stopTimer();
-			}*/
 			incrementTimer();
 			incrementTimer();
 		};
@@ -87,7 +85,7 @@
 		// this does not work.
 		function stopTimer(){
 			try{
-			clearInterval(x);
+				clearInterval(x);
 			} catch(err){
 				console.error("didn't stop timer.");
 			}
