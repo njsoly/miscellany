@@ -6,11 +6,13 @@ declare -x HOME=$PWD
 declare -x BASHES=$PWD/.bash
 declare -x BATS=$PWD/.bats
 declare -x BASE=$PWD/base
+declare -x miscellany=/cygdrive/m/miscellany
 
 export HOME
 export BASHES
 export BATS
 export BASE
+export miscellany
 
 [ -x $BASHES/.bashrc ] && . $BASHES/.bashrc
 [ -x $BASHES/.bash_aliases ] && . $BASHES/.bash_aliases
