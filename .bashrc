@@ -42,3 +42,11 @@ alias gsnu='git status -uno'
 
 
 export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ '
+
+[ -x ~/run_this_timed.bash ] || \
+	[ -e ~/run_this_timed.bash ] && \
+	chmod +x ~/run_this_timed.bash
+
+[ -x ~/run_this_timed.bash ] && \
+	. ~/run_this_timed.bash
+
