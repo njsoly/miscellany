@@ -1,0 +1,3 @@
+/* aoeusnth */ 
+ (rating:[] OR rating: >3) AND (*.mp4 OR .flv OR .avi OR .mkv OR .mpg OR .m4v OR .wmv)
+ 
