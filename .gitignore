@@ -41,3 +41,5 @@ uvision/*/*~*TMP
 
 
 .error_log
+.time_ab.log
+.time_elapsed.log
