@@ -1,2 +1,3 @@
-tsc --version 2>&1 > /dev/null
-[ -z "$?" ] && echo "typescript is installed" || echo "typescript is NOT installed."
+tsc --version > /dev/null 2>&1
+[ "0" == "$?" ] && echo "typescript is installed" || echo "typescript is 
+NOT installed."
