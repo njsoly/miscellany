@@ -1,0 +1,38 @@
+/* boxy_dark.css */
+
+* {
+	background-color: #292933;
+	color: rgb(222,224,240);
+	padding: 0.32vh 0.32vw;
+}
+
+h1, h2, h3, h4, h5, h6, body > div {
+	border: 0.1em solid cyan;
+	margin: 0.5vh 1vw;
+	color: rgb(255,192,192);
+}
+h1, h2, h3, h4, h5, h6 {
+	background-color: darkMagenta;
+	padding: .33em;
+	text-align: center;
+	color: #ddd;
+	text-shadow: 0.11em 0.11em black;
+}
+
+a {
+	color: slate;
+	margin: .5em .5em;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	background-color: rgb(77,77,100);
+}
+
+button {
+	font-size: 1.50em;
+}
+fieldset {
+	background-color: rgba(0,48,20,0.4);
+}

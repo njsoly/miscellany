@@ -1,6 +1,3 @@
-# Prerequisites
-*.d
-
 # Compiled Object files
 *.slo
 *.lo
@@ -42,4 +39,10 @@ uvision/*/*~*TMP
 *.--help 
 *.help.out
 
+
+.error_log
+.time_ab.log
+.time_elapsed.log
+
+node_modules/
 

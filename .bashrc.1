@@ -1,22 +1,5 @@
 #!/bin/bash
 
-## set the shell ##
-export PS1="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
-
-##  exports  ##
-export global_ignores="~/.gitignore_global"
-export tech=$TECH
-export cta=$CTA
-export sdcard=/cygdrive/b
-
-## aliases to built-ins ##
-alias lS='ls -s --block-size=KiB -A --color'
-alias lskb='lS'
-alias ls='ls -A -F --color'
-alias dirs='dirs -p'
-alias dirsn='dirs -v'
-
-## git aliases ##
 alias gs='git status'
 alias gau='git add -u'
 alias bra='git branch -a -v'
@@ -24,18 +7,21 @@ alias brch='git branch'
 alias remtv='git remote -v'
 alias gsuno='git status -uno'
 alias gsnu='git status -uno'
-
-##  application shorthands  ##
-alias npp='notepad++'
-alias notepadpp='notepad++'
-alias sonar-scanner='sonar-scanner.bat'
-
-## load up the directory stack ##
-[ -d "$CTA" ] && pushd $CTA
-[ -d "$TECH" ] && pushd $TECH
-[ -d "$sdcard" ] && pushd $sdcard
-
+alias dirs='dirs -p'
+alias dirsn='dirs -v'
+alias lS='ls -s --block-size=KiB -A --color'
+alias lskb='lS'
+alias ls='ls -A -F --color'
+#
+pushd $CTA
+pushd $TECH
 clear
+
+##  exports  ##
+export PS1="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
+export global_ignores="~/.gitignore_global"
+export tech=$TECH
+export cta=$CTA
 
 ##  functions  ##
 comet () 
@@ -46,6 +32,10 @@ comet ()
 	git push && clear && echo
 }
 
+##  application shorthands  ##
+alias npp='notepad++'
+alias notepadpp='notepad++'
+alias sonar-scanner='sonar-scanner.bat'
 
 _calc_elapsed () {
     _elapsed=$(bc -l <<< "scale=3; $_finish_milliseconds-$_start_milliseconds");
@@ -95,5 +85,6 @@ _timestamp ()
 	_ts_time=${_ts_time:0: -6}
 	_ts_date="$(date +F)";
 	_ts="$_ts_time $_ts_date"
-	echo "$_ts"
+	echo "$_ts_time $_ts_date"
 }
+
