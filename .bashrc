@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ## set the shell ##
-export PS1="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
+#export PS1="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
+export PS1='\e[32;40m[\t]\e[m \e[0;36m\w\e[m \e[0;35m$\e[m '
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
