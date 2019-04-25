@@ -75,6 +75,7 @@ $_finish_date ($_finish_milliseconds)";
     echo $_msg >> ~/.time_elapsed.log;
 }
 
+# TODO: make it so this only runs on Windows.
 alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 
 _timestamp () 
