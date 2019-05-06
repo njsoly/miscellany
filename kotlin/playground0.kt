@@ -4,15 +4,24 @@
 
 val l: List<Int> = (1..9).toList()
 
+// some filter fun
+val odds = l.filter{x -> x % 2 != 0}
+val evens = l.filter{it % 2 == 0}
+
+fun dealWithX(x: Any){
+    // example of WHEN-IS block
+    when (x) {
+    is Int -> print(x + 1)
+    is String -> print(x.length + 1)
+    is IntArray -> print(x.sum())
+	}
+}
+
 fun main() {
     println("Hello, world!!! " + l)
     for(i in l){
         println("i: $i; l: ${l.toList().toString()}")
     }
     
-    val odds = l.filter{x -> x % 2 != 0}
-    val evens = l.filter{it % 2 == 0}
     println("odds: $odds, evens: $evens")
 }
-
-
