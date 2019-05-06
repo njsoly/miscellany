@@ -14,7 +14,7 @@ val d = b?.length ?: -1
 // safe cast
 val aInt: Int? = c as? Int
 
-fun dealWithAnyX(x: Any){
+fun dealWithAnyX(x: Any?){
     // example of WHEN-IS block
     when (x) {
     is Int -> print(x + 1)
@@ -40,6 +40,7 @@ fun main() {
     println("Hello, world!!! " + l)
     
     funWithFilters()
-    dealWithAnyX()
+    dealWithAnyX(null)
 
-}
+    
+} // end main
