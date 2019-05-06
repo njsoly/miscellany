@@ -13,6 +13,8 @@ val evens = l.filter{it % 2 == 0}
 var b: String = "snth"
 // the long way to do a "use if not null", without elvis operator
 val c: Int = if (b != null) b.length else -1
+// shorter way to do it, WITH elvis operator.
+val d = b?.length ?: -1
 
 
 fun dealWithX(x: Any){
