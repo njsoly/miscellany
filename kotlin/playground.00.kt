@@ -11,7 +11,10 @@ val c: Int = if (b != null) b.length else -1
 // a shorter way to do it, WITH elvis operator.
 val d = b?.length ?: -1
 
-// safe cast
+/* safe cast
+ * Regular casts may result into a ClassCastException if the object is not of the target type. 
+ * Another option is to use safe casts that return null if the attempt was not successful:
+ */
 val aInt: Int? = c as? Int
 
 fun dealWithAnyX(x: Any?){
@@ -36,6 +39,7 @@ fun funWithFilters (){
     
     println("odds: $odds, evens: $evens")
 }
+
 fun main() {
     println("Hello, world!!! " + l)
     
