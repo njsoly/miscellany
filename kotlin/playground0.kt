@@ -8,6 +8,11 @@ val l: List<Int> = (1..9).toList()
 val odds = l.filter{x -> x % 2 != 0}
 val evens = l.filter{it % 2 == 0}
 
+var b: String = "snth"
+// the long way to do a "use if not null", without elvis operator
+val c: Int = if (b != null) b.length else -1
+
+
 fun dealWithX(x: Any){
     // example of WHEN-IS block
     when (x) {
