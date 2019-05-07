@@ -47,11 +47,11 @@ _calc_elapsed () {
 run_this_timed () { 
     _command="$@";
 
-    _start=$(date +%H:%M:%S.%N);
+    _start="$(date +%H:%M:%S.%N)"
     _start=${_start:0:12};
     _start_seconds=$(date +%s);
     _start_date=$(date +%F);
-    _start_milliseconds=${_start_seconds}${_start:8}
+    _start_milliseconds=${_start_seconds}${_start:0,-3}
     _msg="starting \"${_command}\" at $_start 
 $_start_date ($_start_milliseconds)";
     echo $_msg;
@@ -63,7 +63,7 @@ $_start_date ($_start_milliseconds)";
     _finish=${_finish:0:12};
     _finish_seconds=$(date +%s);
     _finish_date=$(date +%F);
-    _finish_milliseconds=${_finish_seconds}${_finish: -3}
+    _finish_milliseconds=${_finish_seconds}${_finish:0,-3}
     _msg="finished \"${_command}\" at $_finish 
 $_finish_date ($_finish_milliseconds)";
     echo $_msg;
