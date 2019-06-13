@@ -11,7 +11,7 @@ export global_ignores="~/.gitignore_global"
 alias lS='ls -s --block-size=KiB -A --color'
 alias lskb='lS'
 alias ls='ls -A -F --color'
-alias dirs='dirs -p'
+alias dirs='dirs -v'
 alias dirsn='dirs -v'
 
 ## git aliases ##
