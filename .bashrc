@@ -28,6 +28,7 @@ alias gstat='git diff --stat'
 ##  application shorthands  ##
 alias npp='notepad++'
 alias notepadpp='notepad++'
+#
 alias sonar-scanner='sonar-scanner.bat'
 
 ## load up the directory stack ##
@@ -35,13 +36,9 @@ alias sonar-scanner='sonar-scanner.bat'
 clear
 
 ##  functions  ##
+[[ -x ./run_this_timed.bash ]] && . ./run_this_timed.bash
 
-_calc_elapsed () {
-    _elapsed=$(bc -l <<< "scale=3; $_finish_milliseconds-$_start_milliseconds");
-    echo $_elapsed
-}
-
-[[ -x ~/run_this_timed.bash ]] && . ~/run_this_timed.bash
+[[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
 alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
