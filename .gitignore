@@ -46,3 +46,4 @@ uvision/*/*~*TMP
 
 node_modules/
 
+*.class
