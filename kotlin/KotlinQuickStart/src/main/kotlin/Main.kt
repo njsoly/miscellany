@@ -2,7 +2,9 @@ fun main(args: Array<String>) {
 	printHello()
 	printHowManyArgs(args)
 	val s = "snth"
-	println("reverse of $s is " + rev(s))
+	println("reverse of $s is ${rev(s)}")
+	var x = '7'
+	
 }
 
 fun rev(s : String) : String {
@@ -18,4 +20,8 @@ fun printHowManyArgs(args: Array<String>){
 
 fun printHello(){
 	println("Hello, world!")
+}
+
+fun getOnlyPositives(ints : MutableSet<Int?>): MutableSet<Int>{
+	return ints.filter{it != null && it > 0}
 }
