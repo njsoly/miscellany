@@ -1,4 +1,3 @@
-#!/bin/bash
 run_this_timed () {
     _command="$@";
 
