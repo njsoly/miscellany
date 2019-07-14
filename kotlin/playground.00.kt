@@ -15,7 +15,7 @@ val d = b?.length ?: -1
  * Regular casts may result into a ClassCastException if the object is not of the target type. 
  * Another option is to use safe casts that return null if the attempt was not successful:
  */
-val aInt: Int? = c as? Int
+var aInt: Int? = c
 
 fun dealWithAnyX(x: Any?){
     // example of WHEN-IS block
