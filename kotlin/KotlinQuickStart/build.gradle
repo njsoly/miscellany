@@ -1,11 +1,9 @@
 buildscript {
 	repositories {
 		mavenCentral()
-		jcenter()
 	}
 	dependencies {
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-		testCompile "org.mockito:mockito-core:2.+"
 	}
 }
 
