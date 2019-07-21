@@ -3,7 +3,7 @@ package njsoly
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.MockitoAnnotations
+import org.mockito.Mock
 
 import org.mockito.runners.MockitoJUnitRunner
 import kotlin.test.assertEquals
@@ -14,7 +14,7 @@ import kotlin.test.assertEquals
 @RunWith(MockitoJUnitRunner::class)
 class HelloTest {
 
-    @MockitoAnnotations.Mock
+    @Mock
     lateinit var a: MutableList<Int>
 
     @Before
@@ -26,6 +26,7 @@ class HelloTest {
 
     @Test
     fun `what do you want` () {
+        println("whaaaaaat ${a[0]}")
         assertEquals(a[0], (-1))
     }
 }
