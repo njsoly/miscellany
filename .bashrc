@@ -6,6 +6,7 @@
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
+[[ -e ./kotlin ]] && export kotlin=$PWD/kotlin
 
 ## aliases to built-ins ##
 alias lS='ls -s --block-size=KiB -A --color'
