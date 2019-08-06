@@ -1,5 +1,7 @@
 package njsoly
 
+import java.time.LocalDate
+
 
 fun main(args: Array<String>) {
     println("Hello, World")
@@ -8,5 +10,9 @@ fun main(args: Array<String>) {
     val (number, letter) = sevenZ
 
     println("Destructured number: $number, destructured letter: $letter")
+}
+
+class Hello {
+    val now = LocalDate.now()
 }
 
