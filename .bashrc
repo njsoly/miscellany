@@ -40,6 +40,7 @@ clear
 [[ -x ./run_this_timed.bash ]] && source ./run_this_timed.bash
 [[ -e ./run_this_timed.bash ]] && [[ ! -x ./run_this_timed.bash ]] && 
 echo "run_this_timed.bash is not executable."
+alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
