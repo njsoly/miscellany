@@ -2,11 +2,31 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="BashMissingInclude" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="CanBeVal" enabled="true" level="Info" enabled_by_default="true" />
     <inspection_tool class="ClassName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ConstPropertyName" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="ConvertSecondaryConstructorToPrimary" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ConvertTryFinallyToUseCall" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="Destructure" enabled="true" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="EnumEntryName" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="FunctionName" enabled="false" level="INFORMATION" enabled_by_default="false" />
     <inspection_tool class="FunctionWithLambdaExpressionBody" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ImplicitThis" enabled="false" level="INFORMATION" enabled_by_default="false" />
     <inspection_tool class="KDocMissingDocumentation" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="LocalVariableName" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="MemberVisibilityCanBePrivate" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="ObjectPropertyName" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="PackageName" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="RedundantElseInIf" enabled="false" level="INFORMATION" enabled_by_default="false" />
     <inspection_tool class="RedundantExplicitType" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="RemoveExplicitTypeArguments" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ReplaceGetOrSet" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="ReplaceNegatedIsEmptyWithIsNotEmpty" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ReplaceSizeCheckWithIsNotEmpty" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="ReplaceSizeZeroCheckWithIsEmpty" enabled="false" level="Info" enabled_by_default="false" />
+    <inspection_tool class="SimplifiableCall" enabled="true" level="Info" enabled_by_default="true" />
+    <inspection_tool class="SimplifiableCallChain" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="TestFunctionName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="UnusedMainParameter" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>
