@@ -66,3 +66,5 @@ lsdirs ()
 { 
     ls -A -F --color -f "$@" | grep -e '^.*\/$'
 }
+
+alias allinpwd='printf "$PWD/%s\n" $(ls  --file-type $PWD -1)' 
