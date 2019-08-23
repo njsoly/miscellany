@@ -1,6 +1,6 @@
 _list_repo_branches () 
 { 
-    cd ~/genesis-projects;
+    pushd ~/genesis-projects > /dev/null;
     [ -f ~/.branches ] && rm ~/.branches;
     for f in ./*;
     do
@@ -12,5 +12,6 @@ _list_repo_branches ()
             } > /dev/null
         };
     done;
+    popd > /dev/null
     cat ~/.branches
 }
