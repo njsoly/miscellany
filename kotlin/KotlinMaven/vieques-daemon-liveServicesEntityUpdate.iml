@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="AutoImportedSourceRoots">
+    <option name="directories">
+      <list>
+        <option value="$USER_HOME$/genesis-projects/vieques-daemons/liveServicesEntityUpdate/src/main/java" />
+        <option value="$USER_HOME$/genesis-projects/vieques-daemons/liveServicesEntityUpdate/src/main/kotlin" />
+        <option value="$USER_HOME$/genesis-projects/vieques-daemons/liveServicesEntityUpdate/src/test/java" />
+        <option value="$USER_HOME$/genesis-projects/vieques-daemons/liveServicesEntityUpdate/src/test/kotlin" />
+      </list>
+    </option>
+  </component>
+  <component name="sonarModuleSettings">
+    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
+    <option name="serverName" value="&lt;PROJECT&gt;" />
+  </component>
+</module>
