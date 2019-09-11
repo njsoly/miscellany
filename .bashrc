@@ -45,13 +45,12 @@ alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
-alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+[[ "$OS" = "Windows" ]] && alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 
 _timestamp () 
 { 
 	_ts_time="$(date +%H:%M:%S.%N)";
-	_ts_seconds=$(date +%s)
-	_ts_time=${_ts_time:0:12}
+	_ts_seconds=$(date +%s); _ts_time=${_ts_time:0:12}
 	_ts_date="$(date +%F)"
 	_ts="$_ts_time $_ts_date"
 	echo "$_ts"
@@ -66,3 +65,11 @@ lsdirs ()
 { 
     ls -A -F --color -f "$@" | grep -e '^.*\/$'
 }
+
+if [[ -d ~/miscellany/bash.fxns.d ]]; then
+	for f in ~/miscellany/bash.fxns.d/*; 
+	do {
+		[[ -x $(realpath $f) ]] && . $(realpath $f) || :
+	}
+	done
+fi
