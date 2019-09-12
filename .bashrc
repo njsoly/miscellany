@@ -27,10 +27,11 @@ alias gco='git checkout'
 alias gstat='git diff --stat'
 
 ##  application shorthands  ##
-alias npp='notepad++'
-alias notepadpp='notepad++'
-#
-alias sonar-scanner='sonar-scanner.bat'
+if [[ "$OS" = "Windows_NT" ]]; then
+	alias sonar-scanner='sonar-scanner.bat'
+	alias npp='notepad++'
+	alias notepadpp='notepad++'
+fi
 
 ## load up the directory stack ##
 
@@ -42,11 +43,11 @@ clear
 echo "run_this_timed.bash is not executable."
 alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 
+echo "sourcing bash.fxns.d: $(ls $PWD/bash.fxns.d)"
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
-[[ "$OS" = "Windows_NT" ]] && alias 
-cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+[[ "$OS" = "Windows_NT" ]] && alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 
 _timestamp () 
 { 
@@ -67,10 +68,10 @@ lsdirs ()
     ls -A -F --color -f "$@" | grep -e '^.*\/$'
 }
 
-if [[ -d ~/miscellany/bash.fxns.d ]]; then
-	for f in ~/miscellany/bash.fxns.d/*; 
+if [[ -d $miscellany/bash.fxns.d ]]; then
+	for f in $miscellany/bash.fxns.d/*; 
 	do {
-		[[ -x $(realpath $f) ]] && . $(realpath $f) || :
+		[[ -x $(realpath $f) ]] && echo "sourcing $f" && . $(realpath $f) || :
 	}
 	done
 fi

@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# note: this doesn't work with the standard MacOS bash.
+# you need bash-extras or something.
+
 run_this_timed () {
     _command="$@";
 
@@ -28,4 +33,5 @@ $_finish_date [exit code: ${_exit_status}]";
     _msg="command \"${_command}\" [in $PWD] ran from $_start $_start_date to $_finish ($_elapsed ms) [exit code: ${_exit_status}]"
     echo $_msg;
     echo $_msg >> ~/.time_elapsed.log;
+    return $_exit_status
 }
