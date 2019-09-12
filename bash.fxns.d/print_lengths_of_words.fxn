@@ -1,0 +1,7 @@
+print_lengths_of_words () 
+{ 
+    cat ./twl06.txt | while read w; do
+        printf "%d: %s has %d letters\n" "$i" "$w" "$[ $(wc -c <<< $w) - 1 ]";
+        i=$[i+1];
+    done
+}
