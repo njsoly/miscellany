@@ -45,7 +45,8 @@ alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
-[[ "$OS" = "Windows" ]] && alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+[[ "$OS" = "Windows_NT" ]] && alias 
+cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 
 _timestamp () 
 { 
