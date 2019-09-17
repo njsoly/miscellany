@@ -68,6 +68,10 @@ lsdirs ()
     ls -A -F --color -f "$@" | grep -e '^.*\/$'
 }
 
+if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
+	export miscellany=~/miscellany
+fi
+
 if [[ -d $miscellany/bash.fxns.d ]]; then
 	for f in $miscellany/bash.fxns.d/*; 
 	do {
