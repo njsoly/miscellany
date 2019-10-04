@@ -1,4 +1,5 @@
-lsfxns () 
+#!/usr/bin/env bash
+lsfxns ()
 { 
     declare -f | grep -e '^.* ()'
 }

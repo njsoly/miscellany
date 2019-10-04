@@ -1,4 +1,5 @@
-_list_repo_branches () 
+#!/usr/bin/env bash
+_list_repo_branches ()
 { 
     local branches_file=~/.branches
     local projects_directory=~/genesis-projects

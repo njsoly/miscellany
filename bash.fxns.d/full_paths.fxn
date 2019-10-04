@@ -1,4 +1,6 @@
-full_paths () 
+#!/bin/bash
+
+full_paths ()
 { 
     [[ -n "$@" ]] && { 
         path=$(printf "%s\n" "$@")
@@ -6,5 +8,5 @@ full_paths ()
         path="$PWD"
     };
     echo "the path to get absolute is \"$path\".";
-    realpath $(printf "%s\n" $@)
+   realpath $(printf "%s\n" $@)
 }
