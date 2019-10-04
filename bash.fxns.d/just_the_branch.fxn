@@ -1,0 +1,6 @@
+just_the_branch () 
+{ 
+    [ -n "$1" ] && pushd "$1" > /dev/null;
+    git branch | grep '^\*' | tr -d '*' | tr -d ' ';
+    [ -n "$1" ] && popd > /dev/null
+}
