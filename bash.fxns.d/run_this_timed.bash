@@ -11,7 +11,7 @@ millis_to_readable () {
 	ms=$[$x % 1000]
 #	echo "$x millis: ${m}m, ${s}.${ms}s"
 	[[ ! $m == 0 ]] && (
-		echo "${m}m, ${s}.${ms}s"
+		echo "${m}m ${s}.${ms}s"
 	) || (
 		echo "${s}.${ms}s"
 	)
