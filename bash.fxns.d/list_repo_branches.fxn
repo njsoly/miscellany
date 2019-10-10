@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 _list_repo_branches ()
 { 
-    local branches_file=~/.branches
-    local projects_directory=~/genesis-projects
-    
+    local projects_directory=${1-HOME/genesis-projects}
+
     if [[ ! -d $projects_directory ]]; then
         projects_directory=$PWD
+    fi
+
+    local branches_file=$projects_directory/.branches
+    if [[ ! -w $branches_file ]]; then
+        branches_file=$HOME/.branches
     fi
 
     pushd $projects_directory > /dev/null;
@@ -19,5 +23,5 @@ _list_repo_branches ()
         }
     done;
     popd > /dev/null
-    cat $branches_file
+    [[ -f $branches_file ]] && cat $branches_file || echo "no branches in \"${projects_directory}\""
 }
