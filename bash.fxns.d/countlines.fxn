@@ -1,5 +1,10 @@
-countlines () 
-{ 
+#!/usr/bin/env bash
+countlines ()
+{
+	if [[ "$#" = "0" ]]; then
+		echo "countlines needs an argument."
+		return 1
+	fi
     cat $1 | grep --color=auto '.*' -c
 }
 #TODO: make it so the function returns successfully when there is no first argument.

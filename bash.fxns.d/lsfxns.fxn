@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+###############################################################################
+#                                                                             #
+#    A function to list the names of all shell functions declared             #
+#         in the current environment.                                         #
+#                                                                             #
+###############################################################################
 lsfxns ()
 { 
     declare -f | grep -e '^.* ()'
