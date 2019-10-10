@@ -1,9 +1,12 @@
+#!/usr/bin/env bash
 # these are just some bash aliases that I like to have around.
 
 
 # WINDOWS shorthands
-alias npp='notepad++'
-alias notepadpp='notepad++'
+[[ "$OS" = "Windows_NT" ]] && (
+	alias npp='notepad++'
+	alias notepadpp='notepad++'
+)
 
 # MIMICRY OF CMD.EXE THINGS :: COMPATIBLE CROSS-PLATFORM #
 alias path='echo $PATH'
@@ -29,4 +32,7 @@ alias pusha='git push --all'
 ####  A FEW ACCIDENTAL-CAPS MISTAKES TO OVERLOOK  ####
 alias ALIAS='alias'
 alias EXIT='exit'
+
+alias run_this_timed-times="tail -n9 ~/.time_elapsed.log"
+
 

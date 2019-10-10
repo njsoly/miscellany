@@ -38,16 +38,14 @@ fi
 clear
 
 ##  functions  ##
-[[ -x ./run_this_timed.bash ]] && source ./run_this_timed.bash
-[[ -e ./run_this_timed.bash ]] && [[ ! -x ./run_this_timed.bash ]] && 
-echo "run_this_timed.bash is not executable."
-alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 
 echo "sourcing bash.fxns.d: $(ls $PWD/bash.fxns.d)"
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
-[[ "$OS" = "Windows_NT" ]] && alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+[[ "$OS" = "Windows_NT" ]] && (
+	alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+)
 
 _timestamp () 
 { 
