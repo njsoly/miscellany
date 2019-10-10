@@ -2,7 +2,7 @@
 
 # note: this doesn't work with the standard MacOS bash.
 # you need bash-extras or something.
-millis_to_readable () {
+[[ $(type "millis_to_readable" 2> /dev/null) ]] || millis_to_readable () {
 	DEBUG=0
 	x=$1
 	[[ -n "$x" ]] || ( echo "must pass a parameter"; exit 1 )
