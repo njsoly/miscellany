@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# note: this doesn't work with the standard MacOS bash.
+# NOTE: this doesn't work with the standard MacOS bash,
+# because it depends on the nanoseconds switch in the built-in "date" command.
+# To see if this will work, you can call `date +%N` and see if you get nine numbers.
+# If you don't, this function won't work.
+#
 # you need bash-extras or something.
 
 [[ $(type "millis_to_readable" 2> /dev/null) ]] || millis_to_readable () {
@@ -19,6 +23,14 @@
 }
 
 run_this_timed () {
+	if [[ "$(date +%N)" = "N" ]]; then
+		echo "run this timed requires the date builtin's %N switch to return nanoseconds."
+		if [[ "$OSTYPE" = "darwin18" ]]; then
+			echo "the standard macOS version of BASH doesn't implement %N"
+		fi
+		return -1
+	fi
+
 	local start_stop_logfile="$HOME/.time_ab.log"
 	local time_elapsed_logfile="$HOME/.time_elapsed.log"
 	local debug_logfile="$HOME/.run_this_timed_debug"
