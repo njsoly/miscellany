@@ -77,3 +77,6 @@ if [[ -d $miscellany/bash.fxns.d ]]; then
 	}
 	done
 fi
+
+PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")] 
+\[\e[33m\]\W/\[\e[0m\] $ '
