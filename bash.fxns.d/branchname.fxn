@@ -1,0 +1,6 @@
+branchname () 
+{ 
+    br=$(git branch | grep "\\*");
+    br="${br:2}";
+    echo $br
+}
