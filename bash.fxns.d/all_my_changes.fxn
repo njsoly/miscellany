@@ -1,0 +1,4 @@
+all_my_changes () 
+{ 
+    git diff --stat-width=222 master | sed 's/.*\//\*\./' | sed 's/\.kt.*/\|\|/' | tr -d ' ' | head -n-1
+}
