@@ -10,20 +10,9 @@ fun main(args: Array<String>) {
     val (number, letter) = sevenZ
 
     println("Destructured number: $number, destructured letter: $letter")
-
-    Hello()
 }
 
-/**
- *
- */
 class Hello {
-    val now: LocalDate = LocalDate.now()
-
-    constructor(){
-        println("aoesunth")
-        println("$now")
-    }
-
+    val now = LocalDate.now()
 }
 

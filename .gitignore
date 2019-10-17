@@ -50,3 +50,8 @@ node_modules/
 .idea/workspace.xml
 kotlin/.idea/workspace.xml
 .idea/sonarlint/issuestore/
+kotlin/KotlinMaven/jaxrs-doclet *
+kotlin/KotlinMaven/vieques\-*.iml
+kotlin/njsoly - Darc*
+kotlin/KotlinMaven/**.iml
+*~*

@@ -1,4 +1,0 @@
-lsfxns () 
-{ 
-    declare -f | grep -e '^.* ()'
-}

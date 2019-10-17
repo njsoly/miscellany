@@ -27,31 +27,30 @@ alias gco='git checkout'
 alias gstat='git diff --stat'
 
 ##  application shorthands  ##
-alias npp='notepad++'
-alias notepadpp='notepad++'
-#
-alias sonar-scanner='sonar-scanner.bat'
+if [[ "$OS" = "Windows_NT" ]]; then
+	alias sonar-scanner='sonar-scanner.bat'
+	alias npp='notepad++'
+	alias notepadpp='notepad++'
+fi
 
 ## load up the directory stack ##
 
 clear
 
 ##  functions  ##
-[[ -x ./run_this_timed.bash ]] && source ./run_this_timed.bash
-[[ -e ./run_this_timed.bash ]] && [[ ! -x ./run_this_timed.bash ]] && 
-echo "run_this_timed.bash is not executable."
-alias run_this_timed-times="tail -n44 ~/.time_elapsed.log"
 
+echo "sourcing bash.fxns.d: $(ls $PWD/bash.fxns.d)"
 [[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
 
 # TODO: make it so this only runs on Windows.
-alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+[[ "$OS" = "Windows_NT" ]] && (
+	alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
+)
 
 _timestamp () 
 { 
 	_ts_time="$(date +%H:%M:%S.%N)";
-	_ts_seconds=$(date +%s)
-	_ts_time=${_ts_time:0:12}
+	_ts_seconds=$(date +%s); _ts_time=${_ts_time:0:12}
 	_ts_date="$(date +%F)"
 	_ts="$_ts_time $_ts_date"
 	echo "$_ts"
@@ -67,4 +66,14 @@ lsdirs ()
     ls -A -F --color -f "$@" | grep -e '^.*\/$'
 }
 
-alias allinpwd='printf "$PWD/%s\n" $(ls  --file-type $PWD -1)' 
+if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
+	export miscellany=~/miscellany
+fi
+
+if [[ -d $miscellany/bash.fxns.d ]]; then
+	for f in $miscellany/bash.fxns.d/*; 
+	do {
+		[[ -x $(realpath $f) ]] && echo "sourcing $f" && . $(realpath $f) || :
+	}
+	done
+fi
