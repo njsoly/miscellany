@@ -1,6 +1,4 @@
 branchname () 
 { 
-    br=$(git branch | grep "\\*");
-    br="${br:2}";
-    echo $br
+    br=$(git branch 2> /dev/null | grep "\\*" ) && br="${br:2}" && echo $br || echo ""
 }
