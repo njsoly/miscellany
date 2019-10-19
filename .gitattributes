@@ -1,0 +1,4 @@
+kotlin/**.kotlin_module diff=kotlin_module
+*.kt text
+*.kotlin_module text
+
