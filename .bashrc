@@ -61,11 +61,6 @@ if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
    source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
-lsdirs () 
-{ 
-    ls -A -F --color -f "$@" | grep -e '^.*\/$'
-}
-
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	export miscellany=~/miscellany
 fi

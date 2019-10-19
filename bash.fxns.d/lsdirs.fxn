@@ -1,0 +1,7 @@
+# list directories.
+lsdirs ()
+{
+    ls -A -F --color -f "$@" | grep -e '^.*\/$'
+}
+
+
