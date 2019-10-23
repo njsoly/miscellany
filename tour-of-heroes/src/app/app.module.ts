@@ -23,4 +23,3 @@ import { MessagesComponent } from './messages/messages.component';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
-
