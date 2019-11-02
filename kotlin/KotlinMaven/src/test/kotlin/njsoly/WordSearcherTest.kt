@@ -1,5 +1,6 @@
 package njsoly
 
+import njsoly.wordsearcher.WordSearcher
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -57,20 +58,48 @@ class WordSearcherTest : WordSearcher() {
         val escd = escape(s)
         println("\"$s\"escaped: $escd")
         assertEquals(true, "ALZ".matches(Regex(s)))
+        println("..A..".trim('.')+".*?")
+        val pattern = "..A.."
+        println("adjusted regex: \".*${pattern.trim('.')}.*\"")
+        assertEquals(true, "BLACK".matches(Regex(".*"+"..A..".trim('.')+".*?")))
+    }
+
+    @Test
+    fun `filterToPattern works` () {
+        val pattern = "..A.."
+
+        assertEquals(listOf("BLACK"), listOf("BLACK").filterToPattern(pattern))
     }
 
     @Test
     fun `filterToLength() with exact length does it right` () {
-        TODO()
+        assertEquals(listOf("WHAT"), listOf("WHAT").filterToLength(4))
     }
 
     @Test
     fun `filterToLength() with min and max`() {
-        TODO()
+        assertEquals(listOf("WHAT"), listOf("WHAT").filterToLength(4,4))
     }
 
     @Test
     fun `getFilename() returns non-null` () {
         assertNotNull(wordSearcher.filename)
+    }
+
+    @Test
+    fun `matchLettersToWord with letters BLACK and word BLACK and pattern BL-CK returns true` () {
+        val letters = "BLAKC"
+        val word = "BLACK"
+        val pattern = "BL.CK"
+        val result = wordSearcher.matchLettersToWord(letters, word, pattern, 0)
+        assertEquals(true, result)
+    }
+    @Test
+    fun `matchLettersToWord with letters BLACK and word BLACK and pattern --A-- returns true` () {
+        val letters = "BLAKC"
+        val word = "BLACK"
+        val pattern = "..A.."
+        val result = wordSearcher.matchLettersToWord(letters, word, pattern, 0)
+        assertEquals(true, result)
     }
 }
