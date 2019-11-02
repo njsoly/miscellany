@@ -1,5 +1,3 @@
-package com.virginpulse.vieques.resources.genesisRewards
-
 class MessAroundWithResponses (val n: Int = 11) {
 
     fun `say hello` () {
