@@ -47,18 +47,9 @@ echo "sourcing bash.fxns.d: $(ls $PWD/bash.fxns.d)"
 	alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 )
 
-_timestamp () 
-{ 
-	_ts_time="$(date +%H:%M:%S.%N)";
-	_ts_seconds=$(date +%s); _ts_time=${_ts_time:0:12}
-	_ts_date="$(date +%F)"
-	_ts="$_ts_time $_ts_date"
-	echo "$_ts"
-}
-
 if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
-   __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
-   source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
+	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
 lsdirs () 
@@ -67,8 +58,12 @@ lsdirs ()
 }
 
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
-	export miscellany=~/miscellany
+	miscellany=~/miscellany
+else if [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
+	miscellany=/cygdrive/d/miscellany
 fi
+
+export miscellany
 
 if [[ -d $miscellany/bash.fxns.d ]]; then
 	for f in $miscellany/bash.fxns.d/*; 
