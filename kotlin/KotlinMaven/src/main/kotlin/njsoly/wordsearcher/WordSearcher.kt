@@ -60,6 +60,7 @@ open class WordSearcher (val filename: String = file.name){
 
     fun processInput(inputString: String): List<String>? {
 //        println("your input string: \"$inputString\"")
+        val inputString = inputString.toUpperCase()
         val INPUT_LIMIT = 10
         val inputSplit: List<String> = inputString.split(' ', limit = INPUT_LIMIT)
 
