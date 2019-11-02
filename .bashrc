@@ -78,5 +78,6 @@ if [[ -d $miscellany/bash.fxns.d ]]; then
 	done
 fi
 
-PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")] 
-\[\e[33m\]\W/\[\e[0m\] $ '
+# note: might want to export TERM=vt100 and/or something else
+# in order to get this junk to work correctly on windows 10.
+export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
