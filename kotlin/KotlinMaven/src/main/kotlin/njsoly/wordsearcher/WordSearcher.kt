@@ -78,11 +78,19 @@ open class WordSearcher (val filename: String = file.name){
 
         val letters = inputSplit[0]
         val searchStrings = inputSplit.minus(letters)
+        return `process letters against search strings` (letters, searchStrings)
 
         println("search strings: $searchStrings")
         println("your letters: $letters")
 
         return null
+    }
+
+    private fun `process letters against search strings`(letters: String, searchStrings: List<String>): List<String>? {
+        val wilds = letters.count{ it == '.' || it == '?'}
+        debug("there are $wilds wild tiles")
+        val letters = letters.filter{ it.isLetter() }
+
     }
 
     private fun `process search without letters` (s: String): List<String>? {
