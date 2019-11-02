@@ -1,6 +1,5 @@
-package njsoly
+package njsoly.wordsearcher
 
-import njsoly.wordsearcher.WordSearcher
 import org.junit.Test
 
 import org.junit.Assert.*
