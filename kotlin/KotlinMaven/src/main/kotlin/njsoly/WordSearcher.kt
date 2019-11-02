@@ -70,10 +70,8 @@ open class WordSearcher (val filename: String = file.name){
 
         if (inputSplit.size == 1) {
             return if (inputString.isSimple()) {
-                debug("string is simple, searching for $inputString")
                 `process simple search` (inputString)
             } else {
-                info("trying to search for $inputString")
                 `process search without letters`(inputSplit[0])
             }
         }
@@ -88,10 +86,12 @@ open class WordSearcher (val filename: String = file.name){
     }
 
     private fun `process search without letters` (s: String): List<String>? {
+        info("trying to search for $inputString")
         return words.filter { it.matches(Regex(s))}
     }
 
     private fun `process simple search` (inputString: String): List<String>? {
+        debug("string is simple, searching for exact match for \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
     }
 
