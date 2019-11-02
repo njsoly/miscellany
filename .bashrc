@@ -80,4 +80,8 @@ fi
 
 # note: might want to export TERM=vt100 and/or something else
 # in order to get this junk to work correctly on windows 10.
+if [[ "$HOSTNAME" = "njsoly-hp" ]]; then
+	printf "hostname is %s; setting TERM to cygwin." "$HOSTNAME"
+	export TERM=cygwin
+fi
 export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
