@@ -88,7 +88,7 @@ open class WordSearcher (val filename: String = file.name){
     }
 
     private fun `process search without letters` (s: String): List<String>? {
-        return words.filterToLength(s.length).filter { it.matches(Regex(s))}
+        return words.filter { it.matches(Regex(s))}
     }
 
     private fun `process simple search` (inputString: String): List<String>? {

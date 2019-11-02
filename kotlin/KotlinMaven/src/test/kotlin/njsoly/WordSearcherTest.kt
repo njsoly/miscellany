@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
+import kotlin.text.Regex.Companion.escape
 
 @RunWith(MockitoJUnitRunner::class)
 
@@ -48,6 +49,14 @@ class WordSearcherTest : WordSearcher() {
     @Test
     fun `isSimple() given word with numbers returns false`() {
        assertEquals(false, "A03U3SNTH".isSimple())
+    }
+
+    @Test
+    fun `how to use regex` () {
+        val s = "[AZ]LZ"
+        val escd = escape(s)
+        println("\"$s\"escaped: $escd")
+        assertEquals(true, "ALZ".matches(Regex(s)))
     }
 
     @Test
