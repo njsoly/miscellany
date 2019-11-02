@@ -42,8 +42,8 @@ open class WordSearcher (val filename: String = file.name){
         while (!quit) {
             println("enter your search: <your letters> <your search...>")
             val inputString: String = (readLine() ?: "").trim()
-
-            if (inputString in setOf("q", "quit")){
+            
+            if (isQuitMessage(inputString)){
                 println("you chose to quit.")
                 quit = true
                 continue
@@ -58,6 +58,9 @@ open class WordSearcher (val filename: String = file.name){
         }
     }
 
+    internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
+
+
     fun processInput(inputString: String): List<String>? {
 //        println("your input string: \"$inputString\"")
         val inputString = inputString.toUpperCase()
@@ -71,9 +74,9 @@ open class WordSearcher (val filename: String = file.name){
 
         if (inputSplit.size == 1) {
             return if (inputString.isSimple()) {
-                `process simple search` (inputString)
+                `processInput exact match` (inputString)
             } else {
-                `process search without letters`(inputSplit[0])
+                `processSearch single regex`(inputSplit[0])
             }
         }
 
@@ -144,13 +147,13 @@ open class WordSearcher (val filename: String = file.name){
         return true
     }
 
-    fun `process search without letters` (s: String): List<String>? {
-        info("trying to search for $s")
+    fun `processSearch single regex` (s: String): List<String>? {
+        info("Matching words to regular expression \"$s\"")
         return words.filter { it.matches(Regex(s))}
     }
 
-    fun `process simple search` (inputString: String): List<String>? {
-        info("string is simple, searching for exact match for \"$inputString\"")
+    fun `processInput exact match` (inputString: String): List<String>? {
+        info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
     }
 

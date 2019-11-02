@@ -101,4 +101,13 @@ class WordSearcherTest : WordSearcher() {
         val result = wordSearcher.matchLettersToWord(letters, word, pattern, 0)
         assertEquals(true, result)
     }
+
+    /**
+     * @see WordSearcher.isQuitMessage
+     * @param input to check if user requested to quit
+     * @param expected whether or not that should be seen as a quit message
+     */
+    fun `isQuitMessage() given (an input) returns (a boolean)` (input: String, expected: Boolean) {
+        assertEquals("", true, wordSearcher.isQuitMessage("quit"))
+    }
 }
