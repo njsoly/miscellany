@@ -77,7 +77,7 @@ fi
 
 
 if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]]; then
-	printf "hostname is %s; setting TERM to cygwin." "$HOSTNAME"
+	printf "hostname is %s; setting TERM to cygwin\n." "$HOSTNAME"
 	export TERM=cygwin
 fi
 
