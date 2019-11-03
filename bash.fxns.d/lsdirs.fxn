@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+lsdirs ()
+{
+    ls -A -F --color -f "$@" | grep -e '^.*\\$'
+}
