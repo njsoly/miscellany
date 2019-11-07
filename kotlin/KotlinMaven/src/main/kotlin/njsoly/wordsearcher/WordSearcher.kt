@@ -100,11 +100,14 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
-        results = results.sortedByDescending{ it.length }.toMutableList()
+        results = sortResultsByLength(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
     }
 
+    fun sortResultsByLength(wordList: List<String>) : List<String> {
+        return wordList.sortedByDescending{ it.length }
+    }
 
     fun matchLettersToPattern(letters: String, pattern: String, wordList: List<String> = this.words, wilds: Int = 0): List<String> {
 
