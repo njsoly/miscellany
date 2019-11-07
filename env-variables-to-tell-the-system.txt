@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+System-Identifying Environment Variables that I don't want to keep Forgetting
+-------------------------------------------------------------------------------
+OS
+    Windows_NT
+
+HOSTNAME
+    <unset> (windows CMD)
+    njsoly-hp (njsoly-hp (cygwin))
+    k55n-w7
+    njsoly-raz
+
+HOST
+    <unset> (CMD.exe)
+
+HOSTTYPE
+    x86_64 (njsoly-hp (cygwin))
+    <unset>
+
+OSTYPE
+    darwin18 (mac)
+    cygwin (njsoly-hp (cygwin))
+
+
+MACHTYPE
+    x86_64-unknown-cygwin (njsoly-hp (cygwin))
+    <unset> (CMD.exe)
+
+HOME
+    C:\Users\njsoly (njsoly-hp)
+
+USERNAME
+    njsoly (usually)
+    nate.solyntjes or nsolyntjes? (mac)
+    pi (njsoly-raz)
+
+USERPROFILE
+    C:\Users\njsoly

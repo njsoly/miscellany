@@ -6,7 +6,8 @@
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
-[[ -e ./kotlin ]] && export kotlin=$PWD/kotlin
+
+[[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
 ## aliases to built-ins ##
 alias lS='ls -s --block-size=KiB -A --color'
@@ -25,59 +26,60 @@ alias gsuno='git status -uno'
 alias gsnu='git status -uno'
 alias gco='git checkout'
 alias gstat='git diff --stat'
+alias gd='git diff'
 
-##  application shorthands  ##
+
+##############  application shorthands  #############
+#-------              Windows                -------#
 if [[ "$OS" = "Windows_NT" ]]; then
 	alias sonar-scanner='sonar-scanner.bat'
 	alias npp='notepad++'
 	alias notepadpp='notepad++'
+	alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
 fi
 
-## load up the directory stack ##
+#-------               Linux                 -------#
+
+#-------               MacOS                 -------#
+
+############  end application shorthands  ###########
+
 
 clear
 
-##  functions  ##
 
-echo "sourcing bash.fxns.d: $(ls $PWD/bash.fxns.d)"
-[[ -d $PWD/bash.fxns.d ]] && source $PWD/bash.fxns.d/*
-
-# TODO: make it so this only runs on Windows.
-[[ "$OS" = "Windows_NT" ]] && (
-	alias cygwin_setup='start cmd /c  $(cygpath -w "/cygdrive/c/Users/A1434206/Downloads/setup-x86_64.exe")'
-)
-
-_timestamp () 
-{ 
-	_ts_time="$(date +%H:%M:%S.%N)";
-	_ts_seconds=$(date +%s); _ts_time=${_ts_time:0:12}
-	_ts_date="$(date +%F)"
-	_ts="$_ts_time $_ts_date"
-	echo "$_ts"
-}
-
+## bash git prompt setup ##
 if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
-   __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
-   source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
+	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
-lsdirs () 
-{ 
-    ls -A -F --color -f "$@" | grep -e '^.*\/$'
-}
-
+## set $miscellany ##
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
-	export miscellany=~/miscellany
+	miscellany=~/miscellany
+elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
+	miscellany=/cygdrive/d/miscellany
 fi
 
-if [[ -d $miscellany/bash.fxns.d ]]; then
-	for f in $miscellany/bash.fxns.d/*; 
+export miscellany
+##---------------##
+
+########_  functions  _########
+if [[ -d ${miscellany}/bash.fxns.d ]]; then
+	for f in ${miscellany}/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath $f) ]] && echo "sourcing $f" && . $(realpath $f) || :
+		[[ -x $(realpath ${f}) ]] && echo "sourcing $f" && . $(realpath ${f}) || :
 	}
 	done
+elif [[ -d $PWD/bash.fxns.d ]]; then
+	source $PWD/bash.fxns.d/*
 fi
 
-# note: might want to export TERM=vt100 and/or something else
-# in order to get this junk to work correctly on windows 10.
+
+if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]]; then
+	printf "hostname is %s; setting TERM to cygwin\n." "$HOSTNAME"
+	export TERM=cygwin
+fi
+
 export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
+

@@ -33,6 +33,6 @@ alias pusha='git push --all'
 alias ALIAS='alias'
 alias EXIT='exit'
 
-alias run_this_timed-times="tail -n9 ~/.time_elapsed.log"
+alias run_this_timed-times="tail -n9 ~/.run_this_time-elapsed.log"
 
 
