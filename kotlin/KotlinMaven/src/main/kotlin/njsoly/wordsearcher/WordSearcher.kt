@@ -199,7 +199,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val DEBUG = false
 
         val now: LocalDate = LocalDate.now()
-        val file: File = File("resources/twl.txt")
+        val file: File = File("twl.txt")
 
         fun String.isSimple () : Boolean {
             this.map {
