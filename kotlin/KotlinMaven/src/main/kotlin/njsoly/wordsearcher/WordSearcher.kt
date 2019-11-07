@@ -49,7 +49,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
                 quit = true
                 continue
             } else {
-                val results = processInput(inputString)?.sortedByDescending{ it.length } ?: listOf()
+                val results = processInput(inputString) ?: listOf()
                 if(results.isNotEmpty()) {
                     info("Results:\n${results.map { "\t$it" }}")
                 } else {
@@ -98,10 +98,10 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds = wilds))
         }
 
-        val results = mutableListOf<String>()
+        var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
-//        debug("results: $results")
-
+        results = results.sortedByDescending{ it.length }.toMutableList()
+        if (results.size > 100) { results = results.subList(0, 99) }
         return results
     }
 
@@ -121,7 +121,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     }
 
     fun matchLettersToWord(lettersToUse: String, word: String, pattern: String, numberOfWilds: Int): Boolean {
-        var letters: Set<Char> = lettersToUse.toCharArray().toSet()
+        var letters: List<Char> = lettersToUse.toCharArray().toList()
         var w = word
         var wilds: Int = numberOfWilds
         for ((i: Int, letter: Char) in w.withIndex()) {
@@ -133,7 +133,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
                 wilds--
             } else {
-//                debug("defaulted out at [$i], letter $letter")
+                if(DEBUG) { debug("defaulted out at [$i], letter $letter") }
                 return false
             }
         }
@@ -181,14 +181,12 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val file: File = File(filename)
         val words: List<String>
         init {
-            try {
+            words = try {
                 println("reading ${Companion.file.name} (size ${Companion.file.length()}).")
-                println("reading ${Companion.file.name} (size ${Companion.file.length()}).")
-                words = file.readLines()
-            }
-            catch (e: FileNotFoundException){
+                file.readLines()
+            } catch (e: FileNotFoundException){
                 error("couldn't read $file")
-                words = emptyList()
+                emptyList()
             }
 
         }
@@ -196,7 +194,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     companion object {
-        val DEBUG = false
+        var DEBUG = false
 
         val now: LocalDate = LocalDate.now()
         val file: File = File("twl.txt")

@@ -15,9 +15,7 @@ class WordSearcherTest : WordSearcher() {
     val wordSearcher: WordSearcher = WordSearcher()
 
     @Before
-    fun setup () {
-
-    }
+    fun setup () {  }
 
     @Test
     fun testGetWords() {
@@ -68,6 +66,12 @@ class WordSearcherTest : WordSearcher() {
         val pattern = "..A.."
 
         assertEquals(listOf("BLACK"), listOf("BLACK").filterToPattern(pattern))
+    }
+
+    @Test
+    fun `matchLettersToPattern ---d-- should include 'needed'` () {
+        val result = matchLettersToPattern("NEEDTEI", "...D..", listOf("NEEDED"))
+        assertEquals(true, result.contains("NEEDED"))
     }
 
     @Test
