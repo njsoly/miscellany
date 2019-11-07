@@ -21,7 +21,8 @@ fun main(args: Array<String>) {
 
 }
 
-open class WordSearcher (val filename: String = file.name){
+open class WordSearcher (val filename: String = file.toRelativeString(File("."))){
+
 
     val words: List<String>
 
@@ -82,12 +83,8 @@ open class WordSearcher (val filename: String = file.name){
 
         val letters = inputSplit[0]
         val searchStrings = inputSplit.minus(letters)
+
         return `process letters against search strings` (letters, searchStrings)
-
-        println("search strings: $searchStrings")
-        println("your letters: $letters")
-
-        return null
     }
 
     private fun `process letters against search strings`(letters: String, searchStrings: List<String>): List<String>? {
@@ -98,20 +95,20 @@ open class WordSearcher (val filename: String = file.name){
         debug("letters with wilds removed: \"$letters\"")
 
         val resultsMap = searchStrings.associate {
-            Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds))
+            Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds = wilds))
         }
 
         val results = mutableListOf<String>()
-        searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds)) }
-        debug("results: $results")
-//        resultsMap.map{ list -> list.value.forEach{ results.add(it) }}
+        searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
+//        debug("results: $results")
 
         return results
     }
 
-    fun matchLettersToPattern(letters: String, pattern: String, wilds: Int = 0): List<String> {
 
-        val words = this.words.filterToLength(pattern.trim('.').length, pattern.length).filterToPattern(pattern)
+    fun matchLettersToPattern(letters: String, pattern: String, wordList: List<String> = this.words, wilds: Int = 0): List<String> {
+
+        val words = wordList.filterToLength(pattern.trim('.').length, pattern.length).filterToPattern(pattern)
         val matches = mutableListOf<String>()
 
         for (w in words) {
@@ -127,15 +124,11 @@ open class WordSearcher (val filename: String = file.name){
         var letters: Set<Char> = lettersToUse.toCharArray().toSet()
         var w = word
         var wilds: Int = numberOfWilds
-//        debug("word: $w")
         for ((i: Int, letter: Char) in w.withIndex()) {
-//            debug("\t[$i]: '$letter'")
             if (w[i].isLetter() && w[i] == pattern[i]) {
                 continue
             } else if (letters.contains(letter)) {
-//                debug("[$i]: found $letter in $letters")
                 letters = letters.minusElement(letter)
-//                debug("letters is now $letters")
             } else if (wilds > 0) {
 
                 wilds--
@@ -206,7 +199,7 @@ open class WordSearcher (val filename: String = file.name){
         val DEBUG = false
 
         val now: LocalDate = LocalDate.now()
-        val file: File = File("twl.txt")
+        val file: File = File("resources/twl.txt")
 
         fun String.isSimple () : Boolean {
             this.map {
