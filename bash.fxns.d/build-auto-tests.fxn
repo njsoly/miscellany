@@ -1,0 +1,4 @@
+build-auto-tests () 
+{ 
+    run_this_timed mvn clean install -U -Dspring.profiles.active=docker -Dmaven.javadoc.skip=true -DskipTests=true -DskipReporting=true
+}
