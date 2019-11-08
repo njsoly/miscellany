@@ -1,0 +1,2 @@
+:: npp is notepad++. ::
+notepad++ $*

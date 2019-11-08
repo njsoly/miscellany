@@ -1,1 +1,0 @@
-/cygdrive/d/alert.bat
