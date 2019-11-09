@@ -69,9 +69,25 @@ class WordSearcherTest : WordSearcher() {
     }
 
     @Test
-    fun `matchLettersToPattern ---d-- should include 'needed'` () {
+    fun `matchLettersToPattern ---d-- should include 'NEEDED'` () {
         val result = matchLettersToPattern("NEEDTEI", "...D..", listOf("NEEDED"))
         assertEquals(true, result.contains("NEEDED"))
+    }
+
+    @Test
+    fun `matchLettersToPattern ----j--- should include 'JARL'` () {
+        DEBUG = true
+        val result = matchLettersToPattern("RLFROAD", "....J...", listOf("JARL"))
+        assertEquals(true, result.contains("JARL"))
+        DEBUG = false
+    }
+
+    @Test
+    fun `trimPatternForWord given ----J--- and JARL returns J---` () {
+        DEBUG = true
+        val result = trimPatternForWord("JARL", "....J...")
+        assertEquals("J...", result)
+        DEBUG = false
     }
 
     @Test

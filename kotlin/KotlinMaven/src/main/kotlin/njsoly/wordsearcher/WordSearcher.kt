@@ -1,4 +1,4 @@
-@file:Suppress("UNUSED_VALUE", "FunctionName", "SimplifyBooleanWithConstants")
+@file:Suppress("UNUSED_VALUE", "FunctionName", "SimplifyBooleanWithConstants", "NAME_SHADOWING")
 
 package njsoly.wordsearcher
 
@@ -127,20 +127,50 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         var letters: List<Char> = lettersToUse.toCharArray().toList()
         var w = word
         var wilds: Int = numberOfWilds
-        for ((i: Int, letter: Char) in w.withIndex()) {
-            if (w[i].isLetter() && w[i] == pattern[i]) {
+        var pattern = trimPatternForWord(w, pattern)
+        var i: Int = 0
+        var j: Int = 0
+        for (letter: Char in w) {
+            if(pattern.length <= i) {
+                return false
+            }
+
+
+            if (pattern[i].isLetter() && w[i] == pattern[j]) {
                 continue
             } else if (letters.contains(letter)) {
                 letters = letters.minusElement(letter)
             } else if (wilds > 0) {
-
                 wilds--
+//            } else if (pattern[j] == '.') {
+//                pattern = pattern.substring(j)
+//                j = 0
             } else {
                 if(DEBUG) { debug("defaulted out at [$i], letter $letter") }
                 return false
             }
+            i++; j++
         }
         return true
+    }
+
+    /**
+     * shortens the specified pattern based on the word being
+     * checked against, with the idea that any explicit letters
+     * in the pattern should be put in place where they occur in he word,
+     * since any remaining dots ('.') will require the player's letters
+     * to fulfill.
+     */
+    fun trimPatternForWord(w: String, pattern: String): String {
+        if(w.length >= pattern.length) return pattern
+        val fits = mutableSetOf<String>()
+        for(i in 0..(pattern.length - w.length)){
+            if(DEBUG) { println("[$i]: substring ${pattern.substring(i, i + w.length)}") }
+            if(w.matches(Regex(pattern.substring(i, i + w.length)))) {
+                fits.add(pattern.substring(i, i + w.length))
+            }
+        }
+        return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
     }
 
     fun `processSearch single regex` (s: String): List<String>? {
