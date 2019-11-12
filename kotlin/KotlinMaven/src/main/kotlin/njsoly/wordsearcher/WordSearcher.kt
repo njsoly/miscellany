@@ -157,7 +157,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     /**
      * shortens the specified pattern based on the word being
      * checked against, with the idea that any explicit letters
-     * in the pattern should be put in place where they occur in he word,
+     * in the pattern should be put in place where they occur in the word,
      * since any remaining dots ('.') will require the player's letters
      * to fulfill.
      */
