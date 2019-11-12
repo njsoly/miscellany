@@ -125,6 +125,10 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         return matches
     }
 
+    /**
+     * For one single [word], given a set of [lettersToUse], see if it matches
+     * the given [pattern], if [numberOfWilds] wilds may be used (blanks).
+     */
     fun matchLettersToWord(lettersToUse: String, word: String, pattern: String, numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
         var w = word
@@ -136,7 +140,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             if(pattern.length <= i) {
                 return false
             }
-
 
             if (pattern[i].isLetter() && w[i] == pattern[j]) {
                 i++; j++
@@ -222,11 +225,13 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     class Loader (val filename: String){
+
         val file: File = File(filename)
+
         val words: List<String>
         init {
             words = try {
-                println("reading ${Companion.file.name} (size ${Companion.file.length()}).")
+                info("reading ${Companion.file.name} (size ${Companion.file.length()}).")
                 file.readLines()
             } catch (e: FileNotFoundException){
                 error("couldn't read $file at ${file.absoluteFile}")
@@ -238,10 +243,38 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     companion object {
+
+
         var DEBUG = false
 
         val now: LocalDate = LocalDate.now()
         val file: File = File("twl.txt")
+
+        val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
+
+        fun info(x: Any){
+            if (LOGGER.isInfoEnabled) {
+                println("INFO: $x")
+            } else {
+                println("INFO: $x")
+            }
+        }
+
+        fun debug(x: Any) {
+            if(LOGGER.isDebugEnabled) {
+                println("DEBUG: $x")
+            } else {
+                println("DEBUG: $x")
+            }
+        }
+
+        fun error(x: Any){
+            if(LOGGER.isErrorEnabled) {
+                error("ERROR: $x")
+            } else {
+                error("ERROR: $x")
+            }
+        }
 
         fun String.isSimple () : Boolean {
             this.map {
