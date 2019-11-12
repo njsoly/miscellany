@@ -173,11 +173,19 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
     }
 
-    fun `processSearch single regex` (s: String): List<String>? {
-        info("Matching words to regular expression \"$s\"")
-        return words.filter { it.matches(Regex(s))}
+    /**
+     * Searches the word list for matches for the given [pattern],
+     * without regard to which letters a player may actually have.
+     */
+    fun `processSearch single regex` (pattern: String): List<String>? {
+        info("Matching words to regular expression \"$pattern\"")
+        return words.filter { it.matches(Regex(pattern))}
     }
 
+    /**
+     * Searches the word list for an exact match of [inputString]. (no RegEx)
+     * @param[inputString] a word to check the word list for a match
+     */
     fun `processInput exact match` (inputString: String): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
@@ -189,7 +197,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 //        if (LOGGER.isInfoEnabled) {
 //            println(x.toString())
 //        } else {
-            println(x)
+            println("INFO: $x")
 //        }
     }
 
@@ -205,7 +213,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 //        if(LOGGER.isErrorEnabled) {
 //            error(x.toString())
 //        } else {
-            error("DEBUG: $x")
+            error("ERROR: $x")
 //        }
     }
 
@@ -218,7 +226,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
                 println("reading ${Companion.file.name} (size ${Companion.file.length()}).")
                 file.readLines()
             } catch (e: FileNotFoundException){
-                error("couldn't read $file")
+                error("couldn't read $file at ${file.absoluteFile}")
                 emptyList()
             }
 
@@ -240,14 +248,26 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             return true
         }
 
+        /** Filters a list of [String]s to only those whose lengths
+         * equal [n]. */
         fun List<String>.filterToLength(n: Int) : List<String> {
             return this.filter{ it.length == n }
         }
 
+        /**
+         * Filters a list of [String]s to only those whose lengths
+         * fall in the range from [min] to [max], inclusive.
+         */
         fun List<String>.filterToLength(min: Int, max: Int) : List<String> {
             return this.filter{ it.length >= min && it.length <= max }
         }
 
+        /**
+         * Filters a list of [String]s to the contents which match
+         * the specified [pattern], with endless wildcards on each end.
+         *
+         * So, the list is matched against `.*[pattern].*`  .
+         */
         fun List<String>.filterToPattern(pattern: String) : List<String> {
             return this.filter {
                 if(DEBUG) println("filtering $it to match $pattern")
