@@ -1,5 +1,6 @@
 package njsoly.wordsearcher
 
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -16,10 +17,18 @@ class WordSearcherTest : WordSearcher() {
 
     val wordSearcher: WordSearcher = WordSearcher()
 
-
+    private var DEBUG_was: Boolean? = null
 
     @Before
-    fun setup () {  }
+    fun setup () {
+        DEBUG_was = DEBUG
+        DEBUG = true
+    }
+
+    @After
+    fun after () {
+        DEBUG = DEBUG_was ?: false
+    }
 
     @Test
     fun testGetWords() {
@@ -100,10 +109,8 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `trimPatternForWord given ----J--- and JARL returns J---` () {
-        DEBUG = true
         val result = trimPatternForWord("JARL", "....J...")
         assertEquals("J...", result)
-        DEBUG = false
     }
 
     @Test
