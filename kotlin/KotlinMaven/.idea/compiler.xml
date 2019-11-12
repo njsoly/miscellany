@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="KotlinMaven" />
         <module name="wordSearcher" />
+        <module name="KotlinMaven (2)" />
+        <module name="KotlinMaven (1)" />
       </profile>
     </annotationProcessing>
   </component>
