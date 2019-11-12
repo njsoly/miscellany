@@ -185,7 +185,8 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      */
     fun `processSearch single regex` (pattern: String): List<String>? {
         info("Matching words to regular expression \"$pattern\"")
-        return words.filter { it.matches(Regex(pattern))}
+        val p = pattern.replace("*",".*")
+        return words.filter { it.matches(Regex(p))}
     }
 
     /**
@@ -284,7 +285,8 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         fun List<String>.filterToPattern(pattern: String) : List<String> {
             return this.filter {
                 if(DEBUG) println("filtering $it to match $pattern")
-                it.matches(Regex(".*" + pattern.trim('.') + ".*"))
+//                it.matches(Regex(".*" + pattern.trim('.') + ".*"))
+                it.matches(Regex(pattern.replace(".",".?")))
             }
         }
     }

@@ -1,18 +1,22 @@
 package njsoly.wordsearcher
 
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
+import java.util.*
 import kotlin.text.Regex.Companion.escape
+
 
 @RunWith(MockitoJUnitRunner::class)
 
 class WordSearcherTest : WordSearcher() {
 
     val wordSearcher: WordSearcher = WordSearcher()
+
+
 
     @Before
     fun setup () {  }
@@ -78,6 +82,12 @@ class WordSearcherTest : WordSearcher() {
     fun `matchLettersToPattern ---d-- should include 'NEEDED'` () {
         val result = matchLettersToPattern("NEEDTEI", "...D..", listOf("NEEDED"))
         assertEquals(true, result.contains("NEEDED"))
+    }
+
+    @Test
+    fun `matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'` () {
+        val results = matchLettersToPattern("OSEAWSG", "....A", listOf("WAGES", "ATLAS", "SEWAGES", "ABACA"))
+        assertEquals(0, results.count { !it.endsWith('A') })
     }
 
     @Test
