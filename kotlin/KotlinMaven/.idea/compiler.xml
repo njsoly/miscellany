@@ -12,5 +12,9 @@
         <module name="KotlinMaven (1)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="KotlinMaven" target="1.5" />
+      <module name="wordSearcher" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

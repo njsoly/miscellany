@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>njsoly</groupId>
-    <artifactId>KotlinMaven</artifactId>
+    <artifactId>wordSearcher</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>njsoly KotlinMaven</name>
+    <name>wordSearcher</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

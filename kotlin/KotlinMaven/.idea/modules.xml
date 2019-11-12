@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/KotlinMaven.iml" filepath="$PROJECT_DIR$/KotlinMaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wordSearcher/wordSearcher.iml" filepath="$PROJECT_DIR$/wordSearcher/wordSearcher.iml" />
+    </modules>
+  </component>
+</project>
