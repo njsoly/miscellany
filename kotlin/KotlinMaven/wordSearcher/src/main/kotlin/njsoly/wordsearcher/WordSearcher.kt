@@ -197,33 +197,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         return words.filterToLength(inputString.length).filter{ it == inputString }
     }
 
-
-
-    fun info(x: Any){
-        if (LOGGER.isInfoEnabled) {
-            println("INFO: $x")
-        } else {
-            println("INFO: $x")
-        }
-    }
-
-    fun debug(x: Any) {
-        if(LOGGER.isDebugEnabled) {
-            println("DEBUG: $x")
-        } else {
-            println("DEBUG: $x")
-        }
-    }
-
-    fun error(x: Any){
-        if(LOGGER.isErrorEnabled) {
-            LOGGER.error("ERROR: $x")
-        } else {
-            error("ERROR: $x")
-        }
-    }
-
-
     class Loader (val filename: String){
 
         val file: File = File(filename)
@@ -276,6 +249,10 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             }
         }
 
+        /**
+         * So far, this method simply checks if the [String] is
+         * made of only alphabetical characters.
+         */
         fun String.isSimple () : Boolean {
             this.map {
                 if (it.isLetter() == false)
