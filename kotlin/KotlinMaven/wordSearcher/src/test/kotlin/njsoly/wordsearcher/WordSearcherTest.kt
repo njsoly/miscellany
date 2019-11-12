@@ -50,6 +50,12 @@ class WordSearcherTest : WordSearcher() {
     }
 
     @Test
+    fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
+        val result = processInput("aoue .... ...t...")
+        assertEquals(false, result!!.contains("AETHER"))
+    }
+
+    @Test
     fun `how to use regex` () {
         val s = "[AZ]LZ"
         val escd = escape(s)

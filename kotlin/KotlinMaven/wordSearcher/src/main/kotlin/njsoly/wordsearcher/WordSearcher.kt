@@ -4,6 +4,7 @@ package njsoly.wordsearcher
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+
 import java.io.File
 import java.io.FileNotFoundException
 import java.time.LocalDate
@@ -137,6 +138,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
             if (pattern[i].isLetter() && w[i] == pattern[j]) {
+                i++; j++
                 continue
             } else if (letters.contains(letter)) {
                 letters = letters.minusElement(letter)
@@ -194,19 +196,19 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     fun info(x: Any){
-//        if (LOGGER.isInfoEnabled) {
-//            println(x.toString())
-//        } else {
+        if (LOGGER.isInfoEnabled) {
+            println(x.toString())
+        } else {
             println("INFO: $x")
-//        }
+        }
     }
 
     fun debug(x: Any) {
-//        if(LOGGER.isDebugEnabled) {
-//            println(x.toString())
-//        } else {
+        if(LOGGER.isDebugEnabled) {
+            println(x.toString())
+        } else {
             println("DEBUG: $x")
-//        }
+        }
     }
 
     fun error(x: Any){
