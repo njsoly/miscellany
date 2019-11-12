@@ -96,9 +96,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val letters = letters.filter{ it.isLetter() }
         debug("letters with wilds removed: \"$letters\"")
 
-        val resultsMap = searchStrings.associate {
-            Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds = wilds))
-        }
+//        val resultsMap = searchStrings.associate {
+//            Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds = wilds))
+//        }
 
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
@@ -217,7 +217,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     fun error(x: Any){
         if(LOGGER.isErrorEnabled) {
-            error("ERROR: $x")
+            LOGGER.error("ERROR: $x")
         } else {
             error("ERROR: $x")
         }
