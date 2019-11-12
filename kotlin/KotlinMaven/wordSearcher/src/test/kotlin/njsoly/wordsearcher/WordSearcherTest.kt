@@ -101,16 +101,27 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `matchLettersToPattern ----j--- should include 'JARL'` () {
-        DEBUG = true
         val result = matchLettersToPattern("RLFROAD", "....J...", listOf("JARL"))
         assertEquals(true, result.contains("JARL"))
+    }
+
+    @Test
+    fun `matchLetterToPattern ndilalx -----o-- should contain 'LADINO'` () {
         DEBUG = false
+        val result = matchLettersToPattern("NDILALX", ".....O..")
+        assertEquals(true, result.contains("LADINO"))
     }
 
     @Test
     fun `trimPatternForWord given ----J--- and JARL returns J---` () {
         val result = trimPatternForWord("JARL", "....J...")
         assertEquals("J...", result)
+    }
+
+    @Test
+    fun `trimPatternForWord -----O-- returns LADINO` () {
+        val result = trimPatternForWord("LADINO", ".....O..")
+        assertEquals(true, "LADINO".matches(Regex(result)))
     }
 
     @Test
