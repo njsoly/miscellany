@@ -37,6 +37,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         } else {
             println("read ${file.name}, and found ${words.size} words.")
         }
+
     }
 
     fun inputLoop () {
@@ -197,7 +198,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     fun info(x: Any){
         if (LOGGER.isInfoEnabled) {
-            println(x.toString())
+            println("INFO: $x")
         } else {
             println("INFO: $x")
         }
@@ -205,18 +206,18 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     fun debug(x: Any) {
         if(LOGGER.isDebugEnabled) {
-            println(x.toString())
+            println("DEBUG: $x")
         } else {
             println("DEBUG: $x")
         }
     }
 
     fun error(x: Any){
-//        if(LOGGER.isErrorEnabled) {
-//            error(x.toString())
-//        } else {
+        if(LOGGER.isErrorEnabled) {
             error("ERROR: $x")
-//        }
+        } else {
+            error("ERROR: $x")
+        }
     }
 
 
