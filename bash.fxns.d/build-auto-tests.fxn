@@ -1,4 +1,6 @@
 build-auto-tests () 
 { 
-    run_this_timed mvn clean install -U -Dspring.profiles.active=docker -Dmaven.javadoc.skip=true -DskipTests=true -DskipReporting=true
+	pushd ~/genesis-projects/genesis-auto-tests > /dev/null
+	run_this_timed mvn clean install -DskipTests=true -DskipReporting=true -P qaObj
+	popd > /dev/null
 }
