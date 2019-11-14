@@ -140,7 +140,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             if(pattern.length <= i) {
                 return false
             }
-
             if (pattern[i].isLetter() && w[i] == pattern[j]) {
                 i++; j++
                 continue
@@ -148,9 +147,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
                 letters = letters.minusElement(letter)
             } else if (wilds > 0) {
                 wilds--
-//            } else if (pattern[j] == '.') {
-//                pattern = pattern.substring(j)
-//                j = 0
             } else {
                 if(DEBUG) { debug("defaulted out at [$i], letter $letter") }
                 return false
@@ -215,10 +211,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         }
     }
 
-
     companion object {
-
-
         var DEBUG = false
 
         val now: LocalDate = LocalDate.now()
@@ -285,7 +278,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         fun List<String>.filterToPattern(pattern: String) : List<String> {
             return this.filter {
                 if(DEBUG) println("filtering $it to match $pattern")
-//                it.matches(Regex(".*" + pattern.trim('.') + ".*"))
                 it.matches(Regex(pattern.replace(".",".?")))
             }
         }
