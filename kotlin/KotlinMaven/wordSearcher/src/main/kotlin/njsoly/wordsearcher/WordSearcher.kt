@@ -6,7 +6,6 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import java.io.File
-import java.io.FileNotFoundException
 import java.time.LocalDate
 
 /**
@@ -192,23 +191,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     fun checkListForExactMatch (inputString: String): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
-    }
-
-    class Loader (val filename: String){
-
-        val file: File = File(filename)
-
-        val words: List<String>
-        init {
-            words = try {
-                info("reading ${Companion.file.name} (size ${Companion.file.length()}).")
-                file.readLines()
-            } catch (e: FileNotFoundException){
-                error("couldn't read $file at ${file.absoluteFile}")
-                emptyList()
-            }
-
-        }
     }
 
     companion object {
