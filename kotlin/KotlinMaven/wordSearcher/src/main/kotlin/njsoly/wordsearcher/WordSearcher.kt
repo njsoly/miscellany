@@ -77,9 +77,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         if (inputSplit.size == 1) {
             return if (inputString.isSimple()) {
-                `processInput exact match` (inputString)
+                checkListForExactMatch (inputString)
             } else {
-                `processSearch single regex`(inputSplit[0])
+                `filter full list against single pattern`(inputSplit[0])
             }
         }
 
@@ -183,7 +183,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Searches the word list for matches for the given [pattern],
      * without regard to which letters a player may actually have.
      */
-    fun `processSearch single regex` (pattern: String): List<String>? {
+    fun `filter full list against single pattern` (pattern: String): List<String>? {
         info("Matching words to regular expression \"$pattern\"")
         val p = pattern.replace("*",".*")
         return words.filter { it.matches(Regex(p))}
@@ -193,7 +193,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Searches the word list for an exact match of [inputString]. (no RegEx)
      * @param[inputString] a word to check the word list for a match
      */
-    fun `processInput exact match` (inputString: String): List<String>? {
+    fun checkListForExactMatch (inputString: String): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
     }

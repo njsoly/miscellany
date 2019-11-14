@@ -64,6 +64,7 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
+        DEBUG = false
         val result = processInput("aoue .... ...t...")
         assertEquals(false, result!!.contains("AETHER"))
     }

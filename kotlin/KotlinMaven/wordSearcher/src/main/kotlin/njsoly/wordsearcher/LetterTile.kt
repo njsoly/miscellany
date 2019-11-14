@@ -1,6 +1,10 @@
+@file:Suppress("KDocMissingDocumentation")
+
 package njsoly.wordsearcher
 
-@Suppress("KDocMissingDocumentation")
+/**
+ *
+ */
 enum class LetterTile (val points: Int=1){
     A,
     B(4),
