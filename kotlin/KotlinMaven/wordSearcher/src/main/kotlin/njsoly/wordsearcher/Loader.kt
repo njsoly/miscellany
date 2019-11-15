@@ -8,7 +8,7 @@ class Loader (val filename: String){
     val file: File = File(filename)
 
     val words: List<String>
-    
+
     init {
         words = try {
             WordSearcher.info("reading ${WordSearcher.file.name} (size ${WordSearcher.file.length()}).")
