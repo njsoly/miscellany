@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 
 public class What {
 
-    private static Logger l = SetupLogger.setupLogger(What.class);
+    private static final Logger l = SetupLogger.setupLogger(What.class);
 
     public static void main(String[] args){
         System.out.println("SNTH");
