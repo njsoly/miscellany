@@ -20,11 +20,7 @@ public class SetupLogger implements Logginit {
 	private SetupLogger(){}
 
 	public final static Logger ROOT_LOGGER = Logger.getRootLogger();
-	public static final boolean CLASS_NAMES = false;
-	public static final boolean APPENDER_NAMES = false;
-	public static final boolean LEVEL_NAMES = true;
 	public static final boolean DATES = true;
-	public static final boolean MILLIS = true;
 	String name;
 	Layout layout;
 
@@ -94,7 +90,7 @@ public class SetupLogger implements Logginit {
 
 		@Override
 		public ErrorHandler getErrorHandler() {
-			return null;
+			return errorHandler;
 		}
 
 		@Override
@@ -128,7 +124,7 @@ public class SetupLogger implements Logginit {
 			String claz = arg0.getLoggerName();
 			Timestamp time = new Timestamp(arg0.getTimeStamp());
 			String lvl = arg0.getLevel().toString();
-			System.out.println(lvl + "[" + time + "]("
+			System.out.println("[" + lvl + " " + time + "]("
 				+ (claz.indexOf('.') >= 0 ? claz.substring(claz.lastIndexOf('.') + 1) : claz)
 				+ "): " + arg0.getMessage());
 		}

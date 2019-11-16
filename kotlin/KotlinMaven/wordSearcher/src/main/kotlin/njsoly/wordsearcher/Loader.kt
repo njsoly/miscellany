@@ -15,10 +15,10 @@ class Loader (val filename: String){
 
     init {
         words = try {
-            WordSearcher.info("reading ${WordSearcher.file.name} (size ${WordSearcher.file.length()}).")
+            LOGGER.info("reading ${file.name} (size ${WordSearcher.file.length()}).")
             file.readLines()
         } catch (e: FileNotFoundException){
-            WordSearcher.error("couldn't read $file at ${file.absoluteFile}")
+            LOGGER.error("couldn't read $file at ${file.absoluteFile}")
             emptyList()
         }
 

@@ -3,11 +3,9 @@
 package njsoly.wordsearcher
 
 //import org.slf4j.Logger
+
 import njsoly.log.SetupLogger
 import org.apache.log4j.Logger
-import org.apache.log4j.Priority
-import org.apache.log4j.Priority.ERROR
-
 import java.io.File
 import java.time.LocalDate
 
