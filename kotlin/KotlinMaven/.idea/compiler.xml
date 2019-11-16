@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="KotlinMaven" />
         <module name="wordSearcher" />
+        <module name="KotlinMaven" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KotlinMaven" target="1.5" />
+      <module name="KotlinMaven" target="8" />
       <module name="wordSearcher" target="1.5" />
     </bytecodeTargetLevel>
   </component>
