@@ -2,8 +2,11 @@
 
 package njsoly.wordsearcher
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+//import org.slf4j.Logger
+import njsoly.log.SetupLogger
+import org.apache.log4j.Logger
+import org.apache.log4j.Priority
+import org.apache.log4j.Priority.ERROR
 
 import java.io.File
 import java.time.LocalDate
@@ -26,8 +29,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     val words: List<String>
 
-    val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
-
     init {
 
         words = Loader(filename).words
@@ -44,7 +45,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         while (!quit) {
             println("enter your search: <your letters> <your search...>")
             val inputString: String = (readLine() ?: "").trim()
-            
+
             if (isQuitMessage(inputString)){
                 println("you chose to quit.")
                 quit = true
@@ -61,7 +62,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     }
 
     internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
-
 
     fun processInput(inputString: String): List<String>? {
 //        println("your input string: \"$inputString\"")
@@ -87,6 +87,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         return `process letters against search strings` (letters, searchStrings)
     }
+
 
     private fun `process letters against search strings`(letters: String, searchStrings: List<String>): List<String>? {
         debug("processing letters")
@@ -131,9 +132,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      */
     fun matchLettersToWord(lettersToUse: String, word: String, pattern: String, numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
-        var w = word
+        val w = word
         var wilds: Int = numberOfWilds
-        var pattern = trimPatternForWord(w, pattern)
+        val pattern = trimPatternForWord(w, pattern)
         var i: Int = 0
         var j: Int = 0
         for (letter: Char in w) {
@@ -200,11 +201,11 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val now: LocalDate = LocalDate.now()
         val file: File = File("twl.txt")
 
-        val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
+        val LOGGER: Logger = SetupLogger.setupLogger(this::class.java)
 
         fun info(x: Any){
             if (LOGGER.isInfoEnabled) {
-                println("INFO: $x")
+                LOGGER.info("INFO: $x")
             } else {
                 println("INFO: $x")
             }
@@ -212,18 +213,18 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         fun debug(x: Any) {
             if(LOGGER.isDebugEnabled) {
-                println("DEBUG: $x")
+                LOGGER.info("DEBUG: $x")
             } else {
                 println("DEBUG: $x")
             }
         }
 
         fun error(x: Any){
-            if(LOGGER.isErrorEnabled) {
-                error("ERROR: $x")
-            } else {
-                error("ERROR: $x")
-            }
+//            if() {
+                LOGGER.error("ERROR: $x")
+//            } else {
+//                error("ERROR: $x")
+//            }
         }
 
         /**

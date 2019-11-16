@@ -1,5 +1,7 @@
 package njsoly.wordsearcher
 
+import njsoly.log.SetupLogger
+import org.apache.log4j.Logger
 import java.io.File
 import java.io.FileNotFoundException
 
@@ -8,6 +10,8 @@ class Loader (val filename: String){
     val file: File = File(filename)
 
     val words: List<String>
+
+    val LOGGER: Logger = SetupLogger.setupLogger(this::class.java)
 
     init {
         words = try {
