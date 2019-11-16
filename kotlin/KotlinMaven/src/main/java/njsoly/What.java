@@ -1,6 +1,6 @@
 package njsoly;
 
-import com.polymuler.njs.jdk6.log.SetupLogger;
+import njsoly.log.SetupLogger;
 import org.apache.log4j.Logger;
 
 public class What {
