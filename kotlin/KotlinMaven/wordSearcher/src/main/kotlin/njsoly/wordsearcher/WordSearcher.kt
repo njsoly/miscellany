@@ -103,10 +103,17 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         return results
     }
 
+    /**
+     * Sorts a [wordList] by length.
+     */
     fun sortResultsByLength(wordList: List<String>) : List<String> {
         return wordList.sortedByDescending{ it.length }
     }
 
+    /**
+     * Sorts a [list][wordList] of [String]s by the sum of the values of
+     * each letter.
+     */
     fun sortResultsByIntrinsicValue(wordList: List<String>): List<String> {
         return wordList.sortedByDescending { LetterTile.instrinsicWordValue(it) }
     }
