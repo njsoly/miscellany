@@ -4,6 +4,7 @@ package njsoly.wordsearcher
 
 //import org.slf4j.Logger
 
+import njsoly.fs.FileLinesLoader
 import njsoly.log.SetupLogger
 import org.apache.log4j.Logger
 import java.io.File
@@ -29,7 +30,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     init {
 
-        words = Loader(filename).words
+        words = FileLinesLoader(filename).lines
         if(words.isEmpty()) {
             error("could not read words from $filename.")
         } else {
