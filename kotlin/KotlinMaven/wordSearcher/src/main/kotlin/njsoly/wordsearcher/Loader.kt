@@ -5,6 +5,9 @@ import org.apache.log4j.Logger
 import java.io.File
 import java.io.FileNotFoundException
 
+/**
+ * Loads the words file
+ */
 class Loader (val filename: String){
 
     val file: File = File(filename)
