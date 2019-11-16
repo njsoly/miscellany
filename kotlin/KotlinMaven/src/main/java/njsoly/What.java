@@ -1,6 +1,5 @@
 package njsoly;
 
-import com.polymuler.njs.jdk6.log.Logginit;
 import com.polymuler.njs.jdk6.log.SetupLogger;
 import org.apache.log4j.Logger;
 
