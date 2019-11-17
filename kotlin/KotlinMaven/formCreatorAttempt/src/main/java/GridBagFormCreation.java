@@ -1,3 +1,5 @@
+import org.apache.log4j.helpers.DateTimeDateFormat;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
@@ -7,6 +9,9 @@ import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 import static java.awt.Color.*;
 import static java.awt.Font.*;
@@ -39,7 +44,13 @@ public class GridBagFormCreation {
 	public static final Color SOFTER_SEAFOAM = new Color(192, 255, 230);
 	public static final Color SLATE = new Color(25, 26, 34);
 
+	public static String theTime () {
+		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-mm-dd HH:MM"));
+	}
+
 	public GridBagFormCreation() {
+		System.out.println("gridBagCreation()" + theTime());
+
 		searchTextField.addActionListener(e -> {
 			System.out.println("action in " + e.getActionCommand());
 		});
@@ -49,12 +60,14 @@ public class GridBagFormCreation {
 				super.keyTyped(e);
 			}
 		});
+		System.out.println("gridBagCreation(): adding key listener " + theTime());
 		searchTextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
 			}
 		});
+		System.out.println("gridBagCreation(): added key listener");
 
 		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
