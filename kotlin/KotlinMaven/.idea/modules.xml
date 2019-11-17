@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IO/IO.iml" filepath="$PROJECT_DIR$/IO/IO.iml" />
       <module fileurl="file://$PROJECT_DIR$/KotlinMaven.iml" filepath="$PROJECT_DIR$/KotlinMaven.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loggerFactoryUsageTry/KotlinMaven.loggerFactoryUsageTry.iml" filepath="$PROJECT_DIR$/loggerFactoryUsageTry/KotlinMaven.loggerFactoryUsageTry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" filepath="$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" />
       <module fileurl="file://$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" filepath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" />
-      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
     </modules>
   </component>
 </project>
