@@ -9,7 +9,7 @@ class LoggerFactoryUsageTest : LoggerFactoryUsage() {
     }
 
     fun runMain() {
-        main(listOf("aoeu","snth"))
+        main(arrayOf("aoeu","snth"))
 
     }
 }
