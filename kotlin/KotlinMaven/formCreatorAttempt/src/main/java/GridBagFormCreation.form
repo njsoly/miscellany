@@ -10,15 +10,9 @@
     </properties>
     <border type="bevel-lowered"/>
     <children>
-      <hspacer id="d7fc9">
-        <constraints>
-          <grid row="1" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </hspacer>
       <grid id="5b193" binding="innerPanel" layout-manager="GridBagLayout">
         <constraints>
-          <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag top="2" left="2" bottom="2" right="2" weightx="0.0" weighty="0.0" ipadx="8" ipady="8"/>
         </constraints>
         <properties>
@@ -82,26 +76,9 @@
           </component>
         </children>
       </grid>
-      <component id="aa144" class="javax.swing.JTextArea" binding="textAreaInfo">
-        <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <columns value="32"/>
-          <editable value="false"/>
-          <foreground color="-6821640"/>
-          <lineWrap value="true"/>
-          <rows value="12"/>
-          <text value="Info"/>
-          <toolTipText value="Information Area"/>
-        </properties>
-      </component>
       <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane" custom-create="true">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <gridbag top="2" left="2" bottom="2" right="2" weightx="0.0" weighty="0.0"/>
@@ -112,9 +89,42 @@
           <editable value="false"/>
           <font name="Droid Sans Mono"/>
           <foreground color="-16769785"/>
-          <text value="&lt;html&gt;&#10;  &lt;head&gt;&#10;    &#10;  &lt;/head&gt;&#10;  &lt;body&gt;&#10;    &lt;div&gt;&#10;      HTML things&#10;    &lt;/div&gt;&#10;  &lt;/body&gt;&#10;&lt;/html&gt;&#10;"/>
+          <minimumSize width="200" height="64"/>
           <toolTipText value="HTML Pane"/>
         </properties>
+      </component>
+      <component id="76733" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="aa144" class="javax.swing.JTextArea" binding="textAreaInfo">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag top="4" left="4" bottom="4" right="4" weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <columns value="32"/>
+          <editable value="false"/>
+          <font name="Consolas"/>
+          <foreground color="-6821640"/>
+          <lineWrap value="true"/>
+          <margin top="1" left="2" bottom="1" right="1"/>
+          <rows value="12"/>
+          <text value="Info"/>
+          <toolTipText value="Information Area"/>
+        </properties>
+      </component>
+      <component id="a0c06" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
