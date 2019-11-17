@@ -3,6 +3,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -80,26 +81,44 @@ public class GridBagFormCreation {
 
 		textAreaInfo.setBackground(BLACK);
 
-		doStandardComponentBorder(innerPanel);
-		doStandardComponentBorder(textAreaInfo);
-		doStandardComponentBorder(htmlPane);
-
-		htmlPane.setBackground(BLUE);
+		htmlPane.setBackground(DEEP_GREEN_BLUE);
 		htmlPane.setForeground(SOFTER_CYAN);
 		htmlPane.setDisabledTextColor(GRAY);
 		htmlPane.setSelectedTextColor(WHITE);
 		htmlDocument = (HTMLDocument)(htmlPane.getDocument());
 		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
 
-		htmlPane.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 1, false));
+		doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
+		setMargins(3, textAreaInfo, searchTextField, resultsTextArea);
 
-		for(JTextComponent x : new JTextComponent[]{resultsTextArea, searchTextField, htmlPane, textAreaInfo}){
-			x.setSelectionColor(BETTER_PURPLE);
+		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextField, htmlPane, textAreaInfo);
+
+	}
+
+	protected StyleSheet getHtmlPaneStylesheet() {
+		return htmlDocument.getStyleSheet();
+	}
+
+	protected void addCssRuleToHtmlPane(String cssRule){
+		htmlDocument.getStyleSheet().addRule(cssRule);
+	}
+
+	protected static void setSelectionBackground(Color c, JTextComponent... jtcz){
+		for(JTextComponent jtc : jtcz){
+			jtc.setSelectionColor(c);
 		}
 	}
 
-	protected void doStandardComponentBorder(JComponent jc) {
-		jc.setBorder(BorderFactory.createLineBorder(LOSER_BLUE, 2, true));
+	protected static void setMargins(int n, JTextComponent... jtcz){
+		for(JTextComponent jtc : jtcz){
+			jtc.setMargin(new Insets(n, n, n, n));
+		}
+	}
+
+	protected static void doStandardComponentBorder(JComponent... jcz) {
+		for(JComponent jc : jcz){
+			jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
+		}
 	}
 
 	public static void main(String[] args) {
