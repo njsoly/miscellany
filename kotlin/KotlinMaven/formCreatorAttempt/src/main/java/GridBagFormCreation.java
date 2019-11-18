@@ -56,7 +56,7 @@ public class GridBagFormCreation {
 
 
 	public static String theTime () {
-		String timeWithNanos = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-mm-dd HH:MM:ss.n"));
+		String timeWithNanos = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss.n"));
 		return timeWithNanos.substring(0, timeWithNanos.length() - 6);
 	}
 
