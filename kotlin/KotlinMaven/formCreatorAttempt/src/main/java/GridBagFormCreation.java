@@ -44,12 +44,21 @@ public class GridBagFormCreation {
 	public static final Color SOFTER_SEAFOAM = new Color(192, 255, 230);
 	public static final Color SLATE = new Color(25, 26, 34);
 
+	static final boolean DEBUG = true;
+
+	static {
+		if(DEBUG)
+			System.out.println("GridBagFormCreation class loaded: " + theTime());
+	}
+
+
 	public static String theTime () {
-		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-mm-dd HH:MM"));
+		String timeWithNanos = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-mm-dd HH:MM:ss.n"));
+		return timeWithNanos.substring(0, timeWithNanos.length() - 6);
 	}
 
 	public GridBagFormCreation() {
-		System.out.println("gridBagCreation()" + theTime());
+		System.out.println("GridBagFormCreation() " + theTime());
 
 		searchTextField.addActionListener(e -> {
 			System.out.println("action in " + e.getActionCommand());
@@ -60,14 +69,14 @@ public class GridBagFormCreation {
 				super.keyTyped(e);
 			}
 		});
-		System.out.println("gridBagCreation(): adding key listener " + theTime());
+		System.out.println("GridBagFormCreation(): adding key listener " + theTime());
 		searchTextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
 			}
 		});
-		System.out.println("gridBagCreation(): added key listener");
+		System.out.println("gridBagFormCreation(): added key listener");
 
 		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
@@ -106,6 +115,7 @@ public class GridBagFormCreation {
 
 		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextField, htmlPane, textAreaInfo);
 
+		System.out.println("GridBagFormCreation(): END " + theTime());
 	}
 
 	protected StyleSheet getHtmlPaneStylesheet() {
@@ -117,25 +127,46 @@ public class GridBagFormCreation {
 	}
 
 	protected static void setSelectionBackground(Color c, JTextComponent... jtcz){
-		for(JTextComponent jtc : jtcz){
-			jtc.setSelectionColor(c);
-		}
+		SwingUtilities.invokeLater(() -> {
+			for(JTextComponent jtc : jtcz){
+				jtc.setSelectionColor(c);
+			}
+		});
 	}
 
 	protected static void setMargins(int n, JTextComponent... jtcz){
-		for(JTextComponent jtc : jtcz){
-			jtc.setMargin(new Insets(n, n, n, n));
-		}
+		SwingUtilities.invokeLater(() -> {
+			for (JTextComponent jtc : jtcz){
+				jtc.setMargin(new Insets(n, n, n, n));
+			}
+		});
 	}
 
 	protected static void doStandardComponentBorder(JComponent... jcz) {
-		for(JComponent jc : jcz){
-			jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
-		}
+		SwingUtilities.invokeLater(() -> {
+			if(DEBUG) System.out.println("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
+			for(JComponent jc : jcz){
+				jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
+			}
+		});
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("GridBagFormCreation");
+		JFrame frame = new JFrame("GridBagFormCreation"){
+			@Override
+			public void setVisible(boolean visible){
+				if(DEBUG) System.out.println("setting window visible: " + theTime());
+				super.setVisible(visible);
+				if(DEBUG) System.out.println("window is visible " + (visible) + ": " + theTime());
+			}
+
+			@Override
+			public void pack(){
+				if(DEBUG) System.out.println("packing window: " + theTime());
+				super.pack();
+				if(DEBUG) System.out.println("packed window: " + theTime());
+			}
+		};
 		frame.setContentPane(new GridBagFormCreation().mainPanel);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.pack();
@@ -147,6 +178,7 @@ public class GridBagFormCreation {
 	}
 
 	void createUIComponents() {
+		if(DEBUG) System.out.println("createUIComponents() " + theTime());
 		htmlPane = new JEditorPane("text/html", "<div><b>aoeu</b> snth</div> <hr /> <h3>aoeusntahoeusnth</h3>");
 
 	}
