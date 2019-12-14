@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.awt.Color.*;
 import static java.awt.Font.*;
@@ -154,6 +156,28 @@ public class GridBagFormCreation {
 		});
 	}
 
+	private static void isVisibleLoop(final JFrame window, final int maxTimes) {
+		Timer t = new Timer(){
+			int times = 0;
+			int max = maxTimes;
+
+		};
+		t.scheduleAtFixedRate(new TimerTask() {
+
+			int times = 0;
+			final int max = maxTimes;
+			@Override
+			public void run() {
+				System.out.println("Window is visible: " + window.isVisible());
+				times++;
+				if(times > maxTimes) {
+					this.cancel();
+				}
+			}
+		}, 0, 2000);
+
+	}
+
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("GridBagFormCreation"){
 			@Override
@@ -208,6 +232,7 @@ public class GridBagFormCreation {
 				});
 			}
 		};
+		isVisibleLoop(frame, 20);
 		frame.setContentPane(new GridBagFormCreation().mainPanel);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.pack();
