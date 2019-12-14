@@ -1,3 +1,6 @@
+import kotlin.Pair;
+import org.apache.log4j.helpers.DateTimeDateFormat;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
@@ -5,8 +8,13 @@ import javax.swing.text.JTextComponent;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.awt.Color.*;
 import static java.awt.Font.*;
@@ -39,7 +47,24 @@ public class GridBagFormCreation {
 	public static final Color SOFTER_SEAFOAM = new Color(192, 255, 230);
 	public static final Color SLATE = new Color(25, 26, 34);
 
+	protected static final HashMap<String, Pair<LocalDateTime, LocalDateTime>> TIMINGS = new HashMap<>();
+
+	static final boolean DEBUG = true;
+
+	static {
+		if(DEBUG)
+			System.out.println("GridBagFormCreation class loaded: " + theTime());
+	}
+
+
+	public static String theTime () {
+		String timeWithNanos = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss.n"));
+		return timeWithNanos.substring(0, timeWithNanos.length() - 6);
+	}
+
 	public GridBagFormCreation() {
+		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
+
 		searchTextField.addActionListener(e -> {
 			System.out.println("action in " + e.getActionCommand());
 		});
@@ -49,12 +74,14 @@ public class GridBagFormCreation {
 				super.keyTyped(e);
 			}
 		});
+		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
 		searchTextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
 			}
 		});
+		if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 
 		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
@@ -93,6 +120,7 @@ public class GridBagFormCreation {
 
 		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextField, htmlPane, textAreaInfo);
 
+		System.out.println("GridBagFormCreation(): END " + theTime());
 	}
 
 	protected StyleSheet getHtmlPaneStylesheet() {
@@ -104,25 +132,107 @@ public class GridBagFormCreation {
 	}
 
 	protected static void setSelectionBackground(Color c, JTextComponent... jtcz){
-		for(JTextComponent jtc : jtcz){
-			jtc.setSelectionColor(c);
-		}
+		SwingUtilities.invokeLater(() -> {
+			for(JTextComponent jtc : jtcz){
+				jtc.setSelectionColor(c);
+			}
+		});
 	}
 
 	protected static void setMargins(int n, JTextComponent... jtcz){
-		for(JTextComponent jtc : jtcz){
-			jtc.setMargin(new Insets(n, n, n, n));
-		}
+		SwingUtilities.invokeLater(() -> {
+			for (JTextComponent jtc : jtcz){
+				jtc.setMargin(new Insets(n, n, n, n));
+			}
+		});
 	}
 
 	protected static void doStandardComponentBorder(JComponent... jcz) {
-		for(JComponent jc : jcz){
-			jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
-		}
+		SwingUtilities.invokeLater(() -> {
+			if(DEBUG) System.out.println("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
+			for(JComponent jc : jcz){
+				jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
+			}
+		});
+	}
+
+	private static void isVisibleLoop(final JFrame window, final int maxTimes) {
+		Timer t = new Timer(){
+			int times = 0;
+			int max = maxTimes;
+
+		};
+		t.scheduleAtFixedRate(new TimerTask() {
+
+			int times = 0;
+			final int max = maxTimes;
+			@Override
+			public void run() {
+				System.out.println("Window is visible: " + window.isVisible());
+				times++;
+				if(times > maxTimes) {
+					this.cancel();
+				}
+			}
+		}, 0, 2000);
+
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("GridBagFormCreation");
+		JFrame frame = new JFrame("GridBagFormCreation"){
+			@Override
+			public void setVisible(boolean visible){
+				if(DEBUG) System.out.println("setting window visible: " + theTime());
+				super.setVisible(visible);
+				if(DEBUG) System.out.println("window is visible " + (visible) + ": " + theTime());
+			}
+
+			@Override
+			public void pack(){
+				if(DEBUG) System.out.println("packing window: " + theTime());
+				super.pack();
+				if(DEBUG) System.out.println("packed window: " + theTime());
+			}
+
+			{
+				this.addContainerListener(new ContainerListener(){
+					@Override
+					public void componentAdded(ContainerEvent e) {
+						if(DEBUG) System.out.println("componentAdded: " + e);
+					}
+
+					@Override
+					public void componentRemoved(ContainerEvent e) {
+						if(DEBUG) System.out.println("componentRemoved: " + e);
+
+					}
+				});
+
+				this.addComponentListener(new ComponentListener(){
+
+					@Override
+					public void componentResized(ComponentEvent e) {
+
+					}
+
+					@Override
+					public void componentMoved(ComponentEvent e) {
+
+					}
+
+					@Override
+					public void componentShown(ComponentEvent e) {
+
+					}
+
+					@Override
+					public void componentHidden(ComponentEvent e) {
+
+					}
+				});
+			}
+		};
+		isVisibleLoop(frame, 20);
 		frame.setContentPane(new GridBagFormCreation().mainPanel);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.pack();
@@ -134,6 +244,7 @@ public class GridBagFormCreation {
 	}
 
 	void createUIComponents() {
+		if(DEBUG) System.out.println("createUIComponents() " + theTime());
 		htmlPane = new JEditorPane("text/html", "<div><b>aoeu</b> snth</div> <hr /> <h3>aoeusntahoeusnth</h3>");
 
 	}
