@@ -30,8 +30,8 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     val words: List<String>
-    val out: PrintStream = System.out
-    val in: InputStream = System.`in`
+    val output: PrintStream = System.out
+    val input: InputStream = System.`in`
 
     init {
 

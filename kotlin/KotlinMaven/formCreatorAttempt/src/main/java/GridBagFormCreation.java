@@ -9,6 +9,7 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -55,7 +56,6 @@ public class GridBagFormCreation {
 		if(DEBUG)
 			System.out.println("GridBagFormCreation class loaded: " + theTime());
 	}
-
 
 	public static String theTime () {
 		String timeWithNanos = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss.n"));
@@ -142,7 +142,7 @@ public class GridBagFormCreation {
 	protected static void setMargins(int n, JTextComponent... jtcz){
 		SwingUtilities.invokeLater(() -> {
 			for (JTextComponent jtc : jtcz){
-				jtc.setMargin(new Insets(n, n, n, n));
+				SwingUtilities.invokeLater(() -> jtc.setMargin(new Insets(n, n, n, n)));
 			}
 		});
 	}
@@ -214,7 +214,6 @@ public class GridBagFormCreation {
 					@Override
 					public void componentRemoved(ContainerEvent e) {
 						if(DEBUG) System.out.println("componentRemoved: " + e);
-
 					}
 				});
 
