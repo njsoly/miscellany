@@ -8,6 +8,9 @@ import njsoly.fs.FileLinesLoader
 import njsoly.log.SetupLogger
 import org.apache.log4j.Logger
 import java.io.File
+import java.io.InputStream
+import java.io.PrintStream
+import java.lang.System
 import java.time.LocalDate
 
 /**
@@ -27,6 +30,8 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     val words: List<String>
+    val out: PrintStream = System.out
+    val in: InputStream = System.`in`
 
     init {
 
