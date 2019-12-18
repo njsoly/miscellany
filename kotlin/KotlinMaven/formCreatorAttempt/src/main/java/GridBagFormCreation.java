@@ -156,7 +156,7 @@ public class GridBagFormCreation {
 		});
 	}
 
-	private static void isVisibleLoop(final JFrame window, final int maxTimes) {
+	private void isVisibleLoop(final JFrame window, final int maxTimes) {
 		Timer t = new Timer(){
 			int times = 0;
 			int max = maxTimes;
@@ -168,7 +168,7 @@ public class GridBagFormCreation {
 			final int max = maxTimes;
 			@Override
 			public void run() {
-				System.out.println("Window is visible: " + window.isVisible());
+				System.out.println("Window is visible [" + times + "]: " + window.isVisible());
 				times++;
 				if(times > maxTimes) {
 					this.cancel();
@@ -179,6 +179,16 @@ public class GridBagFormCreation {
 	}
 
 	public static void main(String[] args) {
+		GridBagFormCreation form = new GridBagFormCreation();
+		JFrame window = form.getGridBagFormCreationJframe();
+		SwingUtilities.invokeLater(() -> {
+			window.pack();
+			window.setVisible(true);
+		});
+	}
+
+	public JFrame getGridBagFormCreationJframe () {
+
 		JFrame frame = new JFrame("GridBagFormCreation"){
 			@Override
 			public void setVisible(boolean visible){
@@ -212,21 +222,24 @@ public class GridBagFormCreation {
 
 					@Override
 					public void componentResized(ComponentEvent e) {
-
+						System.out.println("component resized: " + e.getComponent().getName() + " " + e.paramString());
 					}
 
 					@Override
 					public void componentMoved(ComponentEvent e) {
+						System.out.println("component moved: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 
 					@Override
 					public void componentShown(ComponentEvent e) {
+						System.out.println("component shown: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 
 					@Override
 					public void componentHidden(ComponentEvent e) {
+						System.out.println("component hidden: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 				});
@@ -236,7 +249,8 @@ public class GridBagFormCreation {
 		frame.setContentPane(new GridBagFormCreation().mainPanel);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.pack();
-		frame.setVisible(true);
+//		frame.setVisible(true);
+		return frame;
 	}
 
 	public JTextArea getInfoTextArea () {
