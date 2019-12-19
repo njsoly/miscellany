@@ -106,24 +106,21 @@ public class GridBagFormCreation {
 				new Color(65, 255, 133).brighter() // bright green blue
 			)
 		);
-//		resultsTextArea.setBackground(BLACK);
-//		resultsTextArea.setForeground(SOFTER_SEAFOAM);
-
-		setFgBg(resultsTextArea, SOFTER_SEAFOAM, BLACK);
 		resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
 		resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
 
-		setFgBg(searchTextArea, WHITE, DEEP_BLUE);
-//		searchTextField.setBackground(DEEP_BLUE);
-//		searchTextField.setForeground(WHITE);
+
 		searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
 		textAreaInfo.setBackground(BLACK);
 
-		htmlPane.setBackground(DEEP_GREEN_BLUE);
-		htmlPane.setForeground(SOFTER_CYAN);
+		setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
+		setBgFg(searchTextArea, DEEP_BLUE, WHITE);
+		setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
+
 		htmlPane.setDisabledTextColor(GRAY);
 		htmlPane.setSelectedTextColor(WHITE);
+
 		htmlDocument = (HTMLDocument) (htmlPane.getDocument());
 		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
 
@@ -139,7 +136,7 @@ public class GridBagFormCreation {
 		System.out.println("GridBagFormCreation(): END " + theTime());
 	}
 
-	void setFgBg (JComponent jc, Color fg, Color bg) {
+	void setBgFg(JComponent jc, Color bg, Color fg) {
 		SwingUtilities.invokeLater(() -> {
 			System.out.println("setting BG & FG (" + jc.getName() + "): END " + theTime());
 			jc.setForeground(fg);
