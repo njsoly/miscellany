@@ -163,6 +163,11 @@ public class GridBagFormCreation {
 		});
 	}
 
+	/**
+	 * Given a list of {@link JTextComponent}s, change eac hof their margins to {@code n}.
+	 * @param n
+	 * @param jtcz
+	 */
 	protected void setMargins(int n, JTextComponent... jtcz){
 		SwingUtilities.invokeLater(() -> {
 			for (JTextComponent jtc : jtcz){
@@ -196,6 +201,9 @@ public class GridBagFormCreation {
 				times++;
 				if(times > maxTimes) {
 					this.cancel();
+					if(!window.isVisible()) {
+						System.exit(1);
+					}
 				}
 			}
 		}, 0, 2000);
