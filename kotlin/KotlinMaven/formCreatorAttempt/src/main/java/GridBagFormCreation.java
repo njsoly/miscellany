@@ -59,10 +59,7 @@ public class GridBagFormCreation {
 		return timeWithNanos.substring(0, timeWithNanos.length() - 6);
 	}
 
-	public GridBagFormCreation() {
-		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
-
-
+	protected void addStandardKeyListeners() {
 		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
 		searchTextArea.addKeyListener(new KeyAdapter() {
 			@Override
@@ -88,8 +85,14 @@ public class GridBagFormCreation {
 
 		if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 
-		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
+	}
 
+	public GridBagFormCreation() {
+		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
+
+		this.addStandardKeyListeners();
+
+		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
 
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
 		resultsPane.setForeground(SOFTER_CYAN); // bright-ish cyan
@@ -113,7 +116,6 @@ public class GridBagFormCreation {
 		setFgBg(searchTextArea, WHITE, DEEP_BLUE);
 //		searchTextField.setBackground(DEEP_BLUE);
 //		searchTextField.setForeground(WHITE);
-		searchTextArea.setFont(getFont("Consolas"));
 		searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
 		textAreaInfo.setBackground(BLACK);
@@ -122,7 +124,7 @@ public class GridBagFormCreation {
 		htmlPane.setForeground(SOFTER_CYAN);
 		htmlPane.setDisabledTextColor(GRAY);
 		htmlPane.setSelectedTextColor(WHITE);
-		htmlDocument = (HTMLDocument)(htmlPane.getDocument());
+		htmlDocument = (HTMLDocument) (htmlPane.getDocument());
 		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
 
 		doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
@@ -130,11 +132,16 @@ public class GridBagFormCreation {
 
 		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextArea, htmlPane, textAreaInfo);
 
+		for(JComponent jc : new JComponent[]{resultsTextArea, searchTextArea, textAreaInfo, htmlPane}){
+			jc.setFont(new Font("Consolas", PLAIN, 14));
+		}
+
 		System.out.println("GridBagFormCreation(): END " + theTime());
 	}
 
-	protected void setFgBg (JComponent jc, Color fg, Color bg) {
+	void setFgBg (JComponent jc, Color fg, Color bg) {
 		SwingUtilities.invokeLater(() -> {
+			System.out.println("setting BG & FG (" + jc.getName() + "): END " + theTime());
 			jc.setForeground(fg);
 			jc.setBackground(bg);
 		});
@@ -144,11 +151,11 @@ public class GridBagFormCreation {
 		return htmlDocument.getStyleSheet();
 	}
 
-	protected void addCssRuleToHtmlPane(String cssRule){
+	public void addCssRuleToHtmlPane(String cssRule){
 		htmlDocument.getStyleSheet().addRule(cssRule);
 	}
 
-	protected void setSelectionBackground(Color c, JTextComponent... jtcz){
+	void setSelectionBackground(Color c, JTextComponent... jtcz){
 		SwingUtilities.invokeLater(() -> {
 			for(JTextComponent jtc : jtcz){
 				jtc.setSelectionColor(c);
@@ -279,6 +286,5 @@ public class GridBagFormCreation {
 	void createUIComponents() {
 		if(DEBUG) System.out.println("createUIComponents() " + theTime());
 		htmlPane = new JEditorPane("text/html", "<div><b>aoeu</b> snth</div> <hr /> <h3>aoeusntahoeusnth</h3>");
-
 	}
 }
