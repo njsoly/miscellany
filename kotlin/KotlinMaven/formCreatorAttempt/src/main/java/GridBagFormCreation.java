@@ -1,5 +1,4 @@
 import kotlin.Pair;
-import org.apache.log4j.helpers.DateTimeDateFormat;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -9,10 +8,8 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,7 +21,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
 	public JPanel mainPanel;
-	private JTextArea searchTextField;
+	private JTextArea searchTextArea;
 	private JTextArea resultsTextArea;
 	private JPanel innerPanel;
 	private JScrollPane resultsPane;
@@ -62,19 +59,16 @@ public class GridBagFormCreation {
 		return timeWithNanos.substring(0, timeWithNanos.length() - 6);
 	}
 
-	public GridBagFormCreation() {
-		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
-
-
+	protected void addStandardKeyListeners() {
 		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
-		searchTextField.addKeyListener(new KeyAdapter() {
+		searchTextArea.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				super.keyTyped(e);
 			}
 		});
 
-		searchTextField.addKeyListener(new KeyAdapter() {
+		searchTextArea.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
@@ -91,7 +85,15 @@ public class GridBagFormCreation {
 
 		if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 
+	}
+
+	public GridBagFormCreation() {
+		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
+
+		this.addStandardKeyListeners();
+
 		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
+
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
 		resultsPane.setForeground(SOFTER_CYAN); // bright-ish cyan
 		resultsPane.setBorder(
@@ -104,15 +106,17 @@ public class GridBagFormCreation {
 				new Color(65, 255, 133).brighter() // bright green blue
 			)
 		);
-		resultsTextArea.setBackground(BLACK);
-		resultsTextArea.setForeground(SOFTER_SEAFOAM);
+//		resultsTextArea.setBackground(BLACK);
+//		resultsTextArea.setForeground(SOFTER_SEAFOAM);
+
+		setFgBg(resultsTextArea, SOFTER_SEAFOAM, BLACK);
 		resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
 		resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
 
-		searchTextField.setBackground(DEEP_BLUE);
-		searchTextField.setForeground(WHITE);
-		searchTextField.setFont(getFont("Consolas"));
-		searchTextField.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
+		setFgBg(searchTextArea, WHITE, DEEP_BLUE);
+//		searchTextField.setBackground(DEEP_BLUE);
+//		searchTextField.setForeground(WHITE);
+		searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
 		textAreaInfo.setBackground(BLACK);
 
@@ -120,26 +124,38 @@ public class GridBagFormCreation {
 		htmlPane.setForeground(SOFTER_CYAN);
 		htmlPane.setDisabledTextColor(GRAY);
 		htmlPane.setSelectedTextColor(WHITE);
-		htmlDocument = (HTMLDocument)(htmlPane.getDocument());
+		htmlDocument = (HTMLDocument) (htmlPane.getDocument());
 		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
 
 		doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
-		setMargins(3, textAreaInfo, searchTextField, resultsTextArea);
+		setMargins(3, textAreaInfo, searchTextArea, resultsTextArea);
 
-		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextField, htmlPane, textAreaInfo);
+		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextArea, htmlPane, textAreaInfo);
+
+		for(JComponent jc : new JComponent[]{resultsTextArea, searchTextArea, textAreaInfo, htmlPane}){
+			jc.setFont(new Font("Consolas", PLAIN, 14));
+		}
 
 		System.out.println("GridBagFormCreation(): END " + theTime());
+	}
+
+	void setFgBg (JComponent jc, Color fg, Color bg) {
+		SwingUtilities.invokeLater(() -> {
+			System.out.println("setting BG & FG (" + jc.getName() + "): END " + theTime());
+			jc.setForeground(fg);
+			jc.setBackground(bg);
+		});
 	}
 
 	protected StyleSheet getHtmlPaneStylesheet() {
 		return htmlDocument.getStyleSheet();
 	}
 
-	protected void addCssRuleToHtmlPane(String cssRule){
+	public void addCssRuleToHtmlPane(String cssRule){
 		htmlDocument.getStyleSheet().addRule(cssRule);
 	}
 
-	protected static void setSelectionBackground(Color c, JTextComponent... jtcz){
+	void setSelectionBackground(Color c, JTextComponent... jtcz){
 		SwingUtilities.invokeLater(() -> {
 			for(JTextComponent jtc : jtcz){
 				jtc.setSelectionColor(c);
@@ -147,7 +163,12 @@ public class GridBagFormCreation {
 		});
 	}
 
-	protected static void setMargins(int n, JTextComponent... jtcz){
+	/**
+	 * Given a list of {@link JTextComponent}s, change eac hof their margins to {@code n}.
+	 * @param n
+	 * @param jtcz
+	 */
+	protected void setMargins(int n, JTextComponent... jtcz){
 		SwingUtilities.invokeLater(() -> {
 			for (JTextComponent jtc : jtcz){
 				SwingUtilities.invokeLater(() -> jtc.setMargin(new Insets(n, n, n, n)));
@@ -155,7 +176,7 @@ public class GridBagFormCreation {
 		});
 	}
 
-	protected static void doStandardComponentBorder(JComponent... jcz) {
+	protected void doStandardComponentBorder(JComponent... jcz) {
 		SwingUtilities.invokeLater(() -> {
 			if(DEBUG) System.out.println("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
 			for(JComponent jc : jcz){
@@ -180,6 +201,9 @@ public class GridBagFormCreation {
 				times++;
 				if(times > maxTimes) {
 					this.cancel();
+					if(!window.isVisible()) {
+						System.exit(1);
+					}
 				}
 			}
 		}, 0, 2000);
@@ -256,7 +280,6 @@ public class GridBagFormCreation {
 		frame.setContentPane(new GridBagFormCreation().mainPanel);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.pack();
-//		frame.setVisible(true);
 		return frame;
 	}
 
@@ -264,9 +287,12 @@ public class GridBagFormCreation {
 		return textAreaInfo;
 	}
 
+	public JTextArea getInputArea () {
+		return searchTextArea;
+	}
+
 	void createUIComponents() {
 		if(DEBUG) System.out.println("createUIComponents() " + theTime());
 		htmlPane = new JEditorPane("text/html", "<div><b>aoeu</b> snth</div> <hr /> <h3>aoeusntahoeusnth</h3>");
-
 	}
 }
