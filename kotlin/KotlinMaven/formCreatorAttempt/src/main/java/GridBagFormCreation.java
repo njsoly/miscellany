@@ -24,7 +24,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
 	public JPanel mainPanel;
-	private JTextField searchTextField;
+	private JTextArea searchTextField;
 	private JTextArea resultsTextArea;
 	private JPanel innerPanel;
 	private JScrollPane resultsPane;
@@ -65,22 +65,30 @@ public class GridBagFormCreation {
 	public GridBagFormCreation() {
 		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
 
-		searchTextField.addActionListener(e -> {
-			System.out.println("action in " + e.getActionCommand());
-		});
+
+		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
 		searchTextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				super.keyTyped(e);
 			}
 		});
-		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
+
 		searchTextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
+				if (e.isActionKey()) {
+					System.out.println("e (" + e.getKeyCode() + ") is an action key.");
+				} else {
+					System.out.println("e (" + e.getKeyCode() + ") is NOT an action key.");
+				}
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					System.out.println("pressed ENTER.");
+				}
 			}
 		});
+
 		if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 
 		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
