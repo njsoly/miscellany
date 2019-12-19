@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GridBagFormCreation">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="433" height="408"/>
+      <xy x="20" y="20" width="477" height="434"/>
     </constraints>
     <properties>
       <background color="-15132126"/>
@@ -72,7 +72,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="32f3" class="javax.swing.JTextArea" binding="searchTextField">
+              <component id="32f3" class="javax.swing.JTextArea" binding="searchTextArea">
                 <constraints/>
                 <properties>
                   <background color="-14599345"/>
@@ -83,48 +83,62 @@
                   <text value="" noi18n="true"/>
                   <toolTipText value="Enter your search"/>
                 </properties>
+                <clientProperties>
+                  <caretWidth class="java.lang.Integer" value="3"/>
+                </clientProperties>
               </component>
             </children>
           </scrollpane>
         </children>
       </grid>
-      <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane" custom-create="true">
+      <scrollpane id="ed97">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag top="2" left="2" bottom="2" right="2" weightx="0.0" weighty="0.0"/>
         </constraints>
-        <properties>
-          <background color="-7487797"/>
-          <contentType value="text/html"/>
-          <editable value="false"/>
-          <font name="Droid Sans Mono"/>
-          <foreground color="-16769785"/>
-          <text value="&lt;html&gt;&#10;  &lt;head&gt;&#10;    &#10;  &lt;/head&gt;&#10;  &lt;body&gt;&#10;    &lt;div&gt;&#10;      HTML things&#10;    &lt;/div&gt;&#10;  &lt;/body&gt;&#10;&lt;/html&gt;&#10;"/>
-          <toolTipText value="HTML Pane"/>
-        </properties>
-      </component>
-      <component id="aa144" class="javax.swing.JTextArea" binding="textAreaInfo">
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane" custom-create="true">
+            <constraints/>
+            <properties>
+              <background color="-7487797"/>
+              <contentType value="text/html"/>
+              <editable value="false"/>
+              <font name="Droid Sans Mono"/>
+              <foreground color="-16769785"/>
+              <text value="&lt;html&gt;&#10;  &lt;head&gt;&#10;    &#10;  &lt;/head&gt;&#10;  &lt;body&gt;&#10;    &lt;div&gt;&#10;      HTML things&#10;    &lt;/div&gt;&#10;  &lt;/body&gt;&#10;&lt;/html&gt;&#10;"/>
+              <toolTipText value="HTML Pane"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <scrollpane id="d9a3a">
         <constraints>
-          <grid row="0" column="3" row-span="4" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
+          <grid row="0" column="3" row-span="4" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
-        <properties>
-          <columns value="32"/>
-          <editable value="false"/>
-          <foreground color="-6821640"/>
-          <lineWrap value="true"/>
-          <rows value="12"/>
-          <text value="Info"/>
-          <toolTipText value="Information Area"/>
-        </properties>
-      </component>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="aa144" class="javax.swing.JTextArea" binding="textAreaInfo">
+            <constraints/>
+            <properties>
+              <columns value="32"/>
+              <editable value="false"/>
+              <foreground color="-6821640"/>
+              <lineWrap value="true"/>
+              <rows value="12"/>
+              <text value="Info"/>
+              <toolTipText value="Information Area"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
   <inspectionSuppressions>
     <suppress inspection="I18nForm"/>
+    <suppress inspection="NoLabelFor"/>
   </inspectionSuppressions>
 </form>
