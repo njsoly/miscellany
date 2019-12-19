@@ -161,7 +161,7 @@ public class GridBagFormCreation {
 	}
 
 	/**
-	 * Given a list of {@link JTextComponent}s, change eac hof their margins to {@code n}.
+	 * Given a list of {@link JTextComponent}s, change each of their margins to {@code n}.
 	 * @param n
 	 * @param jtcz
 	 */
