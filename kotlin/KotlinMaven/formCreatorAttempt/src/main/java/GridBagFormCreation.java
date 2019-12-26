@@ -1,5 +1,4 @@
 import kotlin.Pair;
-import njsoly.util.ColorUtil;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -16,9 +15,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static java.awt.Color.*;
-import static java.awt.Font.*;
+import static java.awt.Font.BOLD;
+import static java.awt.Font.PLAIN;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
 import static njsoly.util.ColorUtil.*;
 
 @SuppressWarnings("unused")
@@ -80,7 +79,7 @@ public class GridBagFormCreation {
 
 		this.addStandardKeyListeners();
 
-		mainPanel.setBorder(BorderFactory.createLineBorder(ColorUtil.DEEP_GREEN_BLUE, 2, true));
+		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
 
 		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
 		resultsPane.setForeground(SOFTER_CYAN); // bright-ish cyan
@@ -104,7 +103,7 @@ public class GridBagFormCreation {
 
 		setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
 		setBgFg(searchTextArea, DEEP_BLUE, WHITE);
-		setBgFg(htmlPane, ColorUtil.DEEP_GREEN_BLUE, SOFTER_CYAN);
+		setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
 
 		htmlPane.setDisabledTextColor(GRAY);
 		htmlPane.setSelectedTextColor(WHITE);
