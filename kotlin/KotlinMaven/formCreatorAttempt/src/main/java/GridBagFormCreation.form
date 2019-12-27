@@ -69,7 +69,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="32f3" class="javax.swing.JTextArea" binding="searchTextArea">
+              <component id="32f3" class="javax.swing.JTextArea" binding="inputTextArea">
                 <constraints/>
                 <properties>
                   <background color="-14599345"/>
