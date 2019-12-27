@@ -14,8 +14,8 @@ class WordSearcherForm : GridBagFormCreation() {
 
     val ws: WordSearcher = WordSearcher()
 
-    override fun getInputArea() : JTextArea{
-        return this.inputArea
+    override fun getInputTextArea() : JTextArea{
+        return this.inputTextArea
     }
 
     class KA(val componentSource: JComponent) : KeyAdapter() {
@@ -45,13 +45,13 @@ class WordSearcherForm : GridBagFormCreation() {
 
     init {
         this.infoTextArea.text = "WORD SEARCHER!"
-        this.infoTextArea!!.addKeyListener(KA(this.infoTextArea))
+        this.inputTextArea.addKeyListener(KA(this.infoTextArea))
     }
 
     fun processInput(input: String) : List<String> {
         val results = ws.processInput(input)
 
-        
+
 
         return results!!
     }

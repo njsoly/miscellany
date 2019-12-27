@@ -23,7 +23,7 @@ import static njsoly.util.ColorUtil.*;
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
 	public JPanel mainPanel;
-	protected JTextArea searchTextArea;
+	protected JTextArea inputTextArea;
 	protected JTextArea resultsTextArea;
 	private JPanel innerPanel;
 	private JScrollPane resultsPane;
@@ -48,14 +48,14 @@ public class GridBagFormCreation {
 
 	protected void addStandardKeyListeners() {
 		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
-		searchTextArea.addKeyListener(new KeyAdapter() {
+		inputTextArea.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				super.keyTyped(e);
 			}
 		});
 
-		searchTextArea.addKeyListener(new KeyAdapter() {
+		inputTextArea.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
@@ -96,13 +96,13 @@ public class GridBagFormCreation {
 			resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
 			resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
 
-			searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
+			inputTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
 			textAreaInfo.setBackground(BLACK);
 		});
 
 		setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
-		setBgFg(searchTextArea, DEEP_BLUE, WHITE);
+		setBgFg(inputTextArea, DEEP_BLUE, WHITE);
 		setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
 
 		htmlPane.setDisabledTextColor(GRAY);
@@ -112,11 +112,11 @@ public class GridBagFormCreation {
 		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
 
 		doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
-		setMargins(3, textAreaInfo, searchTextArea, resultsTextArea);
+		setMargins(3, textAreaInfo, inputTextArea, resultsTextArea);
 
-		setSelectionBackground(BETTER_PURPLE, resultsTextArea, searchTextArea, htmlPane, textAreaInfo);
+		setSelectionBackground(BETTER_PURPLE, resultsTextArea, inputTextArea, htmlPane, textAreaInfo);
 
-		for(JComponent jc : new JComponent[]{resultsTextArea, searchTextArea, textAreaInfo, htmlPane}){
+		for(JComponent jc : new JComponent[]{resultsTextArea, inputTextArea, textAreaInfo, htmlPane}){
 			jc.setFont(new Font("Consolas", PLAIN, 14));
 		}
 
@@ -275,8 +275,8 @@ public class GridBagFormCreation {
 		return textAreaInfo;
 	}
 
-	public JTextArea getInputArea () {
-		return searchTextArea;
+	public JTextArea getInputTextArea() {
+		return inputTextArea;
 	}
 
 	void createUIComponents() {
