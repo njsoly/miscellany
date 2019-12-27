@@ -23,8 +23,8 @@ import static njsoly.util.ColorUtil.*;
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
 	public JPanel mainPanel;
-	private JTextArea searchTextArea;
-	private JTextArea resultsTextArea;
+	protected JTextArea searchTextArea;
+	protected JTextArea resultsTextArea;
 	private JPanel innerPanel;
 	private JScrollPane resultsPane;
 	private JTextArea textAreaInfo;
