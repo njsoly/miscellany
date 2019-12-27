@@ -18,7 +18,13 @@ class WordSearcherForm : GridBagFormCreation() {
         return this.inputTextArea
     }
 
-    class KA(val componentSource: JComponent) : KeyAdapter() {
+    fun getWordSearcher(): WordSearcher {
+        return ws
+    }
+
+    class KA(private val componentSource: JComponent,
+             private val wsf: WordSearcherForm,
+             private val ws: WordSearcher) : KeyAdapter() {
 
         @Override
         override fun keyPressed(e: KeyEvent?) {
@@ -26,9 +32,13 @@ class WordSearcherForm : GridBagFormCreation() {
             if(e?.keyCode == KeyEvent.VK_UP){
                 if(componentSource is JTextArea){
                     if(componentSource.caretPosition == 0){
-
+                        componentSource.text = ws.getLastInput()
                     }
                 }
+            }
+            else if (e?.keyCode == KeyEvent.VK_ENTER){
+                wsf.resultsTextArea.text += '\n' + wsf.processInput(wsf.inputTextArea.text).toString()
+                wsf.inputTextArea.text = ""
             }
         }
 
@@ -45,13 +55,14 @@ class WordSearcherForm : GridBagFormCreation() {
 
     init {
         this.infoTextArea.text = "WORD SEARCHER!"
-        this.inputTextArea.addKeyListener(KA(this.infoTextArea))
+        this.resultsTextArea.text = ""
+        this.inputTextArea.addKeyListener(KA(this.inputTextArea, this, this.ws))
     }
 
     fun processInput(input: String) : List<String> {
         val results = ws.processInput(input)
 
-
+        resultsTextArea.text += '\n' + results.toString()
 
         return results!!
     }
