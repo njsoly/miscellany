@@ -79,27 +79,27 @@ public class GridBagFormCreation {
 
 		this.addStandardKeyListeners();
 
-		mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
+		SwingUtilities.invokeLater(() -> {
+			mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
+			resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
+			resultsPane.setForeground(SOFTER_CYAN); // bright-ish cyan
+			resultsPane.setBorder(
+				BorderFactory.createTitledBorder(
+					BorderFactory.createBevelBorder(
+							BevelBorder.RAISED, CYAN.brighter(), CYAN.darker()
+					),
+					"Results",
+					TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Consolas", BOLD, 16),
+					new Color(65, 255, 133).brighter() // bright green blue
+				)
+			);
+			resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
+			resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
 
-		resultsPane.setBackground(DEEP_GREEN_BLUE); // med cobalt blue
-		resultsPane.setForeground(SOFTER_CYAN); // bright-ish cyan
-		resultsPane.setBorder(
-			BorderFactory.createTitledBorder(
-				BorderFactory.createBevelBorder(
-						BevelBorder.RAISED, CYAN.brighter(), CYAN.darker()
-				),
-				"Results",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Consolas", BOLD, 16),
-				new Color(65, 255, 133).brighter() // bright green blue
-			)
-		);
-		resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
-		resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
+			searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
-
-		searchTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
-
-		textAreaInfo.setBackground(BLACK);
+			textAreaInfo.setBackground(BLACK);
+		});
 
 		setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
 		setBgFg(searchTextArea, DEEP_BLUE, WHITE);
@@ -136,6 +136,7 @@ public class GridBagFormCreation {
 	}
 
 	public void addCssRuleToHtmlPane(String cssRule){
+
 		htmlDocument.getStyleSheet().addRule(cssRule);
 	}
 
@@ -188,6 +189,9 @@ public class GridBagFormCreation {
 					if(!window.isVisible()) {
 						System.exit(1);
 					}
+				}
+				if (window.isVisible()) {
+					this.cancel();
 				}
 			}
 		}, 0, 2000);
