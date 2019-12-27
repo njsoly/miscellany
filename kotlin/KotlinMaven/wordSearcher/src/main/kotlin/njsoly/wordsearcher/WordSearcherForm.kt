@@ -51,7 +51,8 @@ class WordSearcherForm : GridBagFormCreation() {
     fun processInput(input: String) : List<String> {
         val results = ws.processInput(input)
 
+        
 
-        return results
+        return results!!
     }
 }
