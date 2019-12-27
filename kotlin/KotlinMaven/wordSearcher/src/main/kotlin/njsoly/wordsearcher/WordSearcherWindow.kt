@@ -1,6 +1,7 @@
 package njsoly.wordsearcher
 
 import javax.swing.JFrame
+import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
@@ -14,7 +15,7 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
 
     fun packAndShow() {
         this.pack()
-        this.show()
+        this.isVisible = true
     }
 
 }
@@ -23,5 +24,10 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
  *
  */
 fun main(args: Array<String>) {
-    WordSearcherWindow().packAndShow()
+    val w = WordSearcherWindow()
+    w.packAndShow()
+
+    SwingUtilities.invokeLater{
+        w.packAndShow()
+    }
 }
