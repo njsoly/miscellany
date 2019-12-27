@@ -4,9 +4,12 @@ import javax.swing.JFrame
 import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
+/**
+ * A simple container for [WordSearcherForm].
+ */
 class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
 
-    private val wordSearcherForm: WordSearcherForm = WordSearcherForm()
+    val wordSearcherForm: WordSearcherForm = WordSearcherForm()
 
     init {
         this.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
@@ -20,9 +23,6 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
 
 }
 
-/**
- *
- */
 fun main(args: Array<String>) {
     val w = WordSearcherWindow()
     w.packAndShow()

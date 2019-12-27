@@ -32,6 +32,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     val words: List<String>
     val output: PrintStream = System.out
     val input: InputStream = System.`in`
+    private val inputHistory = mutableListOf<String>()
 
     init {
 
@@ -41,14 +42,14 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         } else {
             println("read ${file.name}, and found ${words.size} words.")
         }
-
     }
 
     fun inputLoop () {
         var quit: Boolean = false
         while (!quit) {
-            println("enter your search: <your letters> <your search...>")
-            val inputString: String = (readLine() ?: "").trim()
+
+            output.println("enter your search: <your letters> <your search...>")
+            val inputString: String = (readLine() ?: "")
 
             if (isQuitMessage(inputString)){
                 println("you chose to quit.")
@@ -57,9 +58,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             } else {
                 val results = processInput(inputString) ?: listOf()
                 if(results.isNotEmpty()) {
-                    info("Results:\n${results.map { "\t$it" }}")
+                    output.println("Results:\n${results.map { "\t$it" }}")
                 } else {
-                    info("No results found.")
+                    output.println("No results found.")
                 }
             }
         }
@@ -67,14 +68,21 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
 
+    /**
+     * This is serves as the main entrypoint for a given round of
+     * searching for words.
+     *
+     * [inputLoop] runs it repeatedly until the quit command is
+     * given.
+     */
     fun processInput(inputString: String): List<String>? {
-//        println("your input string: \"$inputString\"")
-        val inputString = inputString.toUpperCase()
-        val INPUT_LIMIT = 10
+        val inputString = inputString.toUpperCase().trim()
+        val INPUT_LIMIT = 16
+        storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = INPUT_LIMIT)
 
         if (inputString == "" || inputSplit.isEmpty()) {
-            error("invalid input string: $inputString")
+            output.println("invalid input string: $inputString")
             return null
         }
 
@@ -204,6 +212,14 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     fun checkListForExactMatch (inputString: String): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
+    }
+
+    fun storeToInputHistory(inputString: String){
+        inputHistory.add(inputString)
+    }
+
+    fun getLastInput() : String {
+        return inputHistory.last()
     }
 
     companion object {
