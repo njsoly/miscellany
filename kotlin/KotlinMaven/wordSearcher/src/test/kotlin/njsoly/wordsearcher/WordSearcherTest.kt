@@ -7,7 +7,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
-import java.util.*
 import kotlin.text.Regex.Companion.escape
 
 
@@ -64,6 +63,7 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
+        DEBUG = false
         val result = processInput("aoue .... ...t...")
         assertEquals(false, result!!.contains("AETHER"))
     }
@@ -126,7 +126,10 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `filterToLength() with exact length does it right` () {
-        assertEquals(listOf("WHAT"), listOf("WHAT").filterToLength(4))
+        assertEquals(
+            listOf("WHAT", "WANT"),
+            listOf("WHAT", "DO", "YOU", "WANT").filterToLength(4)
+        )
     }
 
     @Test

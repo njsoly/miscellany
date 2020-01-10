@@ -2,11 +2,15 @@
 
 package njsoly.wordsearcher
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+//import org.slf4j.Logger
 
+import njsoly.fs.FileLinesLoader
+import njsoly.log.SetupLogger
+import org.apache.log4j.Logger
 import java.io.File
-import java.io.FileNotFoundException
+import java.io.InputStream
+import java.io.PrintStream
+import java.lang.System
 import java.time.LocalDate
 
 /**
@@ -26,26 +30,27 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
 
     val words: List<String>
-
-    val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
+    val output: PrintStream = System.out
+    val input: InputStream = System.`in`
+    private val inputHistory = mutableListOf<String>()
 
     init {
 
-        words = Loader(filename).words
+        words = FileLinesLoader(filename).lines
         if(words.isEmpty()) {
             error("could not read words from $filename.")
         } else {
             println("read ${file.name}, and found ${words.size} words.")
         }
-
     }
 
     fun inputLoop () {
         var quit: Boolean = false
         while (!quit) {
-            println("enter your search: <your letters> <your search...>")
-            val inputString: String = (readLine() ?: "").trim()
-            
+
+            output.println("enter your search: <your letters> <your search...>")
+            val inputString: String = (readLine() ?: "")
+
             if (isQuitMessage(inputString)){
                 println("you chose to quit.")
                 quit = true
@@ -53,9 +58,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             } else {
                 val results = processInput(inputString) ?: listOf()
                 if(results.isNotEmpty()) {
-                    info("Results:\n${results.map { "\t$it" }}")
+                    output.println("Results:\n${results.map { "\t$it" }}")
                 } else {
-                    info("No results found.")
+                    output.println("No results found.")
                 }
             }
         }
@@ -63,23 +68,29 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
 
-
+    /**
+     * This is serves as the main entrypoint for a given round of
+     * searching for words.
+     *
+     * [inputLoop] runs it repeatedly until the quit command is
+     * given.
+     */
     fun processInput(inputString: String): List<String>? {
-//        println("your input string: \"$inputString\"")
-        val inputString = inputString.toUpperCase()
-        val INPUT_LIMIT = 10
+        val inputString = inputString.toUpperCase().trim()
+        val INPUT_LIMIT = 16
+        storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = INPUT_LIMIT)
 
         if (inputString == "" || inputSplit.isEmpty()) {
-            error("invalid input string: $inputString")
+            output.println("invalid input string: $inputString")
             return null
         }
 
         if (inputSplit.size == 1) {
             return if (inputString.isSimple()) {
-                `processInput exact match` (inputString)
+                checkListForExactMatch (inputString)
             } else {
-                `processSearch single regex`(inputSplit[0])
+                `filter full list against single pattern`(inputSplit[0])
             }
         }
 
@@ -89,6 +100,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         return `process letters against search strings` (letters, searchStrings)
     }
 
+
     private fun `process letters against search strings`(letters: String, searchStrings: List<String>): List<String>? {
         debug("processing letters")
         val wilds = letters.count{ it == '.' || it == '?' || it == '_'}
@@ -96,19 +108,27 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val letters = letters.filter{ it.isLetter() }
         debug("letters with wilds removed: \"$letters\"")
 
-//        val resultsMap = searchStrings.associate {
-//            Pair<String, List<String>>(it, matchLettersToPattern(letters, it, wilds = wilds))
-//        }
-
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
-        results = sortResultsByLength(results).toMutableList()
+        results = results.toSet().toMutableList()
+        results = sortResultsByIntrinsicValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
     }
 
+    /**
+     * Sorts a [wordList] by length.
+     */
     fun sortResultsByLength(wordList: List<String>) : List<String> {
         return wordList.sortedByDescending{ it.length }
+    }
+
+    /**
+     * Sorts a [list][wordList] of [String]s by the sum of the values of
+     * each letter.
+     */
+    fun sortResultsByIntrinsicValue(wordList: List<String>): List<String> {
+        return wordList.sortedByDescending { LetterTile.instrinsicWordValue(it) }
     }
 
     fun matchLettersToPattern(letters: String, pattern: String, wordList: List<String> = this.words, wilds: Int = 0): List<String> {
@@ -131,16 +151,15 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      */
     fun matchLettersToWord(lettersToUse: String, word: String, pattern: String, numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
-        var w = word
+        val w = word
         var wilds: Int = numberOfWilds
-        var pattern = trimPatternForWord(w, pattern)
+        val pattern = trimPatternForWord(w, pattern)
         var i: Int = 0
         var j: Int = 0
         for (letter: Char in w) {
             if(pattern.length <= i) {
                 return false
             }
-
             if (pattern[i].isLetter() && w[i] == pattern[j]) {
                 i++; j++
                 continue
@@ -148,9 +167,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
                 letters = letters.minusElement(letter)
             } else if (wilds > 0) {
                 wilds--
-//            } else if (pattern[j] == '.') {
-//                pattern = pattern.substring(j)
-//                j = 0
             } else {
                 if(DEBUG) { debug("defaulted out at [$i], letter $letter") }
                 return false
@@ -183,7 +199,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Searches the word list for matches for the given [pattern],
      * without regard to which letters a player may actually have.
      */
-    fun `processSearch single regex` (pattern: String): List<String>? {
+    fun `filter full list against single pattern` (pattern: String): List<String>? {
         info("Matching words to regular expression \"$pattern\"")
         val p = pattern.replace("*",".*")
         return words.filter { it.matches(Regex(p))}
@@ -193,42 +209,30 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Searches the word list for an exact match of [inputString]. (no RegEx)
      * @param[inputString] a word to check the word list for a match
      */
-    fun `processInput exact match` (inputString: String): List<String>? {
+    fun checkListForExactMatch (inputString: String): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
         return words.filterToLength(inputString.length).filter{ it == inputString }
     }
 
-    class Loader (val filename: String){
-
-        val file: File = File(filename)
-
-        val words: List<String>
-        init {
-            words = try {
-                info("reading ${Companion.file.name} (size ${Companion.file.length()}).")
-                file.readLines()
-            } catch (e: FileNotFoundException){
-                error("couldn't read $file at ${file.absoluteFile}")
-                emptyList()
-            }
-
-        }
+    fun storeToInputHistory(inputString: String){
+        inputHistory.add(inputString)
     }
 
+    fun getLastInput() : String {
+        return inputHistory.last()
+    }
 
     companion object {
-
-
         var DEBUG = false
 
         val now: LocalDate = LocalDate.now()
         val file: File = File("twl.txt")
 
-        val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
+        val LOGGER: Logger = SetupLogger.setupLogger(this::class.java)
 
         fun info(x: Any){
             if (LOGGER.isInfoEnabled) {
-                println("INFO: $x")
+                LOGGER.info("INFO: $x")
             } else {
                 println("INFO: $x")
             }
@@ -236,18 +240,18 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         fun debug(x: Any) {
             if(LOGGER.isDebugEnabled) {
-                println("DEBUG: $x")
+                LOGGER.info("DEBUG: $x")
             } else {
                 println("DEBUG: $x")
             }
         }
 
         fun error(x: Any){
-            if(LOGGER.isErrorEnabled) {
-                error("ERROR: $x")
-            } else {
-                error("ERROR: $x")
-            }
+//            if() {
+                LOGGER.error("ERROR: $x")
+//            } else {
+//                error("ERROR: $x")
+//            }
         }
 
         /**
@@ -285,7 +289,6 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         fun List<String>.filterToPattern(pattern: String) : List<String> {
             return this.filter {
                 if(DEBUG) println("filtering $it to match $pattern")
-//                it.matches(Regex(".*" + pattern.trim('.') + ".*"))
                 it.matches(Regex(pattern.replace(".",".?")))
             }
         }

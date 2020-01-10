@@ -14,7 +14,7 @@ apply plugin: 'application'
 
 mainClassName = 'njsoly.wordsearcher.WordSearcherKt'
 
-defaultTasks 'run'
+defaultTasks 'jar'
 
 repositories {
     mavenCentral()
