@@ -55,3 +55,4 @@ kotlin/njsoly - Darc*
 kotlin/.idea/*/*.xml
 .idea/*xml
 kotlin/.idea/*.xml
+kotlin/.idea/\.*
