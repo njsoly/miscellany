@@ -1,0 +1,4 @@
+dps () 
+{ 
+    docker ps --format "table {{.ID}} {{.Command}}\t{{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.Size}}"
+}

@@ -52,3 +52,7 @@ kotlin/KotlinMaven/jaxrs-doclet *
 kotlin/KotlinMaven/vieques\-*.iml
 kotlin/njsoly - Darc*
 *~*
+kotlin/.idea/*/*.xml
+.idea/*xml
+kotlin/.idea/*.xml
+kotlin/.idea/\.*

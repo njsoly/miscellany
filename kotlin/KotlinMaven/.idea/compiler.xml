@@ -7,8 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="KotlinMaven" />
+<<<<<<< HEAD
+        <module name="wordSearcher" />
+        <module name="KotlinMaven (2)" />
+        <module name="KotlinMaven (1)" />
+=======
         <module name="KotlinMaven.wordSearcher" />
         <module name="KotlinMaven.loggerFactoryUsageTry" />
+>>>>>>> origin/master
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
