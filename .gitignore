@@ -56,3 +56,4 @@ kotlin/.idea/*/*.xml
 .idea/*xml
 kotlin/.idea/*.xml
 kotlin/.idea/\.*
+kotlin/KotlinMaven/.idea/libraries/
