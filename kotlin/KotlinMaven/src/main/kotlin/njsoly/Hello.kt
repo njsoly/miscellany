@@ -15,4 +15,3 @@ fun main(args: Array<String>) {
 class Hello {
     val now: LocalDate = LocalDate.now()
 }
-
