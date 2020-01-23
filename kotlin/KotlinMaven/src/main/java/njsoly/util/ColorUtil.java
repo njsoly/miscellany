@@ -2,6 +2,7 @@ package njsoly.util;
 
 import java.awt.*;
 
+@SuppressWarnings("unused")
 public class ColorUtil {
 
 	public static final Color BRIGHT_SEAFOAM = new Color(78, 255, 190);
