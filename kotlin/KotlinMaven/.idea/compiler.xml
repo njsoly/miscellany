@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="KotlinMaven" />
         <module name="KotlinMaven.wordSearcher" />
-        <module name="loggerFactoryUsageTry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
