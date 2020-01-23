@@ -13,6 +13,6 @@ fun main(args: Array<String>) {
 }
 
 class Hello {
-    val now = LocalDate.now()
+    val now: LocalDate = LocalDate.now()
 }
 
