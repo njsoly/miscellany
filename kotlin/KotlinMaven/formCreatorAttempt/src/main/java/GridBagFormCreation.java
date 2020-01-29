@@ -48,36 +48,40 @@ public class GridBagFormCreation {
 
 	protected void addStandardKeyListeners() {
 		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
-		inputTextArea.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				super.keyTyped(e);
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run() {
+				inputTextArea.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						super.keyTyped(e);
+					}
+				});
+
+				inputTextArea.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyPressed(KeyEvent e) {
+						super.keyPressed(e);
+						if (e.isActionKey()) {
+							System.out.println("e (" + e.getKeyCode() + ") is an action key.");
+						} else {
+							System.out.println("e (" + e.getKeyCode() + ") is NOT an action key.");
+						}
+						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+							System.out.println("pressed ENTER.");
+						}
+					}
+				});
+
+				if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 			}
 		});
 
-		inputTextArea.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				super.keyPressed(e);
-				if (e.isActionKey()) {
-					System.out.println("e (" + e.getKeyCode() + ") is an action key.");
-				} else {
-					System.out.println("e (" + e.getKeyCode() + ") is NOT an action key.");
-				}
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					System.out.println("pressed ENTER.");
-				}
-			}
-		});
-
-		if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
 
 	}
 
 	public GridBagFormCreation() {
 		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
 
-		this.addStandardKeyListeners();
 
 		SwingUtilities.invokeLater(() -> {
 			mainPanel.setBorder(BorderFactory.createLineBorder(DEEP_GREEN_BLUE, 2, true));
@@ -99,26 +103,29 @@ public class GridBagFormCreation {
 			inputTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
 
 			textAreaInfo.setBackground(BLACK);
+
+			this.addStandardKeyListeners();
+
+			setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
+			setBgFg(inputTextArea, DEEP_BLUE, WHITE);
+			setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
+
+			htmlPane.setDisabledTextColor(GRAY);
+			htmlPane.setSelectedTextColor(WHITE);
+
+			htmlDocument = (HTMLDocument) (htmlPane.getDocument());
+			htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
+
+			doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
+			setMargins(3, textAreaInfo, inputTextArea, resultsTextArea);
+
+			setSelectionBackground(BETTER_PURPLE, resultsTextArea, inputTextArea, htmlPane, textAreaInfo);
+
+			for(JComponent jc : new JComponent[]{resultsTextArea, inputTextArea, textAreaInfo, htmlPane}){
+				jc.setFont(new Font("Consolas", PLAIN, 14));
+			}
 		});
 
-		setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
-		setBgFg(inputTextArea, DEEP_BLUE, WHITE);
-		setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
-
-		htmlPane.setDisabledTextColor(GRAY);
-		htmlPane.setSelectedTextColor(WHITE);
-
-		htmlDocument = (HTMLDocument) (htmlPane.getDocument());
-		htmlDocument.getStyleSheet().addRule("html body { color: #FFFFFF }");
-
-		doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
-		setMargins(3, textAreaInfo, inputTextArea, resultsTextArea);
-
-		setSelectionBackground(BETTER_PURPLE, resultsTextArea, inputTextArea, htmlPane, textAreaInfo);
-
-		for(JComponent jc : new JComponent[]{resultsTextArea, inputTextArea, textAreaInfo, htmlPane}){
-			jc.setFont(new Font("Consolas", PLAIN, 14));
-		}
 
 		System.out.println("GridBagFormCreation(): END " + theTime());
 	}

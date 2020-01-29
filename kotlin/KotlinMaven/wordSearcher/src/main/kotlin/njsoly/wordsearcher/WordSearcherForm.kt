@@ -5,12 +5,21 @@ import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.JComponent
 import javax.swing.JTextArea
+import javax.swing.SwingUtilities
 
 /**
  * An extension of [GridBagFormCreation] that serves as an
  * interface for [WordSearcher].
  */
-class WordSearcherForm : GridBagFormCreation() {
+class WordSearcherForm : GridBagFormCreation {
+
+    constructor() : super() {
+        SwingUtilities.invokeLater {
+            this.infoTextArea.text = "WORD SEARCHER!"
+            this.resultsTextArea.text = ""
+            this.inputTextArea.addKeyListener(KA(this.inputTextArea, this, this.ws))
+        }
+    }
 
     val ws: WordSearcher = WordSearcher()
 
@@ -51,12 +60,6 @@ class WordSearcherForm : GridBagFormCreation() {
         override fun keyReleased(e: KeyEvent?) {
             super.keyReleased(e)
         }
-    }
-
-    init {
-        this.infoTextArea.text = "WORD SEARCHER!"
-        this.resultsTextArea.text = ""
-        this.inputTextArea.addKeyListener(KA(this.inputTextArea, this, this.ws))
     }
 
     fun processInput(input: String) : List<String> {
