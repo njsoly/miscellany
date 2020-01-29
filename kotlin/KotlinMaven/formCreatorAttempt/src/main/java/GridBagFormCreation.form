@@ -95,7 +95,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane" custom-create="true">
+          <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane">
             <constraints/>
             <properties>
               <background color="-7487797"/>
