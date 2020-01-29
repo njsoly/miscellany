@@ -28,7 +28,6 @@ public class TimerTaskLimited extends TimerTask {
 			task = null;
 		}
 	}
-//, 0, 2000);
 
 	static void killIt(){
 		t = null;
