@@ -1,4 +1,4 @@
 *.kotlin_module diff text
-*.kt text
+*.kt diff text
 
 
