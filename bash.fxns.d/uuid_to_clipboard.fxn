@@ -1,0 +1,4 @@
+uuid_to_clipboard () 
+{ 
+    uuidgen | tr [:upper:] [:lower:] | tr -d '\n' | pbcopy
+}
