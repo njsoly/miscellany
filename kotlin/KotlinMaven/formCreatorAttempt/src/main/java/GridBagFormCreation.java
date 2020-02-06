@@ -1,4 +1,6 @@
 import kotlin.Pair;
+import njsoly.log.SetupLogger;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -31,6 +33,7 @@ public class GridBagFormCreation {
 	private JEditorPane htmlPane;
 	protected HTMLDocument htmlDocument;
 
+	private final static Logger LOGGER = SetupLogger.setupLogger(GridBagFormCreation.class);
 
 	protected static final HashMap<String, Pair<LocalDateTime, LocalDateTime>> TIMINGS = new HashMap<>();
 
@@ -38,7 +41,7 @@ public class GridBagFormCreation {
 
 	static {
 		if(DEBUG)
-			System.out.println("GridBagFormCreation class loaded: " + theTime());
+			LOGGER.debug("GridBagFormCreation class loaded: " + theTime());
 	}
 
 	public static String theTime () {
@@ -47,7 +50,7 @@ public class GridBagFormCreation {
 	}
 
 	protected void addStandardKeyListeners() {
-		if(DEBUG) System.out.println("GridBagFormCreation(): adding key listener " + theTime());
+		if(DEBUG) LOGGER.debug("GridBagFormCreation(): adding key listener " + theTime());
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run() {
 				inputTextArea.addKeyListener(new KeyAdapter() {
@@ -62,17 +65,17 @@ public class GridBagFormCreation {
 					public void keyPressed(KeyEvent e) {
 						super.keyPressed(e);
 						if (e.isActionKey()) {
-							System.out.println("e (" + e.getKeyCode() + ") is an action key.");
+							LOGGER.debug("e (" + e.getKeyCode() + ") is an action key.");
 						} else {
-							System.out.println("e (" + e.getKeyCode() + ") is NOT an action key.");
+							LOGGER.debug("e (" + e.getKeyCode() + ") is NOT an action key.");
 						}
 						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-							System.out.println("pressed ENTER.");
+							LOGGER.debug("pressed ENTER.");
 						}
 					}
 				});
 
-				if(DEBUG) System.out.println("gridBagFormCreation(): added key listener");
+				if(DEBUG) LOGGER.debug("gridBagFormCreation(): added key listener");
 			}
 		});
 
@@ -80,7 +83,7 @@ public class GridBagFormCreation {
 	}
 
 	public GridBagFormCreation() {
-		if(DEBUG) System.out.println("GridBagFormCreation() " + theTime());
+		if(DEBUG) LOGGER.debug("GridBagFormCreation() " + theTime());
 
 
 		SwingUtilities.invokeLater(() -> {
@@ -127,12 +130,12 @@ public class GridBagFormCreation {
 		});
 
 
-		System.out.println("GridBagFormCreation(): END " + theTime());
+		LOGGER.debug("GridBagFormCreation(): END " + theTime());
 	}
 
 	void setBgFg(JComponent jc, Color bg, Color fg) {
 		SwingUtilities.invokeLater(() -> {
-			System.out.println("setting BG & FG (" + jc.getName() + "): END " + theTime());
+			LOGGER.debug("setting BG & FG (" + jc.getName() + "): END " + theTime());
 			jc.setForeground(fg);
 			jc.setBackground(bg);
 		});
@@ -170,7 +173,7 @@ public class GridBagFormCreation {
 
 	protected void doStandardComponentBorder(JComponent... jcz) {
 		SwingUtilities.invokeLater(() -> {
-			if(DEBUG) System.out.println("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
+			if(DEBUG) LOGGER.debug("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
 			for(JComponent jc : jcz){
 				jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
 			}
@@ -189,7 +192,7 @@ public class GridBagFormCreation {
 			final int max = maxTimes;
 			@Override
 			public void run() {
-				System.out.println("Window is visible [" + times + "]: " + window.isVisible());
+				LOGGER.debug("Window is visible [" + times + "]: " + window.isVisible());
 				times++;
 				if(times > maxTimes) {
 					this.cancel();
@@ -198,6 +201,7 @@ public class GridBagFormCreation {
 					}
 				}
 				if (window.isVisible()) {
+					LOGGER.info("window is visible.");
 					this.cancel();
 				}
 			}
@@ -219,28 +223,28 @@ public class GridBagFormCreation {
 		JFrame frame = new JFrame("GridBagFormCreation"){
 			@Override
 			public void setVisible(boolean visible){
-				if(DEBUG) System.out.println("setting window visible: " + theTime());
+				if(DEBUG) LOGGER.debug("setting window visible: " + theTime());
 				super.setVisible(visible);
-				if(DEBUG) System.out.println("window is visible " + (visible) + ": " + theTime());
+				if(DEBUG) LOGGER.debug("window is visible " + (visible) + ": " + theTime());
 			}
 
 			@Override
 			public void pack(){
-				if(DEBUG) System.out.println("packing window: " + theTime());
+				if(DEBUG) LOGGER.debug("packing window: " + theTime());
 				super.pack();
-				if(DEBUG) System.out.println("packed window: " + theTime());
+				if(DEBUG) LOGGER.debug("packed window: " + theTime());
 			}
 
 			{
 				this.addContainerListener(new ContainerListener(){
 					@Override
 					public void componentAdded(ContainerEvent e) {
-						if(DEBUG) System.out.println("componentAdded: " + e);
+						if(DEBUG) LOGGER.debug("componentAdded: " + e);
 					}
 
 					@Override
 					public void componentRemoved(ContainerEvent e) {
-						if(DEBUG) System.out.println("componentRemoved: " + e);
+						if(DEBUG) LOGGER.debug("componentRemoved: " + e);
 					}
 				});
 
@@ -248,24 +252,24 @@ public class GridBagFormCreation {
 
 					@Override
 					public void componentResized(ComponentEvent e) {
-						System.out.println("component resized: " + e.getComponent().getName() + " " + e.paramString());
+						LOGGER.debug("component resized: " + e.getComponent().getName() + " " + e.paramString());
 					}
 
 					@Override
 					public void componentMoved(ComponentEvent e) {
-						System.out.println("component moved: " + e.getComponent().getName() + " " + e.paramString());
+						LOGGER.debug("component moved: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 
 					@Override
 					public void componentShown(ComponentEvent e) {
-						System.out.println("component shown: " + e.getComponent().getName() + " " + e.paramString());
+						LOGGER.debug("component shown: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 
 					@Override
 					public void componentHidden(ComponentEvent e) {
-						System.out.println("component hidden: " + e.getComponent().getName() + " " + e.paramString());
+						LOGGER.debug("component hidden: " + e.getComponent().getName() + " " + e.paramString());
 
 					}
 				});
@@ -287,7 +291,6 @@ public class GridBagFormCreation {
 	}
 
 	void createUIComponents() {
-		if(DEBUG) System.out.println("createUIComponents() " + theTime());
-		htmlPane = new JEditorPane("text/html", "<div><b>aoeu</b> snth</div> <hr /> <h3>aoeusntahoeusnth</h3>");
+		if(DEBUG) LOGGER.debug("createUIComponents() " + theTime());
 	}
 }
