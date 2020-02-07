@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/KotlinMaven.iml" filepath="$PROJECT_DIR$/KotlinMaven.iml" />
       <module fileurl="file://$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" filepath="$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" />
       <module fileurl="file://$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" filepath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loggerFactoryUsageTry.iml" filepath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" />
     </modules>
   </component>
 </project>

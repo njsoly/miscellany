@@ -13,7 +13,6 @@
     <bytecodeTargetLevel>
       <module name="KotlinMaven" target="8" />
       <module name="KotlinMaven.wordSearcher" target="6" />
-      <module name="loggerFactoryUsageTry" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
