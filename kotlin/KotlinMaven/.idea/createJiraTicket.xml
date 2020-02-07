@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CreateJiraTicketConfiguration">
+    <option name="commentRules">
+      <list>
+        <CommentRule>
+          <option name="commentExpression" value="^// TODO (.*)$" />
+          <option name="commentTemplate" value="// TODO {Key} {Summary}" />
+          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="name" value="New Rule" />
+        </CommentRule>
+      </list>
+    </option>
+    <option name="jiraUrl" value="https://syntj.atlassian.net" />
+    <option name="password" value="66HC8buBEBeHcgPGQxfdC627" />
+    <option name="project" value="MISC" />
+    <option name="username" value="njsoly@syntj.com" />
+  </component>
+</project>
