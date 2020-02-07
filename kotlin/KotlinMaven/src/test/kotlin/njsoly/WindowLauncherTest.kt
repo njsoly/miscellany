@@ -3,8 +3,6 @@ package njsoly
 import org.junit.Before
 import org.junit.Test
 
-import org.junit.Assert.*
-
 class WindowLauncherTest {
 
     lateinit var windowLauncher: WindowLauncher
