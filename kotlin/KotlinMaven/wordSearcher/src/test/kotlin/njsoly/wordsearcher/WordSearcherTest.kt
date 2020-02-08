@@ -7,7 +7,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
-import java.io.InputStreamReader
 import kotlin.text.Regex.Companion.escape
 
 @RunWith(MockitoJUnitRunner::class)
@@ -28,11 +27,14 @@ class WordSearcherTest : WordSearcher() {
         DEBUG = DEBUG_was ?: false
     }
 
+    // TASK MISC-14 create test that ensures that a word doesn't match to itself with wilcards added.  Example: ".....bocks" should not match "bocks".
+
     @Test
     fun `test getWords`() {
         assertNotNull(wordSearcher.words)
     }
 
+    // TODO MISC-13 test inputloop.
     @Test
     fun `test inputLoop`() { }
 
