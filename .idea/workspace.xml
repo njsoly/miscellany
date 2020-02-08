@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f96dc86f-ddf8-4d54-a1a6-acf8d6a80bae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__exitStatus.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/__exitStatus.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/all_my_changes.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/all_my_changes.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/branchname.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/branchname.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/dps.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/dps.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/has_arg1.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/has_arg1.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/just_the_branch.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/just_the_branch.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/print_lengths_of_words.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/print_lengths_of_words.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/sqs-list-queues.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/sqs-list-queues.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.fxns.d/uuid_to_clipboard.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/uuid_to_clipboard.fxn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/KotlinMaven/src/main/kotlin/njsoly/log/SetupLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/KotlinMaven/src/main/kotlin/njsoly/log/SetupLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/KotlinMaven/wordSearcher/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/KotlinMaven/wordSearcher/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/copy-what.fxn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/countlines.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/countlines.fxn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +23,9 @@
     <searchers />
   </component>
   <component name="JiraServerManager">
-    <selected>-1</selected>
-    <servers />
+    <servers>
+      <JiraServer password="df9cdf9cdfe2dfe9df92dfc8dfdfdfe8dfefdfe8dfcfdfe2dfc9dfcddffadfeddffbdfd2dfccdfcedfe9df9cdf98df9d" url="https://syntj.atlassian.net" username="njsoly@syntj.com" />
+    </servers>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -54,6 +46,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.43866944" />
+    <property name="settings.editor.selected.configurable" value="de.chamacos.plugins.intellijidea.createjiraticket.configuration.CreateJiraTicketSettings" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -98,10 +91,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="139" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1581126061245" />
-    <state x="280" y="4" key="SettingsEditor" timestamp="1581126064507">
+    <state x="231" y="84" key="SettingsEditor" timestamp="1581127653537">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="280" y="4" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581126064507" />
+    <state x="231" y="84" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581127653537" />
     <state x="183" y="154" key="new project wizard" timestamp="1581125991728">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
