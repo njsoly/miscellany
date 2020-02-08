@@ -1,4 +1,5 @@
-has_arg1 () 
+#!/usr/bin/env bash
+has_arg1 ()
 { 
     [[ -n "$1" ]] && return $(true) || return $(false)
 }

@@ -1,4 +1,5 @@
-build-auto-tests () 
+#!/usr/bin/env bash
+build-auto-tests ()
 { 
 	pushd ~/genesis-projects/genesis-auto-tests > /dev/null
 	run_this_timed mvn clean install -DskipTests=true -DskipReporting=true -P qaObj

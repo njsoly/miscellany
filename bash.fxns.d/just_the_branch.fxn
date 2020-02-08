@@ -1,4 +1,5 @@
-just_the_branch () 
+#!/usr/bin/env bash
+just_the_branch ()
 { 
     [ -n "$1" ] && pushd "$1" > /dev/null;
     git branch | grep '^\*' | tr -d '*' | tr -d ' ';
