@@ -13,8 +13,9 @@ import java.io.PrintStream
 import java.lang.System
 import java.time.LocalDate
 
+// TODO (Test task 2)$
 /**
- *
+ * TODO (Test task)$
  */
 fun main(args: Array<String>) {
     println("Hello, WordSearcher.")
@@ -26,6 +27,11 @@ fun main(args: Array<String>) {
 
 }
 
+// TODO (what do you want)$
+// TASK do this do this
+// TASK MISC-11 (MISC this is a cool thing)$ aoesunth
+// JIRA test jira
+// JIRA MISC-10 {MISC} {low} test task
 open class WordSearcher (val filename: String = file.toRelativeString(File("."))){
 
 
