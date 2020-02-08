@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f96dc86f-ddf8-4d54-a1a6-acf8d6a80bae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__exitStatus.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/__exitStatus.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/all_my_changes.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/all_my_changes.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/branchname.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/branchname.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/dps.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/dps.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/has_arg1.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/has_arg1.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/just_the_branch.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/just_the_branch.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/print_lengths_of_words.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/print_lengths_of_words.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/sqs-list-queues.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/sqs-list-queues.fxn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/uuid_to_clipboard.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/uuid_to_clipboard.fxn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotlin/KotlinMaven/src/main/kotlin/njsoly/log/SetupLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/KotlinMaven/src/main/kotlin/njsoly/log/SetupLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin/KotlinMaven/wordSearcher/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/KotlinMaven/wordSearcher/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
