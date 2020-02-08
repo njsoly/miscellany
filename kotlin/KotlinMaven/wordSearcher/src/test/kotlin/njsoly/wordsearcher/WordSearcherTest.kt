@@ -9,9 +9,7 @@ import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
 import kotlin.text.Regex.Companion.escape
 
-
 @RunWith(MockitoJUnitRunner::class)
-
 class WordSearcherTest : WordSearcher() {
 
     val wordSearcher: WordSearcher = WordSearcher()
