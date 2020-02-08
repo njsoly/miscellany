@@ -4,48 +4,48 @@
     <option name="commentRules">
       <list>
         <CommentRule>
-          <option name="commentExpression" value="^// JIRA (.*)$" />
-          <option name="commentTemplate" value="// JIRA {Key} {Summary}" />
+          <option name="commentExpression" value="^(//| *|#) JIRA (.*)$" />
+          <option name="commentTemplate" value="$1 JIRA {Key} {Summary}" />
           <option name="jiraIssueType" value="Story" />
           <option name="jiraLabels" value="MISC" />
           <option name="jiraPriority" value="Medium" />
-          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="jiraSummaryTemplate" value="$2" />
           <option name="name" value="JIRA make a story" />
         </CommentRule>
         <CommentRule>
-          <option name="commentExpression" value="^// TODO (.*)$" />
-          <option name="commentTemplate" value="// TODO {Key} {Summary}" />
+          <option name="commentExpression" value="^(//| *|#) TODO (.*)$" />
+          <option name="commentTemplate" value="$1 TODO {Key} {Summary}" />
           <option name="jiraIssueType" value="Story" />
           <option name="jiraLabels" value="" />
-          <option name="jiraPriority" value="Low" />
-          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="jiraPriority" value="Medium" />
+          <option name="jiraSummaryTemplate" value="$2" />
           <option name="name" value="TODO make a story" />
         </CommentRule>
         <CommentRule>
-          <option name="commentExpression" value="^// BUG (.*)$" />
-          <option name="commentTemplate" value="// BUG {Key} {Summary}" />
+          <option name="commentExpression" value="^(//| *|#) BUG (.*)$" />
+          <option name="commentTemplate" value="$1 BUG {Key} {Summary}" />
           <option name="jiraIssueType" value="Bug" />
           <option name="jiraLabels" value="" />
           <option name="jiraPriority" value="Low" />
-          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="jiraSummaryTemplate" value="$2" />
           <option name="name" value="BUG do bug" />
         </CommentRule>
         <CommentRule>
-          <option name="commentExpression" value="^// FIXME (.*)$" />
-          <option name="commentTemplate" value="// FIXME {Key} {Summary}" />
+          <option name="commentExpression" value="^(//| *|#) FIXME (.*)$" />
+          <option name="commentTemplate" value="$1 FIXME {Key} {Summary}" />
           <option name="jiraIssueType" value="Bug" />
           <option name="jiraLabels" value="" />
           <option name="jiraPriority" value="Medium" />
-          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="jiraSummaryTemplate" value="$2" />
           <option name="name" value="FIXME" />
         </CommentRule>
         <CommentRule>
-          <option name="commentExpression" value="^// TASK (.*)$" />
-          <option name="commentTemplate" value="// TASK {Key} {Summary}" />
+          <option name="commentExpression" value="^(//| *|#) TASK (.*)$" />
+          <option name="commentTemplate" value="$1 TASK {Key} {Summary}" />
           <option name="jiraIssueType" value="Task" />
           <option name="jiraLabels" value="" />
           <option name="jiraPriority" value="Low" />
-          <option name="jiraSummaryTemplate" value="$1" />
+          <option name="jiraSummaryTemplate" value="$2" />
           <option name="name" value="TASK make a light task" />
         </CommentRule>
       </list>
