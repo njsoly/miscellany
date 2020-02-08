@@ -7,6 +7,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
+import java.io.InputStreamReader
 import kotlin.text.Regex.Companion.escape
 
 @RunWith(MockitoJUnitRunner::class)
@@ -28,12 +29,12 @@ class WordSearcherTest : WordSearcher() {
     }
 
     @Test
-    fun testGetWords() {
+    fun `test getWords`() {
+        assertNotNull(wordSearcher.words)
     }
 
     @Test
-    fun testInputLoop() {
-    }
+    fun `test inputLoop`() { }
 
     @Test
     fun `isSimple() given simple word returns true`() {
