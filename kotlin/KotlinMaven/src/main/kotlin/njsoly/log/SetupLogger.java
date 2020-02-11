@@ -83,10 +83,7 @@ public class SetupLogger implements Logginit {
 		}
 
 		@Override
-		public void setErrorHandler(ErrorHandler arg0) {
-			// TODO Auto-generated method stub
-
-		}
+		public void setErrorHandler(ErrorHandler arg0) { }
 
 		@Override
 		public ErrorHandler getErrorHandler() {
