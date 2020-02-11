@@ -283,7 +283,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
          * fall in the range from [min] to [max], inclusive.
          */
         fun List<String>.filterToLength(min: Int, max: Int) : List<String> {
-            return this.filter{ it.length >= min && it.length <= max }
+            return this.filter{ it.length in min .. max }
         }
 
         /**
