@@ -216,9 +216,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Searches the word list for an exact match of [inputString]. (no RegEx)
      * @param[inputString] a word to check the word list for a match
      */
-    fun checkListForExactMatch (inputString: String): List<String>? {
+    fun checkListForExactMatch (inputString: String, wordList: List<String>): List<String>? {
         info("Searching for exact match for word \"$inputString\"")
-        return words.filterToLength(inputString.length).filter{ it == inputString }
+        return wordList.filterToLength(inputString.length).filter{ it == inputString }
     }
 
     fun storeToInputHistory(inputString: String){
@@ -254,11 +254,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         }
 
         fun error(x: Any){
-//            if() {
-                LOGGER.error("ERROR: $x")
-//            } else {
-//                error("ERROR: $x")
-//            }
+            LOGGER.error("ERROR: $x")
         }
 
         /**
