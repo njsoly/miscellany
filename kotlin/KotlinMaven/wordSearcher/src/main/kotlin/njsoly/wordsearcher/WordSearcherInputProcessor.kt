@@ -58,7 +58,7 @@ open class WordSearcherInputProcessor (val wordList: List<String>){
         WordSearcher.debug("letters with wilds removed: \"$letters\"")
 
         var results = mutableListOf<String>()
-        searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wordList, wilds = wilds)) }
+        searchStrings.forEach{ results.addAll(matchLettersWithWildsToSinglePattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
         results = sortResultsByBasicTileValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
@@ -80,14 +80,19 @@ open class WordSearcherInputProcessor (val wordList: List<String>){
         return wordList.sortedByDescending { LetterTile.basicWordValue(it) }
     }
 
-    fun matchLettersToPattern(letters: String, pattern: String, wordList: List<String> = this.wordList, wilds: Int = 0): List<String> {
+    /**
+     * Given [letters] (A-Z only) and a number of [wilds], find which words can be made from [wordList].
+     *
+     * This is run once per entered search [pattern].
+     */
+    fun matchLettersWithWildsToSinglePattern(letters: String, pattern: String, wordList: List<String> = this.wordList, wilds: Int = 0): List<String> {
 
         val words = wordList.filterToLength(pattern.trim('.').length, pattern.length).filterToPattern(pattern)
         val matches = mutableListOf<String>()
 
-        for (w in wordList) {
-            if (`match letters and wilds to word`(letters, w, pattern, wilds)) {
-                matches.add(w)
+        words.forEach { word ->
+            if (`match letters and wilds to word`(letters, word, pattern, wilds)) {
+                matches.add(word)
             }
         }
 

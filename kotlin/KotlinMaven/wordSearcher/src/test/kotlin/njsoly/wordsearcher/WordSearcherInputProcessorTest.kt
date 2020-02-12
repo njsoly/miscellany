@@ -6,7 +6,7 @@ import org.junit.Test
 
 class WordSearcherInputProcessorTest {
 
-    private val wordSearcherInputProcessor: WordSearcherInputProcessor = WordSearcherInputProcessor(FileLinesLoader("twl06.txt").lines)
+    private val wordSearcherInputProcessor: WordSearcherInputProcessor = WordSearcherInputProcessor(FileLinesLoader("twl.txt").lines)
 
     @Test
     fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
@@ -17,26 +17,27 @@ class WordSearcherInputProcessorTest {
 
     @Test
     fun `matchLettersToPattern ---d-- should include 'NEEDED'` () {
-        val result = wordSearcherInputProcessor.matchLettersToPattern("NEEDTEI", "...D..", listOf("NEEDED"))
+        val result = wordSearcherInputProcessor.matchLettersWithWildsToSinglePattern("NEEDTEI", "...D..", listOf("NEEDED"))
         assertEquals(true, result.contains("NEEDED"))
     }
 
     @Test
     fun `matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'` () {
-        val results = wordSearcherInputProcessor.matchLettersToPattern("OSEAWSG", "....A", listOf("WAGES", "ATLAS", "SEWAGES", "ABACA"))
-        assertEquals(0, results.count { !it.endsWith('A') })
+        val results = wordSearcherInputProcessor.matchLettersWithWildsToSinglePattern("OSEAWSG", "....A", listOf("WAGES", "ATLAS", "SEWAGES", "ABACA"))
+        val notEndsWithA = results.filter{ !it.endsWith('A') }
+        assertEquals("No results should not end with A: $notEndsWithA", 0, notEndsWithA.size)
     }
 
     @Test
     fun `matchLettersToPattern ----j--- should include 'JARL'` () {
-        val result = wordSearcherInputProcessor.matchLettersToPattern("RLFROAD", "....J...", listOf("JARL"))
+        val result = wordSearcherInputProcessor.matchLettersWithWildsToSinglePattern("RLFROAD", "....J...", listOf("JARL"))
         assertEquals(true, result.contains("JARL"))
     }
 
     @Test
     fun `matchLetterToPattern ndilalx -----o-- should contain 'LADINO'` () {
         WordSearcher.DEBUG = false
-        val result = wordSearcherInputProcessor.matchLettersToPattern("NDILALX", ".....O..")
+        val result = wordSearcherInputProcessor.matchLettersWithWildsToSinglePattern("NDILALX", ".....O..")
         assertEquals(true, result.contains("LADINO"))
     }
 
