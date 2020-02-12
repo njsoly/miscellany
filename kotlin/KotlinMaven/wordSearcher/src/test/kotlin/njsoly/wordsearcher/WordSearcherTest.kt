@@ -63,13 +63,6 @@ class WordSearcherTest : WordSearcher() {
     }
 
     @Test
-    fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
-        DEBUG = false
-        val result = processInput("aoue .... ...t...")
-        assertEquals(false, result!!.contains("AETHER"))
-    }
-
-    @Test
     fun `how to use regex` () {
         val s = "[AZ]LZ"
         val escd = escape(s)
@@ -89,43 +82,6 @@ class WordSearcherTest : WordSearcher() {
     }
 
     @Test
-    fun `matchLettersToPattern ---d-- should include 'NEEDED'` () {
-        val result = matchLettersToPattern("NEEDTEI", "...D..", listOf("NEEDED"))
-        assertEquals(true, result.contains("NEEDED"))
-    }
-
-    @Test
-    fun `matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'` () {
-        val results = matchLettersToPattern("OSEAWSG", "....A", listOf("WAGES", "ATLAS", "SEWAGES", "ABACA"))
-        assertEquals(0, results.count { !it.endsWith('A') })
-    }
-
-    @Test
-    fun `matchLettersToPattern ----j--- should include 'JARL'` () {
-        val result = matchLettersToPattern("RLFROAD", "....J...", listOf("JARL"))
-        assertEquals(true, result.contains("JARL"))
-    }
-
-    @Test
-    fun `matchLetterToPattern ndilalx -----o-- should contain 'LADINO'` () {
-        DEBUG = false
-        val result = matchLettersToPattern("NDILALX", ".....O..")
-        assertEquals(true, result.contains("LADINO"))
-    }
-
-    @Test
-    fun `trimPatternForWord given ----J--- and JARL returns J---` () {
-        val result = `fit pattern to word`("JARL", "....J...")
-        assertEquals("J...", result)
-    }
-
-    @Test
-    fun `trimPatternForWord -----O-- returns LADINO` () {
-        val result = `fit pattern to word`("LADINO", ".....O..")
-        assertEquals(true, "LADINO".matches(Regex(result)))
-    }
-
-    @Test
     fun `filterToLength() with exact length does it right` () {
         assertEquals(
             listOf("WHAT", "WANT"),
@@ -141,23 +97,6 @@ class WordSearcherTest : WordSearcher() {
     @Test
     fun `getFilename() returns non-null` () {
         assertNotNull(wordSearcher.filename)
-    }
-
-    @Test
-    fun `matchLettersToWord with letters BLACK and word BLACK and pattern BL-CK returns true` () {
-        val letters = "BLAKC"
-        val word = "BLACK"
-        val pattern = "BL.CK"
-        val result = wordSearcher.`match letters and wilds to word`(letters, word, pattern, 0)
-        assertEquals(true, result)
-    }
-    @Test
-    fun `matchLettersToWord with letters BLACK and word BLACK and pattern --A-- returns true` () {
-        val letters = "BLAKC"
-        val word = "BLACK"
-        val pattern = "..A.."
-        val result = wordSearcher.`match letters and wilds to word`(letters, word, pattern, 0)
-        assertEquals(true, result)
     }
 
     /**
