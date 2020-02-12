@@ -115,13 +115,13 @@ class WordSearcherTest : WordSearcher() {
 
     @Test
     fun `trimPatternForWord given ----J--- and JARL returns J---` () {
-        val result = trimPatternForWord("JARL", "....J...")
+        val result = `fit pattern to word`("JARL", "....J...")
         assertEquals("J...", result)
     }
 
     @Test
     fun `trimPatternForWord -----O-- returns LADINO` () {
-        val result = trimPatternForWord("LADINO", ".....O..")
+        val result = `fit pattern to word`("LADINO", ".....O..")
         assertEquals(true, "LADINO".matches(Regex(result)))
     }
 

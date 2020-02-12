@@ -160,7 +160,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
                                           numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
         var wilds: Int = numberOfWilds
-        val pattern = trimPatternForWord(word, pattern)
+        val pattern = `fit pattern to word`(word, pattern)
         var i = 0
         var j = 0
         for (letter: Char in word) {
@@ -190,13 +190,13 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * since any remaining dots ('.') will require the player's letters
      * to fulfill.
      */
-    fun trimPatternForWord(w: String, pattern: String): String {
-        if(w.length >= pattern.length) return pattern
+    fun `fit pattern to word`(word: String, pattern: String): String {
+        if(word.length >= pattern.length) return pattern
         val fits = mutableSetOf<String>()
-        for(i in 0..(pattern.length - w.length)){
-            if(DEBUG) { println("[$i]: substring ${pattern.substring(i, i + w.length)}") }
-            if(w.matches(Regex(pattern.substring(i, i + w.length)))) {
-                fits.add(pattern.substring(i, i + w.length))
+        for(i in 0..(pattern.length - word.length)){
+            if(DEBUG) { println("[$i]: substring ${pattern.substring(i, i + word.length)}") }
+            if(word.matches(Regex(pattern.substring(i, i + word.length)))) {
+                fits.add(pattern.substring(i, i + word.length))
             }
         }
         return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
