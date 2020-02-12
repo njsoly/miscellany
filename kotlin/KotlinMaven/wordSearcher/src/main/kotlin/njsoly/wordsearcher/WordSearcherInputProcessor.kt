@@ -1,13 +1,11 @@
 package njsoly.wordsearcher
 
-import njsoly.wordsearcher.WordSearcher.Companion.filterToLength
-import njsoly.wordsearcher.WordSearcher.Companion.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isSimple
 import java.io.InputStream
 import java.io.PrintStream
 
 // TODO (what do you want)$
-open class WordSearcherInputProcessor (val wordList: List<String>){
+open class WordSearcherInputProcessor (private val wordList: List<String>){
 
     val output: PrintStream = System.out
     val input: InputStream = System.`in`

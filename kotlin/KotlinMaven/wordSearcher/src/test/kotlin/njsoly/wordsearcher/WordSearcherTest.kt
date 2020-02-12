@@ -10,8 +10,6 @@ import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
 import kotlin.text.Regex.Companion.escape
 import njsoly.wordsearcher.WordSearcher.Companion.isSimple
-import njsoly.wordsearcher.WordSearcher.Companion.filterToLength
-import njsoly.wordsearcher.WordSearcher.Companion.filterToPattern
 
 @RunWith(MockitoJUnitRunner::class)
 class WordSearcherTest {
