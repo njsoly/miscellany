@@ -166,7 +166,10 @@ class WordSearcherTest : WordSearcher() {
      * @param expected whether or not that should be seen as a quit message
      */
     fun `isQuitMessage() given (an input) returns (a boolean)` (input: String, expected: Boolean) {
-        assertEquals("$input " + if(expected) {"should"} else {"should not"}, expected, wordSearcher.isQuitMessage(input))
-//        assertEquals("$input " + if(expected) {"should"} else {"should not"}, expected, wordSearcher.isQuitMessage(input))
+        assertEquals(
+                "$input " + if(expected) {"should"} else {"should not"},
+                expected,
+                wordSearcher.isQuitMessage(input)
+        )
     }
 }
