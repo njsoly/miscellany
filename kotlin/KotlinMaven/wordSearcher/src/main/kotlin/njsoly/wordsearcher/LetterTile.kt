@@ -34,7 +34,7 @@ enum class LetterTile (val points: Int=1){
     Z(10);
 
     companion object {
-        fun instrinsicWordValue(s: String): Int {
+        fun basicWordValue(s: String): Int {
             return s.toUpperCase().sumBy{ valueOf(it.toString()).points }
         }
     }

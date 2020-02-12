@@ -90,7 +90,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
         if (inputSplit.size == 1) {
             return if (inputString.isSimple()) {
-                checkListForExactMatch (inputString)
+                checkListForExactMatch (inputString, words)
             } else {
                 `filter full list against single pattern`(inputSplit[0])
             }
@@ -116,7 +116,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
-        results = sortResultsByIntrinsicValue(results).toMutableList()
+        results = sortResultsByBasicTileValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
     }
@@ -132,8 +132,8 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * Sorts a [list][wordList] of [String]s by the sum of the values of
      * each letter.
      */
-    fun sortResultsByIntrinsicValue(wordList: List<String>): List<String> {
-        return wordList.sortedByDescending { LetterTile.instrinsicWordValue(it) }
+    fun sortResultsByBasicTileValue(wordList: List<String>): List<String> {
+        return wordList.sortedByDescending { LetterTile.basicWordValue(it) }
     }
 
     fun matchLettersToPattern(letters: String, pattern: String, wordList: List<String> = this.words, wilds: Int = 0): List<String> {
