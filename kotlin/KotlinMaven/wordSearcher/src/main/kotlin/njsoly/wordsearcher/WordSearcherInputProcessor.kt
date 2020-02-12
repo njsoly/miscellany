@@ -1,5 +1,7 @@
 package njsoly.wordsearcher
 
+import njsoly.util.strings.filterToLength
+import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isSimple
 import java.io.InputStream
 import java.io.PrintStream

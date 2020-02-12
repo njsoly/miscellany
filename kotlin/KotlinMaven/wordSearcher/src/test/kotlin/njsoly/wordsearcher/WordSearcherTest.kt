@@ -1,5 +1,7 @@
 package njsoly.wordsearcher
 
+import njsoly.util.strings.filterToLength
+import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.DEBUG
 import org.junit.After
 import org.junit.Assert.assertEquals
