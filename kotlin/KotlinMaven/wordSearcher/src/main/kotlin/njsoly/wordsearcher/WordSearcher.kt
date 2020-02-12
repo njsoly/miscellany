@@ -13,9 +13,8 @@ import java.io.PrintStream
 import java.lang.System
 import java.time.LocalDate
 
-// TODO (Test task 2)$
 /**
- * TODO (Test task)$
+ *
  */
 fun main(args: Array<String>) {
     println("Hello, WordSearcher.")
@@ -28,10 +27,6 @@ fun main(args: Array<String>) {
 }
 
 // TODO (what do you want)$
-// TASK do this do this
-// TASK MISC-11 (MISC this is a cool thing)$ aoesunth
-// JIRA test jira
-// JIRA MISC-10 {MISC} {low} test task
 open class WordSearcher (val filename: String = file.toRelativeString(File("."))){
 
 
@@ -74,6 +69,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
 
     internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
 
+    // MISC-15 split out processInput() into an input processor class
     /**
      * This is serves as the main entrypoint for a given round of
      * searching for words.
@@ -83,9 +79,9 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      */
     fun processInput(inputString: String): List<String>? {
         val inputString = inputString.toUpperCase().trim()
-        val INPUT_LIMIT = 16
+        val inputLimit = 16
         storeToInputHistory(inputString)
-        val inputSplit: List<String> = inputString.split(' ', limit = INPUT_LIMIT)
+        val inputSplit: List<String> = inputString.split(' ', limit = inputLimit)
 
         if (inputString == "" || inputSplit.isEmpty()) {
             output.println("invalid input string: $inputString")
@@ -100,14 +96,17 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
             }
         }
 
-        val letters = inputSplit[0]
+        val letters = inputSplit.first()
         val searchStrings = inputSplit.minus(letters)
 
-        return `process letters against search strings` (letters, searchStrings)
+        return `process letters against search strings` (letters, searchStrings, words)
     }
 
-
-    private fun `process letters against search strings`(letters: String, searchStrings: List<String>): List<String>? {
+    /**
+     * Given a certain set of [letters] (alphabetical + wildcards) and wildcard-laden [searchStrings],
+     * return a list of matching words from [wordList].
+     */
+    protected fun `process letters against search strings`(letters: String, searchStrings: List<String>, wordList: List<String>): List<String>? {
         debug("processing letters")
         val wilds = letters.count{ it == '.' || it == '?' || it == '_'}
         debug("there are $wilds wild tiles")
@@ -115,7 +114,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         debug("letters with wilds removed: \"$letters\"")
 
         var results = mutableListOf<String>()
-        searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wilds = wilds)) }
+        searchStrings.forEach{ results.addAll(matchLettersToPattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
         results = sortResultsByIntrinsicValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
