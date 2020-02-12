@@ -36,10 +36,6 @@ class WordSearcherTest {
         assertNotNull(wordSearcher.words)
     }
 
-    // TODO MISC-13 test inputloop.
-    @Test
-    fun `test inputLoop`() { }
-
     @Test
     fun `isSimple() given simple word returns true`() {
        assertEquals(true, "snth".isSimple())

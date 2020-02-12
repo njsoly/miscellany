@@ -8,6 +8,13 @@ class WordSearcherInputProcessorTest {
 
     private val wordSearcherInputProcessor: WordSearcherInputProcessor = WordSearcherInputProcessor(FileLinesLoader("twl.txt").lines)
 
+
+    // TODO MISC-13 test inputloop.
+    @Test
+    fun `test inputLoop`() {
+        TODO()
+    }
+
     @Test
     fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
         WordSearcher.DEBUG = false
