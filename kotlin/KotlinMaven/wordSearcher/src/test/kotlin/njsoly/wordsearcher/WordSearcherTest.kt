@@ -1,5 +1,6 @@
 package njsoly.wordsearcher
 
+import njsoly.wordsearcher.WordSearcher.Companion.DEBUG
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -8,9 +9,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
 import kotlin.text.Regex.Companion.escape
+import njsoly.wordsearcher.WordSearcher.Companion.isSimple
+import njsoly.wordsearcher.WordSearcher.Companion.filterToLength
+import njsoly.wordsearcher.WordSearcher.Companion.filterToPattern
 
 @RunWith(MockitoJUnitRunner::class)
-class WordSearcherTest : WordSearcher() {
+class WordSearcherTest {
 
     val wordSearcher: WordSearcher = WordSearcher()
 

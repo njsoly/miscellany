@@ -6,7 +6,7 @@ import org.junit.Test
 
 class WordSearcherInputProcessorTest {
 
-    val wordSearcherInputProcessor: WordSearcherInputProcessor = WordSearcherInputProcessor(FileLinesLoader("twl06.txt").lines)
+    private val wordSearcherInputProcessor: WordSearcherInputProcessor = WordSearcherInputProcessor(FileLinesLoader("twl06.txt").lines)
 
     @Test
     fun `input 'aoue ---- ---t---' should not contain "AETHER"` () {
@@ -14,7 +14,6 @@ class WordSearcherInputProcessorTest {
         val result = wordSearcherInputProcessor.processInput("aoue .... ...t...")
         assertEquals(false, result!!.contains("AETHER"))
     }
-
 
     @Test
     fun `matchLettersToPattern ---d-- should include 'NEEDED'` () {
