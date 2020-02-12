@@ -148,7 +148,7 @@ class WordSearcherTest : WordSearcher() {
         val letters = "BLAKC"
         val word = "BLACK"
         val pattern = "BL.CK"
-        val result = wordSearcher.matchLettersToWord(letters, word, pattern, 0)
+        val result = wordSearcher.`match letters and wilds to word`(letters, word, pattern, 0)
         assertEquals(true, result)
     }
     @Test
@@ -156,7 +156,7 @@ class WordSearcherTest : WordSearcher() {
         val letters = "BLAKC"
         val word = "BLACK"
         val pattern = "..A.."
-        val result = wordSearcher.matchLettersToWord(letters, word, pattern, 0)
+        val result = wordSearcher.`match letters and wilds to word`(letters, word, pattern, 0)
         assertEquals(true, result)
     }
 

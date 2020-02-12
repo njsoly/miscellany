@@ -142,7 +142,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val matches = mutableListOf<String>()
 
         for (w in words) {
-            if (matchLettersToWord(letters, w, pattern, wilds)) {
+            if (`match letters and wilds to word`(letters, w, pattern, wilds)) {
                 matches.add(w)
             }
         }
@@ -154,18 +154,20 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
      * For one single [word], given a set of [lettersToUse], see if it matches
      * the given [pattern], if [numberOfWilds] wilds may be used (blanks).
      */
-    fun matchLettersToWord(lettersToUse: String, word: String, pattern: String, numberOfWilds: Int): Boolean {
+    fun `match letters and wilds to word`(lettersToUse: String,
+                                          word: String,
+                                          pattern: String,
+                                          numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
-        val w = word
         var wilds: Int = numberOfWilds
-        val pattern = trimPatternForWord(w, pattern)
-        var i: Int = 0
-        var j: Int = 0
-        for (letter: Char in w) {
+        val pattern = trimPatternForWord(word, pattern)
+        var i = 0
+        var j = 0
+        for (letter: Char in word) {
             if(pattern.length <= i) {
                 return false
             }
-            if (pattern[i].isLetter() && w[i] == pattern[j]) {
+            if (pattern[i].isLetter() && word[i] == pattern[j]) {
                 i++; j++
                 continue
             } else if (letters.contains(letter)) {
