@@ -1,4 +1,4 @@
-package njsoly.wordsearcher
+package njsoly.wordsearcher.gui
 
 import java.awt.event.ComponentEvent
 import java.awt.event.ComponentListener
