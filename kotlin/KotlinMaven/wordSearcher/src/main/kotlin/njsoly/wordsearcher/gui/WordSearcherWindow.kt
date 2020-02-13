@@ -19,7 +19,6 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
             this.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
             this.contentPane = wordSearcherForm.mainPanel
 
-
             addComponentListener(object : ComponentListener {
                 override fun componentResized(e: ComponentEvent) {
                     println("component resized: " + e.component.name + " " + e.paramString())
@@ -38,7 +37,6 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
                     println("component hidden: " + e.component.name + " " + e.paramString())
                 }
             })
-
         }
     }
 
@@ -46,7 +44,6 @@ class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
         this.pack()
         this.isVisible = true
     }
-
 }
 
 fun main(args: Array<String>) {
