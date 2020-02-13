@@ -9,7 +9,9 @@ class ListUtilKtTest{
     fun `filterToPattern works` () {
         val pattern = "..A.."
 
-        assertEquals(listOf("BLACK"), listOf("BLACK").filterToPattern(pattern))
+        assertEquals(listOf("BLACK"),
+                listOf("BLACK").filterToPattern(pattern)
+        )
     }
 
     @Test
@@ -21,7 +23,18 @@ class ListUtilKtTest{
     }
 
     @Test
-    fun `filterToLength() with min and max`() {
-        assertEquals(listOf("WHAT"), listOf("WHAT").filterToLength(4,4))
+    fun `filterToLength() with min and max on one fitting word returns that word`() {
+        assertEquals(
+                listOf("WHAT"),
+                listOf("WHAT").filterToLength(4, 4)
+        )
+    }
+
+    @Test
+    fun `filterToLength() with min and max and one fit and one unfit words returns fit`() {
+        assertEquals(
+                listOf("ANIMAL"),
+                listOf("ANIMAL","MAN").filterToLength(4, 7)
+        )
     }
 }
