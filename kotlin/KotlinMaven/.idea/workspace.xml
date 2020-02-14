@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,9 +98,9 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/util" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.43866944" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
@@ -160,7 +163,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Whole project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Whole project" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <option name="TEST_SEARCH_SCOPE">
@@ -273,16 +276,15 @@
       <item itemvalue="JUnit.WordSearcherTest" />
       <item itemvalue="JUnit.WordSearcherInputProcessorTest" />
       <item itemvalue="JUnit.njsoly.wordsearcher in KotlinMaven.wordSearcher" />
+      <item itemvalue="JUnit.Whole project" />
       <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
       <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
-      <item itemvalue="JUnit.Whole project" />
+      <item itemvalue="JUnit.ListUtilKtTest" />
       <item itemvalue="Kotlin.njsoly.wordsearcher.WordSearcherKt" />
       <item itemvalue="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt" />
-      <item itemvalue="JUnit.ListUtilKtTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Whole project" />
         <item itemvalue="JUnit.ListUtilKtTest" />
         <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
         <item itemvalue="JUnit.njsoly.wordsearcher in KotlinMaven.wordSearcher" />
@@ -378,15 +380,19 @@
     </state>
     <state x="363" y="34" width="1145" height="684" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1580975538772" />
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581039262375" />
-    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581473713672">
+    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581574472213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="345" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1581135282079" />
-    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581473713672" />
+    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581574472213" />
     <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581126363383">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1581126363383" />
+    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581557478857">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581557478857" />
     <state x="590" y="247" key="#com.intellij.ide.util.ExportDialog" timestamp="1581039365194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -444,25 +450,25 @@
     <state x="617" y="227" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1581125718421" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1600.81.1600.860@0.0.1920.1040" timestamp="1579081867493" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579741653117" />
-    <state width="613" height="376" key="GridCell.Tab.0.bottom" timestamp="1581557074931">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="383" key="GridCell.Tab.0.bottom" timestamp="1581582385950">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="438" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1581173816937" />
+    <state width="949" height="383" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
     <state width="613" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581557074931" />
-    <state width="613" height="376" key="GridCell.Tab.0.center" timestamp="1581557074930">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="383" key="GridCell.Tab.0.center" timestamp="1581582385949">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="438" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1581173816937" />
+    <state width="949" height="383" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
     <state width="613" height="376" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581557074930" />
-    <state width="613" height="376" key="GridCell.Tab.0.left" timestamp="1581557074930">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="383" key="GridCell.Tab.0.left" timestamp="1581582385949">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="438" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1581173816937" />
+    <state width="949" height="383" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
     <state width="613" height="376" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581557074930" />
-    <state width="613" height="376" key="GridCell.Tab.0.right" timestamp="1581557074930">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="383" key="GridCell.Tab.0.right" timestamp="1581582385950">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="438" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1581173816937" />
+    <state width="949" height="383" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
     <state width="613" height="376" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581557074930" />
     <state width="1062" height="322" key="GridCell.Tab.1.bottom" timestamp="1581471640631">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -488,11 +494,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581472254432" />
-    <state x="51" y="41" width="916" height="860" key="SettingsEditor" timestamp="1581481328708">
+    <state x="51" y="41" width="916" height="860" key="SettingsEditor" timestamp="1581557456851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-7" y="0" width="916" height="860" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581132198257" />
-    <state x="51" y="41" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581481328708" />
+    <state x="51" y="41" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581557456851" />
     <state x="661" y="345" key="SimpleOpenTaskDialog" timestamp="1578777689248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -514,11 +520,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="486" y="151" width="627" height="558" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1580975607874" />
-    <state width="613" height="372" key="javadoc.popup.new" timestamp="1581556769410">
+    <state width="613" height="372" key="javadoc.popup.new" timestamp="1581653984014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="511" height="308" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1581126790582" />
-    <state width="613" height="372" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1581556769410" />
+    <state width="613" height="372" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1581653984014" />
     <state x="342" y="94" key="new project wizard" timestamp="1581038393742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
