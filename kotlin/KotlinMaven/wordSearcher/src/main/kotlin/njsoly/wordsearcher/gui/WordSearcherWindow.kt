@@ -25,20 +25,20 @@ open class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(tit
 
             addComponentListener(object : ComponentListener {
                 override fun componentResized(e: ComponentEvent) {
-                    logger.debug("component resized: " + e.component.name + " " + e.paramString())
+                    logger?.debug("component resized: " + e.component.name + " " + e.paramString())
                     pack()
                 }
 
                 override fun componentMoved(e: ComponentEvent) {
-                    logger.debug("component moved: " + e.component.name + " " + e.paramString())
+                    logger?.debug("component moved: " + e.component.name + " " + e.paramString())
                 }
 
                 override fun componentShown(e: ComponentEvent) {
-                    logger.debug("component shown: " + e.component.name + " " + e.paramString())
+                    logger?.debug("component shown: " + e.component.name + " " + e.paramString())
                 }
 
                 override fun componentHidden(e: ComponentEvent) {
-                    logger.debug("component hidden: " + e.component.name + " " + e.paramString())
+                    logger?.debug("component hidden: " + e.component.name + " " + e.paramString())
                 }
             })
         }
