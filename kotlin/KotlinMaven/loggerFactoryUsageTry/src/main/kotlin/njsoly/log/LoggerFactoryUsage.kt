@@ -7,9 +7,7 @@ import org.slf4j.LoggerFactory
  * Does not work.
  */
 open class LoggerFactoryUsage {
-
     val l: Logger = LoggerFactory.getLogger(this::class.java)
-
 
 }
     fun main(args: Array<String>){
