@@ -28,6 +28,7 @@ alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
 
+[[ -x ./.inputrc ]] && bind -f ./.inputrc
 
 ##############  application shorthands  #############
 #-------              Windows                -------#
@@ -80,6 +81,8 @@ if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]]; then
 	printf "hostname is %s; setting TERM to cygwin\n." "$HOSTNAME"
 	export TERM=cygwin
 fi
+
+
 
 export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
 
