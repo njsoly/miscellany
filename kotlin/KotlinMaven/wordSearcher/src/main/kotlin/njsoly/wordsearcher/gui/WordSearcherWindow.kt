@@ -1,7 +1,6 @@
 package njsoly.wordsearcher.gui
 
 import njsoly.log.SetupLogger
-import org.slf4j.Logger
 import java.awt.event.ComponentEvent
 import java.awt.event.ComponentListener
 import javax.swing.JFrame
