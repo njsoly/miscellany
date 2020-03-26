@@ -7,5 +7,5 @@ countlines ()
 	fi
     cat $1 | grep --color=auto '.*' -c
 }
-#TODO: make it so the function returns successfully when there is no first argument.
-#if you didn't give this function an argument, it's just going to stick forever.
+# BUG MISC-12 # if you didn't give this function an argument, it's just going to stick forever.
+# make it so the function returns successfully when there is no first argument.

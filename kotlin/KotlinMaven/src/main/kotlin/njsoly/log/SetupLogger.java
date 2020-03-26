@@ -83,10 +83,7 @@ public class SetupLogger implements Logginit {
 		}
 
 		@Override
-		public void setErrorHandler(ErrorHandler arg0) {
-			// TODO Auto-generated method stub
-
-		}
+		public void setErrorHandler(ErrorHandler arg0) { }
 
 		@Override
 		public ErrorHandler getErrorHandler() {
@@ -149,50 +146,32 @@ public class SetupLogger implements Logginit {
 	};
 
 	public static final Appender APPENDER_1 = new Appender(){
-		String name;
 		Layout l;
 
 		@Override
-		public void addFilter(Filter newFilter) {
-			// TODO Auto-generated method stub
-
-		}
+		public void addFilter(Filter newFilter) { }
 
 		@Override
 		public Filter getFilter() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
-		public void clearFilters() {
-			// TODO Auto-generated method stub
-
-		}
+		public void clearFilters() { }
 
 		@Override
-		public void close() {
-			// TODO Auto-generated method stub
-
-		}
+		public void close() { }
 
 		@Override
-		public void doAppend(LoggingEvent event) {
-			// TODO Auto-generated method stub
-
-		}
+		public void doAppend(LoggingEvent event) { }
 
 		@Override
 		public String getName() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
-		public void setErrorHandler(ErrorHandler errorHandler) {
-			// TODO Auto-generated method stub
-
-		}
+		public void setErrorHandler(ErrorHandler errorHandler) { }
 
 		@Override
 		public ErrorHandler getErrorHandler() {
@@ -201,33 +180,23 @@ public class SetupLogger implements Logginit {
 		}
 
 		@Override
-		public void setLayout(Layout layout) {
-			// TODO Auto-generated method stub
-
-		}
+		public void setLayout(Layout layout) { }
 
 		@Override
 		public Layout getLayout() {
-			// TODO Auto-generated method stub
 			return l;
 		}
 
 		@Override
-		public void setName(String name) {
-			// TODO Auto-generated method stub
-
-		}
+		public void setName(String name) { }
 
 		@Override
 		public boolean requiresLayout() {
-			// TODO Auto-generated method stub
 			return false;
 		}
-
 	};
 
 	static Filter FILTER_CLASSNAME_REQUIRED = new Filter(){
-
 		@Override
 		public int decide(LoggingEvent event) {
 			if(event.locationInformationExists() && event.getLocationInformation().getClassName() != null){
@@ -239,7 +208,6 @@ public class SetupLogger implements Logginit {
 				return Filter.DENY;
 			}
 		}
-
 	};
 
 	static {
@@ -260,28 +228,22 @@ public class SetupLogger implements Logginit {
 
 				@Override
 				public void activateOptions() {
-					// TODO Auto-generated method stub
 
 				}
 
 				@Override
 				public String format(LoggingEvent event) {
-					// TODO Auto-generated method stub
 					String s = (String) event.getMessage();
 					return event.getLoggerName() + s + ": ";
 				}
 
 				@Override
 				public boolean ignoresThrowable() {
-					// TODO Auto-generated method stub
 					return false;
 				}
-
 			});
 		}
 	}
-
-
 
 	/**
 	 * gets the {@linkplain Logger#getRootLogger() root logger} and adds
@@ -293,7 +255,6 @@ public class SetupLogger implements Logginit {
 	public static Logger setupLogger() {
 		Logger LOG = Logger.getRootLogger();
 		LOG.addAppender(APPENDER_0);
-//		Logger.getRootLogger().addAppender(APPENDER_0);
 		LOG.info("set up logger.");
 		return LOG;
 	}
@@ -314,7 +275,7 @@ public class SetupLogger implements Logginit {
 	public static void main(String[] args) {
 		Logger.getRootLogger().addAppender(APPENDER_1);
 		setupLogger();
-		Logger.getRootLogger().debug("FUUUUUUUUCK");
+		Logger.getRootLogger().debug("DEBUUUUUUUUUUUGZ");
 	}
 
 	@Override

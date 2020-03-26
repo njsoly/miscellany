@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f96dc86f-ddf8-4d54-a1a6-acf8d6a80bae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/kotlin/KotlinMaven/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/KotlinMaven/src/test/kotlin/njsoly/wordsearcher/WordSearcherTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/build-auto-tests.fxn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/copy-what.fxn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash.fxns.d/countlines.fxn" beforeDir="false" afterPath="$PROJECT_DIR$/bash.fxns.d/countlines.fxn" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,19 +18,45 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JQLSearcherProjectManager">
+    <selected>-1</selected>
+    <searchers />
+  </component>
+  <component name="JiraServerManager">
+    <servers>
+      <JiraServer password="df9cdf9cdfe2dfe9df92dfc8dfdfdfe8dfefdfe8dfcfdfe2dfc9dfcddffadfeddffbdfd2dfccdfcedfe9df9cdf98df9d" url="https://syntj.atlassian.net" username="njsoly@syntj.com" />
+    </servers>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1T6wsniGvgXm5Yrg0B9DclELFkh" />
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="flattenModules" value="true" />
+    <option name="flattenPackages" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kotlin/KotlinMaven/KotlinMaven.iml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.43866944" />
+    <property name="settings.editor.selected.configurable" value="de.chamacos.plugins.intellijidea.createjiraticket.configuration.CreateJiraTicketSettings" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -57,5 +85,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="139" key="FileChooserDialogImpl" timestamp="1581126061245">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="139" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1581126061245" />
+    <state x="231" y="84" key="SettingsEditor" timestamp="1581127653537">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="231" y="84" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581127653537" />
+    <state x="183" y="154" key="new project wizard" timestamp="1581125991728">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="183" y="154" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1581125991728" />
   </component>
 </project>

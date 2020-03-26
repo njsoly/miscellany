@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/twl.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/twl.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../KotlinMaven\exportToHTML" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="KotlinMaven">
+      <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="form" klass="com.intellij.uiDesigner.projectView.FormNode">
+        <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="class" klass="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
+        <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.form" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+    </favorites_list>
+    <favorites_list name="GUI Forms">
+      <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="form" klass="com.intellij.uiDesigner.projectView.FormNode">
+        <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="class" klass="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
+        <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.form" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+    </favorites_list>
+    <favorites_list name="IDEA xmls">
+      <favorite_root url="file://$PROJECT_DIR$/.idea/compiler.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+    <favorites_list name="BASH">
+      <favorite_root url="file://$PROJECT_DIR$/../../bash.fxns.d/build-auto-tests.fxn" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin File" />
+        <option value="JUnit4 Test Class" />
+        <option value="GridBagFormCreation 0" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JQLSearcherProjectManager">
+    <selected>1</selected>
+    <searchers>
+      <JQLSearcher alias="Not done" jql="status != Done" />
+      <JQLSearcher alias="All" jql="assignee != 'nobody'" />
+    </searchers>
+  </component>
+  <component name="JiraServerManager">
+    <servers>
+      <JiraServer password="df9cdf9cdfe2dfe9df92dfc8dfdfdfe8dfefdfe8dfcfdfe2dfc9dfcddffadfeddffbdfd2dfccdfcedfe9df9cdf98df9d" url="https://syntj.atlassian.net" username="njsoly@syntj.com" />
+    </servers>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="dedicatedModuleDir" value="M:\miscellany\kotlin\KotlinMaven" />
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1TlM7s1334u7bCwlNTn1rKHj9ji" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="flattenModules" value="true" />
+    <option name="flattenPackages" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showModules" value="false" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="left" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="right" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.43866944" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="njsoly.util.strings" />
+      <recent name="njsoly.wordsearcher" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="njsoly.wordsearcher.gui" />
+      <recent name="njsoly.util" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher\gui" />
+      <recent name="M:\miscellany\kotlin\KotlinMaven\src\main\java\njsoly\util" />
+    </key>
+  </component>
+  <component name="RestServicesNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.WordSearcherKt">
+    <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/wordSearcher/build.gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListUtilKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.util.strings.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.util.strings" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.util.strings.ListUtilKtTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Whole project" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordSearcherInputProcessorTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.wordsearcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.wordsearcher" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.wordsearcher.WordSearcherInputProcessorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.wordsearcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.wordsearcher" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.wordsearcher.WordSearcherInputProcessorTest" />
+      <option name="METHOD_NAME" value="matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.wordsearcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.wordsearcher" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.wordsearcher.WordSearcherInputProcessorTest" />
+      <option name="METHOD_NAME" value="matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="njsoly.wordsearcher in KotlinMaven.wordSearcher" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.wordsearcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.wordsearcher" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="njsoly.wordsearcher in KotlinMaven.wordSearcher" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="njsoly.wordsearcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="njsoly.wordsearcher" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="njsoly.log.LoggerFactoryUsageKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="loggerFactoryUsageTry" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.log.LoggerFactoryUsageKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="njsoly.wordsearcher.gui.WordSearcherWindowKt" type="JetRunConfigurationType" factoryName="Kotlin" nameIsGenerated="true">
+      <module name="KotlinMaven.wordSearcher" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="njsoly.wordsearcher.gui.WordSearcherWindowKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GridBagFormCreation" />
+      <item itemvalue="Gradle.Build WordSearcher JAR" />
+      <item itemvalue="Gradle.M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" />
+      <item itemvalue="JAR Application.Build and run wordSearcher.jar" />
+      <item itemvalue="JUnit.WordSearcherTest" />
+      <item itemvalue="JUnit.WordSearcherInputProcessorTest" />
+      <item itemvalue="JUnit.njsoly.wordsearcher in KotlinMaven.wordSearcher" />
+      <item itemvalue="JUnit.Whole project" />
+      <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
+      <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
+      <item itemvalue="JUnit.ListUtilKtTest" />
+      <item itemvalue="Kotlin.njsoly.wordsearcher.WordSearcherKt" />
+      <item itemvalue="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt" />
+      <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
+        <item itemvalue="JUnit.ListUtilKtTest" />
+        <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
+        <item itemvalue="JUnit.njsoly.wordsearcher in KotlinMaven.wordSearcher" />
+        <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="intInjectionMapping">
+      <map>
+        <entry key="xml" value="XML" />
+      </map>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS,SHOW_PROPERTIES" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\njsoly\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="Talios.JiraConfigurationComponent" enableIssueTracking="false" autoRefresh="false" useExternalBrowser="false" refreshTimeout="0" annotateissues="false">
+    <servers />
+    <columns />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="" />
+      <created>1574030066753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574030066753</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers>
+      <JIRA url="https://syntj.atlassian.net">
+        <option name="apiType" value="REST_2_0" />
+        <option name="inCloud" value="true" />
+        <option name="jiraVersion" value="1001.0.0-SNAPSHOT" />
+        <username>njsoly@syntj.com</username>
+      </JIRA>
+    </servers>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SetupLogger: cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="SetupLogger: cleanup" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="671" y="294" key="#BuildArtifactsBeforeRunChooser" timestamp="1581135233033">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="671" y="294" key="#BuildArtifactsBeforeRunChooser/0.0.1600.860@0.0.1600.860" timestamp="1581135233033" />
+    <state x="674" y="166" width="724" height="708" key="#GridBagFormCreation" timestamp="1578777678334">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="674" y="166" width="724" height="708" key="#GridBagFormCreation/0.0.1920.1040@0.0.1920.1040" timestamp="1578777678334" />
+    <state x="674" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" timestamp="1581038783853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="674" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle/0.0.1920.1040@0.0.1920.1040" timestamp="1581038783853" />
+    <state x="666" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle_(1)" timestamp="1581985962142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle_(1)/0.0.1920.1040@0.0.1920.1040" timestamp="1581985962142" />
+    <state x="460" y="147" key="#Notifications" timestamp="1581128504938">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="460" y="147" key="#Notifications/0.0.1600.860@0.0.1600.860" timestamp="1581128504938" />
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1578777435178" />
+    <state x="552" y="178" width="1145" height="684" key="#Project_Structure" timestamp="1581039262375">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="363" y="34" width="1145" height="684" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1580975538772" />
+    <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581039262375" />
+    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581985978256">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="345" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1581135282079" />
+    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581985978256" />
+    <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581126363383">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1581126363383" />
+    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581557478857">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581557478857" />
+    <state x="590" y="247" key="#com.intellij.ide.util.ExportDialog" timestamp="1581039365194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="590" y="247" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581039365194" />
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1576727371324">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576727371324" />
+    <state x="574" y="251" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577426142930">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="574" y="251" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426142930" />
+    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577401643183" />
+    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581469697426">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1577427038039" />
+    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-1600.81.1600.860@0.0.1920.1040" timestamp="1579081671205" />
+    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581469697426" />
+    <state x="588" y="247" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1577426191909">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="588" y="247" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426191909" />
+    <state x="667" y="95" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1577401644569">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="95" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577401644569" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577402180817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577402180817" />
+    <state x="833" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1576729132336">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="833" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040@0.0.1920.1040" timestamp="1576729132336" />
+    <state x="579" y="0" width="442" height="820" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinNestedClassesDialog" timestamp="1577426145082">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="579" y="0" width="442" height="820" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinNestedClassesDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426145082" />
+    <state x="670" y="15" width="603" height="985" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1581552315452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="670" y="15" width="603" height="985" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581552315452" />
+    <state x="664" y="346" key="#org.jetbrains.kotlin.idea.refactoring.move.moveTopLevelDeclarations.ui.KotlinSelectInnerOrMembersRefactoringDialog" timestamp="1577426176308">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="664" y="346" key="#org.jetbrains.kotlin.idea.refactoring.move.moveTopLevelDeclarations.ui.KotlinSelectInnerOrMembersRefactoringDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426176308" />
+    <state x="452" y="22" key="CommitChangelistDialog2" timestamp="1581126268977">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="452" y="22" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1581126268977" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1582252252561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="617" y="227" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1581125718421" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1600.81.1600.860@0.0.1920.1040" timestamp="1579081867493" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582252252561" />
+    <state width="1136" height="322" key="GridCell.Tab.0.bottom" timestamp="1582440249323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="383" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
+    <state width="1136" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
+    <state width="1136" height="322" key="GridCell.Tab.0.center" timestamp="1582440249323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="383" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
+    <state width="1136" height="322" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
+    <state width="1136" height="322" key="GridCell.Tab.0.left" timestamp="1582440249323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="383" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
+    <state width="1136" height="322" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
+    <state width="1136" height="322" key="GridCell.Tab.0.right" timestamp="1582440249323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="383" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
+    <state width="1136" height="322" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
+    <state width="1062" height="322" key="GridCell.Tab.1.bottom" timestamp="1581471640631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1062" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
+    <state width="1062" height="322" key="GridCell.Tab.1.center" timestamp="1581471640631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1062" height="322" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
+    <state width="1062" height="322" key="GridCell.Tab.1.left" timestamp="1581471640631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1062" height="322" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
+    <state width="1062" height="322" key="GridCell.Tab.1.right" timestamp="1581471640631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1062" height="322" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
+    <state x="620" y="234" key="GuiDesigner.FormSource.Dialog" timestamp="1577430309772">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="620" y="234" key="GuiDesigner.FormSource.Dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577430309772" />
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1581472254432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581472254432" />
+    <state x="51" y="41" width="916" height="860" key="SettingsEditor" timestamp="1582252505060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-7" y="0" width="916" height="860" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581132198257" />
+    <state x="51" y="41" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582252505060" />
+    <state x="661" y="345" key="SimpleOpenTaskDialog" timestamp="1578777689248">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="345" key="SimpleOpenTaskDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578777689248" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1580258403733">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1580258403733" />
+    <state x="739" y="250" key="chooseDestDirectoryDialog" timestamp="1581481379263">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="207" key="chooseDestDirectoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1577427114779" />
+    <state x="739" y="250" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581481379263" />
+    <state x="97" y="60" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581125729689">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="97" y="60" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1581125729689" />
+    <state x="486" y="151" width="627" height="558" key="find.popup" timestamp="1580975607874">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="486" y="151" width="627" height="558" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1580975607874" />
+    <state width="613" height="372" key="javadoc.popup.new" timestamp="1581653984014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="511" height="308" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1581126790582" />
+    <state width="613" height="372" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1581653984014" />
+    <state x="342" y="94" key="new project wizard" timestamp="1581038393742">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="94" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1581038393742" />
+    <state x="724" y="196" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1581553232800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="724" y="196" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581553232800" />
+    <state x="669" y="130" key="refactoring.ChangeSignatureDialog" timestamp="1581466748335">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="130" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581466748335" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1577413419567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577413419567" />
+    <state x="552" y="178" key="scopes" timestamp="1581034416720">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1581034416720" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582165139460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="519" y="186" width="672" height="561" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1580975655012" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582165139460" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/WordSearcherInputProcessor.kt</url>
+          <line>89</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

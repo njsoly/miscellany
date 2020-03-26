@@ -1,4 +1,5 @@
-uuid_to_clipboard () 
+#!/usr/bin/env bash
+uuid_to_clipboard ()
 { 
     uuidgen | tr [:upper:] [:lower:] | tr -d '\n' | pbcopy
 }

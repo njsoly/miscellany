@@ -1,4 +1,5 @@
-sns-list-topics () 
+#!/usr/bin/env bash
+sns-list-topics ()
 { 
     aws --endpoint-url=http://localhost:4575 sns list-topics
 }

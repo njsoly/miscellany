@@ -1,6 +1,7 @@
-package njsoly.wordsearcher
+package njsoly.wordsearcher.gui
 
 import GridBagFormCreation
+import njsoly.wordsearcher.WordSearcher
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.JComponent
@@ -11,15 +12,7 @@ import javax.swing.SwingUtilities
  * An extension of [GridBagFormCreation] that serves as an
  * interface for [WordSearcher].
  */
-class WordSearcherForm : GridBagFormCreation {
-
-    constructor() : super() {
-        SwingUtilities.invokeLater {
-            this.infoTextArea.text = "WORD SEARCHER!"
-            this.resultsTextArea.text = ""
-            this.inputTextArea.addKeyListener(KA(this.inputTextArea, this, this.ws))
-        }
-    }
+class WordSearcherForm : GridBagFormCreation() {
 
     val ws: WordSearcher = WordSearcher()
 
@@ -41,7 +34,7 @@ class WordSearcherForm : GridBagFormCreation {
             if(e?.keyCode == KeyEvent.VK_UP){
                 if(componentSource is JTextArea){
                     if(componentSource.caretPosition == 0){
-                        componentSource.text = ws.getLastInput()
+                        componentSource.text = ws.wordSearcherInputProcessor.getLastInput()
                     }
                 }
             }
@@ -63,10 +56,18 @@ class WordSearcherForm : GridBagFormCreation {
     }
 
     fun processInput(input: String) : List<String> {
-        val results = ws.processInput(input)
+        val results = ws.wordSearcherInputProcessor.processInput(input)
 
         resultsTextArea.text += '\n' + results.toString()
 
         return results!!
+    }
+
+    init {
+        SwingUtilities.invokeLater {
+            this.infoTextArea.text = "WORD SEARCHER!"
+            this.resultsTextArea.text = ""
+            this.inputTextArea.addKeyListener(KA(this.inputTextArea, this, this.ws))
+        }
     }
 }

@@ -1,4 +1,4 @@
-package njsoly.wordsearcher
+package njsoly.wordsearcher.gui
 
 class WordSearcherGuiDriver {
 
