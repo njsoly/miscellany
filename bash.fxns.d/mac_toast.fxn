@@ -1,0 +1,4 @@
+mac_toast () 
+{ 
+    [ "$OSTYPE" = "darwin18" ] && osascript -e 'display notification "'$@'"'
+}
