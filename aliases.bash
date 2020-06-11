@@ -19,6 +19,7 @@ alias fxn='function'
 
 # GIT rapid-fire shit
 alias gs='git status'
+alias gs.='git status .'
 alias gsnu='git status -uno'
 alias gsuno='git status -uno'
 alias guncha='git update-index --assume-unchanged'
