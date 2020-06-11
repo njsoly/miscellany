@@ -2,9 +2,14 @@
 
 class NjStocks {
 
+
+    fun run() {
+        println("aoesunthaoesunth")
+
+    }
 }
 
 
 fun main() {
-    println("aoesunthaoesunth")
+    NjStocks().run()
 }
