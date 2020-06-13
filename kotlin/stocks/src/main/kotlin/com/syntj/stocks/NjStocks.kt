@@ -17,7 +17,6 @@ class NjStocks {
     }
 }
 
-
 fun main() {
     NjStocks().run()
 }

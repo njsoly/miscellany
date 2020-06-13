@@ -14,11 +14,7 @@ class FinnhubRequester {
         const val baseQuoteUri = "https://finnhub.io/api/v1/quote"
     }
 
-    val logger = Logger.getLogger(javaClass.simpleName)
-
-    init {
-
-    }
+    private val logger: Logger = Logger.getLogger(javaClass.simpleName)
 
     private val client: HttpClient = HttpClient.newHttpClient()
 
