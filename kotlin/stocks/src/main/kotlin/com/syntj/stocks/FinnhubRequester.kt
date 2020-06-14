@@ -18,6 +18,11 @@ class FinnhubRequester {
 
     private val client: HttpClient = HttpClient.newHttpClient()
 
+    /**
+     * build and send for QUOTE endpoint to Finnhub API
+     * expect a return in this form:
+     * {"c":21.03,"h":21.28,"l":20.55,"o":21.04,"pc":20.42,"t":1592040051}
+     */
     fun requestQuoteAsString(symbol: WatchedStock) : HttpResponse<String> {
         val request: HttpRequest = HttpRequest.newBuilder(
             URI(buildQuoteRequestUri(symbol))
@@ -27,6 +32,7 @@ class FinnhubRequester {
 
         return client.send(request, bodyHandler)
     }
+
     private fun buildQuoteRequestUri(symbol: String): String {
         var uri = "$baseQuoteUri?symbol=$symbol"
         if (API_KEY != null){
