@@ -13,7 +13,6 @@ class NjStocks {
         val quoteString: HttpResponse<String> = FinnhubRequester().requestQuoteAsString(WatchedStock.DBX)
         // TODO deserialize this string into an actual object
 
-
         println(quoteString.body())
 
     }
