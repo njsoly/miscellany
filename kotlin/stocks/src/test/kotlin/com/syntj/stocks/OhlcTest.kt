@@ -2,8 +2,12 @@ package com.syntj.stocks
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 
 class OhlcTest {
 
@@ -31,7 +35,16 @@ class OhlcTest {
     @Test
     fun `given JSON for Ohlc, deserialize correctly` () {
         val json = SAMPLE_FINNHUB_QUOTE_JSON
+        val ohlc = Ohlc(21.03, 21.28, 20.55, 21.04, 20.42, 1592040051L)
+        val ohlcDeserialized: Ohlc = mapper.readValue(json)
 
+        assertEquals(ohlc, ohlcDeserialized)
+        val zoneId: ZoneId = ZoneId.of("America/Chicago")
+        val zoneOffset = ZoneOffset.systemDefault()
+        val time: LocalDateTime = LocalDateTime.ofEpochSecond(ohlc.t, 0,
+            ZoneOffset.UTC)
+
+        assertEquals(true, time.isBefore(LocalDateTime.now()))
 //        val olhc: Ohlc = jack
     }
 }
