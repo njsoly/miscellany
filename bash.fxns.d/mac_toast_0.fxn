@@ -1,4 +1,0 @@
-mac_toast () 
-{ 
-    [ "$OSTYPE" = "darwin18" ] && echo "display notification \"$@\"" > /tmp/.toast && osascript /tmp/.toast
-}
