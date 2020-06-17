@@ -1,0 +1,4 @@
+mac_toast_2 () 
+{ 
+    [ "$OSTYPE" = "darwin18" ] && printf "display notification \""%s"\"" "$@" > /tmp/.toast && osascript /tmp/.toast
+}
