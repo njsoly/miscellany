@@ -2,3 +2,4 @@ curl/
 .gradle/
 target/
 .idea/workspace.xml
+stocks/
