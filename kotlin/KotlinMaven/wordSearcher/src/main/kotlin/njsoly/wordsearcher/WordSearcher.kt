@@ -64,7 +64,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         }
     }
 
-    internal fun isQuitMessage(inputString: String): Boolean = inputString in setOf("q", "quit")
+    internal fun isQuitMessage(inputString: String): Boolean = inputString.toLowerCase() in setOf("q", "quit")
 
     companion object {
         var DEBUG = false
