@@ -84,11 +84,29 @@ class WordSearcherTest {
      * @param input to check if user requested to quit
      * @param expected whether or not that should be seen as a quit message
      */
-    fun `isQuitMessage() given (an input) returns (a boolean)` (input: String, expected: Boolean) {
+    private fun `isQuitMessage() given (an input) returns (a boolean)` (input: String, expected: Boolean) {
+        println("testing \"$input\" as quit message.")
         assertEquals(
-                "$input " + if(expected) {"should"} else {"should not"},
+                "$input " + if(expected) {"should"} else {"should not"} + " count as a quit message",
                 expected,
                 wordSearcher.isQuitMessage(input)
         )
     }
+
+    @Test
+    fun `isQuitMessage() given QUIT returns true`() {
+        `isQuitMessage() given (an input) returns (a boolean)`("QUIT", true)
+    }
+
+    @Test
+    fun `isQuitMessage() given QUITE returns false`() {
+        `isQuitMessage() given (an input) returns (a boolean)`("QUITE", false)
+    }
+
+    @Test
+    fun `isQuitMessage() given QUIT as letter tray (followed by parameters) returns false`() {
+        `isQuitMessage() given (an input) returns (a boolean)`("QUIT ..l.. .e..... ", false)
+    }
+
+
 }
