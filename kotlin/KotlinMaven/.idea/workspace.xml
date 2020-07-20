@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/LetterTile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/LetterTile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry/src/main/kotlin/njsoly/log/LoggerFactoryUsage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry/src/main/kotlin/njsoly/log/LoggerFactoryUsage.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +145,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WordSearcherTest">
+  <component name="RunManager" selected="Kotlin.njsoly.log.LoggerFactoryUsageKt">
     <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
