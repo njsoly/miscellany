@@ -1,0 +1,82 @@
+<scheme name="_@user_Darcula" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2019-05-02T12:10:18</property>
+    <property name="ide">idea</property>
+    <property name="ideVersion">2019.1.1.0.0</property>
+    <property name="modified">2020-06-13T04:10:10</property>
+    <property name="originalScheme">Darcula</property>
+  </metaInfo>
+  <colors>
+    <option name="CARET_COLOR" value="d04ba7" />
+    <option name="CARET_ROW_COLOR" value="e1b0e" />
+    <option name="DOCUMENTATION_COLOR" value="10286b" />
+    <option name="ERROR_HINT" value="630725" />
+    <option name="FILESTATUS_HIJACKED" value="" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="72a038" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_OBSTRUCTED" value="727238" />
+    <option name="FILESTATUS_IDEA_SVN_REPLACED" value="629755" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="e4ff" />
+    <option name="FILESTATUS_OBSOLETE" value="" />
+    <option name="FILESTATUS_SUPPRESSED" value="" />
+    <option name="FILESTATUS_SWITCHED" value="" />
+    <option name="GUTTER_BACKGROUND" value="1b351c" />
+    <option name="INDENT_GUIDE" value="7356" />
+    <option name="INFORMATION_HINT" value="574f39" />
+    <option name="LINE_NUMBERS_COLOR" value="3ed5ea" />
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="d04ba7" />
+    <option name="NOTIFICATION_BACKGROUND" value="5b2149" />
+    <option name="RIGHT_MARGIN_COLOR" value="8a3b90" />
+    <option name="SELECTED_TEARLINE_COLOR" value="999999" />
+    <option name="SELECTION_BACKGROUND" value="305790" />
+    <option name="TEARLINE_COLOR" value="305790" />
+    <option name="TOOLTIP" value="13494f" />
+    <option name="VISUAL_INDENT_GUIDE" value="305790" />
+  </colors>
+  <attributes>
+    <option name="BOOKMARKS_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="10286b" />
+        <option name="EFFECT_COLOR" value="d04ba7" />
+        <option name="ERROR_STRIPE_COLOR" value="dbdbdb" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_CURRENT">
+      <value>
+        <option name="FOREGROUND" value="3ed5ea" />
+        <option name="BACKGROUND" value="44474a" />
+      </value>
+    </option>
+    <option name="DUPLICATE_FROM_SERVER">
+      <value>
+        <option name="BACKGROUND" value="7c6d49" />
+      </value>
+    </option>
+    <option name="FOLDED_TEXT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="534635" />
+      </value>
+    </option>
+    <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="2e593d" />
+        <option name="EFFECT_COLOR" value="41192f" />
+        <option name="ERROR_STRIPE_COLOR" value="5ab1e" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="TEXT">
+      <value>
+        <option name="FOREGROUND" value="b2eee5" />
+        <option name="BACKGROUND" value="1a1a1a" />
+        <option name="EFFECT_TYPE" value="5" />
+      </value>
+    </option>
+    <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="4949" />
+        <option name="ERROR_STRIPE_COLOR" value="b56277" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

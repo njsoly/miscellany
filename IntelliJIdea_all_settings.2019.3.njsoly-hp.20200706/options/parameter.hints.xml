@@ -1,0 +1,11 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <option id="SHOW_LOCAL_VARIABLE_HINT" value="true" />
+    <disabledLanguages>
+      <language id="JAVA" />
+      <language id="Scala" />
+      <language id="kotlin" />
+      <language id="Groovy" />
+    </disabledLanguages>
+  </component>
+</application>
