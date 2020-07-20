@@ -1,0 +1,25 @@
+<mtTheme>
+  <id>idea2020.1_0</id>
+  <editorColorsScheme>IDEA 2020.1 [0] from Idea 2019.3 export</editorColorsScheme>
+  <dark>true</dark>
+  <name>Import-then-Export IDEA 2020.1</name>
+  <colors>
+    <color id="background" value="282a36ff"/>
+    <color id="foreground" value="f8f8f2ff"/>
+    <color id="text" value="00d9f3ff"/>
+    <color id="highlight" value="2e71a4ff"/>
+    <color id="selectionBackground" value="2c767aff"/>
+    <color id="selectionForeground" value="fffefaff"/>
+    <color id="button" value="393c4bff"/>
+    <color id="secondaryBackground" value="282a36ff"/>
+    <color id="disabled" value="a46347a2"/>
+    <color id="contrast" value="050d0dff"/>
+    <color id="tableSelected" value="44475aff"/>
+    <color id="secondBorder" value="00ff86ff"/>
+    <color id="treeSelection" value="ff00bc33"/>
+    <color id="notifications" value="1d2228ff"/>
+    <color id="accent" value="ff79c5ff"/>
+    <color id="excluded" value="3d2b27ff"/>
+  </colors>
+  <themeId>idea2020.1_0</themeId>
+</mtTheme>
