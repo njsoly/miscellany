@@ -1,0 +1,9 @@
+<application>
+  <component name="AbbreviationManager">
+    <abbreviations>
+      <action id="EditorToggleShowWhitespaces">
+        <abbreviation name="showNonPrinting" />
+      </action>
+    </abbreviations>
+  </component>
+</application>

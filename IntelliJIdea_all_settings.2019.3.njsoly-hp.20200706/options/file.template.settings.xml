@@ -1,0 +1,8 @@
+<application>
+  <component name="ExportableFileTemplateSettings">
+    <default_templates>
+      <template name="GridBagFormCreation.java" reformat="true" live-template-enabled="true" />
+      <template name="GridBagFormCreation.form" reformat="true" live-template-enabled="true" />
+    </default_templates>
+  </component>
+</application>

@@ -1,0 +1,119 @@
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="433" height="408" />
+    </constraints>
+    <properties>
+      <background color="-15132126" />
+      <font name="Consolas" />
+    </properties>
+    <border type="bevel-lowered" />
+    <children>
+      <grid id="5b193" binding="innerPanel" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false" />
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.0" weighty="0.0" ipadx="8" ipady="8" />
+        </constraints>
+        <properties>
+          <alignmentY value="0.6" />
+          <autoscrolls value="true" />
+          <background color="-15263456" />
+          <font name="Consolas" />
+        </properties>
+        <border type="bevel-raised" />
+        <children>
+          <scrollpane id="6487a" binding="resultsPane">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false" />
+              <gridbag weightx="0.0" weighty="0.0" />
+            </constraints>
+            <properties>
+              <autoscrolls value="true" />
+              <font name="Consolas" />
+              <foreground color="-11460279" />
+              <horizontalScrollBarPolicy value="30" />
+              <name value="resultsPane" />
+            </properties>
+            <border type="bevel-raised" title="Results">
+              <font name="Consolas" style="1" />
+              <title-color color="-12429425" />
+            </border>
+            <children>
+              <component id="8d659" class="javax.swing.JTextArea" binding="resultsTextArea">
+                <constraints />
+                <properties>
+                  <background color="-16513481" />
+                  <columns value="60" />
+                  <editable value="false" />
+                  <font name="Consolas" />
+                  <lineWrap value="true" />
+                  <name value="resultsArea" />
+                  <opaque value="true" />
+                  <rows value="32" />
+                  <text value="..." />
+                  <toolTipText value="Results" />
+                  <wrapStyleWord value="false" />
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <component id="79ad" class="javax.swing.JTextField" binding="searchTextField">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1" />
+              </grid>
+              <gridbag weightx="0.0" weighty="0.0" />
+            </constraints>
+            <properties>
+              <background color="-14599345" />
+              <columns value="60" />
+              <font name="Consolas" />
+              <horizontalAlignment value="2" />
+              <text value="" noi18n="true" />
+              <toolTipText value="Enter your search" />
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="aa144" class="javax.swing.JTextArea" binding="textAreaInfo">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50" />
+          </grid>
+          <gridbag top="4" left="4" bottom="4" right="4" weightx="0.0" weighty="0.0" />
+        </constraints>
+        <properties>
+          <columns value="32" />
+          <editable value="false" />
+          <font name="Consolas" />
+          <foreground color="-6821640" />
+          <lineWrap value="true" />
+          <margin top="1" left="2" bottom="1" right="1" />
+          <rows value="12" />
+          <text value="Info" />
+          <toolTipText value="Information Area" />
+        </properties>
+      </component>
+      <component id="b9783" class="javax.swing.JEditorPane" binding="htmlPane" custom-create="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50" />
+          </grid>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.0" weighty="0.0" />
+        </constraints>
+        <properties>
+          <background color="-7487797" />
+          <contentType value="text/html" />
+          <editable value="false" />
+          <font name="Droid Sans Mono" />
+          <foreground color="-16769785" />
+          <minimumSize width="200" height="64" />
+          <toolTipText value="HTML Pane" />
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <inspectionSuppressions>
+    <suppress inspection="I18nForm" />
+  </inspectionSuppressions>
+</form>

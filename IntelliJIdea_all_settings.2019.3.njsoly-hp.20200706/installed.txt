@@ -1,0 +1,26 @@
+BashSupport
+CMD Support
+Create Jira Ticket
+GradleDependenciesHelper
+Jar Tool
+Key Promoter X
+MavenRunHelper
+PythonCore
+String Manipulation
+com.chrisrm.idea.MaterialThemeUI
+com.github.platan.gradle-dependencies-formatter
+com.godwin.json.parser
+com.intellij.jira
+com.intellij.plugin.adernov.powershell
+com.jetbrains.edu
+com.przemyslawj.mockito.generator
+com.viartemev.requestmapper
+com.xcodersteam.idea.plugins.mkupscss
+com.zhaow.restful.toolkit
+de.sgalinski.typoscript.enterprise.plugin.id
+de.tomtec.idea.plugin.gradle.run
+hu.rb.cs.generator
+mobi.hsz.idea.gitignore
+org.jetbrains.kotlin
+ru.adelf.idea.dotenv
+zielu.gittoolbox
