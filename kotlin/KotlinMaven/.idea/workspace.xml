@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherWindow.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordSearcher/twl.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/twl.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/LetterTile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/LetterTile.kt" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,18 +91,19 @@
     <option name="showModules" value="false" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="right" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/util" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.43866944" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -130,7 +131,19 @@
       <select />
     </treeState>
   </component>
-  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.WordSearcherKt">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.WordSearcherTest">
     <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -312,18 +325,6 @@
       <map>
         <entry key="xml" value="XML" />
       </map>
-    </option>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
     </option>
   </component>
   <component name="StructureViewFactory">
