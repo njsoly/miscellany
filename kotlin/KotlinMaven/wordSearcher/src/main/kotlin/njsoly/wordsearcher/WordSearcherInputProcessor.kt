@@ -1,8 +1,10 @@
 package njsoly.wordsearcher
 
+import njsoly.log.SetupLogger
 import njsoly.util.strings.filterToLength
 import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isSimple
+import org.apache.log4j.Logger
 import java.io.InputStream
 import java.io.PrintStream
 
@@ -11,6 +13,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
 
     val output: PrintStream = System.out
     val input: InputStream = System.`in`
+    val logger: Logger = SetupLogger.setupLogger(this::class.java)
     private val inputHistory = mutableListOf<String>()
 
     // MISC-15 split out processInput() into an input processor class
@@ -51,11 +54,11 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * return a list of matching words from [wordList].
      */
     protected fun `process letters against search strings`(letters: String, searchStrings: List<String>, wordList: List<String>): List<String>? {
-        WordSearcher.debug("processing letters")
+        logger.debug("processing letters")
         val wilds = letters.count{ it == '.' || it == '?' || it == '_'}
-        WordSearcher.debug("there are $wilds wild tiles")
+        logger.debug("there are $wilds wild tiles")
         val letters = letters.filter{ it.isLetter() }
-        WordSearcher.debug("letters with wilds removed: \"$letters\"")
+        logger.debug("letters with wilds removed: \"$letters\"")
 
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersWithWildsToSinglePattern(letters, it, wordList, wilds = wilds)) }
@@ -125,7 +128,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 wilds--
             } else {
                 if(WordSearcher.DEBUG) {
-                    WordSearcher.debug("defaulted out at [$i], letter $letter")
+                    logger.debug("defaulted out at [$i], letter $letter")
                 }
                 return false
             }
@@ -158,7 +161,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * without regard to which letters a player may actually have.
      */
     fun `filter full list against single pattern` (pattern: String): List<String>? {
-        WordSearcher.info("Matching words to regular expression \"$pattern\"")
+        logger.info("Matching words to regular expression \"$pattern\"")
         val p = pattern.replace("*",".*")
         return wordList.filter { it.matches(Regex(p))}
     }
@@ -168,7 +171,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * @param[inputString] a word to check the word list for a match
      */
     fun checkListForExactMatch (inputString: String, wordList: List<String>): List<String>? {
-        WordSearcher.info("Searching for exact match for word \"$inputString\"")
+        logger.info("Searching for exact match for word \"$inputString\"")
         return wordList.filterToLength(inputString.length).filter{ it == inputString }
     }
 
