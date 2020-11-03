@@ -1,6 +1,4 @@
-package main.kotlin
-
-import javax.sql.DataSource
+package njsoly
 
 
 class ConnectToPostgres {

@@ -72,6 +72,8 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersWithWildsToSinglePattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
+
+        // TODO design so you can deduct the points lost when using blanks
         results = sortResultsByBasicTileValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
@@ -184,6 +186,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         return wordList.filterToLength(inputString.length).filter{ it == inputString }
     }
 
+    // TODO move "input history" out to something that can be used by other classes
     fun storeToInputHistory(inputString: String){
         inputHistory.add(inputString)
     }

@@ -5,7 +5,7 @@ package njsoly.wordsearcher
 /**
  *
  */
-enum class LetterTile (val points: Int = 1, val vowel: Boolean = false){
+enum class LetterTile (val points: Int = 1, val vowel: Boolean = false) {
     A(vowel = true),
     B(4),
     C(4),
