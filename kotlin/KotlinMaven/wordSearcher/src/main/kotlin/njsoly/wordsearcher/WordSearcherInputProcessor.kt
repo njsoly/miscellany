@@ -153,7 +153,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 fits.add(pattern.substring(i, i + word.length))
             }
         }
-        return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
+        return fits.maxBy{ fittingWord -> fittingWord.count{ ch -> ch.isLetter() } } ?: pattern
     }
 
     /**
