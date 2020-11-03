@@ -209,6 +209,10 @@ public class GridBagFormCreation {
 
 	}
 
+	/**
+	 * Make a {@code GridBagFormCreation}, pack it, and set it visible.
+	 * @param args not used.
+	 */
 	public static void main(String[] args) {
 		GridBagFormCreation form = new GridBagFormCreation();
 		JFrame window = form.getGridBagFormCreationJframe();

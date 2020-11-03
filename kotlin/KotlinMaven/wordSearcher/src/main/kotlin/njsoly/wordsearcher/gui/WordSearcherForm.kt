@@ -24,6 +24,9 @@ class WordSearcherForm : GridBagFormCreation() {
         return ws
     }
 
+    /**
+     * Key adapter for WordSearcherForm.
+     */
     class KA(private val componentSource: JComponent,
              private val wsf: WordSearcherForm,
              private val ws: WordSearcher) : KeyAdapter() {
