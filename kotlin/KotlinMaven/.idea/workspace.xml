@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/WordSearcherTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/WordSearcherTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry/src/main/kotlin/njsoly/log/LoggerFactoryUsage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry/src/main/kotlin/njsoly/log/LoggerFactoryUsage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlinMaven.iml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlinMaven.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/KotlinMaven.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/KotlinMaven.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/twl.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/twl.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,27 +22,6 @@
   </component>
   <component name="ExportToHTMLSettings">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../KotlinMaven\exportToHTML" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="KotlinMaven">
-      <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="form" klass="com.intellij.uiDesigner.projectView.FormNode">
-        <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="class" klass="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
-        <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.form" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-      </favorite_root>
-    </favorites_list>
-    <favorites_list name="GUI Forms">
-      <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-      <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="form" klass="com.intellij.uiDesigner.projectView.FormNode">
-        <favorite_root url="GridBagFormCreation" module="KotlinMaven.formCreatorAttempt" type="class" klass="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
-        <favorite_root url="file://$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.form" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-      </favorite_root>
-    </favorites_list>
-    <favorites_list name="IDEA xmls">
-      <favorite_root url="file://$PROJECT_DIR$/.idea/compiler.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-    </favorites_list>
-    <favorites_list name="BASH">
-      <favorite_root url="file://$PROJECT_DIR$/../../bash.fxns.d/build-auto-tests.fxn" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-    </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -73,7 +53,6 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="dedicatedModuleDir" value="M:\miscellany\kotlin\KotlinMaven" />
-        <option name="importAutomatically" value="true" />
         <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
@@ -94,6 +73,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="right" />
@@ -133,19 +114,7 @@
       <select />
     </treeState>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Kotlin.njsoly.log.LoggerFactoryUsageKt">
+  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.WordSearcherKt">
     <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -270,7 +239,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="njsoly.log.LoggerFactoryUsageKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="njsoly.log.LoggerFactoryUsageKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="loggerFactoryUsageTry" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -283,7 +252,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="njsoly.wordsearcher.gui.WordSearcherWindowKt" type="JetRunConfigurationType" factoryName="Kotlin" nameIsGenerated="true">
+    <configuration name="njsoly.wordsearcher.gui.WordSearcherWindowKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <module name="KotlinMaven.wordSearcher" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -363,222 +332,41 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SetupLogger: cleanup" />
     <option name="LAST_COMMIT_MESSAGE" value="SetupLogger: cleanup" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="671" y="294" key="#BuildArtifactsBeforeRunChooser" timestamp="1581135233033">
+    <state width="891" height="207" key="GridCell.Tab.0.bottom" timestamp="1597905847185">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="671" y="294" key="#BuildArtifactsBeforeRunChooser/0.0.1600.860@0.0.1600.860" timestamp="1581135233033" />
-    <state x="674" y="166" width="724" height="708" key="#GridBagFormCreation" timestamp="1578777678334">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="166" width="724" height="708" key="#GridBagFormCreation/0.0.1920.1040@0.0.1920.1040" timestamp="1578777678334" />
-    <state x="674" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" timestamp="1581038783853">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle/0.0.1920.1040@0.0.1920.1040" timestamp="1581038783853" />
-    <state x="666" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle_(1)" timestamp="1581985962142">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="129" key="#M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle_(1)/0.0.1920.1040@0.0.1920.1040" timestamp="1581985962142" />
-    <state x="460" y="147" key="#Notifications" timestamp="1581128504938">
+    <state width="891" height="207" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1597905847185" />
+    <state width="891" height="207" key="GridCell.Tab.0.center" timestamp="1597905847184">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="460" y="147" key="#Notifications/0.0.1600.860@0.0.1600.860" timestamp="1581128504938" />
-    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1578777435178" />
-    <state x="552" y="178" width="1145" height="684" key="#Project_Structure" timestamp="1581039262375">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="363" y="34" width="1145" height="684" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1580975538772" />
-    <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581039262375" />
-    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581985978256">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="345" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1581135282079" />
-    <state x="414" y="174" width="1092" height="753" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581985978256" />
-    <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581126363383">
+    <state width="891" height="207" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
+    <state width="891" height="207" key="GridCell.Tab.0.left" timestamp="1597905847184">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="562" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1581126363383" />
-    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581557478857">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="214" y="358" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581557478857" />
-    <state x="590" y="247" key="#com.intellij.ide.util.ExportDialog" timestamp="1581039365194">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="590" y="247" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581039365194" />
-    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1576727371324">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576727371324" />
-    <state x="574" y="251" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577426142930">
+    <state width="891" height="207" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
+    <state width="891" height="207" key="GridCell.Tab.0.right" timestamp="1597905847184">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="574" y="251" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426142930" />
-    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577401643183" />
-    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581469697426">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1577427038039" />
-    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-1600.81.1600.860@0.0.1920.1040" timestamp="1579081671205" />
-    <state x="576" y="190" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581469697426" />
-    <state x="588" y="247" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1577426191909">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="588" y="247" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426191909" />
-    <state x="667" y="95" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1577401644569">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="95" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577401644569" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577402180817">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577402180817" />
-    <state x="833" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1576729132336">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="833" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040@0.0.1920.1040" timestamp="1576729132336" />
-    <state x="579" y="0" width="442" height="820" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinNestedClassesDialog" timestamp="1577426145082">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="579" y="0" width="442" height="820" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinNestedClassesDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426145082" />
-    <state x="670" y="15" width="603" height="985" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1581552315452">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="670" y="15" width="603" height="985" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581552315452" />
-    <state x="664" y="346" key="#org.jetbrains.kotlin.idea.refactoring.move.moveTopLevelDeclarations.ui.KotlinSelectInnerOrMembersRefactoringDialog" timestamp="1577426176308">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="664" y="346" key="#org.jetbrains.kotlin.idea.refactoring.move.moveTopLevelDeclarations.ui.KotlinSelectInnerOrMembersRefactoringDialog/0.0.1600.860@0.0.1600.860" timestamp="1577426176308" />
-    <state x="452" y="22" key="CommitChangelistDialog2" timestamp="1581126268977">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="452" y="22" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1581126268977" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1582252252561">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="617" y="227" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1581125718421" />
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1600.81.1600.860@0.0.1920.1040" timestamp="1579081867493" />
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582252252561" />
-    <state width="1136" height="322" key="GridCell.Tab.0.bottom" timestamp="1582440249323">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="383" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
-    <state width="1136" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
-    <state width="1136" height="322" key="GridCell.Tab.0.center" timestamp="1582440249323">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="383" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
-    <state width="1136" height="322" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
-    <state width="1136" height="322" key="GridCell.Tab.0.left" timestamp="1582440249323">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="383" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1581582385949" />
-    <state width="1136" height="322" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
-    <state width="1136" height="322" key="GridCell.Tab.0.right" timestamp="1582440249323">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="383" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1581582385950" />
-    <state width="1136" height="322" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582440249323" />
-    <state width="1062" height="322" key="GridCell.Tab.1.bottom" timestamp="1581471640631">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1062" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
-    <state width="1062" height="322" key="GridCell.Tab.1.center" timestamp="1581471640631">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1062" height="322" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
-    <state width="1062" height="322" key="GridCell.Tab.1.left" timestamp="1581471640631">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1062" height="322" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
-    <state width="1062" height="322" key="GridCell.Tab.1.right" timestamp="1581471640631">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1062" height="322" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581471640631" />
-    <state x="620" y="234" key="GuiDesigner.FormSource.Dialog" timestamp="1577430309772">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="620" y="234" key="GuiDesigner.FormSource.Dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577430309772" />
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1581472254432">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581472254432" />
-    <state x="51" y="41" width="916" height="860" key="SettingsEditor" timestamp="1582252505060">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-7" y="0" width="916" height="860" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1581132198257" />
-    <state x="51" y="41" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582252505060" />
-    <state x="661" y="345" key="SimpleOpenTaskDialog" timestamp="1578777689248">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="345" key="SimpleOpenTaskDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578777689248" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1580258403733">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1580258403733" />
-    <state x="739" y="250" key="chooseDestDirectoryDialog" timestamp="1581481379263">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="207" key="chooseDestDirectoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1577427114779" />
-    <state x="739" y="250" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581481379263" />
-    <state x="97" y="60" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581125729689">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="97" y="60" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1581125729689" />
-    <state x="486" y="151" width="627" height="558" key="find.popup" timestamp="1580975607874">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="486" y="151" width="627" height="558" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1580975607874" />
-    <state width="613" height="372" key="javadoc.popup.new" timestamp="1581653984014">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="511" height="308" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1581126790582" />
-    <state width="613" height="372" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1581653984014" />
-    <state x="342" y="94" key="new project wizard" timestamp="1581038393742">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="94" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1581038393742" />
-    <state x="724" y="196" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1581553232800">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="724" y="196" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581553232800" />
-    <state x="669" y="130" key="refactoring.ChangeSignatureDialog" timestamp="1581466748335">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="669" y="130" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581466748335" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1577413419567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577413419567" />
-    <state x="552" y="178" key="scopes" timestamp="1581034416720">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="178" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1581034416720" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582165139460">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="519" y="186" width="672" height="561" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1580975655012" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582165139460" />
+    <state width="891" height="207" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/WordSearcherInputProcessor.kt</url>
-          <line>89</line>
+          <line>92</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
