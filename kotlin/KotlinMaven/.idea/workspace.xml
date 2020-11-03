@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/WordSearcherTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/WordSearcherTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlinMaven.iml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlinMaven.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/KotlinMaven.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/KotlinMaven.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordSearcher/twl.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/twl.txt" afterDir="false" />
-    </list>
+    <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +79,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.43866944" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="diff.base" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -114,7 +107,7 @@
       <select />
     </treeState>
   </component>
-  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.WordSearcherKt">
+  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt">
     <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -344,22 +337,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="SetupLogger: cleanup" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="891" height="207" key="GridCell.Tab.0.bottom" timestamp="1597905847185">
+    <state x="845" y="374" key="#Notifications" timestamp="1604379058562">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="374" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1604379058562" />
+    <state x="719" y="204" key="FileChooserDialogImpl" timestamp="1604379180386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="719" y="204" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604379180386" />
+    <state width="873" height="207" key="GridCell.Tab.0.bottom" timestamp="1604156273171">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="891" height="207" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1597905847185" />
-    <state width="891" height="207" key="GridCell.Tab.0.center" timestamp="1597905847184">
+    <state width="873" height="207" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
+    <state width="873" height="207" key="GridCell.Tab.0.center" timestamp="1604156273171">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="891" height="207" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
-    <state width="891" height="207" key="GridCell.Tab.0.left" timestamp="1597905847184">
+    <state width="873" height="207" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
+    <state width="873" height="207" key="GridCell.Tab.0.left" timestamp="1604156273170">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="891" height="207" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
-    <state width="891" height="207" key="GridCell.Tab.0.right" timestamp="1597905847184">
+    <state width="873" height="207" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604156273170" />
+    <state width="873" height="207" key="GridCell.Tab.0.right" timestamp="1604156273171">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="891" height="207" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1597905847184" />
+    <state width="873" height="207" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1604379350644">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604379350644" />
+    <state x="607" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604158326415">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="607" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1604158326415" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
