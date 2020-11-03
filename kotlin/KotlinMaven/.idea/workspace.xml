@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
-      <change afterPath="$PROJECT_DIR$/postgresPlay/postgresPlay.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postgresPlay/src/ConnectToPostgres.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgresPlay/src/main/resources/database-setup/create-table1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgresPlay/src/main/resources/select-all-table1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlinMaven.iml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlinMaven.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/formCreatorAttempt/KotlinMaven.formCreatorAttempt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/formCreatorAttempt/src/main/java/GridBagFormCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlinmaven.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kotlinmaven.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loggerFactoryUsageTry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loggerFactoryUsageTry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_kotlinmaven.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module_kotlinmaven.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgresPlay/postgresPlay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/postgresPlay/src/main/kotlin/postgresPlay.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgresPlay/src/ConnectToPostgres.kt" beforeDir="false" afterPath="$PROJECT_DIR$/postgresPlay/src/main/kotlin/ConnectToPostgres.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twl.txt" beforeDir="false" afterPath="$PROJECT_DIR$/twl.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/KotlinMaven.wordSearcher.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/gui/WordSearcherForm.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +63,13 @@
       <JiraServer password="df9cdf9cdfe2dfe9df92dfc8dfdfdfe8dfefdfe8dfcfdfe2dfc9dfcddffadfeddffbdfd2dfccdfcedfe9df9cdf98df9d" url="https://syntj.atlassian.net" username="njsoly@syntj.com" />
     </servers>
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -61,12 +83,12 @@
   </component>
   <component name="ProjectId" id="1TlM7s1334u7bCwlNTn1rKHj9ji" />
   <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
     <option name="compactDirectories" value="true" />
     <option name="flattenModules" value="true" />
     <option name="flattenPackages" value="true" />
     <option name="foldersAlwaysOnTop" value="false" />
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showModules" value="false" />
   </component>
@@ -80,31 +102,35 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/util" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresPlay" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.43866944" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="diff.base" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="njsoly.util.strings" />
       <recent name="njsoly.wordsearcher" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\miscellany\kotlin\KotlinMaven\postgresPlay\src\main\resources\database-setup" />
+      <recent name="D:\miscellany\kotlin\KotlinMaven\postgresPlay\src\main\kotlin" />
+      <recent name="D:\miscellany\kotlin\KotlinMaven\postgresPlay\src\main\resources" />
+      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher\gui" />
+      <recent name="M:\miscellany\kotlin\KotlinMaven\src\main\java\njsoly\util" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="njsoly.wordsearcher.gui" />
       <recent name="njsoly.util" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher\gui" />
-      <recent name="M:\miscellany\kotlin\KotlinMaven\src\main\java\njsoly\util" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="M:\miscellany\kotlin\KotlinMaven\wordSearcher\src\main\kotlin\njsoly\wordsearcher" />
     </key>
   </component>
   <component name="RestServicesNavigator">
@@ -113,7 +139,7 @@
       <select />
     </treeState>
   </component>
-  <component name="RunManager" selected="Kotlin.ConnectToPostgresKt">
+  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt">
     <configuration name="ListUtilKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinMaven.wordSearcher" />
       <extension name="coverage">
@@ -221,14 +247,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConnectToPostgresKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="ConnectToPostgresKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <module name="postgresPlay" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="ConnectToPostgresKt" />
+      <option name="MAIN_CLASS_NAME" value="main.kotlin.ConnectToPostgresKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -271,14 +297,13 @@
       <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
       <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
       <item itemvalue="JUnit.ListUtilKtTest" />
+      <item itemvalue="Kotlin.ConnectToPostgresKt" />
       <item itemvalue="Kotlin.njsoly.wordsearcher.WordSearcherKt" />
       <item itemvalue="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt" />
       <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
-      <item itemvalue="Kotlin.ConnectToPostgresKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.ConnectToPostgresKt" />
         <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
         <item itemvalue="JUnit.ListUtilKtTest" />
         <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
@@ -339,42 +364,70 @@
     <option name="LAST_COMMIT_MESSAGE" value="SetupLogger: cleanup" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="726" y="55" key="#Auto_Import" timestamp="1604399394212">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="55" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1604399394212" />
     <state x="845" y="374" key="#Notifications" timestamp="1604379058562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="845" y="374" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1604379058562" />
-    <state x="719" y="204" key="FileChooserDialogImpl" timestamp="1604379180386">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1604396566257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="204" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604379180386" />
-    <state width="873" height="207" key="GridCell.Tab.0.bottom" timestamp="1604156273171">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1604396566257" />
+    <state x="703" y="329" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604396325804">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="703" y="329" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1604396325804" />
+    <state x="733" y="344" key="DBNavigator.ConnectionInfoDialog" timestamp="1604396598115">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="344" key="DBNavigator.ConnectionInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604396598115" />
+    <state x="490" y="175" key="DBNavigator.ProjectSettingsDialog" timestamp="1604396888961">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="175" key="DBNavigator.ProjectSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604396888961" />
+    <state x="719" y="204" key="FileChooserDialogImpl" timestamp="1604396555630">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="719" y="204" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604396555630" />
+    <state width="581" height="196" key="GridCell.Tab.0.bottom" timestamp="1604420744277">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="873" height="207" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
-    <state width="873" height="207" key="GridCell.Tab.0.center" timestamp="1604156273171">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="873" height="207" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
-    <state width="873" height="207" key="GridCell.Tab.0.left" timestamp="1604156273170">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="873" height="207" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604156273170" />
-    <state width="873" height="207" key="GridCell.Tab.0.right" timestamp="1604156273171">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="873" height="207" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1604379350644">
+    <state width="581" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604420744277" />
+    <state width="581" height="196" key="GridCell.Tab.0.center" timestamp="1604420744277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604379350644" />
+    <state width="873" height="207" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
+    <state width="581" height="196" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604420744277" />
+    <state width="581" height="196" key="GridCell.Tab.0.left" timestamp="1604420744277">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="873" height="207" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604156273170" />
+    <state width="581" height="196" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604420744277" />
+    <state width="581" height="196" key="GridCell.Tab.0.right" timestamp="1604420744277">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="873" height="207" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604156273171" />
+    <state width="581" height="196" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604420744277" />
+    <state x="440" y="94" width="998" height="869" key="SettingsEditor" timestamp="1604420739594">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" width="998" height="869" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604420739594" />
     <state x="607" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604158326415">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="607" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1604158326415" />
-    <state x="597" y="95" key="new project wizard" timestamp="1604394999350">
+    <state x="597" y="95" width="833" height="850" key="new project wizard" timestamp="1604420635507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="597" y="95" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1604394999350" />
+    <state x="597" y="95" width="833" height="850" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1604420635507" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604399830905">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604399830905" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
