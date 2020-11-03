@@ -30,26 +30,35 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = inputLimit)
 
-        if (inputString == "" || inputSplit.isEmpty()) {
-            output.println("invalid input string: $inputString")
-            return null
-        }
+        when {
+            inputString == "" || inputSplit.isEmpty() -> {
+                output.println("invalid input string: $inputString")
+                return null
+            }
+            inputSplit.size == 1 -> {
+                return if (inputString.isSimple()) {
+                    checkListForExactMatch (inputString, wordList)
+                } else {
+                    `filter full list against single pattern`(inputSplit[0])
+                }
+            }
+            else -> {
+                val letters = inputSplit.first()
+                val searchStrings = inputSplit.minus(letters)
 
-        if (inputSplit.size == 1) {
-            return if (inputString.isSimple()) {
-                checkListForExactMatch (inputString, wordList)
-            } else {
-                `filter full list against single pattern`(inputSplit[0])
+                return `process letters against search strings`(letters, searchStrings, wordList)
             }
         }
 
-        val letters = inputSplit.first()
-        val searchStrings = inputSplit.minus(letters)
-
-        return `process letters against search strings` (letters, searchStrings, wordList)
     }
 
     /**
+     * Main entry point for processing a complex expression, first the tiles and then board spots to match.
+     * Board spots should lay out placements of existing tile(s), with however many dots for the spaces before,
+     * between (if any), and after them.
+     *
+     * Example expression: ehcr.ho ..n.. .h..... ....day z..n...
+     *
      * Given a certain set of [letters] (alphabetical + wildcards) and wildcard-laden [searchStrings],
      * return a list of matching words from [wordList].
      */
