@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup" />
+    <list default="true" id="40559398-8621-4c77-83a1-f926016a6b26" name="Default Changelist" comment="SetupLogger: cleanup">
+      <change afterPath="$PROJECT_DIR$/postgresPlay/postgresPlay.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgresPlay/src/ConnectToPostgres.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +28,7 @@
         <option value="Kotlin File" />
         <option value="JUnit4 Test Class" />
         <option value="GridBagFormCreation 0" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -107,24 +113,7 @@
       <select />
     </treeState>
   </component>
-  <component name="RunManager" selected="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt">
-    <configuration name="M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/wordSearcher/build.gradle" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.ConnectToPostgresKt">
     <configuration name="ListUtilKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinMaven.wordSearcher" />
       <extension name="coverage">
@@ -232,6 +221,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConnectToPostgresKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="postgresPlay" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ConnectToPostgresKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="njsoly.log.LoggerFactoryUsageKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="loggerFactoryUsageTry" />
       <option name="VM_PARAMETERS" />
@@ -261,7 +263,6 @@
     <list>
       <item itemvalue="Application.GridBagFormCreation" />
       <item itemvalue="Gradle.Build WordSearcher JAR" />
-      <item itemvalue="Gradle.M:/miscellany/kotlin/KotlinMaven/wordSearcher/build.gradle" />
       <item itemvalue="JAR Application.Build and run wordSearcher.jar" />
       <item itemvalue="JUnit.WordSearcherTest" />
       <item itemvalue="JUnit.WordSearcherInputProcessorTest" />
@@ -273,14 +274,15 @@
       <item itemvalue="Kotlin.njsoly.wordsearcher.WordSearcherKt" />
       <item itemvalue="Kotlin.njsoly.wordsearcher.gui.WordSearcherWindowKt" />
       <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
+      <item itemvalue="Kotlin.ConnectToPostgresKt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.ConnectToPostgresKt" />
         <item itemvalue="Kotlin.njsoly.log.LoggerFactoryUsageKt" />
         <item itemvalue="JUnit.ListUtilKtTest" />
         <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLetterToPattern ndilalx -----o-- should contain 'LADINO'" />
         <item itemvalue="JUnit.njsoly.wordsearcher in KotlinMaven.wordSearcher" />
-        <item itemvalue="JUnit.WordSearcherInputProcessorTest.matchLettersToPattern OSEAWSG ----a should only include things ending in 'A'" />
       </list>
     </recent_temporary>
   </component>
@@ -369,13 +371,17 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="607" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1604158326415" />
+    <state x="597" y="95" key="new project wizard" timestamp="1604394999350">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="597" y="95" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1604394999350" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/wordSearcher/src/main/kotlin/njsoly/wordsearcher/WordSearcherInputProcessor.kt</url>
-          <line>92</line>
+          <line>101</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
