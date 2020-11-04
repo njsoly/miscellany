@@ -50,7 +50,9 @@ clear
 
 
 ## bash git prompt setup ##
-if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
+if [[ "$OSTYPE" = "cygwin" ]]; then
+	source "prompt_color_function.bash.source"
+elif [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
 	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
 	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
 fi
