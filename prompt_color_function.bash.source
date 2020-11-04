@@ -8,7 +8,7 @@ then
 	__prompt_command() {
 		local EXIT_CODE="$?"             # This needs to be first
 
-		local RCol='\[\e[0m\]'
+		local ResetColor='\[\e[0m\]'
 		
 		local Red='\[\e[0;31m\]'
 		local BRed='\[\e[1;31m\]'
@@ -18,13 +18,17 @@ then
 		local BBlu='\[\e[1;34m\]'
 		local Mag='\[\e[0;35m\]'
 		local Pink='\[\e[95m\]'
+		local Cyan='\[\e[0;36m\]'
+		local White='\[\e[97m\]'
 		
-		PS1=${Pink}'[$(branchname||"")]\[\e[0m\] \[\e[0;36m\]\W/\[\e[0m\] \n\[\e[97m\][$(date +%H:%M)]\[\e[0m\]'
+		PS1=${Pink}'[$(branchname||"")]'${ResetColor}
+		PS1+=' '${Cyan}'\W/'${ResetColor}
+		PS1+=' \n'${White}'[$(date +%H:%M)]'${ResetColor}
 
 		if [ $EXIT_CODE != 0 ]; then
-			PS1+=" (${BRed}${EXIT_CODE}${RCol})"      # Add red if exit code non 0
+			PS1+=" (${BRed}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
 		else
-			PS1+=" (${BGre}${EXIT_CODE}${RCol})"
+			PS1+=" (${BGre}${EXIT_CODE}${ResetColor})"
 		fi
 
 		PS1+=" $ "
