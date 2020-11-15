@@ -1,4 +1,4 @@
-package com.example.springboot
+package com.syntj.springinitializrplayground
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 class HelloController {
     @RequestMapping("/")
     fun index(): String {
-        return "Greetings from Spring Boot!"
+        println(javaClass.name + " hit at request mapping /.")
+        return "Greetings from Spring Boot!\n"
     }
 }
