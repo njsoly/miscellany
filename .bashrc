@@ -6,6 +6,8 @@
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
+export _GRAY_BLOCK=░
+export _GRAY_BLOCK_8=░░░░░░░░
 
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
