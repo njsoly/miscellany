@@ -26,9 +26,9 @@ then
 		PS1+=' \n'${White}'[$(date +%H:%M)]'${ResetColor}
 
 		if [ $EXIT_CODE != 0 ]; then
-			PS1+=" (${BRed}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
+			PS1+=" (${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
 		else
-			PS1+=" (${BGre}${EXIT_CODE}${ResetColor})"
+			PS1+=" (${Gre}${EXIT_CODE}${ResetColor})"
 		fi
 
 		PS1+=" $ "
