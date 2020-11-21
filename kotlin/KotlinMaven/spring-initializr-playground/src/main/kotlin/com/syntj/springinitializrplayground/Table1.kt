@@ -13,7 +13,7 @@ data class Table1 (
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    internal val id: Long,
+    val id: Long,
 
     val name: String
 )

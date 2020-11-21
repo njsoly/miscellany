@@ -42,6 +42,20 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+	testCompileOnly("org.jetbrains.kotlin:kotlin-test-junit")
+	testCompileOnly("junit:junit:4.12")
+//	<dependency>
+//	<groupId>org.jetbrains.kotlin</groupId>
+//	<artifactId>kotlin-test-junit</artifactId>
+//	<version>${kotlin.version}</version>
+//	<scope>test</scope>
+//	</dependency>
+//	<dependency>
+//	<groupId>junit</groupId>
+//	<artifactId>junit</artifactId>
+//	<version>4.12</version>
+//	<scope>test</scope>
+//	</dependency>
 }
 
 tasks.withType<Test> {
