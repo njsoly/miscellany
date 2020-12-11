@@ -1,8 +1,10 @@
 package njsoly.wordsearcher
 
+import njsoly.log.SetupLogger
 import njsoly.util.strings.filterToLength
 import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isSimple
+import org.apache.log4j.Logger
 import java.io.InputStream
 import java.io.PrintStream
 
@@ -11,6 +13,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
 
     val output: PrintStream = System.out
     val input: InputStream = System.`in`
+    val logger: Logger = SetupLogger.setupLogger(this::class.java)
     private val inputHistory = mutableListOf<String>()
 
     // MISC-15 split out processInput() into an input processor class
@@ -27,39 +30,50 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = inputLimit)
 
-        if (inputString == "" || inputSplit.isEmpty()) {
-            output.println("invalid input string: $inputString")
-            return null
-        }
+        when {
+            inputString == "" || inputSplit.isEmpty() -> {
+                output.println("invalid input string: $inputString")
+                return null
+            }
+            inputSplit.size == 1 -> {
+                return if (inputString.isSimple()) {
+                    checkListForExactMatch (inputString, wordList)
+                } else {
+                    `filter full list against single pattern`(inputSplit[0])
+                }
+            }
+            else -> {
+                val letters = inputSplit.first()
+                val searchStrings = inputSplit.minus(letters)
 
-        if (inputSplit.size == 1) {
-            return if (inputString.isSimple()) {
-                checkListForExactMatch (inputString, wordList)
-            } else {
-                `filter full list against single pattern`(inputSplit[0])
+                return `process letters against search strings`(letters, searchStrings, wordList)
             }
         }
 
-        val letters = inputSplit.first()
-        val searchStrings = inputSplit.minus(letters)
-
-        return `process letters against search strings` (letters, searchStrings, wordList)
     }
 
     /**
+     * Main entry point for processing a complex expression, first the tiles and then board spots to match.
+     * Board spots should lay out placements of existing tile(s), with however many dots for the spaces before,
+     * between (if any), and after them.
+     *
+     * Example expression: ehcr.ho ..n.. .h..... ....day z..n...
+     *
      * Given a certain set of [letters] (alphabetical + wildcards) and wildcard-laden [searchStrings],
      * return a list of matching words from [wordList].
      */
     protected fun `process letters against search strings`(letters: String, searchStrings: List<String>, wordList: List<String>): List<String>? {
-        WordSearcher.debug("processing letters")
+        logger.debug("processing letters")
         val wilds = letters.count{ it == '.' || it == '?' || it == '_'}
-        WordSearcher.debug("there are $wilds wild tiles")
+        logger.debug("there are $wilds wild tiles")
         val letters = letters.filter{ it.isLetter() }
-        WordSearcher.debug("letters with wilds removed: \"$letters\"")
+        logger.debug("letters with wilds removed: \"$letters\"")
 
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersWithWildsToSinglePattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
+
+        // TODO design so you can deduct the points lost when using blanks
         results = sortResultsByBasicTileValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
@@ -125,7 +139,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 wilds--
             } else {
                 if(WordSearcher.DEBUG) {
-                    WordSearcher.debug("defaulted out at [$i], letter $letter")
+                    logger.debug("defaulted out at [$i], letter $letter")
                 }
                 return false
             }
@@ -150,7 +164,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 fits.add(pattern.substring(i, i + word.length))
             }
         }
-        return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
+        return fits.maxBy{ fittingWord -> fittingWord.count{ ch -> ch.isLetter() } } ?: pattern
     }
 
     /**
@@ -158,7 +172,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * without regard to which letters a player may actually have.
      */
     fun `filter full list against single pattern` (pattern: String): List<String>? {
-        WordSearcher.info("Matching words to regular expression \"$pattern\"")
+        logger.info("Matching words to regular expression \"$pattern\"")
         val p = pattern.replace("*",".*")
         return wordList.filter { it.matches(Regex(p))}
     }
@@ -168,10 +182,11 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * @param[inputString] a word to check the word list for a match
      */
     fun checkListForExactMatch (inputString: String, wordList: List<String>): List<String>? {
-        WordSearcher.info("Searching for exact match for word \"$inputString\"")
+        logger.info("Searching for exact match for word \"$inputString\"")
         return wordList.filterToLength(inputString.length).filter{ it == inputString }
     }
 
+    // TODO move "input history" out to something that can be used by other classes
     fun storeToInputHistory(inputString: String){
         inputHistory.add(inputString)
     }
