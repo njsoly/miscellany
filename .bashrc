@@ -6,6 +6,8 @@
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
+export _GRAY_BLOCK=░
+export _GRAY_BLOCK_8=░░░░░░░░
 
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
@@ -49,21 +51,33 @@ fi
 clear
 
 
-## bash git prompt setup ##
-if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
-	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
-	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
-fi
+
 
 ## set $miscellany ##
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
 elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
 	miscellany=/cygdrive/d/miscellany
+elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
+	if [[ "$OSTYPE" = "cygwin" ]]; then
+		miscellany=$HOME/miscellany
+	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
+		miscellany=$HOME/miscellany
+	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
+		miscellany=/mnt/c/Users/njsoly/miscellany
+	fi
 fi
 
 export miscellany
 ##---------------##
+
+## bash git prompt setup ##
+if [[ "$OSTYPE" = "cygwin" ]]; then
+	source "$miscellany/prompt_color_function.bash.source"
+elif [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
+	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
+fi
 
 ########_  functions  _########
 if [[ -d ${miscellany}/bash.fxns.d ]]; then

@@ -30,26 +30,35 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = inputLimit)
 
-        if (inputString == "" || inputSplit.isEmpty()) {
-            output.println("invalid input string: $inputString")
-            return null
-        }
+        when {
+            inputString == "" || inputSplit.isEmpty() -> {
+                output.println("invalid input string: $inputString")
+                return null
+            }
+            inputSplit.size == 1 -> {
+                return if (inputString.isSimple()) {
+                    checkListForExactMatch (inputString, wordList)
+                } else {
+                    `filter full list against single pattern`(inputSplit[0])
+                }
+            }
+            else -> {
+                val letters = inputSplit.first()
+                val searchStrings = inputSplit.minus(letters)
 
-        if (inputSplit.size == 1) {
-            return if (inputString.isSimple()) {
-                checkListForExactMatch (inputString, wordList)
-            } else {
-                `filter full list against single pattern`(inputSplit[0])
+                return `process letters against search strings`(letters, searchStrings, wordList)
             }
         }
 
-        val letters = inputSplit.first()
-        val searchStrings = inputSplit.minus(letters)
-
-        return `process letters against search strings` (letters, searchStrings, wordList)
     }
 
     /**
+     * Main entry point for processing a complex expression, first the tiles and then board spots to match.
+     * Board spots should lay out placements of existing tile(s), with however many dots for the spaces before,
+     * between (if any), and after them.
+     *
+     * Example expression: ehcr.ho ..n.. .h..... ....day z..n...
+     *
      * Given a certain set of [letters] (alphabetical + wildcards) and wildcard-laden [searchStrings],
      * return a list of matching words from [wordList].
      */
@@ -63,6 +72,8 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         var results = mutableListOf<String>()
         searchStrings.forEach{ results.addAll(matchLettersWithWildsToSinglePattern(letters, it, wordList, wilds = wilds)) }
         results = results.toSet().toMutableList()
+
+        // TODO design so you can deduct the points lost when using blanks
         results = sortResultsByBasicTileValue(results).toMutableList()
         if (results.size > 100) { results = results.subList(0, 99) }
         return results
@@ -153,7 +164,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 fits.add(pattern.substring(i, i + word.length))
             }
         }
-        return fits.maxBy{ it.count{ it.isLetter() } } ?: pattern
+        return fits.maxBy{ fittingWord -> fittingWord.count{ ch -> ch.isLetter() } } ?: pattern
     }
 
     /**
@@ -175,6 +186,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         return wordList.filterToLength(inputString.length).filter{ it == inputString }
     }
 
+    // TODO move "input history" out to something that can be used by other classes
     fun storeToInputHistory(inputString: String){
         inputHistory.add(inputString)
     }

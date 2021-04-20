@@ -1,0 +1,4 @@
+check_node_setup () 
+{ 
+    node --version && echo && echo && nvm ls
+}
