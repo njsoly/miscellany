@@ -90,7 +90,7 @@
   
   <path id="kotlinmaven.module.sourcepath">
     <dirset dir="${module.kotlinmaven.basedir}">
-      <include name="src/main/kotlin"/>
+      <include name="src/main.kotlin.main/kotlin"/>
     </dirset>
   </path>
   
@@ -114,7 +114,7 @@
     </javac2>
     
     <copy todir="${kotlinmaven.output.dir}">
-      <fileset dir="${module.kotlinmaven.basedir}/src/main/kotlin">
+      <fileset dir="${module.kotlinmaven.basedir}/src/main.kotlin.main/kotlin">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
