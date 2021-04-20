@@ -61,6 +61,8 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
 elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
 	if [[ "$OSTYPE" = "cygwin" ]]; then
 		miscellany=$HOME/miscellany
+	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
+		miscellany=$HOME/miscellany
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
