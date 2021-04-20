@@ -64,6 +64,12 @@ if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
 elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
 	miscellany=/cygdrive/d/miscellany
+elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
+	if [[ "OSTYPE" = "cygwin" ]]; then
+		miscellany=~/miscellany
+	elif [[ "OSTYPE" = "linux-gnu" ]]; then
+		miscellany=/mnt/c/Users/njsoly/miscellany
+	fi
 fi
 
 export miscellany
