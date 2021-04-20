@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: db/database-setup/create-table1.sql
