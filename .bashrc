@@ -17,6 +17,7 @@ alias lskb='lS'
 alias ls='ls -A -F --color'
 alias dirs='dirs -v'
 alias dirsn='dirs -v'
+alias ll='ls -l'
 
 ## git aliases ##
 alias gs='git status'
