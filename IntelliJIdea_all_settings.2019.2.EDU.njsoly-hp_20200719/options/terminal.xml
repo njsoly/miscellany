@@ -1,7 +1,0 @@
-<application>
-  <component name="TerminalOptionsProvider">
-    <option name="myShellPath" value="D:\cygwin64\bin\bash.exe" />
-    <option name="mySoundBell" value="false" />
-    <option name="myTabName" value="bash" />
-  </component>
-</application>
