@@ -58,3 +58,4 @@ kotlin/.idea/*.xml
 kotlin/.idea/\.*
 kotlin/KotlinMaven/.idea/libraries/
 lib/
+**/.idea/workspace.xml
