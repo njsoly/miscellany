@@ -48,11 +48,6 @@ fi
 ############  end application shorthands  ###########
 
 
-clear
-
-
-
-
 ## set $miscellany ##
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
@@ -89,7 +84,7 @@ elif [[ -d $PWD/bash.fxns.d ]]; then
 fi
 
 
-if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]]; then
+if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]] || [[ "$OSTYPE" = "cygwin" ]]; then
 	printf "hostname is %s; setting TERM to cygwin\n." "$HOSTNAME"
 	export TERM=cygwin
 fi
