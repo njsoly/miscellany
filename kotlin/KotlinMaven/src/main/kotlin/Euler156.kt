@@ -102,7 +102,6 @@ class Euler156 {
             }
         }
 
-        println("done searching.")
         return solutions[d]!!.map{it.n}
     }
 
@@ -141,15 +140,16 @@ fun main() {
     val timesElapsed = mutableMapOf<Int, String>()
 
     for (d in 1..9) {
-        println("searching for solutions for f(n,$d).")
+        println("searching for solutions for f(n,$d).  t = ${Euler156.readableTimeSinceInit()}")
 
-        val solutions = euler.findSolutionsofFofNandD(d, Euler156.MAX_N)
+//        val solutions = euler.findSolutionsofFofNandD(d, d * Euler156.MAX_N)
+        val solutions = euler.findSolutionsofFofNandD(d, 20000)
         timesElapsed[d] = Euler156.readableTimeSinceInit()
 
-        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions.sum()}")
+        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions.sum()}, s(1..$d) = ${euler.s.sum()}")
     }
 
-    println("finished.  total sum: ${euler.s.sum()}" +
+    println("finished in ${Euler156.readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
             "\ntimes: \n" + timesElapsed.values)
 
 }
