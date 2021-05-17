@@ -45,6 +45,7 @@ import kotlin.collections.ArrayList
 class Euler156 {
 
     companion object {
+        /** 1111111110L */
         const val MAX_N = 1111111110L
 //        var initMillis = Instant.now(Clock.systemUTC().withZone(ZoneId.of("America/Chicago"))).toEpochMilli()
         var initMillis = System.currentTimeMillis()
@@ -87,13 +88,13 @@ class Euler156 {
             lastSoln = findNextSolutionOfF_N_D(lastSoln, d, maxN) ?: break
 
             s[d] += lastSoln
-//            println(
-//                "solution: f(n,$d): n = $lastSoln. s($d) is now at ${s[d]}, after ${solutions[d]!!.size} solutions, ${
-//                    readableTimeFromMillis(
-//                        millisSinceInit()
-//                    )
-//                } into run"
-//            )
+            println(
+                "solution: f(n,$d): n = $lastSoln. s($d) is now at ${s[d]}, after ${solutions[d]!!.size} solutions, ${
+                    readableTimeFromMillis(
+                        millisSinceInit()
+                    )
+                } into run"
+            )
 
             solutions[d]!!.add(Soln(lastSoln, d))
 
@@ -139,11 +140,11 @@ fun main() {
     val euler = Euler156()
     val timesElapsed = mutableMapOf<Int, String>()
 
-    for (d in 1..9) {
+    for (d in 9..9) {
         println("searching for solutions for f(n,$d).  t = ${Euler156.readableTimeSinceInit()}")
 
-//        val solutions = euler.findSolutionsofFofNandD(d, d * Euler156.MAX_N)
-        val solutions = euler.findSolutionsofFofNandD(d, 20000)
+//        val solutions = euler.findSolutionsofFofNandD(d, Euler156.MAX_N)
+        val solutions = euler.findSolutionsofFofNandD(d, Euler156.MAX_N * d)
         timesElapsed[d] = Euler156.readableTimeSinceInit()
 
         println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions.sum()}, s(1..$d) = ${euler.s.sum()}")

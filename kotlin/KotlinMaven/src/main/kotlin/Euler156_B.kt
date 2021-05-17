@@ -77,79 +77,58 @@ class Euler156_B {
 
     val solutions: HashMap<Int, LinkedList<Soln>> = HashMap<Int, LinkedList<Soln>>()
     val s: ArrayList<Long> = ArrayList()
+    val f: ArrayList<Long> = ArrayList()
 
     /** returns all the solutions of f(n,d) */
-    fun findSolutionsofFofNandD (d: Int = 1, maxN: Long = MAX_N) : List<Long> {
-        var lastSoln: Long? = 0L
-        solutions[d] = LinkedList<Soln>()
+    fun findSolutionsofFofNandD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Soln>> {
 
-        while (lastSoln != null && lastSoln < maxN) {
-            lastSoln = findNextSolutionOfF_N_D(lastSoln, d, maxN) ?: break
+        for (n in 0 .. maxN) {
+            for (d in 1..9) {
 
-            s[d] += lastSoln
-//            println(
-//                "solution: f(n,$d): n = $lastSoln. s($d) is now at ${s[d]}, after ${solutions[d]!!.size} solutions, ${
-//                    readableTimeFromMillis(
-//                        millisSinceInit()
-//                    )
-//                } into run"
-//            )
+                f[d] = f[d] + n.toString().count { digit -> digit.toString().toInt() == d }
 
-            solutions[d]!!.add(Soln(lastSoln, d))
+                if (f[d] == n) {
+                    solutions[d]!!.add(Soln(n, d))
+                    s[d] += n
+                }
+            }
 
-            if (s[d] >= 22786974071L) {
-                break
+            if (n % 25000000L == 0L) {
+                println("t = ${readableTimeSinceInit()}, n = $n, current sums: $s")
             }
         }
 
-        return solutions[d]!!.map{it.n}
+        return solutions
     }
 
-    /**
-     * [solution] - The last point (so far) where f(n,d)=n.  Serves as the starting point for f and n.
-     * returns null if maxN reached before next solution. */
-    private fun findNextSolutionOfF_N_D(solution: Long = 0L, d: Int = 1, maxN: Long = MAX_N) : Long? {
-
-        var f = solution
-
-        for (n in solution+1 .. maxN) {
-            f += n.toString().count { digit -> digit.toString().toInt() == d }
-
-            if (f == n) {
-                return f
-            }
-        }
-
-        return null
-    }
 
     class Soln (val n: Long, val d: Int)
 
     init {
         for (i in 0..10) {
             s.add(0)
+            f.add(0)
+            solutions[i] = LinkedList()
         }
     }
 
 }
 
 fun main() {
-    println("Euler #156.")
+    println("Euler #156 B.")
 
-    val euler = Euler156()
+    val euler = Euler156_B()
     val timesElapsed = mutableMapOf<Int, String>()
 
+
+    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N)
+    timesElapsed[0] = Euler156_B.readableTimeSinceInit()
+
     for (d in 1..9) {
-        println("searching for solutions for f(n,$d).  t = ${Euler156.readableTimeSinceInit()}")
-
-//        val solutions = euler.findSolutionsofFofNandD(d, d * Euler156.MAX_N)
-        val solutions = euler.findSolutionsofFofNandD(d, 20000)
-        timesElapsed[d] = Euler156.readableTimeSinceInit()
-
-        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions.sum()}, s(1..$d) = ${euler.s.sum()}")
+        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions[d]!!.map{it.n}.sum()}, s(1..$d) = ${euler.s.sum()}")
     }
 
-    println("finished in ${Euler156.readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
+    println("finished in ${Euler156_B.readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
             "\ntimes: \n" + timesElapsed.values)
 
 }
