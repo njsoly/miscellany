@@ -142,11 +142,11 @@ fun main() {
 
     for (d in 1..9) {
         println("searching for solutions for f(n,$d).")
-        
+
         val solutions = euler.findSolutionsofFofNandD(d, Euler156.MAX_N)
         timesElapsed[d] = Euler156.readableTimeSinceInit()
 
-        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = $solutions.sum()")
+        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions.sum()}")
     }
 
     println("finished.  total sum: ${euler.s.sum()}" +
