@@ -62,9 +62,9 @@ class Euler156_B {
             val m = x
 
             return if (m > 0) {
-                "${m}m ${s}.${ms}s"
+                "${m}m ${s.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}s"
             } else {
-                "${s}.${ms}s"
+                "${s.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}s"
             }
         }
 
@@ -74,13 +74,12 @@ class Euler156_B {
 
     }
 
-
-    val solutions: HashMap<Int, LinkedList<Soln>> = HashMap<Int, LinkedList<Soln>>()
+    val solutions: HashMap<Int, LinkedList<Long>> = HashMap<Int, LinkedList<Long>>()
     val s: ArrayList<Long> = ArrayList()
     val f: ArrayList<Long> = ArrayList()
 
     /** returns all the solutions of f(n,d) */
-    fun findSolutionsofFofNandD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Soln>> {
+    fun findSolutionsofFofNandD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Long>> {
 
         for (n in 0 .. maxN) {
             for (d in 1..9) {
@@ -88,21 +87,18 @@ class Euler156_B {
                 f[d] = f[d] + n.toString().count { digit -> digit.toString().toInt() == d }
 
                 if (f[d] == n) {
-                    solutions[d]!!.add(Soln(n, d))
+                    solutions[d]!!.add(n)
                     s[d] += n
                 }
             }
 
             if (n % 25000000L == 0L) {
-                println("t = ${readableTimeSinceInit()}, n = $n, current sums: $s")
+                println("t = ${readableTimeSinceInit()}, n = $n, current sums: $s. s(1..9) = ${s.sum()}")
             }
         }
 
         return solutions
     }
-
-
-    class Soln (val n: Long, val d: Int)
 
     init {
         for (i in 0..10) {
@@ -121,11 +117,11 @@ fun main() {
     val timesElapsed = mutableMapOf<Int, String>()
 
 
-    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N)
+    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N * 9 + 1)
     timesElapsed[0] = Euler156_B.readableTimeSinceInit()
 
     for (d in 1..9) {
-        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions[d]!!.map{it.n}.sum()}, s(1..$d) = ${euler.s.sum()}")
+        println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions[d]!!.sum()}, s(1..$d) = ${euler.s.sum()}")
     }
 
     println("finished in ${Euler156_B.readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
