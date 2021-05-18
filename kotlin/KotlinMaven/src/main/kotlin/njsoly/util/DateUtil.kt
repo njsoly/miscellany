@@ -2,8 +2,6 @@ package njsoly.util
 
 class DateUtil {
 
-//    TimeZone.getDefault()
-
     companion object {
         var initMillis = System.currentTimeMillis()
 
