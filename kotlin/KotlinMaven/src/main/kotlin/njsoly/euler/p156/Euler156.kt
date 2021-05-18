@@ -1,6 +1,5 @@
-import java.time.Clock
-import java.time.Instant
-import java.time.ZoneId
+package njsoly.euler.p156
+
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -1,6 +1,6 @@
-import java.time.Clock
-import java.time.Instant
-import java.time.ZoneId
+package njsoly.euler.p156
+
+import njsoly.util.DateUtil.Companion.readableTimeSinceInit
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -40,37 +40,18 @@ import kotlin.collections.ArrayList
  *
  * Find ∑ s(d) for 1 ≤ d ≤ 9.
  *
- * Note: if, for some n, f(n,d)=n for more than one value of d this value of n is counted again for every value of d for which f(n,d)=n.
+ * Note: if, for some n, f(n,d)=n for more than one value of d this value of n is counted again
+ * for every value of d for which f(n,d)=n.
+ *
+ * Useful reference on some fun theory:
+ * https://www.quora.com/How-many-times-does-the-digit-1-appear-in-the-counting-numbers-from-1-to-1-000-000-One-to-a-million
  */
 class Euler156_B {
 
     companion object {
         const val MAX_N = 1111111110L
 //        var initMillis = Instant.now(Clock.systemUTC().withZone(ZoneId.of("America/Chicago"))).toEpochMilli()
-        var initMillis = System.currentTimeMillis()
 
-        fun millisSinceInit() : Long {
-            return System.currentTimeMillis() - initMillis
-        }
-
-        fun readableTimeFromMillis(millis: Long) : String {
-            var x = millis
-            val ms = millis % 1000
-            x /= 1000
-            val s = x % 60
-            x /= 60
-            val m = x
-
-            return if (m > 0) {
-                "${m}m ${s.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}s"
-            } else {
-                "${s.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}s"
-            }
-        }
-
-        fun readableTimeSinceInit() : String {
-            return readableTimeFromMillis(millisSinceInit())
-        }
 
     }
 
@@ -117,14 +98,15 @@ fun main() {
     val timesElapsed = mutableMapOf<Int, String>()
 
 
-    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N * 9 + 1)
-    timesElapsed[0] = Euler156_B.readableTimeSinceInit()
+//    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N * 9 + 1)
+    val solutions = euler.findSolutionsofFofNandD(maxN = 111L)
+    timesElapsed[0] = readableTimeSinceInit()
 
     for (d in 1..9) {
         println("found ${solutions.size} solutions for f(n,$d), for sum s($d) = ${solutions[d]!!.sum()}, s(1..$d) = ${euler.s.sum()}")
     }
 
-    println("finished in ${Euler156_B.readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
+    println("finished in ${readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
             "\ntimes: \n" + timesElapsed.values)
 
 }
