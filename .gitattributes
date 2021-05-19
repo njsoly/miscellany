@@ -1,4 +1,10 @@
+# catch-alls
+* text=auto
+
+# text
 *.kotlin_module diff text
 *.kt diff text
 
-* text=auto
+# binary
+*.7z binary
+
