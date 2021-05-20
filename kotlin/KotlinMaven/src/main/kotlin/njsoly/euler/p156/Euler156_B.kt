@@ -61,6 +61,7 @@ class Euler156_B {
 
     /** returns all the solutions of f(n,d) */
     fun findSolutionsofFofNandD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Long>> {
+        println("trying for solutions of f(n,d) for 1 <= d <= 9, 0 <= n <= $maxN")
 
         for (n in 0 .. maxN) {
             for (d in 1..9) {
@@ -88,7 +89,6 @@ class Euler156_B {
             solutions[i] = LinkedList()
         }
     }
-
 }
 
 fun main() {
@@ -97,9 +97,7 @@ fun main() {
     val euler = Euler156_B()
     val timesElapsed = mutableMapOf<Int, String>()
 
-
-//    val solutions = euler.findSolutionsofFofNandD(Euler156_B.MAX_N * 9 + 1)
-    val solutions = euler.findSolutionsofFofNandD(maxN = 111L)
+    val solutions = euler.findSolutionsofFofNandD(maxN = 111111L)
     timesElapsed[0] = readableTimeSinceInit()
 
     for (d in 1..9) {
@@ -107,6 +105,7 @@ fun main() {
     }
 
     println("finished in ${readableTimeSinceInit()}.  total sum: ${euler.s.sum()}" +
-            "\ntimes: \n" + timesElapsed.values)
+            "\ntimes: \n" + timesElapsed.values
+    )
 
-}
+} // end main
