@@ -1,4 +1,4 @@
 mac_toast () 
 { 
-    [ "$OSTYPE" = "darwin18" ] && printf "display alert \"toaster\" message \""%s"\"" "$*" > /tmp/.toast && osascript /tmp/.toast
+    [ "$OSTYPE" = "darwin18" -o "$OSTYPE" = "darwin18.5.0" ] && printf "display alert \"toaster\" message \""%s"\"" "$*" > /tmp/.toast && osascript /tmp/.toast
 }

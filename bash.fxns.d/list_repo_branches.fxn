@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-_list_repo_branches ()
+list_repo_branches ()
 { 
     local projects_directory=${1-HOME/genesis-projects}
 
