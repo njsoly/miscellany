@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-lsdirs ()
-{
-    ls -A -F --color -f "$@" | grep -e '^.*\\$'
+lsdirs () 
+{ 
+    ls -A -F --color -f "$@" | grep --color=never -e '[^\.]\{1,\}/$' | sort
 }
