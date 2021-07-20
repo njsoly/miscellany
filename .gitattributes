@@ -3,7 +3,8 @@
 
 # text
 *.kotlin_module diff text
-*.kt diff text
+
+*.kt eol=lf
 
 # binary
 *.7z binary
