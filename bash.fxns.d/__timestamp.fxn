@@ -10,6 +10,9 @@ __seconds_since_epoch () {
 __date_yyyy-mm-dd () {
 	date +%F
 }
+__date_yymmdd () {
+	date +%y%m%d
+}
 __timestamp ()
 {
 	__timestamp_loggable
