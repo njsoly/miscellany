@@ -68,6 +68,19 @@ void processReceivedMessage (char message[]) {
     if (isNumber(message)) {
       setDrumStrobe(charsToInt(message));
     }
+
+    if (isTwoNumbers(message)) {
+      setDrumStrobeAndDelay(message);
+    }
+}
+
+bool isTwoNumbers(char message[]) {
+  // TODO write this
+  return false;
+}
+
+void setDrumStrobeAndDelay(char message[]) {
+  // TODO write this
 }
 
 void setDrumStrobe(int newValue) {
@@ -77,7 +90,12 @@ void setDrumStrobe(int newValue) {
       Serial.print(".\n");
 }
 
+
+
 int charsToInt(char number[]) {
+  if (!isNumber(number)) {
+    return -1;
+  }
   int n = 0;
   int i = 0;
   bool negative = false;
