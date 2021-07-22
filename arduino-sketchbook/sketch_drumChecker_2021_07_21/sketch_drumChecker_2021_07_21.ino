@@ -21,30 +21,69 @@ void setup() {
 }
 
 void loop() {
-  // reply only when you receive data:
-  if (Serial.available() > 0) {
-    readFromSerial();
-  }
-  
-  // say what you got:
-  if (finishedRx) {
-    Serial.print("I received: \"");
-    Serial.print(serialInArray);
-    Serial.println("\"");
-    finishedRx = false;
+    // reply only when you receive data:
+    if (Serial.available() > 0) {
+      readFromSerial();
+    }
 
-    digitalWrite(LED_PIN, HIGH);
-    delay(1000);
-    digitalWrite(LED_PIN, LOW);
-  }
+  // if we have a complete message, process it and move on
+    if (finishedRx) {
+        finishedRx = false;
+        processReceivedMessage(serialInArray);
+    
+        flashASecond();
+    }
 
+}
+
+void processReceivedMessage (char message[]) {
+    logReceivedMessage();
+
+    logWhetherNumeric(message);
+
+    if (isNumber(message)) {
+      int drumStrobe = charsToInt(message);
+      
+    }
+}
+
+int charsToInt(char number[]) {
+  int n = 0;
+  int i = 0;
+  for (i = 0; number[i] != 0; i++){
+    n *= 10;
+    n += number[i] - '0';
+  }
+  return n;
+}
+
+void logWhetherNumeric(char message[]) {
+  bool isNumeric = isNumber(message);
+
+  Serial.print("\""); Serial.print(message); Serial.print("\" is ");
+  if (isNumeric == false) {
+    Serial.print("NOT ");
+  }
+  Serial.print("a number.\n");
+}
+
+bool isNumber(char message[]) {
+  char zero = '0', nine = '9';
+  int i = 0;
+  bool isNumeric = true;
+  for (i = 0; message[i] != 0 && i <= SERIAL_MAX; i++) {
+    if (message[i] < '0' || message[i] > '9') {
+      return false;
+    }
+  }
+  if (i == 0) {
+    return false;
+  }
+  return isNumeric;
 }
 
 void readFromSerial() {
   int availableBytes = Serial.available();
-  Serial.print("there are ");
-  Serial.print(availableBytes);
-  Serial.println(" available bytes.");
  
   if (availableBytes > 0) {
     int bytesToRead = availableBytes;
@@ -65,4 +104,17 @@ void readFromSerial() {
     }
 
   }
+} // readFromSerial
+
+// print back to serial what message we received
+void logReceivedMessage () {
+    Serial.print("received message: \"");
+    Serial.print(serialInArray); // should print correctly if \0 was correctly added
+    Serial.println("\"");
+}
+
+void flashASecond () {
+    digitalWrite(LED_PIN, HIGH);
+    delay(1000);
+    digitalWrite(LED_PIN, LOW);
 }
