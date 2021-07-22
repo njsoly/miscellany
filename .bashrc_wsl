@@ -1,0 +1,12 @@
+#!/bin/bash
+##########################################
+# .bashrc for WSL systems.            
+#
+##########################################
+
+# set WSL dircolors, if repo is in place
+if [[ -d ~/repos_pub/dircolors-solarized ]]; then
+	eval `dircolors ~/repos_pub/dircolors-solarized/dircolors.256dark`
+else
+	echo "could not find dircolors repo; dircolors will not be set."
+fi

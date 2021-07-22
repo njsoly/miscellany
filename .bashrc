@@ -93,6 +93,10 @@ if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]] || [[ "$OSTY
 fi
 
 
+if [[ -n "$(command -v branchname)" ]]; then
+	export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
+fi
 
-export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
-
+if [[ -n "$WSL_DISTRO_NAME" && -x $miscellany/.bashrc_wsl ]]; then
+	. $miscellany/.bashrc_wsl
+fi
