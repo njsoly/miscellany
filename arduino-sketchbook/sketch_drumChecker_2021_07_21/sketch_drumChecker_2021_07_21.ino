@@ -1,4 +1,4 @@
-/* sketch_2021_07_21_drumCheck
+/* sketch_drumCheck_2021_07_21
  * @author Nate Solyntjes
  * 
  * This is a small program to tell the arduino how long to send a signal  ...
@@ -28,12 +28,13 @@ void loop() {
   
   // say what you got:
   if (finishedRx) {
-    digitalWrite(LED_PIN, HIGH);
     Serial.print("I received: \"");
     Serial.print(serialInArray);
     Serial.println("\"");
     finishedRx = false;
-    delay(2000);
+
+    digitalWrite(LED_PIN, HIGH);
+    delay(1000);
     digitalWrite(LED_PIN, LOW);
   }
 
