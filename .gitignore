@@ -27,35 +27,40 @@
 *.exe
 *.out
 *.app
+*.class
 
+# uVision
 uvision/*/Objects/
 uvision/*/RTE/
 uvision/*/Listings/
 uvision/*/*~*TMP
 
+# output that you shouldn't share to a public repo
 .git-credentials
+.error_log
 
 # commonly used throwaway help/manpage output suffixes of mine
 *.--help 
 *.help.out
-
-
-.error_log
 .time_ab.log
 .time_elapsed.log
 
 node_modules/
+lib/
 
-*.class
-.idea/sonarlint/issuestore/
+# java/kotlin
 kotlin/KotlinMaven/jaxrs-doclet *
-kotlin/KotlinMaven/vieques\-*.iml
 kotlin/njsoly - Darc*
-*~*
+
+#IDEA
+.idea/sonarlint/issuestore/
 kotlin/.idea/*/*.xml
 .idea/*xml
 kotlin/.idea/*.xml
 kotlin/.idea/\.*
 kotlin/KotlinMaven/.idea/libraries/
-lib/
 **/.idea/workspace.xml
+
+# temp files 
+*~*
+*.swp
