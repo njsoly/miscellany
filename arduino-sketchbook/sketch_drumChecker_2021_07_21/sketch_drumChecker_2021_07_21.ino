@@ -23,6 +23,7 @@ void setup() {
   Serial.println("Welcome to sketch_2021_07_21_drumCheck.");
   pinMode(LED_PIN, OUTPUT);
   pinMode(DRUM_OUT_PIN, INPUT);
+  digitalWrite(DRUM_OUT_PIN, LOW);
 }
 
 void loop() {
@@ -41,22 +42,25 @@ void loop() {
 
     // flash drum
     if (drumStrobe > 0) {
-      strobeDrumSignal(drumStrobe);
+      strobeDrumSignal(drumStrobe, drumStrobe, 3);
     }
 
 }
 
-void strobeDrumSignal (int strobeMillis) {
-   pinMode(DRUM_OUT_PIN, OUTPUT);
-   digitalWrite(DRUM_OUT_PIN, LOW);
-   digitalWrite(LED_PIN, HIGH);
-   delay(strobeMillis);
-   
-   digitalWrite(DRUM_OUT_PIN, HIGH);
-   digitalWrite(LED_PIN, LOW);
-   pinMode(DRUM_OUT_PIN, INPUT);
+void strobeDrumSignal (int strobeMillis, int strobeDelay, int times) {
+  for(int i = 0; i < times; i++) {
+    pinMode(DRUM_OUT_PIN, OUTPUT);
+    digitalWrite(DRUM_OUT_PIN, LOW);
+    digitalWrite(LED_PIN, HIGH);
+    delay(strobeMillis);
 
-   delay(2000);
+    digitalWrite(DRUM_OUT_PIN, LOW);
+    digitalWrite(LED_PIN, LOW);
+    pinMode(DRUM_OUT_PIN, INPUT);
+    delay(strobeDelay);
+  }
+
+  delay(2000);
 }
 
 void processReceivedMessage (char message[]) {
