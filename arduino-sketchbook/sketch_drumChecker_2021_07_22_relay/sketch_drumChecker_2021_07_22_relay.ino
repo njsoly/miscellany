@@ -5,9 +5,6 @@
  * 
  * Looks like the serial monitor sends LF (10) if you pick "Newline".
  * 
- * Going to use a SN754410NE quad half-H bridge driver to control the switch to 
- * a Rock Band drum controller.  
- * 
  * I had tried just setting a GPIO pin to "input" and "high", and it worked once,
  * but now seems inconsistent.  I'd better just fully open and close the connection.
  */
