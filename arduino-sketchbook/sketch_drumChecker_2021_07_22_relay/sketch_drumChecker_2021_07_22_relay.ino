@@ -1,10 +1,15 @@
-/* sketch_drumCheck_2021_07_21
+/* sketch_drumCheck_2021_07_22
  * @author Nate Solyntjes
  * 
  * This is a small program to tell the arduino how long to send a signal  ...
  * 
  * Looks like the serial monitor sends LF (10) if you pick "Newline".
  * 
+ * Going to use a SN754410NE quad half-H bridge driver to control the switch to 
+ * a Rock Band drum controller.  
+ * 
+ * I had tried just setting a GPIO pin to "input" and "high", and it worked once,
+ * but now seems inconsistent.  I'd better just fully open and close the connection.
  */
 
 const int SERIAL_MAX = 128;
@@ -20,7 +25,7 @@ int drumStrobe = 0;
 
 void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
-  Serial.println("Welcome to sketch_2021_07_21_drumCheck.");
+  Serial.println("Welcome to sketch_2021_07_22_drumCheck.");
   pinMode(LED_PIN, OUTPUT);
   pinMode(DRUM_OUT_PIN, INPUT);
   digitalWrite(DRUM_OUT_PIN, LOW);
@@ -49,18 +54,26 @@ void loop() {
 
 void strobeDrumSignal (int strobeMillis, int strobeDelay, int times) {
   for(int i = 0; i < times; i++) {
-    pinMode(DRUM_OUT_PIN, OUTPUT);
-    digitalWrite(DRUM_OUT_PIN, LOW);
+    drumCloseCircuit();
     digitalWrite(LED_PIN, HIGH);
     delay(strobeMillis);
 
-    digitalWrite(DRUM_OUT_PIN, LOW);
+    drumOpenCircuit();
     digitalWrite(LED_PIN, LOW);
-    pinMode(DRUM_OUT_PIN, INPUT);
     delay(strobeDelay);
   }
 
   delay(2000);
+}
+
+void drumCloseCircuit() {
+  pinMode(DRUM_OUT_PIN, OUTPUT);
+  digitalWrite(DRUM_OUT_PIN, LOW);  
+}
+
+void drumOpenCircuit() {
+  digitalWrite(DRUM_OUT_PIN, LOW);
+  pinMode(DRUM_OUT_PIN, INPUT);  
 }
 
 void processReceivedMessage (char message[]) {
