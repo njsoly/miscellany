@@ -2,41 +2,108 @@
  * Try out a few pins on the new 10-digit bar graph LEDs.
  * YSLB-102510B5-10
  * 
- * Hook 4 outputs to 4 different digits.
- * This will briefly flash 1 and 3, then 2 and 4 every half second.
+ * Hookup: 
+ * Board pins 2-11 hooked up to IC pins 11-20
+ * Ground connected to IC pins 1-10 via one 100-ohm resistor
  */
 
-#define SEG0 8
-#define SEG1 9
-#define SEG2 10
-#define SEG3 11
+#define SEGMENTS 10
 
-boolean flash = false;
+const boolean DEBUG = false; 
+
+// pins
+const int graphPins[SEGMENTS] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
+int graphData[SEGMENTS];
+
+// last millis() count when the bar graph was pulsed / lit
+long flashLast = 0L;
+// how many millis to wait between flashing the bar graph
+long flashPeriod = 1L;
+// last millis() count when the demo data was stepped.
+long demoLast = 0L;
+// how many millis to wait between stepping the demo
+long demoPeriod = 200L;
 
 void setup() {
 
-  Serial.begin(19200);
+  Serial.begin(38400);
+
+  // pin and data setup
+  for (int i = 0; i < SEGMENTS; i++) {
+    pinMode(graphPins[i], OUTPUT);
+    digitalWrite(graphPins[i], LOW);
+  }
+  writeBarGraph(0x010, graphData, SEGMENTS);
   
-  pinMode(SEG0, OUTPUT);
-  pinMode(SEG1, OUTPUT);
-  pinMode(SEG2, OUTPUT);
-  pinMode(SEG3, OUTPUT);
+  flashLast = millis();
 }
 
 void loop() {
 
-  digitalWrite(flash ? SEG0 : SEG1, HIGH);
-  digitalWrite(flash ? SEG2 : SEG3, HIGH);
-  delay(20);
-  allLow();
+  if (DEBUG) {
+    Serial.print("flashLast: ");
+    Serial.print(flashLast);
+    Serial.print(" flashPeriod: ");
+    Serial.print(flashPeriod);
+    Serial.print(" millis(): ");
+    Serial.print(millis());
+    Serial.println();  
+  }
   
-  flash = !flash;
-  delay(500);
+  if (flashLast + flashPeriod < millis()) {
+    flashBarGraph();
+    flashLast = millis();
+  }
+
+  if (DEBUG) {
+    Serial.print("demoLast: ");
+    Serial.print(demoLast);
+    Serial.print(" demoPeriod: ");
+    Serial.print(demoPeriod);
+    Serial.print(" millis(): ");
+    Serial.print(millis());
+    Serial.println();  
+  }
+  
+
+  if (demoLast + demoPeriod < millis()) {
+    stepDemo();
+    demoLast = millis();
+  }
+
+//  delay(500);
 }
 
-void allLow() {
-  digitalWrite(SEG0, LOW);
-  digitalWrite(SEG1, LOW);
-  digitalWrite(SEG2, LOW);
-  digitalWrite(SEG3, LOW);
+void flashBarGraph() {
+  for (int i = 0; i < SEGMENTS; i++){
+    digitalWrite(graphPins[i], (graphData[i] == 1 ? HIGH : LOW));
+  }
+  delayMicroseconds(20);
+}
+
+// write bit 0 of x to dataArray[0], bit 1 to dataArray[1], etc.
+void writeBarGraph(int x, int dataArray[], int dataArrayLength) {
+  for (int i = 0; i < dataArrayLength; i++){
+    dataArray[i] = 0x1 & x;
+    x = (unsigned int)x >> 1;
+  }
+}
+
+void stepDemo() {
+  graphDataRotateRight();
+}
+
+void graphDataRotateRight() {
+  int temp = graphData[SEGMENTS - 1];
+  for (int i = SEGMENTS - 1; i > 0; i--) {
+    graphData[i] = graphData[i - 1];
+  }
+  graphData[0] = temp;
+}
+
+void allPinsLow() {
+  for (int i = 0; i < SEGMENTS; i++) {
+    digitalWrite(graphPins[i], LOW);
+  }
 }
