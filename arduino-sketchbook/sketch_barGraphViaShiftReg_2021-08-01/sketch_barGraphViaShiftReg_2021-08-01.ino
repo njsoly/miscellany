@@ -8,16 +8,20 @@
  * Note: The slightly-beveled corner of the bar graph IC highlights pin 1.
  */
 
-#define SEGMENTS 10
+#define DATA_LENGTH 10
 
 #include <Arduino.h>
 
 const boolean DEBUG = false; 
 
 // pins
-const int graphPins[SEGMENTS] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+// const int graphPins[DATA_LENGTH] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+const int RCLK = 2; // register storage clock
+const int SRCLK = 3; // shift register 
+const int SER = 4; // serial data output pin
 
-int graphData[SEGMENTS];
+
+int graphData[DATA_LENGTH];
 
 // last millis() count when the bar graph was pulsed / lit
 long flashLast = 0L;
@@ -26,18 +30,21 @@ long flashPeriod = 2L;
 // last millis() count when the demo data was stepped.
 long demoLast = 0L;
 // how many millis to wait between stepping the demo
-long demoPeriod = 50L;
+long demoPeriod = 100L;
 
 void setup() {
 
   Serial.begin(38400);
 
   // pin and data setup
-  for (int i = 0; i < SEGMENTS; i++) {
-    pinMode(graphPins[i], OUTPUT);
-    digitalWrite(graphPins[i], LOW);
-  }
-  writeBarGraph(0x010, graphData, SEGMENTS);
+  pinMode(SRCLK, OUTPUT);
+  pinMode(RCLK, OUTPUT);
+  pinMode(SER, OUTPUT);
+  digitalWrite(SRCLK, LOW);
+  digitalWrite(RCLK, LOW);
+  digitalWrite(SER, LOW);
+
+  writeBarGraph(0x010, graphData, DATA_LENGTH);
   
   flashLast = millis();
 }
@@ -55,13 +62,22 @@ void loop() {
 
 }
 
+void shiftValue(int bit) {
+    digitalWrite(SER, bit);
+    digitalWrite(SRCLK, LOW);
+    digitalWrite(RCLK, HIGH);
+    digitalWrite(SRCLK, HIGH);
+    digitalWrite(RCLK, LOW);
+}
+
 void flashBarGraph() {
-  for (int i = 0; i < SEGMENTS; i++){
-    digitalWrite(graphPins[i], (graphData[i] == 1 ? HIGH : LOW));
-  }
+    for (int i = DATA_LENGTH - 1; i >= 0; i--){
+        shiftValue(graphData[i] > 0 ? HIGH : LOW);
+    }
 
   delayMicroseconds(20);
-  allPinsLow(graphPins, SEGMENTS);
+  // allPinsLow(DATA_LENGTH);
+  // delayMicroseconds(200);
 }
 
 // write bit 0 of x to dataArray[0], bit 1 to dataArray[1], etc.
@@ -73,7 +89,7 @@ void writeBarGraph(int x, int dataArray[], int dataArrayLength) {
 }
 
 void stepDemo() {
-  graphDataRotateRight(graphData, SEGMENTS);
+  graphDataRotateRight(graphData, DATA_LENGTH);
 }
 
 void graphDataRotateRight(int graphData[], int dataLength) {
@@ -85,8 +101,8 @@ void graphDataRotateRight(int graphData[], int dataLength) {
   graphData[0] = temp;
 }
 
-void allPinsLow(int pins[], int pinCount) {
+void allPinsLow(int pinCount) {
   for (int i = 0; i < pinCount; i++) {
-    digitalWrite(pins[i], LOW);
+    shiftValue(LOW);
   }
 }
