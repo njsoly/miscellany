@@ -42,47 +42,25 @@ void setup() {
 }
 
 void loop() {
-
-  if (DEBUG) {
-    Serial.print("flashLast: ");
-    Serial.print(flashLast);
-    Serial.print(" flashPeriod: ");
-    Serial.print(flashPeriod);
-    Serial.print(" millis(): ");
-    Serial.print(millis());
-    Serial.println();  
-  }
-  
   if (flashLast + flashPeriod < millis()) {
     flashBarGraph();
     flashLast = millis();
   }
-
-  if (DEBUG) {
-    Serial.print("demoLast: ");
-    Serial.print(demoLast);
-    Serial.print(" demoPeriod: ");
-    Serial.print(demoPeriod);
-    Serial.print(" millis(): ");
-    Serial.print(millis());
-    Serial.println();  
-  }
-  
 
   if (demoLast + demoPeriod < millis()) {
     stepDemo();
     demoLast = millis();
   }
 
-//  delay(500);
 }
 
 void flashBarGraph() {
   for (int i = 0; i < SEGMENTS; i++){
     digitalWrite(graphPins[i], (graphData[i] == 1 ? HIGH : LOW));
   }
+
   delayMicroseconds(20);
-  allPinsLow();
+  allPinsLow(graphPins, SEGMENTS);
 }
 
 // write bit 0 of x to dataArray[0], bit 1 to dataArray[1], etc.
@@ -102,11 +80,12 @@ void graphDataRotateRight(int graphData[], int dataLength) {
   for (int i = dataLength - 1; i > 0; i--) {
     graphData[i] = graphData[i - 1];
   }
+
   graphData[0] = temp;
 }
 
-void allPinsLow() {
-  for (int i = 0; i < SEGMENTS; i++) {
-    digitalWrite(graphPins[i], LOW);
+void allPinsLow(int pins[], int pinCount) {
+  for (int i = 0; i < pinCount; i++) {
+    digitalWrite(pins[i], LOW);
   }
 }
