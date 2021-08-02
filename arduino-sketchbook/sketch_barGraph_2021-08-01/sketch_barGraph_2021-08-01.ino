@@ -9,6 +9,8 @@
 
 #define SEGMENTS 10
 
+#include <Arduino.h>
+
 const boolean DEBUG = false; 
 
 // pins
@@ -19,11 +21,11 @@ int graphData[SEGMENTS];
 // last millis() count when the bar graph was pulsed / lit
 long flashLast = 0L;
 // how many millis to wait between flashing the bar graph
-long flashPeriod = 1L;
+long flashPeriod = 2L;
 // last millis() count when the demo data was stepped.
 long demoLast = 0L;
 // how many millis to wait between stepping the demo
-long demoPeriod = 200L;
+long demoPeriod = 50L;
 
 void setup() {
 
@@ -79,7 +81,8 @@ void flashBarGraph() {
   for (int i = 0; i < SEGMENTS; i++){
     digitalWrite(graphPins[i], (graphData[i] == 1 ? HIGH : LOW));
   }
-  delayMicroseconds(20);
+  delayMicroseconds(10);
+  allPinsLow();
 }
 
 // write bit 0 of x to dataArray[0], bit 1 to dataArray[1], etc.
