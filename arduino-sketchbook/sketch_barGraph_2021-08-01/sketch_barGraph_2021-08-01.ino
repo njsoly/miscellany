@@ -5,6 +5,8 @@
  * Hookup: 
  * Board pins 2-11 hooked up to IC pins 11-20
  * Ground connected to IC pins 1-10 via one 100-ohm resistor
+ *
+ * Note: The slightly-beveled corner of the bar graph IC highlights pin 1.
  */
 
 #define SEGMENTS 10
