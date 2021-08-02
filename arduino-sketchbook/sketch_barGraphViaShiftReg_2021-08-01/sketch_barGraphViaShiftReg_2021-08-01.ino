@@ -12,13 +12,14 @@
 
 #include <Arduino.h>
 
-const boolean DEBUG = false; 
+const boolean DEBUG = false;
 
 // pins
 // const int graphPins[DATA_LENGTH] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 const int RCLK = 2; // register storage clock
 const int SRCLK = 3; // shift register 
 const int SER = 4; // serial data output pin
+const int OUTPUT_DISABLE = 5; // OE_not
 
 
 int graphData[DATA_LENGTH];
@@ -40,9 +41,11 @@ void setup() {
   pinMode(SRCLK, OUTPUT);
   pinMode(RCLK, OUTPUT);
   pinMode(SER, OUTPUT);
+  pinMode(OUTPUT_DISABLE, OUTPUT);
   digitalWrite(SRCLK, LOW);
   digitalWrite(RCLK, LOW);
   digitalWrite(SER, LOW);
+  digitalWrite(OUTPUT_DISABLE, HIGH);
 
   writeBarGraph(0x010, graphData, DATA_LENGTH);
   
@@ -65,9 +68,11 @@ void loop() {
 void shiftValue(int bit) {
     digitalWrite(SER, bit);
     digitalWrite(SRCLK, LOW);
-    digitalWrite(RCLK, HIGH);
-    digitalWrite(SRCLK, HIGH);
     digitalWrite(RCLK, LOW);
+    digitalWrite(OUTPUT_DISABLE, HIGH);
+    digitalWrite(SRCLK, HIGH);
+    digitalWrite(RCLK, HIGH);
+    digitalWrite(OUTPUT_DISABLE, LOW);
 }
 
 void flashBarGraph() {
@@ -76,8 +81,6 @@ void flashBarGraph() {
     }
 
   delayMicroseconds(20);
-  // allPinsLow(DATA_LENGTH);
-  // delayMicroseconds(200);
 }
 
 // write bit 0 of x to dataArray[0], bit 1 to dataArray[1], etc.
