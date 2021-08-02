@@ -81,7 +81,7 @@ void flashBarGraph() {
   for (int i = 0; i < SEGMENTS; i++){
     digitalWrite(graphPins[i], (graphData[i] == 1 ? HIGH : LOW));
   }
-  delayMicroseconds(10);
+  delayMicroseconds(20);
   allPinsLow();
 }
 
@@ -94,12 +94,12 @@ void writeBarGraph(int x, int dataArray[], int dataArrayLength) {
 }
 
 void stepDemo() {
-  graphDataRotateRight();
+  graphDataRotateRight(graphData, SEGMENTS);
 }
 
-void graphDataRotateRight() {
-  int temp = graphData[SEGMENTS - 1];
-  for (int i = SEGMENTS - 1; i > 0; i--) {
+void graphDataRotateRight(int graphData[], int dataLength) {
+  int temp = graphData[dataLength - 1];
+  for (int i = dataLength - 1; i > 0; i--) {
     graphData[i] = graphData[i - 1];
   }
   graphData[0] = temp;
