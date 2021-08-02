@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\..\\..\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino"
+		}
+	],
+	"settings": {
+		"favorites.resources": [
+			"sketch_barGraph_2021-08-01\\sketch_barGraph_2021-08-01.ino",
+			"c:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h",
+			"c:\\Users\\njsoly\\miscellany\\arduino-sketchbook\\sketch_barGraph_2021-08-01\\sketch_barGraph_2021-08-01.ino"
+		]
+	}
+}
