@@ -6,6 +6,7 @@
 #define NjsolyUtil_h
 
 #include "Arduino.h"
+#include "USBAPI.h"
 
 // the #include statment and code go here...
 class NjsolyUtil {
@@ -13,6 +14,8 @@ class NjsolyUtil {
     NjsolyUtil(int pin);
     bool isNumber(char message[], int maxLength);
     void noop();
+    int charsToInt(char number[]);
+    void logWhetherNumeric(char message[]);
   private:
     int _pin;
 };

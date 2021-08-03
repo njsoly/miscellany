@@ -3,6 +3,7 @@
 NjsolyUtil util(13);
 
 void setup() {
+  Serial.begin(38400);
   util.noop();
 }
 
