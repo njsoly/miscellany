@@ -1,3 +1,6 @@
 {
     "board": "arduino:avr:uno",
+    "port": "COM6",
+    "sketch": "sketch_customLibrary_2021-08-03\\sketch_customLibrary_2021-08-03.ino",
+    "output": "C:/ProgramData/Arduino/sketch-output"
 }
