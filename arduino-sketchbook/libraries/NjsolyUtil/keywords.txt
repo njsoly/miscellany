@@ -1,5 +1,5 @@
-NjsolyUtil   KEYWORD1
-isNumber    KEYWORD2
-noop     KEYWORD2
-charsToInt KEYWORD2
-logWhetherNumeric KEYWORD2
+NjsolyUtil	KEYWORD1
+isNumber	KEYWORD2
+noop	KEYWORD2
+charsToInt	KEYWORD2
+logWhetherNumeric	KEYWORD2
