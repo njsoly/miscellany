@@ -17,18 +17,22 @@ class ShiftRegHC595 {
 			uint8_t srclkPin,
 			uint8_t rclkPin,
 			uint8_t dataLength,
-			uint8_t srclrNotPin = -1,
-			uint8_t oeNotPin = -1);
+			uint8_t srclrNotPin = NOT_A_PIN,
+			uint8_t oeNotPin = NOT_A_PIN);
 		// pin and data setup
 		void initPins();
+		void shiftOut(uint8_t data[]);
+		void shiftOut(uint8_t data[], uint16_t dataLength);
+		void clearRegister();
 	private:
-		uint8_t ser;
-		uint8_t srclk;
-		uint8_t rclk;
-		uint8_t srclrNot;
-		uint8_t outputDisable;
+		uint8_t _ser;
+		uint8_t _srclk;
+		uint8_t _rclk;
+		uint8_t _srclrNot;
+		uint8_t _outputDisable;
 		// how many output values to track
-		uint8_t dataLength;
+		uint8_t _dataLength;
+		uint8_t _data[];
 };
 
 #endif
