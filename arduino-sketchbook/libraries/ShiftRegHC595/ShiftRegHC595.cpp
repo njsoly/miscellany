@@ -39,6 +39,10 @@ void ShiftRegHC595::initPins() {
 	}
 }
 
+void ShiftRegHC595::shiftOut() {
+	shiftOut(_data);
+}
+
 void ShiftRegHC595::shiftOut(uint8_t data[]) {
 	shiftOut(_data, _dataLength);
 }

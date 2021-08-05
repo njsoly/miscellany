@@ -21,6 +21,7 @@ class ShiftRegHC595 {
 			uint8_t oeNotPin = NOT_A_PIN);
 		// pin and data setup
 		void initPins();
+		void shiftOut();
 		void shiftOut(uint8_t data[]);
 		void shiftOut(uint8_t data[], uint16_t dataLength);
 		void clearRegister();
