@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "Stream.h"
 #include "USBAPI.h"
+
 #include "NjsolyUtil.h"
 
 NjsolyUtil::NjsolyUtil(int pin, Stream& stream) {
