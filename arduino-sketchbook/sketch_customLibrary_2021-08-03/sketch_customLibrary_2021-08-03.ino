@@ -1,6 +1,7 @@
 #include <NjsolyUtil.h>
+#include <HardwareSerial.h>
 
-NjsolyUtil util(13);
+NjsolyUtil util(13, Serial);
 
 void setup() {
   Serial.begin(38400);

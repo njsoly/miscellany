@@ -1,10 +1,12 @@
 #include "Arduino.h"
+#include "Stream.h"
 #include "USBAPI.h"
 #include "NjsolyUtil.h"
 
-NjsolyUtil::NjsolyUtil(int pin) {
+NjsolyUtil::NjsolyUtil(int pin, Stream& stream) {
 //   isNumber(int s[]);
   _pin = pin;
+  _stream = &stream;
 }
 
 bool NjsolyUtil::isNumber(char message[], int maxLength=32) {
@@ -52,9 +54,9 @@ int NjsolyUtil::charsToInt(char number[]) {
 void NjsolyUtil::logWhetherNumeric(char message[]) {
   bool isNumeric = isNumber(message);
 
-  Serial.print("\""); Serial.print(message); Serial.print("\" is ");
+  _stream->print("\""); _stream->print(message); _stream->print("\" is ");
   if (isNumeric == false) {
-    Serial.print("NOT ");
+    _stream->print("NOT ");
   }
-  Serial.print("a number.\n");
+  _stream->print("a number.\n");
 }
