@@ -22,4 +22,4 @@ class NjsolyUtil {
     Stream* _stream;
 };
 
-#endif
+#endif /* NjsolyUtil_h */

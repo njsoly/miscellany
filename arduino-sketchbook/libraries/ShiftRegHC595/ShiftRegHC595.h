@@ -36,4 +36,4 @@ class ShiftRegHC595 {
 		uint8_t _data[];
 };
 
-#endif
+#endif /* ShiftRegHC595_h */
