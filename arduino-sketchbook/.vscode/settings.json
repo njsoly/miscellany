@@ -4,8 +4,11 @@
     ],
     "C_Cpp.default.includePath": [
         "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
-        "C:\\Users\\njsoly\\miscellany\\arduino-sketchbook\\libraries\\**",
+        "${workspaceFolder}\\libraries\\**",
         "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\**",
         "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\avr\\include"
+    ],
+    "C_Cpp.default.forcedInclude": [
+        "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
     ]
 }
