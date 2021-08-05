@@ -17,3 +17,15 @@ ShiftRegHC595::ShiftRegHC595(uint8_t serPin,
 	outputDisable = oeNotPin;
 	dataLength = dataLengthBits;
 }
+
+void ShiftRegHC595::initPins() {
+	// pin and data setup
+	pinMode(srclk, OUTPUT);
+	pinMode(rclk, OUTPUT);
+	pinMode(ser, OUTPUT);
+	pinMode(outputDisable, OUTPUT);
+	digitalWrite(srclk, LOW);
+	digitalWrite(rclk, LOW);
+	digitalWrite(ser, LOW);
+	digitalWrite(outputDisable, HIGH);
+}

@@ -19,6 +19,8 @@ class ShiftRegHC595 {
 			uint8_t dataLength,
 			uint8_t srclrNotPin = -1,
 			uint8_t oeNotPin = -1);
+		// pin and data setup
+		void initPins();
 	private:
 		uint8_t ser;
 		uint8_t srclk;
