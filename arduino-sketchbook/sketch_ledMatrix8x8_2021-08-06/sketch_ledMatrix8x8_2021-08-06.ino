@@ -11,12 +11,16 @@
  * 
  * The sketch uses a GPIO pin for each of the 16 pins on the device.
  * 
+ * * Row HIGH and Column LOW to light the lights.
+ * * In my circuit, there is a 330-ohm resistor between each column control 
+ * and the arduino GPIO pin.
+ * 
  * njsoly 2021-08-07
  */
 
 const uint8_t rows[8]{2, 3, 4, 5, 6, 7, 8, 9};
 const uint8_t cols[8]{A5, A4, A3, A2, A1, A0, 11, 10};
-const uint8_t big0[8][8]{
+const uint8_t o1[8][8]{
   {1,1,1,1,1,1,1,1},
   {1,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,1},
@@ -57,6 +61,29 @@ const uint8_t o4[8][8]{
   {0,0,0,0,0,0,0,0},
 };
 
+const uint8_t bigX[8][8]{
+  {1,1,0,0,0,0,1,1},
+  {0,1,0,0,0,0,1,0},
+  {0,0,1,0,0,1,0,0},
+  {0,0,0,1,1,0,0,0},
+  {0,0,0,1,1,0,0,0},
+  {0,0,1,0,0,1,0,0},
+  {0,1,0,0,0,0,1,0},
+  {1,1,0,0,0,0,1,1},
+};
+
+const uint8_t bigO[8][8]{
+  {0,0,1,1,1,1,0,0},
+  {0,1,1,0,0,1,1,0},
+  {1,1,0,0,0,0,1,1},
+  {1,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,1},
+  {1,1,0,0,0,0,1,1},
+  {0,1,1,0,0,1,1,0},
+  {0,0,1,1,1,1,0,0},
+  
+};
+
 void setup() {
 
   Serial.begin(38400);
@@ -74,20 +101,20 @@ void loop() {
 
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
-      for(int n = 0; n < 100; n++) {
+      for(int n = 0; n < 200; n++) {
         digitalWrite(rows[i], HIGH);
         digitalWrite(cols[j], LOW);
-        delayMicroseconds(40);
+        delayMicroseconds(4);
         digitalWrite(rows[i], LOW);
         digitalWrite(cols[j], HIGH);
-        delayMicroseconds(40);
+        delayMicroseconds(36);
       }
       delay(20);
 
     }
   }
 
-  writeDisplay(big0);
+  writeDisplay(o1);
   writeDisplay(o2);
   writeDisplay(o3);
   writeDisplay(o4);
@@ -96,13 +123,17 @@ void loop() {
   writeDisplay(o4);
   writeDisplay(o3);
   writeDisplay(o2);
-  writeDisplay(big0);
+  writeDisplay(o1);
   resetPins();
   delay(500);
-  
+  writeDisplay(bigX);
+  writeDisplay(bigO);
+  writeDisplay(bigX);
+  writeDisplay(bigO);
 }
+
 void writeDisplay(uint8_t data[8][8]) {
-  for(int n = 0; n < 666; n++) { 
+  for(int n = 0; n < 444; n++) { 
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
         if (data[i][j] == 1) {
@@ -113,7 +144,7 @@ void writeDisplay(uint8_t data[8][8]) {
           digitalWrite(cols[j], HIGH);
         }
         else {
-          delayMicroseconds(19);
+          delayMicroseconds(10);
         }
       }
 //      delayMicroseconds(40);
