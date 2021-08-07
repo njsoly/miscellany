@@ -9,6 +9,8 @@
  * After testing it out a bit, it seems like it's at least very close
  * to being a KWM-30881AVB.
  * 
+ * The sketch uses a GPIO pin for each of the 16 pins on the device.
+ * 
  * njsoly 2021-08-07
  */
 
