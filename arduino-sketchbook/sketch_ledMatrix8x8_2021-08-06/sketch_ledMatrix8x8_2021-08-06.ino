@@ -15,6 +15,8 @@
  * * In my circuit, there is a 330-ohm resistor between each column control 
  * and the arduino GPIO pin.
  * 
+ * Demo available: https://www.dropbox.com/s/1zefnp1raxkfm5x/sketch_ledMatrix8x8_2021-08-06_demo-1.mp4?dl=0
+ *
  * njsoly 2021-08-07
  */
 
