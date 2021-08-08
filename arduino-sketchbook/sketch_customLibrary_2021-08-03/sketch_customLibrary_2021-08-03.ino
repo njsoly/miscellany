@@ -2,7 +2,7 @@
 #include <HardwareSerial.h>
 #include <ShiftRegHC595.h>
 
-NjsolyUtil util(13, Serial);
+NjsolyUtil util(Serial);
 ShiftRegHC595 shiftReg(1, 2, 3, 20);
 
 
