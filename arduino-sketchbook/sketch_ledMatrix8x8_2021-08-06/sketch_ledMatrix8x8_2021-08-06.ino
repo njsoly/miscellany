@@ -1,5 +1,5 @@
 /* 
- * sketch_ledMatrix_8x8_2021-08-06 
+ * sketch_ledMatrix8x8_2021-08-06
  * 
  * A sketch to test out the hookups and operation of my random
  * 8x8 Red LED matrix, which I haven't used since buying nine years ago,
@@ -87,10 +87,9 @@ const uint8_t bigO[8][8]{
 };
 
 void setup() {
-
   Serial.begin(38400);
   
-  for (int i = 0; i < 8; i++){
+  for (int i = 0; i < 8; i++) {
     pinMode(rows[i], OUTPUT);
     pinMode(cols[i], OUTPUT);
     digitalWrite(cols[i], HIGH);
@@ -99,7 +98,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
@@ -135,7 +133,7 @@ void loop() {
 }
 
 void writeDisplay(uint8_t data[8][8]) {
-  for(int n = 0; n < 444; n++) { 
+  for (int n = 0; n < 444; n++) {
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
         if (data[i][j] == 1) {
@@ -149,9 +147,7 @@ void writeDisplay(uint8_t data[8][8]) {
           delayMicroseconds(10);
         }
       }
-//      delayMicroseconds(40);
     }
-//    delayMicroseconds(65);
   }
   resetPins();
   delayMicroseconds(200);
