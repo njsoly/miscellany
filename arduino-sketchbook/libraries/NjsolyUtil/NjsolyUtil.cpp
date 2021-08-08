@@ -4,9 +4,7 @@
 
 #include "NjsolyUtil.h"
 
-NjsolyUtil::NjsolyUtil(int pin, Stream& stream) {
-//   isNumber(int s[]);
-  _pin = pin;
+NjsolyUtil::NjsolyUtil(Stream& stream) {
   _stream = &stream;
 }
 
@@ -60,4 +58,22 @@ void NjsolyUtil::logWhetherNumeric(char message[]) {
     _stream->print("NOT ");
   }
   _stream->print("a number.\n");
+}
+
+void NjsolyUtil::rotateArrayRight(uint8_t arr[], int dataLength) {
+  int temp = arr[dataLength - 1];
+  for (int i = dataLength - 1; i > 0; i--) {
+    arr[i] = arr[i - 1];
+  }
+
+  arr[0] = temp;
+}
+
+void NjsolyUtil::rotateArrayLeft(uint8_t arr[], int dataLength) {
+  int temp = arr[0];
+  for (int i = 0; i < dataLength - 1; i++) {
+    arr[i] = arr[i + 1];
+  }
+
+  arr[dataLength - 1] = temp;
 }

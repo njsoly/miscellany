@@ -12,13 +12,14 @@
 // the #include statment and code go here...
 class NjsolyUtil {
   public:
-    NjsolyUtil(int pin, Stream &stream);
+    NjsolyUtil(Stream &stream);
     bool isNumber(char message[], int maxLength);
     void noop();
     int charsToInt(char number[]);
     void logWhetherNumeric(char message[]);
+    void rotateArrayRight(uint8_t arr[], int dataLength);
+    void rotateArrayLeft(uint8_t arr[], int dataLength);
   private:
-    int _pin;
     Stream* _stream;
 };
 
