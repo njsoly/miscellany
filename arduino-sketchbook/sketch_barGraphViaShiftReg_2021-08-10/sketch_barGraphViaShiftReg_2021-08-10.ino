@@ -4,9 +4,11 @@
  * SN74HC595 (x2) and YSLB-102510B5-10
  * 
  * Hookup: 
- * Ground connected to IC pins 1-10 via one 100-ohm resistor
+ * Ground connected to IC pins 1-10 via one 330-ohm resistor
  *  Note: The slightly-beveled corner of the bar graph IC highlights pin 1.
  * 
+ * This sketch is to test rapid updating of the register, to figure out 
+ * how to stamp out flicker.
  */
 
 #include <Arduino.h>
