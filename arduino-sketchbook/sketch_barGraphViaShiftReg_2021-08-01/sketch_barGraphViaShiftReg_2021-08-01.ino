@@ -20,9 +20,9 @@ const boolean DEBUG = false;
 
 // pins
 // const int graphPins[DATA_LENGTH] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-#define RCLK 2 // register storage clock
-#define SRCLK 3 // shift register
 #define SER 4 // serial data output pin
+#define RCLK 3 // register storage clock
+#define SRCLK 2 // shift register
 #define OUTPUT_DISABLE 5 // OE_not
 
 
