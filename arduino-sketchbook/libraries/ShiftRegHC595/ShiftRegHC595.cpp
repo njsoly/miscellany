@@ -72,16 +72,17 @@ void ShiftRegHC595::shiftOut(uint8_t value) {
 	}
 }
 
-void ShiftRegHC595::shiftOut(uint8_t arr[], uint16_t arrLength) {
+void ShiftRegHC595::shiftOut(uint8_t arr[], int arrLength) {
 
 	if (_outputDisable != NOT_A_PIN) {
 		digitalWrite(_outputDisable, HIGH);
 	}
 	digitalWrite(_rclk, LOW);
 
-
-    for (uint8_t i = arrLength - 1; i >= 0; i--) {
-		shiftOut(arr[i]);
+    for (int i = arrLength - 1; i >= 0; i--) {
+		digitalWrite(_srclk, LOW);
+		shiftOut(arr[i] == 0 ? LOW : HIGH);
+		digitalWrite(_srclk, HIGH);
 	}
 
 	digitalWrite(_rclk, HIGH);
