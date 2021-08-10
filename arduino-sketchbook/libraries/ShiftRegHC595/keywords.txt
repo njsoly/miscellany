@@ -1,1 +1,4 @@
 ShiftRegHC595	KEYWORD1
+init	KEYWORD2
+shiftOut	KEYWORD2
+clearRegister	KEYWORD2
