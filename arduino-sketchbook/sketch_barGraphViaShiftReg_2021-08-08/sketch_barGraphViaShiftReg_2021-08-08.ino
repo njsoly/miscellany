@@ -1,4 +1,6 @@
 /**
+ * sketch_barGraphViaShiftReg_2021-08-08
+ * 
  * Try out a few pins on the new 10-digit bar graph LEDs.
  * YSLB-102510B5-10
  * 
@@ -22,7 +24,7 @@ const boolean DEBUG = false;
 
 // pins
 #define SER 2 // serial data output pin
-#define RCLK 3 // register storage clock
+#define RCLK 3 // register storage clock (latch)
 #define SRCLK 4 // shift register
 
 int t = 500;
