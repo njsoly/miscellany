@@ -60,32 +60,32 @@ void ShiftRegHC595::shiftOut(uint8_t value) {
 	if (_outputDisable != NOT_A_PIN) {
 		digitalWrite(_outputDisable, HIGH);
 	}
-	digitalWrite(_rclk, LOW);
+	digitalWrite(_rclk, HIGH);
 
-	digitalWrite(_srclk, LOW);
 	digitalWrite(_ser, value == 0 ? LOW : HIGH);
 	digitalWrite(_srclk, HIGH);
+	digitalWrite(_srclk, LOW);
 
-	digitalWrite(_rclk, HIGH);
+	digitalWrite(_rclk, LOW);
 	if (_outputDisable != NOT_A_PIN) {
 		digitalWrite(_outputDisable, LOW);
 	}
 }
 
-void ShiftRegHC595::shiftOut(uint8_t arr[], int arrLength) {
+void ShiftRegHC595::shiftOut(const uint8_t arr[], int arrLength) {
 
 	if (_outputDisable != NOT_A_PIN) {
 		digitalWrite(_outputDisable, HIGH);
 	}
-	digitalWrite(_rclk, LOW);
+	digitalWrite(_rclk, HIGH);
 
     for (int i = arrLength - 1; i >= 0; i--) {
-		digitalWrite(_srclk, LOW);
-		shiftOut(arr[i] == 0 ? LOW : HIGH);
+		digitalWrite(_ser, arr[i] == 0 ? LOW : HIGH);
 		digitalWrite(_srclk, HIGH);
+		digitalWrite(_srclk, LOW);
 	}
 
-	digitalWrite(_rclk, HIGH);
+	digitalWrite(_rclk, LOW);
 	if (_outputDisable != NOT_A_PIN) {
 		digitalWrite(_outputDisable, LOW);
 	}
@@ -94,13 +94,13 @@ void ShiftRegHC595::shiftOut(uint8_t arr[], int arrLength) {
 void ShiftRegHC595::clearRegister() {
 	// clear with the SRCLR! input, if configured.
 	// otherwise, clear by pushing out all zeros.
-	if (_srclk != NOT_A_PIN) {
+	if (_srclrNot != NOT_A_PIN) {
 		digitalWrite(_srclrNot, LOW);
 		digitalWrite(_srclrNot, HIGH);
-	} else {
+	}
+	// else {
+
 		for (int i = 0; i < _dataLength; i++) {
 			shiftOut(0);
 		}
-	}
-
 }

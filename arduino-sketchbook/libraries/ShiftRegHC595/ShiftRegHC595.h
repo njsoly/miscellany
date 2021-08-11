@@ -10,13 +10,14 @@
 #include "Arduino.h"
 #include "Stream.h"
 #include "USBAPI.h"
+#include <avr/pgmspace.h>
 
 #include "NjsolyUtil.h"
 
 class ShiftRegHC595 {
 	public:
 		ShiftRegHC595(
-			uint8_t serPin,
+			const uint8_t serPin,
 			uint8_t rclkPin,
 			uint8_t srclkPin,
 			uint8_t dataLength,
@@ -35,7 +36,7 @@ class ShiftRegHC595 {
 		// pin and data setup
 		void init();
 		void shiftOut(uint8_t value);
-		void shiftOut(uint8_t data[], int dataLength);
+		void shiftOut(const uint8_t data[], const int dataLength);
 		void clearRegister();
 	private:
 		uint8_t _ser;
@@ -47,8 +48,5 @@ class ShiftRegHC595 {
 		// how many output values to track
 		int _dataLength;
 };
-
-
-
 
 #endif /* ShiftRegHC595_h */
