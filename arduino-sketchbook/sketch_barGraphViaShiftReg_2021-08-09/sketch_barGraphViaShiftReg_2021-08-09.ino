@@ -36,14 +36,6 @@ void setup() {
 
   Serial.begin(38400);
   shiftReg.init();
-  
-//  // pin and data setup
-//  pinMode(SRCLK, OUTPUT);
-//  pinMode(RCLK, OUTPUT);
-//  pinMode(SER, OUTPUT);
-//  digitalWrite(SRCLK, LOW);
-//  digitalWrite(RCLK, LOW);
-//  digitalWrite(SER, LOW);
 
   Serial.println("finished setup");
 }

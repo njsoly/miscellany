@@ -13,7 +13,7 @@
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
-#include <ShiftRegHC595.h>
+#include "ShiftRegHC595.h"
 
 // pins
 #define SER 2 // serial data output pin
@@ -30,9 +30,10 @@ ShiftRegHC595 shiftReg(
   Serial
 );
 
-uint8_t barGraph[10]{1,0,1,0,0,1,1,0,0,1};
+uint8_t barGraph[10]{1,0,1,0,0, 1,1,0,0,1};
 int t = 500;
 long lastUpdate = 0;
+const int flashDelayMs = 200;
 
 void setup() {
 
@@ -40,12 +41,14 @@ void setup() {
   shiftReg.init();
 
   shiftReg.shiftOut(barGraph, 10);
-  delay(2000);
   Serial.println("finished setup");
+  delay(500);
+//  Serial.println("entering loop");
 }
 
 void loop() {
-  if (millis() > lastUpdate + 20) {
+  if (millis() > lastUpdate + flashDelayMs) {
+//    Serial.println("shifting");
     shiftReg.shiftOut(barGraph, 10);
     lastUpdate = millis();
   }
