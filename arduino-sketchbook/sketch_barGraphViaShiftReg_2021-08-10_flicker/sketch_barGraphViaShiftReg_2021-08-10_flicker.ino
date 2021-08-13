@@ -33,7 +33,7 @@ ShiftRegHC595 shiftReg(
 uint8_t barGraph[10]{1,0,1,0,0, 1,1,0,0,1};
 int t = 500;
 long lastUpdate = 0;
-const int flashDelayMs = 200;
+const int flashDelayMs = 100;
 
 void setup() {
 
@@ -48,7 +48,7 @@ void setup() {
 
 void loop() {
   if (millis() > lastUpdate + flashDelayMs) {
-//    Serial.println("shifting");
+    Serial.println("shifting");
     shiftReg.shiftOut(barGraph, 10);
     lastUpdate = millis();
   }
