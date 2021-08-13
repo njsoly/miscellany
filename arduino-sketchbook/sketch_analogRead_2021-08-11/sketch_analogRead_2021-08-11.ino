@@ -7,15 +7,23 @@
  * Tell how long the program has been running: millis().
  */
 
-const int DIGITAL_IN = A0;
+const int PIN_IN = A0;
+const int GROUND = A1;
+const long PRINT_PERIOD = 50;
+
+long lastPrint = millis();
 
 void setup() {
-  pinMode(DIGITAL_IN, INPUT);
-
+  pinMode(PIN_IN, INPUT);
+  pinMode(GROUND, OUTPUT);
+  digitalWrite(GROUND, LOW);
   Serial.begin(38400);
 }
 
 void loop() {
-  Serial.println(analogRead(DIGITAL_IN));
-  delay(50);
+
+  if (millis() >= lastPrint + PRINT_PERIOD) {
+    Serial.println(analogRead(PIN_IN));
+    lastPrint = millis();
+  }
 }
