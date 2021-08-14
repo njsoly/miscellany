@@ -14,7 +14,7 @@
   It works!  Sort of.  I can tell I need to find a way to discern the volume being played, 
   and adjust the threshold accordingly.
 
-  
+  Demo: https://www.dropbox.com/s/ylvxrdzzathn034/sketch_graphicEqualizer_2021-08-13.demo.0.mp4?dl=0
 *********************************************************************************/
 
 // spectrum shield constants
