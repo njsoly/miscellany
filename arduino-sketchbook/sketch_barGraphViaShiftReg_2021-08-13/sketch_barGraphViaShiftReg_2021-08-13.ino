@@ -1,14 +1,11 @@
 /**
  * sketch_barGraphViaShiftReg_2021-08-13
  * 
- * SN74HC595 (x2) and YSLB-102510B5-10
+ * SN74HC595 (x9) and YSLB-102510B5-10 (Blue) (2), Green (2), Red (2), Yellow(1).
  * 
- * Hookup: 
- * Ground connected to IC pins 1-10 via one 330-ohm resistor
- *  Note: The slightly-beveled corner of the bar graph IC highlights pin 1.
+ * This sketch is to test the full circuit that will be my graphic equalizer.
  * 
- * This sketch is to test rapid updating of the register, to figure out 
- * how to stamp out flicker.
+ * Demo available at https://www.dropbox.com/s/cdx5om1nafhmon0/sketch_barGraphViaShiftReg_2021-08-13.demo.mp4?dl=0
  */
 
 #include <Arduino.h>
@@ -30,8 +27,6 @@ ShiftRegHC595 shiftReg(
   Serial
 );
 
-uint8_t barGraph[10]{1,0,1,0,0, 1,1,0,0,1};
-int t = 500;
 long lastUpdate = 0;
 const int flashDelayMs = 100;
 
@@ -40,7 +35,6 @@ void setup() {
   Serial.begin(38400);
   shiftReg.init();
 
-  shiftReg.shiftOut(barGraph, 10);
   Serial.println("finished setup");
   delay(500);
   Serial.println("entering loop");
