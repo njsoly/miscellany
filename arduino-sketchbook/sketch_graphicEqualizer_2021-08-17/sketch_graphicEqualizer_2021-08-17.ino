@@ -7,7 +7,7 @@
   https://github.com/sparkfun/Spectrum_Shield
 
 *********************************************************************
-  sketch_graphicEqualizer_2021-08-13
+  sketch_graphicEqualizer_2021-08-17
   by Nate Solyntjes
   2021-08-13
 

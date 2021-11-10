@@ -4,6 +4,7 @@
  * SN74HC595 (x9) and YSLB-102510B5-10 (Blue) (2), Green (2), Red (2), Yellow(1).
  * 
  * This sketch is to test the full circuit that will be my graphic equalizer.
+ * It sends out 2-on, 2-off, repeating, in order to check out a daisy chain of shift registers.
  * 
  * Demo available at https://www.dropbox.com/s/cdx5om1nafhmon0/sketch_barGraphViaShiftReg_2021-08-13.demo.mp4?dl=0
  */
