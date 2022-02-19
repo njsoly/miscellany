@@ -31,6 +31,9 @@ alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
 
+## TODO maybe delete
+## this may have been for ... CTRL+Direction shortcuts?
+## For cygwin?
 [[ -x ./.inputrc ]] && bind -f ./.inputrc
 
 ##############  application shorthands  #############
@@ -50,10 +53,13 @@ fi
 
 
 ## set $miscellany ##
+# MAC
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
+# STOUT HP
 elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-hp" ]]; then
 	miscellany=/cygdrive/d/miscellany
+# ASUS A-15
 elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
 	if [[ "$OSTYPE" = "cygwin" ]]; then
 		miscellany=$HOME/miscellany
@@ -62,7 +68,11 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
+# TRY A DEFAULT
+elif [[ -z "$miscellany" && -d $HOME/miscellany ]]; then
+	miscellany=$HOME/miscellany
 fi
+
 
 export miscellany
 ##---------------##
@@ -94,7 +104,7 @@ fi
 
 
 if [[ -n "$(command -v branchname)" ]]; then
-	export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $ '
+	export PS1='\[\e[36m\][\t]\[\e[0m\] \[\e[32m\][$(branchname||"")]\[\e[0m\] \[\e[33m\]\w\[\e[0m\] $ '
 fi
 
 if [[ -n "$WSL_DISTRO_NAME" && -x $miscellany/.bashrc_wsl ]]; then
