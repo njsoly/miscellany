@@ -68,6 +68,15 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15" ]]; then
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
+# ASUS A-15 2023
+elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15-1" ]]; then
+	if [[ "$OSTYPE" = "cygwin" ]]; then
+		miscellany=$HOME/miscellany
+	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
+		miscellany=$HOME/miscellany
+	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
+		miscellany=/mnt/c/Users/njsoly/miscellany
+	fi
 # TRY A DEFAULT
 elif [[ -z "$miscellany" && -d $HOME/miscellany ]]; then
 	miscellany=$HOME/miscellany
