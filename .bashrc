@@ -109,6 +109,11 @@ fi
 if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]] || [[ "$OSTYPE" = "cygwin" ]]; then
 	printf "hostname is %s; setting TERM to cygwin\n." "$HOSTNAME"
 	export TERM=cygwin
+	
+	if [[ -x "${miscellany}/windows-start-ssh-agent.bash" ]]; then
+		printf "starting ssh agent...\n"
+		. ${miscellany}/windows-start-ssh-agent.bash
+	fi
 fi
 
 
