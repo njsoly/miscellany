@@ -64,3 +64,6 @@ kotlin/KotlinMaven/.idea/libraries/
 # temp files 
 *~*
 *.swp
+
+# mac
+.DS_STORE
