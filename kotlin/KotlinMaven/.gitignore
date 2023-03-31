@@ -3,4 +3,4 @@ out/
 .idea/libraries/Maven__*xml
 #.idea/misc.xml
 #.idea/
-#*.iml
+*.iml
