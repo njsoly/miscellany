@@ -60,6 +60,8 @@ kotlin/njsoly - Darc*
 #kotlin/.idea/\.*
 #kotlin/KotlinMaven/.idea/libraries/
 **/.idea/workspace.xml
+.idea/workspace.xml
+.idea/misc.xml
 
 # temp files 
 *~*
