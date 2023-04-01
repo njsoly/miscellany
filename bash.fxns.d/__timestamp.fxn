@@ -2,7 +2,7 @@
 __time_with_milliseconds () {
 	_ts_time_full="$(date +%H:%M:%S.%N)";
 	_ts_time=${_ts_time_full:0:12}
-	echo $_ts_time
+	echo "$_ts_time"
 }
 __seconds_since_epoch () {
 	date +%s
