@@ -1,4 +1,0 @@
-linter-format () 
-{ 
-    mvn antrun:run@ktlint-format
-}
