@@ -12,7 +12,7 @@ export _GRAY_BLOCK_8=░░░░░░░░
 ##  terminal colors  ##
 export __unix_color_green=\\e[32m
 export __unix_color_red=\\e[31m
-
+export __unix_color_none=\\e[0m
 
 
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
