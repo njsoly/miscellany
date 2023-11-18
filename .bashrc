@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## set the shell ##
 export PS1_DRAFT0="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
@@ -8,6 +8,12 @@ export PS1_DRAFT1='\e[32;40m[\t]\e[m \e[0;36m\w\e[m \e[0;35m$\e[m '
 export global_ignores="~/.gitignore_global"
 export _GRAY_BLOCK=░
 export _GRAY_BLOCK_8=░░░░░░░░
+
+##  terminal colors  ##
+export __unix_color_green=\\e[32m
+export __unix_color_red=\\e[31m
+
+
 
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
