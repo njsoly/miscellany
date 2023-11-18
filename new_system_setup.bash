@@ -5,7 +5,7 @@ say () {
 	printf "**  $@  **\n"
 }
 
-say  "the source is $PWD/$BASH_SOURCE"
+say  "Hello and welcome to $PWD/$BASH_SOURCE."
 
 ## introduce the miscellany repo to the environment ##
 if [[ -z "$miscellany" ]]; then
@@ -16,6 +16,8 @@ if [[ ! $(cat ~/.bashrc | grep miscellany/.bashrc) ]]; then
 	say "adding \$miscellany/.bashrc to \~/.bashrc."
 fi
 
-say "now calling ./setup_git.bash"
+say "Now calling ./setup_git.bash"
 ./setup_git.bash
+
+say "All done with $BASH_SOURCE."
 
