@@ -1,6 +1,6 @@
 # worked from https://stackoverflow.com/questions/16715103/bash-prompt-with-last-exit-code
 
-if [[ "$OSTYPE" = "cygwin" ]]
+if [[ "$OSTYPE" = "cygwin" || -f /etc/octopi_version ]]
 then
 
 	PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
@@ -21,6 +21,7 @@ then
 		local Cyan='\[\e[0;36m\]'
 		local White='\[\e[97m\]'
 		
+		# include the branch name
 		PS1=${Pink}'[$(branchname||"")]'${ResetColor}
 		PS1+=' '${Cyan}'\W/'${ResetColor}
 		PS1+=' \n'${White}'[$(date +%H:%M)]'${ResetColor}
