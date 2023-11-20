@@ -25,23 +25,24 @@ then
 		PS1=""
 		# add user at host
 		PS1+='<'${BBlu}'\u'${ResetColor}@${Gre}'\h'${ResetColor}'> '
-		
-		# include the branch name
-		PS1+=${Pink}'[$(branchname||"")]'${ResetColor}' '
-		
+
 		# add CWD
 		PS1+=${Cyan}'\W/'${ResetColor}' '
-		
+
 		# start line 2
 		PS1+='\n'
-		
-		# add the time
-		PS1+=${White}'[$(date +%H:%M)]'${ResetColor}
 
+		# add the time
+		PS1+=${White}'[$(date +%H:%M)]'${ResetColor}' '
+
+		# include the branch name
+		PS1+=${Pink}'{$(branchname||"")}'${ResetColor}' '
+
+		# last exit code
 		if [ $EXIT_CODE != 0 ]; then
-			PS1+=" (${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
+			PS1+="(${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
 		else
-			PS1+=" (${Gre}${EXIT_CODE}${ResetColor})"
+			PS1+="(${Gre}${EXIT_CODE}${ResetColor})"
 		fi
 
 		PS1+=" $ "
