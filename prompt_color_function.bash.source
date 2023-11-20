@@ -21,10 +21,22 @@ then
 		local Cyan='\[\e[0;36m\]'
 		local White='\[\e[97m\]'
 		
+		# start with empty (so we can rearrange)
+		PS1=""
+		# add user at host
+		PS1+='<'${BBlu}'\u'${ResetColor}@${Gre}'\h'${ResetColor}'> '
+		
 		# include the branch name
-		PS1=${Pink}'[$(branchname||"")]'${ResetColor}
-		PS1+=' '${Cyan}'\W/'${ResetColor}
-		PS1+=' \n'${White}'[$(date +%H:%M)]'${ResetColor}
+		PS1+=${Pink}'[$(branchname||"")]'${ResetColor}' '
+		
+		# add CWD
+		PS1+=${Cyan}'\W/'${ResetColor}' '
+		
+		# start line 2
+		PS1+='\n'
+		
+		# add the time
+		PS1+=${White}'[$(date +%H:%M)]'${ResetColor}
 
 		if [ $EXIT_CODE != 0 ]; then
 			PS1+=" (${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
