@@ -10,8 +10,11 @@ _set_PS1 ()
 	__unix_color_yellow='\e[33m'
 	__green='\e[32m'
 
+	__debug=1
+
 	local _last_ret="$last_ret"
-#	echo "** _last_ret is ${_last_ret} **"
+	[[ "$__debug" == "1" ]] && \
+		echo "** _last_ret is ${_last_ret} **"
 	local _date='\D{%Y-%m-%d %H:%M:%S}'
 	local _time='\t'
 	local _w='\w'
@@ -22,13 +25,15 @@ _set_PS1 ()
 	local line_0_b='\['"${__unix_color_yellow}"${_w}"${__unix_color_none}]"
 	local line_1="\[${__green}$(branchname||"")\e[0m\] ($(_colored_exit_code ${_last_ret})) $ "
 
-	echo "line 0 is: ${line_0_a} ${line_0_b}"
-	echo "line 1 is: ${line_1}"
-	echo
+	[[ "$__debug" == 1 ]] && {
+		echo "line 0 is: ${line_0_a} ${line_0_b}"
+		echo "line 1 is: ${line_1}"
+		echo
+	}
 
 	_PS1="${line_0_a} ${line_0_b}\n${line_1}"
 	echo "all together: $_PS1"
-
-	printf -v x "%q" "$_PS1"
-	PS1='$x'
+	echo -e "all together as shell readable: $_PS1"
+#	printf -v x "%q" "$_PS1"
+	PS1=${_PS1}
 }
