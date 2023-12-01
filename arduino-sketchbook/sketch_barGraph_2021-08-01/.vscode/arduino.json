@@ -1,0 +1,5 @@
+{
+    "sketch": "sketch_barGraph_2021-08-01.ino",
+    "port": "COM6",
+    "board": "arduino:avr:uno"
+}

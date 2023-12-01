@@ -50,17 +50,14 @@ class Euler156_B {
 
     companion object {
         const val MAX_N = 1111111110L
-//        var initMillis = Instant.now(Clock.systemUTC().withZone(ZoneId.of("America/Chicago"))).toEpochMilli()
-
-
     }
 
     val solutions: HashMap<Int, LinkedList<Long>> = HashMap<Int, LinkedList<Long>>()
     val s: ArrayList<Long> = ArrayList()
-    val f: ArrayList<Long> = ArrayList()
+    private val f: ArrayList<Long> = ArrayList()
 
     /** returns all the solutions of f(n,d) */
-    fun findSolutionsofFofNandD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Long>> {
+    fun findSolutionsOfF_OfNAndD (maxN: Long = MAX_N): HashMap<Int, LinkedList<Long>> {
         println("trying for solutions of f(n,d) for 1 <= d <= 9, 0 <= n <= $maxN")
 
         for (n in 0 .. maxN) {
@@ -97,7 +94,7 @@ fun main() {
     val euler = Euler156_B()
     val timesElapsed = mutableMapOf<Int, String>()
 
-    val solutions = euler.findSolutionsofFofNandD(maxN = 111111L)
+    val solutions = euler.findSolutionsOfF_OfNAndD(maxN = 111111L)
     timesElapsed[0] = readableTimeSinceInit()
 
     for (d in 1..9) {

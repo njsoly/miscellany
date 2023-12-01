@@ -54,12 +54,13 @@ kotlin/njsoly - Darc*
 
 #IDEA
 .idea/sonarlint/issuestore/
-kotlin/.idea/*/*.xml
-.idea/*xml
-kotlin/.idea/*.xml
-kotlin/.idea/\.*
-kotlin/KotlinMaven/.idea/libraries/
+#kotlin/.idea/*/*.xml
+#.idea/*xml
+#kotlin/.idea/*.xml
+#kotlin/.idea/\.*
+#kotlin/KotlinMaven/.idea/libraries/
 **/.idea/workspace.xml
+electrangular/
 
 # temp files 
 *~*

@@ -1,6 +1,6 @@
 out/
 .idea/libraries/Maven__*
 .idea/libraries/Maven__*xml
-.idea/misc.xml
-.idea/
-*.iml
+#.idea/misc.xml
+#.idea/
+#*.iml
