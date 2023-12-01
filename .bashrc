@@ -104,10 +104,10 @@ export miscellany
 
 ########_  functions  _########
 if [[ -d ${miscellany}/bash.fxns.d ]]; then
-	echo -e "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}."
+	printf "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}.\n"
 	for f in ${miscellany}/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath ${f}) ]] && echo -e "sourcing ${__cyan}$f${__reset}" && . $(realpath ${f}) || :
+		[[ -x $(realpath ${f}) ]] && printf "sourcing ${__cyan}$f${__reset}\n" && . $(realpath ${f}) || :
 	}
 	done
 elif [[ -d $PWD/bash.fxns.d ]]; then
