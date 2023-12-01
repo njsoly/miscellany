@@ -1,18 +1,21 @@
 #include <ShiftRegHC595.h>
 
-/******************************************************************************
-  Code adapted from:
-  "SparkFun Spectrum Shield Demo"
-  Wes Furuya @ SparkFun Electronics - January 2020
-  https://github.com/sparkfun/Spectrum_Shield
-
-*********************************************************************
+/*******************************************************************************
   sketch_graphicEqualizer_2021-11-24
   by Nate Solyntjes
   2021-08-13
 
   Copy of sketch_graphicEqualizer_2021-11-13 to include PWM on OE_NOT
-*********************************************************************************/
+********************************************************************************
+  THIS IS THE SEMI-FINAL DRAFT
+  It has been in operation from 2021-11-24 through 2023-08-03 (as I type), and I
+  have no plans to update or extend it.
+
+  Spectrum analyzer shield code adapted from:
+  "SparkFun Spectrum Shield Demo"
+  Wes Furuya @ SparkFun Electronics - January 2020
+  https://github.com/sparkfun/Spectrum_Shield
+*******************************************************************************/
 
 // spectrum shield constants
 #define STROBE 4

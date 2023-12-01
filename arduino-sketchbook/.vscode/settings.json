@@ -6,9 +6,12 @@
         "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
         "${workspaceFolder}\\libraries\\**",
         "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\**",
-        "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\avr\\include"
+        "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\avr\\include",
+        "C:\\Users\\njsoly\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
+        "C:\\Users\\njsoly\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino"
     ],
     "C_Cpp.default.forcedInclude": [
         "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
-    ]
+    ],
+    "C_Cpp.default.compilerPath": ""
 }
