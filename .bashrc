@@ -74,6 +74,8 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15-1" ]]; then
 		miscellany=$HOME/miscellany
 	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
 		miscellany=$HOME/miscellany
+	elif [[ -n "$WSL_DISTRO_NAME" ]]; then
+		echo "ERROR: check out $BASH_LINENO in $BASH_SOURCE."
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
