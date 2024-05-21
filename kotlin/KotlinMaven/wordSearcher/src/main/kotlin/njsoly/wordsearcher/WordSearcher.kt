@@ -15,7 +15,7 @@ import java.time.LocalDate
 /**
  *
  */
-fun main(args: Array<String>) {
+fun main() {
     println("Hello, WordSearcher.")
     
     println("File ${WordSearcher.file.name} exists: ${WordSearcher.file.exists()}")
