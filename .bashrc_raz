@@ -1,0 +1,14 @@
+
+#################################################
+####                                         ####
+####    .bashrc_raz                          ####
+####                                         ####
+####    Raspberry Pi-specific .bashrc file   ####
+####                                         ####
+#################################################
+
+# measure the GPU temperature
+how_hot_gpu ()
+{
+    vcgencmd measure_temp
+}

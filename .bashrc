@@ -135,6 +135,8 @@ if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]] || [[ "$OSTY
 fi
 
 
+########  Windows subshell Linux (WSL)  #############
 if [[ -n "$WSL_DISTRO_NAME" && -x $miscellany/.bashrc_wsl ]]; then
 	. $miscellany/.bashrc_wsl
 fi
+######################################################
