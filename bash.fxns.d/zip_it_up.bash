@@ -3,10 +3,17 @@
 ########################################################
 # zip_it_up.bash
 #
-# So, this is pretty coool.....
+# You zip stuff up.
 ########################################################
 
 zip_it_up () {
+	if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+		printf --trim """
+			${__blue}zip_it_up${__reset}: A function to help you zip things.
+			what ${__blue1}else${__reset} do you want?
+		"""
+	fi
+
 	if [[ -z "$2" ]]; then
 		printf "${__red}ERROR:${__reset} You need to specify a destination ${__red}and${__reset} a list of files.\n"
 		return 4
