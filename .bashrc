@@ -1,38 +1,17 @@
 #!/usr/bin/env bash
 
+__err=0
+
 ## set the shell ##
 export PS1_DRAFT0="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
 export PS1_DRAFT1='\e[32;40m[\t]\e[m \e[0;36m\w\e[m \e[0;35m$\e[m '
 
+pushd $(dirname ${BASH_SOURCE}) > /dev/null || { echo "could not establish miscellany repo root"; __err=6; return ${__err}; }
+source asciiart.bash && echo "sourced asciiart.bash" || { echo "could not find asciiart.bash"; __err=7; }
+source terminal_color.bash && echo "sourced terminal_color.bash" || { echo "could not find terminal_color.bash"; __err=8; }
+
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
-export _GRAY_BLOCK=░
-export _GRAY_BLOCK_8=░░░░░░░░
-
-##  terminal colors  ##
-export __reset=\\e[0m
-export __red=\\e[31m
-export __green=\\e[32m
-export __yellow=\\e[33m
-export __blue=\\e[34m
-export __purple=\\e[35m
-export __cyan=\\e[36m
-export __gray=\\e[37m
-
-export __pink=\\e[1\;31m
-export __lime=\\e[1\;32m
-export __white=\\e[1\;37m
-export __magenta=\\e[1\;35m
-
-export __red1=\\e[1\;31m
-export __green1=\\e[1\;32m
-export __yellow1=\\e[1\;33m
-export __blue1=\\e[1\;34m
-export __purple1=\\e[1\;35m
-export __cyan1=\\e[1\;36m
-export __gray1=\\e[1\;37m
-
-
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
 ## aliases to built-ins ##
@@ -134,7 +113,13 @@ if [[ "$HOSTNAME" = "njsoly-hp" ]] || [[ "$HOSTNAME" = "k55n-w7" ]] || [[ "$OSTY
 	fi
 fi
 
-
+########  Windows subshell Linux (WSL)  #############
 if [[ -n "$WSL_DISTRO_NAME" && -x $miscellany/.bashrc_wsl ]]; then
 	. $miscellany/.bashrc_wsl
 fi
+######################################################
+
+
+#### end
+popd > /dev/null
+return ${__err}
