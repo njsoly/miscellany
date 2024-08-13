@@ -7,8 +7,8 @@ export PS1_DRAFT0="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
 export PS1_DRAFT1='\e[32;40m[\t]\e[m \e[0;36m\w\e[m \e[0;35m$\e[m '
 
 pushd $(dirname ${BASH_SOURCE}) > /dev/null || { echo "could not establish miscellany repo root"; __err=6; return ${__err}; }
-source asciiart.bash && echo "sourced asciiart.bash" || { echo "could not find asciiart.bash"; __err=7; }
-source terminal_color.bash && echo "sourced terminal_color.bash" || { echo "could not find terminal_color.bash"; __err=8; }
+source terminal_color.bash && echo -e "sourced ${__cyan}terminal_color.bash${__reset}" || { echo "could not find terminal_color.bash"; __err=8; }
+source asciiart.bash && echo -e "sourced ${__cyan}asciiart.bash${__reset}" || { echo "could not find asciiart.bash"; __err=7; }
 
 ##  exports  ##
 export global_ignores="~/.gitignore_global"
@@ -86,7 +86,7 @@ if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	printf "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}.\n"
 	for f in ${miscellany}/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath ${f}) ]] && printf "sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n " && . $(realpath ${f}) || :
+		[[ -x $(realpath ${f}) ]] && printf "    sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n" && . $(realpath ${f}) || :
 	}
 	done
 elif [[ -d $PWD/bash.fxns.d ]]; then
