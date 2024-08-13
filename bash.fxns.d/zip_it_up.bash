@@ -8,10 +8,9 @@
 
 zip_it_up () {
 	if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-		printf --trim """
-			${__blue}zip_it_up${__reset}: A function to help you zip things.
-			what ${__blue1}else${__reset} do you want?
-		"""
+		printf 	"${__blue}zip_it_up${__reset}: A function to help you zip things.\n"
+		printf	"what ${__blue1}else${__reset} do you want?\n"
+		return 0
 	fi
 
 	if [[ -z "$2" ]]; then
