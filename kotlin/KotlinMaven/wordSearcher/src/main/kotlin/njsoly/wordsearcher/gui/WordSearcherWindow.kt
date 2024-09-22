@@ -49,7 +49,7 @@ open class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(tit
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val w = WordSearcherWindow()
     w.packAndShow()
 
