@@ -51,6 +51,10 @@ fi
 
 
 ## set $miscellany ##
+# skip if already set
+if [[ -n "$miscellany" ]]; then
+	printf "not setting ${__cyan}miscellany${__reset} variable; already set to $miscellany.\n"
+fi
 # MAC
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
@@ -79,7 +83,16 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15-1" ]]; then
 elif [[ -z "$miscellany" && -d $HOME/miscellany ]]; then
 	miscellany=$HOME/miscellany
 fi
+
 export miscellany
+
+## set miscellany-me
+if [[ -n "$miscellany_me" ]]; then
+	printf "${__green}miscellany_me${__reset} has already been set to ${miscellany_me}.\n"
+elif [[ -d "${miscellany}-me" ]]; then
+	printf "${__green}miscellany-me${__reset} repo found right next to miscellany.\n"
+	export miscellany_me="${miscellany}-me"
+fi
 
 ########_  functions  _########
 if [[ -d ${miscellany}/bash.fxns.d ]]; then
@@ -91,6 +104,8 @@ if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	done
 elif [[ -d $PWD/bash.fxns.d ]]; then
 	source $PWD/bash.fxns.d/*
+else
+	printf "${__red}bash.fxns.d/ not found.${__reset}\n"
 fi
 
 ########  bash git prompt setup ###################
@@ -119,6 +134,13 @@ if [[ -n "$WSL_DISTRO_NAME" && -x $miscellany/.bashrc_wsl ]]; then
 fi
 ######################################################
 
+######### run miscellany-me profile ############
+if [[ -n "${miscellany_me}" ]]; then
+	if [[ -f ${miscellany_me}/.bashrc ]]; then
+		printf "running ${__blue}miscellany-me/.bashrc${__reset}. \n"
+		. ${miscellany_me}/.bashrc
+	fi
+fi
 
 popd > /dev/null
 return ${__err}
