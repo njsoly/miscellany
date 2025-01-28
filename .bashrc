@@ -34,6 +34,9 @@ alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
 
+## other aliases ##
+alias dc='docker-compose'
+
 ## Help with CTRL+direction commands, etc
 if [[ "$OSTYPE" == "cygwin" ]]; then
 	[[ -x ./.inputrc ]] && bind -f ./.inputrc
