@@ -1,0 +1,4 @@
+date_short () 
+{ 
+    date +%Y%m%d
+}

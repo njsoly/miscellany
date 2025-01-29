@@ -1,1 +1,1 @@
-/cygdrive/d/alert.bat
+/mnt/d/alert.bat

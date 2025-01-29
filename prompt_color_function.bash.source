@@ -1,6 +1,6 @@
 # worked from https://stackoverflow.com/questions/16715103/bash-prompt-with-last-exit-code
 
-if [[ "$OSTYPE" = "cygwin" ]]
+if [[ "$OSTYPE" = "cygwin" || -f /etc/octopi_version ]]
 then
 
 	PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
@@ -21,14 +21,28 @@ then
 		local Cyan='\[\e[0;36m\]'
 		local White='\[\e[97m\]'
 		
-		PS1=${Pink}'[$(branchname||"")]'${ResetColor}
-		PS1+=' '${Cyan}'\W/'${ResetColor}
-		PS1+=' \n'${White}'[$(date +%H:%M)]'${ResetColor}
+		# start with empty (so we can rearrange)
+		PS1=""
+		# add user at host
+		PS1+='<'${BBlu}'\u'${ResetColor}@${Gre}'\h'${ResetColor}'> '
 
+		# add CWD
+		PS1+=${Cyan}'\W/'${ResetColor}' '
+
+		# start line 2
+		PS1+='\n'
+
+		# add the time
+		PS1+=${White}'[$(date +%H:%M)]'${ResetColor}' '
+
+		# include the branch name
+		PS1+=${Pink}'{$(branchname||"")}'${ResetColor}' '
+
+		# last exit code
 		if [ $EXIT_CODE != 0 ]; then
-			PS1+=" (${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
+			PS1+="(${Red}${EXIT_CODE}${ResetColor})"      # Add red if exit code non 0
 		else
-			PS1+=" (${Gre}${EXIT_CODE}${ResetColor})"
+			PS1+="(${Gre}${EXIT_CODE}${ResetColor})"
 		fi
 
 		PS1+=" $ "

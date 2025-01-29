@@ -1,0 +1,10 @@
+_colored_exit_code () 
+{ 
+    _code=$?
+    function _color_from_exit_code () 
+    { 
+        [[ ${_code} == 0 ]] && _color=\\e[32m || _color=\\e[31m
+    };
+    _color_from_exit_code;
+    printf "${_color}${_code}\e[0m"
+}

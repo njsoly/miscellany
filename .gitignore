@@ -63,7 +63,11 @@ kotlin/njsoly - Darc*
 .idea/workspace.xml
 .idea/misc.xml
 
+electrangular/
+
 # temp files 
 *~*
 *.swp
-electrangular/
+
+# mac
+.DS_STORE

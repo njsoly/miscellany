@@ -1,0 +1,7 @@
+git-generate-delete-statements () 
+{ 
+    for b in $(git for-each-ref refs/heads --format "%(refname)" "echo %(refname)" | sed 's@refs/heads/@@g' );
+    do
+        echo "git branch -D $b";
+    done
+}

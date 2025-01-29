@@ -1,0 +1,7 @@
+mac_toast_2 () 
+{ 
+    printf "display alert \"toaster\" message \"" > /tmp/.toast2;
+    cat $1 >> /tmp/.toast2;
+    printf "\"" >> /tmp/.toast2;
+    osascript /tmp/.toast2
+}

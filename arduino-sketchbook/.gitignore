@@ -1,4 +1,7 @@
+# VS Code #
 generated_examples/
 workspace.code-workspace
 .vscode/c_cpp_properties.json
 
+# embedded repos #
+ArduinoCore-avr/

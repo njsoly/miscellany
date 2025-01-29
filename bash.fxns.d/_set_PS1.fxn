@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+_set_PS1 ()
+{
+	__unix_color_magenta_b='\e[95m'
+	__unix_color_magenta='\e[35m'
+	__unix_color_cyan='\e[0;36m'
+	__unix_color_gray='\e[97m'
+	__unix_color_none='\e[0m'
+	__unix_color_yellow='\e[33m'
+	__green='\e[32m'
+
+	__debug=1
+
+	local _last_ret="$last_ret"
+	[[ "$__debug" == "1" ]] && \
+		echo "** _last_ret is ${_last_ret} **"
+	local _date='\D{%Y-%m-%d %H:%M:%S}'
+	local _time='\t'
+	local _w='\w'
+	local _u='\u'
+	local _H='\H'
+
+	local line_0_a='\['"${__unix_color_cyan}\[${_time}\]${__unix_color_none} ${__unix_color_magenta}<${_u}@${_H}>${__unix_color_none}"
+	local line_0_b='\['"${__unix_color_yellow}"${_w}"${__unix_color_none}]"
+	local line_1="\[${__green}$(branchname||"")\e[0m\] ($(_colored_exit_code ${_last_ret})) $ "
+
+	[[ "$__debug" == 1 ]] && {
+		echo "line 0 is: ${line_0_a} ${line_0_b}"
+		echo "line 1 is: ${line_1}"
+		echo
+	}
+
+	_PS1="${line_0_a} ${line_0_b}\n${line_1}"
+	echo "all together: $_PS1"
+	echo -e "all together as shell readable: $_PS1"
+#	printf -v x "%q" "$_PS1"
+	PS1=${_PS1}
+}
