@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# This function is only for self-owned repositories.  It pushes to main.
+#
+# I use this because I like having separate branches for different systems that use the same code,
+# but like to be able to have different working trees.
+git-update-main-with-current ()
+{
+	git checkout main && git pull && git merge - && git push && git checkout -
+}
