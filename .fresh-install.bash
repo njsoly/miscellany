@@ -15,6 +15,11 @@ else
 	echo "$WARNING: ~/miscellany/.bashrc not found."
 	return 1
 fi
+
+if [[ -x octopi.bashrc ]]; then
+        . octopi.bashrc
+else
+
 EOF
 
 echo "adding some lines to the end of .bashrc"
