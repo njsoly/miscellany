@@ -33,6 +33,9 @@ alias gsnu='git status -uno'
 alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
+if [[ -x ./set_git_aliases.bash ]]; then
+	. ./set_git_aliases.bash
+fi
 
 ## other aliases ##
 alias dc='docker-compose'
@@ -75,6 +78,8 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15-1" ]]; then
 		miscellany=$HOME/miscellany
 	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
 		miscellany=$HOME/miscellany
+	elif [[ -n "$WSL_DISTRO_NAME" ]]; then
+		echo "ERROR: check out $BASH_LINENO in $BASH_SOURCE."
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
@@ -100,7 +105,7 @@ fi
 if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
 	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
 	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
-elif [[ "$OSTYPE" = "cygwin" ||  -n "$(command -v branchname)" ]]; then
+elif [[ "$OSTYPE" = "cygwin" || -n ${WSL_DISTRO_NAME} || -n "$(command -v branchname)" ]]; then
 	echo -e "using ${__cyan}prompt_color_function.bash.source${__reset} to set ${__blue}PS1.${__reset}"
 	source "$miscellany/prompt_color_function.bash.source"
 fi
