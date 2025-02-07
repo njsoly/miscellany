@@ -33,6 +33,9 @@ alias gsnu='git status -uno'
 alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
+if [[ -x ./set_git_aliases.bash ]]; then
+	. ./set_git_aliases.bash
+fi
 
 ## other aliases ##
 alias dc='docker-compose'
