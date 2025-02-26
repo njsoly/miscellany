@@ -11,7 +11,7 @@ check_reqs () {
 
 check_not_already_configured_to_origin () {
 	git config -l | grep -e 'config branch' | grep -e $(branchname) | grep -e origin > /dev/null
-	if [[ "$?" != "0" ]]; then
+	if [[ "$?" == "0" ]]; then
 		printf "The branch ${__purple}$(branchname)${__reset} is already configured to ${__cyan}origin${__reset}. "
 		printf "Will ${__yellow}not${__reset} proceed to configure it to the fork.\n"
 		return 98764
@@ -24,6 +24,6 @@ check_reqs
 fork-only-branch-setup () 
 { 
 	check_not_already_configured_to_origin
-	git config branch.$(branchname).remote=fork;
-	git config branch.$(branchname).merge=refs/heads/$(branchname)
+	git config branch.$(branchname).remote fork;
+	git config branch.$(branchname).merge refs/heads/$(branchname)
 }
