@@ -57,11 +57,9 @@ fi
 
 
 ## set $miscellany ##
-if [[ `echo $miscellany | grep -e 'C:'` ]] ; then 
-	echo "miscellany was set to C:"
+if [[ `echo $miscellany | grep -e '^C:\\\\'` ]]; then
+	echo "${__yellow1}FYI: ${__cyan}miscellany${__RESET} was set to C:\\."
 	unset miscellany
-else
-	echo good
 fi
 
 # MAC
