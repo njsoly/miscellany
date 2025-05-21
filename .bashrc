@@ -57,6 +57,11 @@ fi
 
 
 ## set $miscellany ##
+if [[ `echo $miscellany | grep -e '^C:\\\\'` ]]; then
+	echo "${__yellow1}FYI: ${__cyan}miscellany${__RESET} was set to C:\\."
+	unset miscellany
+fi
+
 # MAC
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
