@@ -5,7 +5,12 @@
 *.kotlin_module diff text
 
 *.kt eol=lf
-*.xml eol=lf
+*.xml diff text
+*.ino diff text
+*.ini diff text 
+*.cpp diff text
+*.h diff text
+*.md diff text
 
 # binary
 *.7z binary
