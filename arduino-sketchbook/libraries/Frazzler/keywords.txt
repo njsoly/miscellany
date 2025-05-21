@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For Frazzler
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Frazzler	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+SERVO_SPINNER LITERAL1
+SERVO_FLICKER LITERAL1
+BT_RX LITERAL1
+BT_TX LITERAL1
+BT_STATE_PIN LITERAL1
+BT_BAUD LITERAL1
+
+HALL_NEG LITERAL1
+HALL_POS LITERAL1
+REED_SWITCH_NEG  LITERAL1
+REED_SWITCH_POS  LITERAL1
+
+OLED_I2C_ADDR LITERAL1
+OLED_SCL LITERAL1
+OLED_SDA LITERAL1
