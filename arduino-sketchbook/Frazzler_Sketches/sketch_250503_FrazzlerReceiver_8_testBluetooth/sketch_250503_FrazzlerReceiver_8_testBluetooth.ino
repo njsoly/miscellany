@@ -1,0 +1,219 @@
+
+/* sketch 250503
+Frazzler receiver #8 - testBluetooth
+Test bluetooth connection and communication
+
+Echo bytes typed into serial console to the Bluetooth line
+Print to serial when received from bluetooth
+
+*/
+
+#include <Arduino.h>
+#include <pins_arduino.h>
+#include <Servo.h>
+#include <Frazzler.h>
+#include <RingBuffer.h>
+#include <SoftwareSerial.h>
+
+Servo spinnerServo;  // create servo object to control a servo
+Servo flickerServo;
+
+// SoftwareSerial swSerial(BT_RX, BT_TX);
+// #define btSerial swSerial
+#define btSerial Serial1
+
+String sendMessage = "";
+String receivedMessage = "";
+
+bool BT_CONNECTED = false;
+bool SERVOS_ENABLED = true;
+const uint8_t NEG = 0, POS = 1;
+
+bool limitStates[2] = {false, false};
+uint16_t limitBaselines[2] = {496, 500};
+const uint8_t LIMIT_THRESHOLD = 7;
+
+void setup() {
+  spinnerServo.attach(SERVO_SPINNER, 1250, 1750);
+  flickerServo.attach(SERVO_FLICKER, 1250, 1750);
+  clearServoSpeeds();
+
+  pinMode(HALL_NEG, INPUT);
+  pinMode(HALL_POS, INPUT);
+
+  Serial.begin(BT_BAUD);
+  btSerial.begin(BT_BAUD, BT_UART_CONFIG);
+  while (!Serial) {  } // wait for serial
+
+
+  printServoSpeeds();
+  Serial.println(F("Frazzler finished setup"));
+
+  char buffer[8] = {0};
+  buffer[0] = int('A');
+  buffer[1] = (int) ('7');
+  buffer[2] = NULL;
+  Serial.println(buffer);
+}
+
+void loop() {
+  // checkReceiverUrgentActions();
+  bluetoothTest();
+}
+
+const char CR = '\r';
+const char LF = '\n';
+const bool DEBUG_CHARS_IN = false;
+
+void bluetoothTest() {
+  if (btSerial.available() > 0){
+    Serial.println("There are " + String(btSerial.available()) + " chars available.");
+  }
+
+ while (btSerial.available() > 0) {
+    if (DEBUG_CHARS_IN == true) {
+      Serial.print("Received message so far: \"");
+      Serial.print(receivedMessage);
+      Serial.println("\"");
+    }    
+    char receivedChar = btSerial.read();
+    switch(receivedChar) {
+      case CR: 
+      case LF:
+        break;
+      default: receivedMessage += receivedChar;  // Append characters to the received message
+        break;
+    }
+    
+    if (receivedMessage.endsWith(";")){
+      Serial.println("Received the message \"" + receivedMessage + "\"");  // Print the received message in the Serial monitor
+      receivedMessage = "";  // Reset the received message
+    } 
+  }
+
+  while (Serial.available() > 0) {
+    char inputChar = Serial.read();
+    sendMessage += inputChar;  // Append characters to the message
+
+    if (sendMessage.endsWith(";")) {
+      Serial.println("Sending the message \"" + sendMessage + "\"");
+      btSerial.println(sendMessage);  // Send the message through btSerial with a newline character
+      sendMessage = "";  // Reset the message
+    } 
+  }
+}
+
+void printServoSpeeds() {
+  Serial.println("Servo speeds: ");
+  Serial.println("\tSpinner = " + String(spinnerServo.read()));
+  Serial.println("\tFlicker = " + String(flickerServo.read()));
+}
+
+void clearServoSpeeds() {
+  flickerServo.writeMicroseconds(1500);
+  spinnerServo.writeMicroseconds(1500);
+}
+
+void clearFlicker() {
+  flickerServo.writeMicroseconds(1500);
+}
+
+void testRunFlicker(){
+  clearServoSpeeds();
+
+  for(int i = 0; i < 10; i++){
+    Serial.println("Flicker positive");
+    flickerServo.write(180);
+    delay(2000);
+    Serial.println("Flicker negative");
+    flickerServo.write(0);
+    delay(2000);
+    Serial.println("Flicker stopped");
+    flickerServo.write(90);
+    delay(2000);
+
+  }
+}
+
+void testRunSpinner(){
+  clearServoSpeeds();
+
+  for(int i = 0; i < 10; i++){
+    Serial.println("Spinner positive");
+    spinnerServo.writeMicroseconds(1700);
+    delay(2000);
+    Serial.println("Spinner negative");
+    spinnerServo.writeMicroseconds(1200);
+    delay(2000);
+    Serial.println("Spinner stopped");
+    spinnerServo.writeMicroseconds(1500);
+    delay(2000);
+
+    clearServoSpeeds();
+  }
+
+}
+
+
+void checkReceiverUrgentActions() {
+  checkBluetoothState();
+  // checkMotorKill();
+  checkLimitSensors();
+}
+
+// if bluetooth is not connected, disable everything
+void checkBluetoothState() {
+
+}
+
+void checkLimitSensors() {
+  // long startMillis = millis();
+  long posHall = getLimitSensorValue(POS);
+  long negHall = getLimitSensorValue(NEG);
+  // long endMillis = millis();
+  // Serial.print("Sensors: (-) = " + String(negHall) + ", (+) = " + String(posHall));
+  // Serial.println(" Reading took: " + String(endMillis - startMillis) + "ms");
+  
+  bool posHallOutside = abs(limitBaselines[POS] - posHall) >= LIMIT_THRESHOLD;
+  bool negHallOutside = abs(limitBaselines[NEG] - negHall) >= LIMIT_THRESHOLD;
+
+  if (limitStates[NEG] != negHallOutside) {
+    limitStates[NEG] = negHallOutside;
+    Serial.println("NEG sensor is now " + String(limitStates[NEG]));
+  }
+  if (limitStates[POS] != posHallOutside) {
+    limitStates[POS] = posHallOutside;
+    Serial.println("POS sensor is now " + String(limitStates[POS]));
+  }
+}
+
+long getLimitSensorValue(uint8_t sensor){
+  if (sensor != NEG && sensor != POS){
+    Serial.println("ERROR: bad pin value");
+    return 0;
+  }
+
+  int pin = -1;
+  if (sensor == NEG){
+    pin = HALL_NEG;
+  } else if (sensor == POS) {
+    pin = HALL_POS;
+  }
+
+  long valueSum = 0;
+  for(int i = 0; i < 16; i++){
+    valueSum += analogRead(pin);
+  }
+  return valueSum >> 4;
+}
+
+
+String getHighOrLow(int i){
+  if (i == HIGH){
+    return String("HIGH");
+  } else if (i == LOW) {
+    return String("LOW");
+  } else {
+    return String("NEITHER");
+  }
+}
