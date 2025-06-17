@@ -5,7 +5,8 @@
 *.kotlin_module diff text
 
 *.kt eol=lf
-*.xml diff text
+#*.xml diff text
+pom.xml eol=lf
 *.ino diff text
 *.ini diff text 
 *.cpp diff text
