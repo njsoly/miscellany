@@ -99,7 +99,7 @@ if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	printf "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}.\n"
 	for f in ${miscellany}/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath ${f}) ]] && printf "    sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n" && . $(realpath ${f}) || :
+		[[ -x $(realpath ${f}) && -f $(realpath ${f}) ]] && printf "    sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n" && . $(realpath ${f}) || :
 	}
 	done
 elif [[ -d $PWD/bash.fxns.d ]]; then
