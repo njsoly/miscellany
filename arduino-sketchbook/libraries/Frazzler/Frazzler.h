@@ -47,7 +47,7 @@
 /********** Commands Remote to Frazzler ***********
     Are you alive
     Get battery voltage
-    Get reed switch status
+    Get limit sensor status
     Enable / disable motors
     Set Random On
     Extend random program timeout
@@ -58,7 +58,7 @@
 
 /********** Commands Frazzler to Remote **********
     Reed switch hit
-	Report hall sensors
+	Report limit sensors
     Report battery voltage
     
     
