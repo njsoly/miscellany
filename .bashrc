@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+https://github.com/njsoly/njsoly-nethttps://github.com/njsoly/njsoly-net#!/usr/bin/env bash
 
 __err=0
 
@@ -36,6 +36,7 @@ alias ll='ls -l'
 
 ## git aliases ##
 alias gs='git status'
+alias ga='git add'
 alias gau='git add -u'
 alias bra='git branch -a'
 alias brch='git branch'
