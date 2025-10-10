@@ -7,11 +7,23 @@ export PS1_DRAFT0="\e[32m\e[40m[\t]\e\] \e[0m\e[36m \w \e[35m\n$\[\] \e[0m"
 export PS1_DRAFT1='\e[32;40m[\t]\e[m \e[0;36m\w\e[m \e[0;35m$\e[m '
 
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null || { echo "could not establish miscellany repo root"; __err=6; return ${__err}; }
-source terminal_color.bash && echo -e "sourced ${__cyan}terminal_color.bash${__reset}" || { echo "could not find terminal_color.bash"; __err=8; }
-source asciiart.bash && echo -e "sourced ${__cyan}asciiart.bash${__reset}" || { echo "could not find asciiart.bash"; __err=7; }
+if [[ -f "terminal_color.bash" ]]; then
+	. "terminal_color.bash"
+	printf "sourced ${__cyan}terminal_color.bash${__reset}\n"
+else
+	echo "could not find terminal_color.bash"
+	__err=8
+fi
+if [[ -f "asciiart.bash" ]]; then
+	. "asciiart.bash"
+	printf "sourced ${__cyan}asciiart.bash${__reset}\n"
+else
+	echo "could not find asciiart.bash"
+	__err=7
+fi
 
 ##  exports  ##
-export global_ignores="~/.gitignore_global"
+export global_ignores="$HOME/.gitignore_global"
 [[ -e ./kotlin ]] && export kotlin=${PWD}/kotlin
 
 ## aliases to built-ins ##
@@ -97,9 +109,9 @@ export miscellany
 ########_  functions  _########
 if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	printf "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}.\n"
-	for f in ${miscellany}/bash.fxns.d/*;
+	for f in "${miscellany}"/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath "${f}") && -f $(realpath "${f}") ]] && printf "    sourcing %s$(realpath --relative-base=%s ${f})%s\n" "${__cyan}" "${HOME}" "${__reset}" && . "$(realpath ${f})" || :
+		[[ -x $(realpath "${f}") && -f $(realpath "${f}") ]] && printf "    sourcing ${__cyan}%s${__reset}\n" "$(realpath --relative-to=${HOME} ${f})" && . "$(realpath ${f})" || :
 	}
 	done
 elif [[ -d ${PWD}/bash.fxns.d ]]; then
