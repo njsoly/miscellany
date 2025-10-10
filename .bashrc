@@ -116,11 +116,7 @@ if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	}
 	done
 elif [[ -d ${PWD}/bash.fxns.d ]]; then
-<<<<<<< Updated upstream
 	source "${PWD}"/bash.fxns.d/*
-=======
-	source ${PWD}/bash.fxns.d/*
->>>>>>> Stashed changes
 fi
 
 ########  bash git prompt setup ###################
