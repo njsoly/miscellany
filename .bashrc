@@ -1,4 +1,4 @@
-https://github.com/njsoly/njsoly-nethttps://github.com/njsoly/njsoly-net#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 __err=0
 
