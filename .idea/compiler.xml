@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="wordSearcher" />
-        <module name="KotlinMaven" />
+        <module name="common" />
       </profile>
     </annotationProcessing>
   </component>
