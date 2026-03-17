@@ -33,7 +33,7 @@ public class GridBagFormCreation {
 	private JEditorPane htmlPane;
 	protected HTMLDocument htmlDocument;
 
-	private final static Logger LOGGER = SetupLogger.setupLogger(GridBagFormCreation.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(GridBagFormCreation.class);
 
 	protected static final HashMap<String, Pair<LocalDateTime, LocalDateTime>> TIMINGS = new HashMap<>();
 

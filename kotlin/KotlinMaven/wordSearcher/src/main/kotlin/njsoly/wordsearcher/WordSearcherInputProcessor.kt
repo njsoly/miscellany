@@ -1,19 +1,18 @@
 package njsoly.wordsearcher
 
-import njsoly.log.SetupLogger
 import njsoly.util.strings.filterToLength
 import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isAllAlpha
-import org.apache.log4j.Logger
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.InputStream
 import java.io.PrintStream
 
-// TODO (what do you want)$
 open class WordSearcherInputProcessor (private val wordList: List<String>){
 
     val output: PrintStream = System.out
     val input: InputStream = System.`in`
-    val logger: Logger = SetupLogger.setupLogger(this::class.java)
+    val logger: Logger = LoggerFactory.getLogger(this::class.java)
     private val inputHistory = mutableListOf<String>()
 
     // MISC-15 split out processInput() into an input processor class
@@ -25,7 +24,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * given.
      */
     fun processInput(inputString: String): List<String>? {
-        val inputString = inputString.toUpperCase().trim()
+        val inputString = inputString.uppercase().trim()
         val inputLimit = 16
         storeToInputHistory(inputString)
         val inputSplit: List<String> = inputString.split(' ', limit = inputLimit)

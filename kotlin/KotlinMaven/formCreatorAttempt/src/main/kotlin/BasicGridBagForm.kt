@@ -23,7 +23,7 @@ class BasicGridBagForm : JPanel() {
     private val htmlPane: JEditorPane? = null
     protected var htmlDocument: HTMLDocument? = null
 
-    private val LOGGER = SetupLogger.setupLogger(this.javaClass)
+    private val LOGGER = LoggerFactory.getLogger(this.javaClass)
 
     protected val TIMINGS = HashMap<String, Pair<LocalDateTime, LocalDateTime>>()
 
