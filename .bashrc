@@ -33,6 +33,12 @@ alias gsnu='git status -uno'
 alias gco='git checkout'
 alias gstat='git diff --stat'
 alias gd='git diff'
+if [[ -x ./set_git_aliases.bash ]]; then
+	. ./set_git_aliases.bash
+fi
+
+## other aliases ##
+alias dc='docker-compose'
 
 ## Help with CTRL+direction commands, etc
 if [[ "$OSTYPE" == "cygwin" ]]; then
@@ -55,6 +61,11 @@ fi
 if [[ -n "$miscellany" ]]; then
 	printf "not setting ${__cyan}miscellany${__reset} variable; already set to $miscellany.\n"
 fi
+#if [[ `echo $miscellany | grep -e '^C:\\\\'` ]]; then
+#	echo "${__yellow1}FYI: ${__cyan}miscellany${__RESET} was set to C:\\."
+#	unset miscellany
+#fi
+
 # MAC
 if [[ -z "$miscellany" && "$OSTYPE" = "darwin18" ]]; then
 	miscellany=~/miscellany
@@ -76,6 +87,8 @@ elif [[ -z "$miscellany" && "$HOSTNAME" = "njsoly-a15-1" ]]; then
 		miscellany=$HOME/miscellany
 	elif [[ "$WSL_DISTRO_NAME" = "Ubuntu" ]]; then
 		miscellany=$HOME/miscellany
+	elif [[ -n "$WSL_DISTRO_NAME" ]]; then
+		echo "ERROR: check out $BASH_LINENO in $BASH_SOURCE."
 	elif [[ "$OSTYPE" = "linux-gnu" ]]; then
 		miscellany=/mnt/c/Users/njsoly/miscellany
 	fi
@@ -99,7 +112,7 @@ if [[ -d ${miscellany}/bash.fxns.d ]]; then
 	printf "${__green}sourcing functions from ${__yellow}\$miscellany/bash.fxns.d${__reset}.\n"
 	for f in ${miscellany}/bash.fxns.d/*;
 	do {
-		[[ -x $(realpath ${f}) ]] && printf "    sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n" && . $(realpath ${f}) || :
+		[[ -x $(realpath ${f}) && -f $(realpath ${f}) ]] && printf "    sourcing ${__cyan}$(realpath --relative-base=$HOME ${f})${__reset}\n" && . $(realpath ${f}) || :
 	}
 	done
 elif [[ -d $PWD/bash.fxns.d ]]; then
@@ -112,7 +125,7 @@ fi
 if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
 	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
 	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
-elif [[ "$OSTYPE" = "cygwin" ||  -n "$(command -v branchname)" ]]; then
+elif [[ "$OSTYPE" = "cygwin" || -n ${WSL_DISTRO_NAME} || -n "$(command -v branchname)" ]]; then
 	echo -e "using ${__cyan}prompt_color_function.bash.source${__reset} to set ${__blue}PS1.${__reset}"
 	source "$miscellany/prompt_color_function.bash.source"
 fi

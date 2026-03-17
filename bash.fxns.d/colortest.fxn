@@ -1,0 +1,5 @@
+colortest () 
+{ 
+    printf "${YEL}yo, yo, yo, yo,${WHT} stop it\n.${RST}\tWhat is even ${RED}GOING ON?${RST}\n";
+    printf "${CYN}but this is ${CYN1}cyan${RST} now.\n"
+}
