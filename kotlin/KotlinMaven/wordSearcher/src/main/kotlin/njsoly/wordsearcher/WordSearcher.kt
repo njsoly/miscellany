@@ -95,10 +95,10 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         }
 
         /**
-         * So far, this method simply checks if the [String] is
+         * Checks if the [String] is
          * made of only alphabetical characters.
          */
-        fun String.isSimple () : Boolean {
+        fun String.isAllAlpha () : Boolean {
             this.map {
                 if (it.isLetter() == false)
                     return false

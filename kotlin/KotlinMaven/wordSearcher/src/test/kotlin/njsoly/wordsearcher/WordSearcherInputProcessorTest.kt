@@ -65,7 +65,7 @@ class WordSearcherInputProcessorTest {
         val letters = "BLAKC"
         val word = "BLACK"
         val pattern = "BL.CK"
-        val result = wordSearcherInputProcessor.`match letters and wilds to word`(letters, word, pattern, 0)
+        val result = wordSearcherInputProcessor.matchLettersAndWildsToWord(letters, word, pattern, 0)
         assertEquals(true, result)
     }
 
@@ -74,7 +74,7 @@ class WordSearcherInputProcessorTest {
         val letters = "BLAKC"
         val word = "BLACK"
         val pattern = "..A.."
-        val result = wordSearcherInputProcessor.`match letters and wilds to word`(letters, word, pattern, 0)
+        val result = wordSearcherInputProcessor.matchLettersAndWildsToWord(letters, word, pattern, 0)
         assertEquals(true, result)
     }
 }

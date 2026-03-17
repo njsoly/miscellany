@@ -3,7 +3,7 @@ package njsoly.wordsearcher
 import njsoly.log.SetupLogger
 import njsoly.util.strings.filterToLength
 import njsoly.util.strings.filterToPattern
-import njsoly.wordsearcher.WordSearcher.Companion.isSimple
+import njsoly.wordsearcher.WordSearcher.Companion.isAllAlpha
 import org.apache.log4j.Logger
 import java.io.InputStream
 import java.io.PrintStream
@@ -36,7 +36,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 return null
             }
             inputSplit.size == 1 -> {
-                return if (inputString.isSimple()) {
+                return if (inputString.isAllAlpha()) {
                     checkListForExactMatch (inputString, wordList)
                 } else {
                     `filter full list against single pattern`(inputSplit[0])
@@ -46,7 +46,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
                 val letters = inputSplit.first()
                 val searchStrings = inputSplit.minus(letters)
 
-                return `process letters against search strings`(letters, searchStrings, wordList)
+                return processLettersAgainstSearchStrings(letters, searchStrings, wordList)
             }
         }
 
@@ -62,7 +62,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * Given a certain set of [letters] (alphabetical + wildcards) and wildcard-laden [searchStrings],
      * return a list of matching words from [wordList].
      */
-    protected fun `process letters against search strings`(letters: String, searchStrings: List<String>, wordList: List<String>): List<String>? {
+    protected fun processLettersAgainstSearchStrings(letters: String, searchStrings: List<String>, wordList: List<String>): List<String>? {
         logger.debug("processing letters")
         val wilds = letters.count{ it == '.' || it == '?' || it == '_'}
         logger.debug("there are $wilds wild tiles")
@@ -105,7 +105,7 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
         val matches = mutableListOf<String>()
 
         words.forEach { word ->
-            if (`match letters and wilds to word`(letters, word, pattern, wilds)) {
+            if (matchLettersAndWildsToWord(letters, word, pattern, wilds)) {
                 matches.add(word)
             }
         }
@@ -117,10 +117,10 @@ open class WordSearcherInputProcessor (private val wordList: List<String>){
      * For one single [word], given a set of [lettersToUse], see if it matches
      * the given [pattern], if [numberOfWilds] wilds may be used (blanks).
      */
-    fun `match letters and wilds to word`(lettersToUse: String,
-                                          word: String,
-                                          pattern: String,
-                                          numberOfWilds: Int): Boolean {
+    fun matchLettersAndWildsToWord(lettersToUse: String,
+                                   word: String,
+                                   pattern: String,
+                                   numberOfWilds: Int): Boolean {
         var letters: List<Char> = lettersToUse.toCharArray().toList()
         var wilds: Int = numberOfWilds
         val pattern = `fit pattern to word`(word, pattern)

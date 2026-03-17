@@ -1,7 +1,5 @@
 package njsoly.wordsearcher
 
-import njsoly.util.strings.filterToLength
-import njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.DEBUG
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -11,7 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.runners.MockitoJUnitRunner
 import kotlin.text.Regex.Companion.escape
-import njsoly.wordsearcher.WordSearcher.Companion.isSimple
+import njsoly.wordsearcher.WordSearcher.Companion.isAllAlpha
 
 @RunWith(MockitoJUnitRunner::class)
 class WordSearcherTest {
@@ -40,26 +38,26 @@ class WordSearcherTest {
 
     @Test
     fun `isSimple() given simple word returns true`() {
-       assertEquals(true, "snth".isSimple())
+       assertEquals(true, "snth".isAllAlpha())
     }
     @Test
     fun `isSimple() given word with dot returns false`() {
-       assertEquals(false, "A.A".isSimple())
+       assertEquals(false, "A.A".isAllAlpha())
     }
 
     @Test
     fun `isSimple() given two words with dot returns false`() {
-       assertEquals(false, "A.A SNTH".isSimple())
+       assertEquals(false, "A.A SNTH".isAllAlpha())
     }
 
     @Test
     fun `isSimple() given two words returns false`() {
-       assertEquals(false, "AAA SNTH".isSimple())
+       assertEquals(false, "AAA SNTH".isAllAlpha())
     }
 
     @Test
     fun `isSimple() given word with numbers returns false`() {
-       assertEquals(false, "A03U3SNTH".isSimple())
+       assertEquals(false, "A03U3SNTH".isAllAlpha())
     }
 
     @Test
