@@ -58,6 +58,9 @@ if [[ "$OSTYPE" == "cygwin" ]]; then
 	[[ -x ./.inputrc ]] && bind -f ./.inputrc
 fi
 
+## alias-like others ##
+[ `command -v path` ] || path () { echo $PATH; }
+
 ##############  application shorthands  #############
 #-------              Windows                -------#
 if [[ "$OS" = "Windows_NT" ]]; then
