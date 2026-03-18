@@ -16,3 +16,7 @@ pom.xml eol=lf
 # binary
 *.7z binary
 
+# windows stuff
+*.bat eol=crlf
+*.vbs eol=crlf
+
