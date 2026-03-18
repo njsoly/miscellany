@@ -17,6 +17,6 @@ pom.xml eol=lf
 *.7z binary
 
 # windows stuff
-*.bat eol=crlf
+*.bat eol=input
 *.vbs eol=crlf
 
