@@ -137,11 +137,33 @@ else
 	printf "${__red}bash.fxns.d/ not found.${__reset}\n"
 fi
 
+
+
+[[ "$OSTYPE" = "cygwin" ]] && _in_cygwin=1 || _in_cygwin=0
+[[ "$OSTYPE" = "msys" ]] && _in_mingw=1 || _in_mingw=0
+[[ -n "${WSL_DISTRO_NAME}" ]] && _in_wsl=1 || _in_wsl=0
+echo "in cygwin: $_in_cygwin"
+echo "in mingw: $_in_mingw"
+echo "in wsl: $_in_wsl"
+[[ $_in_cygwin && $_in_mingw && $_in_wsl ]] && _in_windows=1 || _in_windows=0
+echo "in windows: $_in_windows"
+[[ "$OSTYPE" = "linux-gnu" ]] && _in_linux=1 || _in_linux=0
+echo "in linux: $_in_linux"
+
+if (( $_in_cygwin )); then echo "we're in cygwin"; else echo "we're not in cygwin"; fi
+if (( $_in_mingw )); then echo "we're in mingw"; else echo "we're not in mingw"; fi
+if (( $_in_wsl )); then echo "we're in wsl"; else echo "we're not in wsl"; fi
+if (( $_in_windows )); then echo "we're in windows"; else echo "we're not in windows"; fi
+if (( $_in_linux )); then echo "we're in linux"; else echo "not in linux"; fi
+if (( 1 )); then echo "blank is good"; else echo "blank is bad"; fi
+
 ########  bash git prompt setup ###################
+# accept gitprompt.sh from Homebrew first of all
 if [[ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]]; then
 	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
 	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
-elif [[ "$OSTYPE" = "cygwin" || -n ${WSL_DISTRO_NAME} || -n "$(command -v branchname)" ]]; then
+# then take my locals of in Cygwin, WSL, mingw, or if my function `branchname` has been declared
+elif [[ "$OSTYPE" = "cygwin" || -n ${WSL_DISTRO_NAME} || "$OSTYPE" = "msys" || -n "$(command -v branchname)" ]]; then
 	echo -e "using ${__cyan}prompt_color_function.bash.source${__reset} to set ${__blue}PS1.${__reset}"
 	source "$miscellany/prompt_color_function.bash.source"
 else
