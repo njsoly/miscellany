@@ -1,5 +1,6 @@
 import kotlin.Pair;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -40,7 +41,7 @@ public class GridBagFormCreation {
 
 	static {
 		if(DEBUG)
-			LOGGER.debug("GridBagFormCreation class loaded: " + theTime());
+            LOGGER.debug("GridBagFormCreation class loaded: {}", theTime());
 	}
 
 	public static String theTime () {
@@ -49,7 +50,7 @@ public class GridBagFormCreation {
 	}
 
 	protected void addStandardKeyListeners() {
-		if(DEBUG) LOGGER.debug("GridBagFormCreation(): adding key listener " + theTime());
+		if(DEBUG) LOGGER.debug("GridBagFormCreation(): adding key listener {}", theTime());
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run() {
 				inputTextArea.addKeyListener(new KeyAdapter() {
@@ -64,9 +65,9 @@ public class GridBagFormCreation {
 					public void keyPressed(KeyEvent e) {
 						super.keyPressed(e);
 						if (e.isActionKey()) {
-							LOGGER.debug("e (" + e.getKeyCode() + ") is an action key.");
+                            LOGGER.debug("e ({}) is an action key.", e.getKeyCode());
 						} else {
-							LOGGER.debug("e (" + e.getKeyCode() + ") is NOT an action key.");
+                            LOGGER.debug("e ({}) is NOT an action key.", e.getKeyCode());
 						}
 						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 							LOGGER.debug("pressed ENTER.");
@@ -82,7 +83,7 @@ public class GridBagFormCreation {
 	}
 
 	public GridBagFormCreation() {
-		if(DEBUG) LOGGER.debug("GridBagFormCreation() " + theTime());
+		if(DEBUG) LOGGER.debug("GridBagFormCreation() {}", theTime());
 
 
 		SwingUtilities.invokeLater(() -> {
@@ -109,8 +110,8 @@ public class GridBagFormCreation {
 			this.addStandardKeyListeners();
 
 			setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
-			setBgFg(inputTextArea, DEEP_BLUE, WHITE);
-			setBgFg(htmlPane, DEEP_GREEN_BLUE, SOFTER_CYAN);
+			setBgFg(inputTextArea, ColorUtil.DEEP_BLUE, WHITE);
+			setBgFg(htmlPane, ColorUtil.DEEP_GREEN_BLUE, ColorUtil.SOFTER_CYAN);
 
 			htmlPane.setDisabledTextColor(GRAY);
 			htmlPane.setSelectedTextColor(WHITE);
@@ -121,7 +122,7 @@ public class GridBagFormCreation {
 			doStandardComponentBorder(innerPanel, textAreaInfo, htmlPane);
 			setMargins(3, textAreaInfo, inputTextArea, resultsTextArea);
 
-			setSelectionBackground(BETTER_PURPLE, resultsTextArea, inputTextArea, htmlPane, textAreaInfo);
+			setSelectionBackground(ColorUtil.BETTER_PURPLE, resultsTextArea, inputTextArea, htmlPane, textAreaInfo);
 
 			for(JComponent jc : new JComponent[]{resultsTextArea, inputTextArea, textAreaInfo, htmlPane}){
 				jc.setFont(new Font("Consolas", PLAIN, 14));
@@ -129,12 +130,12 @@ public class GridBagFormCreation {
 		});
 
 
-		LOGGER.debug("GridBagFormCreation(): END " + theTime());
+        LOGGER.debug("GridBagFormCreation(): END {}", theTime());
 	}
 
 	void setBgFg(JComponent jc, Color bg, Color fg) {
 		SwingUtilities.invokeLater(() -> {
-			LOGGER.debug("setting BG & FG (" + jc.getName() + "): END " + theTime());
+            LOGGER.debug("setting BG & FG ({}): END {}", jc.getName(), theTime());
 			jc.setForeground(fg);
 			jc.setBackground(bg);
 		});
@@ -172,7 +173,7 @@ public class GridBagFormCreation {
 
 	protected void doStandardComponentBorder(JComponent... jcz) {
 		SwingUtilities.invokeLater(() -> {
-			if(DEBUG) LOGGER.debug("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
+			if(DEBUG) LOGGER.debug("doStandardComponentBorder({}): {}", jcz.getClass().getSimpleName(), theTime());
 			for(JComponent jc : jcz){
 				jc.setBorder(BorderFactory.createLineBorder(ColorUtil.BETTER_MAGENTA_PINK, 2, true));
 			}
@@ -191,7 +192,7 @@ public class GridBagFormCreation {
 			final int max = maxTimes;
 			@Override
 			public void run() {
-				LOGGER.debug("Window is visible [" + times + "]: " + window.isVisible());
+                LOGGER.debug("Window is visible [{}]: {}", times, window.isVisible());
 				times++;
 				if(times > maxTimes) {
 					this.cancel();
@@ -226,28 +227,28 @@ public class GridBagFormCreation {
 		JFrame frame = new JFrame("GridBagFormCreation"){
 			@Override
 			public void setVisible(boolean visible){
-				if(DEBUG) LOGGER.debug("setting window visible: " + theTime());
+				if(DEBUG) LOGGER.debug("setting window visible: {}", theTime());
 				super.setVisible(visible);
-				if(DEBUG) LOGGER.debug("window is visible " + (visible) + ": " + theTime());
+				if(DEBUG) LOGGER.debug("window is visible {}: {}", visible, theTime());
 			}
 
 			@Override
 			public void pack(){
-				if(DEBUG) LOGGER.debug("packing window: " + theTime());
+				if(DEBUG) LOGGER.debug("packing window: {}", theTime());
 				super.pack();
-				if(DEBUG) LOGGER.debug("packed window: " + theTime());
+				if(DEBUG) LOGGER.debug("packed window: {}", theTime());
 			}
 
 			{
 				this.addContainerListener(new ContainerListener(){
 					@Override
 					public void componentAdded(ContainerEvent e) {
-						if(DEBUG) LOGGER.debug("componentAdded: " + e);
+						if(DEBUG) LOGGER.debug("componentAdded: {}", e);
 					}
 
 					@Override
 					public void componentRemoved(ContainerEvent e) {
-						if(DEBUG) LOGGER.debug("componentRemoved: " + e);
+						if(DEBUG) LOGGER.debug("componentRemoved: {}", e);
 					}
 				});
 
@@ -255,24 +256,24 @@ public class GridBagFormCreation {
 
 					@Override
 					public void componentResized(ComponentEvent e) {
-						LOGGER.debug("component resized: " + e.getComponent().getName() + " " + e.paramString());
+                        LOGGER.debug("component resized: {} {}", e.getComponent().getName(), e.paramString());
 					}
 
 					@Override
 					public void componentMoved(ComponentEvent e) {
-						LOGGER.debug("component moved: " + e.getComponent().getName() + " " + e.paramString());
+                        LOGGER.debug("component moved: {} {}", e.getComponent().getName(), e.paramString());
 
 					}
 
 					@Override
 					public void componentShown(ComponentEvent e) {
-						LOGGER.debug("component shown: " + e.getComponent().getName() + " " + e.paramString());
+                        LOGGER.debug("component shown: {} {}", e.getComponent().getName(), e.paramString());
 
 					}
 
 					@Override
 					public void componentHidden(ComponentEvent e) {
-						LOGGER.debug("component hidden: " + e.getComponent().getName() + " " + e.paramString());
+                        LOGGER.debug("component hidden: {} {}", e.getComponent().getName(), e.paramString());
 
 					}
 				});
@@ -294,6 +295,6 @@ public class GridBagFormCreation {
 	}
 
 	void createUIComponents() {
-		if(DEBUG) LOGGER.debug("createUIComponents() " + theTime());
+		if(DEBUG) LOGGER.debug("createUIComponents() {}", theTime());
 	}
 }

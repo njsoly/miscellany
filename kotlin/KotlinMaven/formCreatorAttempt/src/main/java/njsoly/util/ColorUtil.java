@@ -1,3 +1,5 @@
+package njsoly.util;
+
 import java.awt.*;
 
 @SuppressWarnings("unused")
