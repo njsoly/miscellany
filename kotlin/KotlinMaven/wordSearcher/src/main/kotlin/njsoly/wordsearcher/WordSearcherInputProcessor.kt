@@ -1,9 +1,11 @@
 package njsoly.wordsearcher
 
 
-import njsoly.util.strings.filterToLength
-import njsoly.util.strings.filterToPattern
+import org.njsoly.util.strings.filterToLength
+import org.njsoly.util.strings.filterToPattern
 import njsoly.wordsearcher.WordSearcher.Companion.isAllAlpha
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.InputStream
 import java.io.PrintStream
 

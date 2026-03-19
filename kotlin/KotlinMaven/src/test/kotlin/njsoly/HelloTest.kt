@@ -1,12 +1,11 @@
 package njsoly
 
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-
 import org.mockito.runners.MockitoJUnitRunner
-import kotlin.test.assertEquals
 
 /**
  * I had to do some weird shit with the Maven tab in IntelliJ to make this work correctly.

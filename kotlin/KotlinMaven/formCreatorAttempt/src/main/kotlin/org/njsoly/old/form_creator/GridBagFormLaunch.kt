@@ -1,7 +1,5 @@
-package njsoly.gui.form_creator
+package org.njsoly.old.form_creator
 
-import GridBagFormCreation
-import org.njsoly.old.formCreatorAttempt.GridBagFormCreation
 import javax.swing.JFrame
 import javax.swing.WindowConstants.EXIT_ON_CLOSE
 

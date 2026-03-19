@@ -1,4 +1,4 @@
-package njsoly.util.strings
+package org.njsoly.util.strings
 
 import org.junit.Assert.*
 import org.junit.Test

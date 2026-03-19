@@ -1,6 +1,6 @@
 package njsoly.euler.p156
 
-import njsoly.util.DateUtil.Companion.readableTimeSinceInit
+import org.njsoly.util.DateUtil.Companion.readableTimeSinceInit
 import java.util.*
 import kotlin.collections.ArrayList
 

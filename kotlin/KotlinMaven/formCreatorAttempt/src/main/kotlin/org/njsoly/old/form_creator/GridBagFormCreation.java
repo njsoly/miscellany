@@ -1,6 +1,7 @@
-package org.njsoly.old.formCreatorAttempt;
+package org.njsoly.old.form_creator;
 
 import kotlin.Pair;
+import org.njsoly.util.ColorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,6 +23,8 @@ import static java.awt.Color.*;
 import static java.awt.Font.BOLD;
 import static java.awt.Font.PLAIN;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+import static org.njsoly.util.ColorUtil.DEEP_GREEN_BLUE;
+import static org.njsoly.util.ColorUtil.SOFTER_CYAN;
 
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
@@ -101,16 +104,16 @@ public class GridBagFormCreation {
 					new Color(65, 255, 133).brighter() // bright green blue
 				)
 			);
-			resultsTextArea.setDisabledTextColor(SOFTER_SEAFOAM);
-			resultsTextArea.setBorder(BorderFactory.createLineBorder(SKY_BLUE_3, 1));
+			resultsTextArea.setDisabledTextColor(ColorUtil.SOFTER_SEAFOAM);
+			resultsTextArea.setBorder(BorderFactory.createLineBorder(ColorUtil.SKY_BLUE_3, 1));
 
-			inputTextArea.setBorder(BorderFactory.createLineBorder(BRIGHT_SEAFOAM)); // bright seafoam
+			inputTextArea.setBorder(BorderFactory.createLineBorder(ColorUtil.BRIGHT_SEAFOAM)); // bright seafoam
 
 			textAreaInfo.setBackground(BLACK);
 
 			this.addStandardKeyListeners();
 
-			setBgFg(resultsTextArea, BLACK, SOFTER_SEAFOAM);
+			setBgFg(resultsTextArea, BLACK, ColorUtil.SOFTER_SEAFOAM);
 			setBgFg(inputTextArea, ColorUtil.DEEP_BLUE, WHITE);
 			setBgFg(htmlPane, ColorUtil.DEEP_GREEN_BLUE, ColorUtil.SOFTER_CYAN);
 

@@ -1,4 +1,4 @@
-package njsoly.util;
+package org.njsoly.util;
 
 import java.awt.*;
 

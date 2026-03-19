@@ -11,9 +11,6 @@ import java.io.InputStream
 import java.io.PrintStream
 import java.time.LocalDate
 
-/**
- *
- */
 fun main() {
     println("Hello, WordSearcher.")
     
@@ -30,6 +27,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
     val output: PrintStream = System.out
     val input: InputStream = System.`in`
     val wordSearcherInputProcessor: WordSearcherInputProcessor
+    @Suppress("unused")
     private val inputHistory = mutableListOf<String>()
 
     init {

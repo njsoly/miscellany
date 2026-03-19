@@ -1,4 +1,4 @@
-package njsoly.util.strings
+package org.njsoly.util.strings
 
 /**
  * Filters a list of [String]s to only those whose lengths

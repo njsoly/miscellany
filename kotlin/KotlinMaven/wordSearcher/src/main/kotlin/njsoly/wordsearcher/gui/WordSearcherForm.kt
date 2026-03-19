@@ -1,7 +1,7 @@
 package njsoly.wordsearcher.gui
 
-import GridBagFormCreation
 import njsoly.wordsearcher.WordSearcher
+import org.njsoly.old.form_creator.GridBagFormCreation
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.JComponent
