@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/kotlin/KotlinMaven/KotlinMaven.iml" filepath="$PROJECT_DIR$/kotlin/KotlinMaven/KotlinMaven.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/miscellany.iml" filepath="$PROJECT_DIR$/.idea/miscellany.iml" />
     </modules>
   </component>
