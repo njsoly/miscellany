@@ -1,7 +1,8 @@
 package njsoly.fs
 
-import njsoly.log.SetupLogger
-import org.apache.log4j.Logger
+
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.FileNotFoundException
 
@@ -14,7 +15,7 @@ class FileLinesLoader (val filename: String){
 
     val lines: List<String>
 
-    val LOGGER: Logger = SetupLogger.setupLogger(this::class.java)
+    val LOGGER: Logger = LoggerFactory.getLogger(this::class.java)
 
     init {
         lines = try {

@@ -1,6 +1,5 @@
 import kotlin.Pair;
-import njsoly.log.SetupLogger;
-import org.apache.log4j.Logger;
+
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -33,7 +32,7 @@ public class GridBagFormCreation {
 	private JEditorPane htmlPane;
 	protected HTMLDocument htmlDocument;
 
-	private final static Logger LOGGER = SetupLogger.setupLogger(GridBagFormCreation.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(GridBagFormCreation.class);
 
 	protected static final HashMap<String, Pair<LocalDateTime, LocalDateTime>> TIMINGS = new HashMap<>();
 
@@ -175,7 +174,7 @@ public class GridBagFormCreation {
 		SwingUtilities.invokeLater(() -> {
 			if(DEBUG) LOGGER.debug("doStandardComponentBorder(" + jcz.getClass().getSimpleName() + "): " + theTime());
 			for(JComponent jc : jcz){
-				jc.setBorder(BorderFactory.createLineBorder(BETTER_MAGENTA_PINK, 2, true));
+				jc.setBorder(BorderFactory.createLineBorder(ColorUtil.BETTER_MAGENTA_PINK, 2, true));
 			}
 		});
 	}

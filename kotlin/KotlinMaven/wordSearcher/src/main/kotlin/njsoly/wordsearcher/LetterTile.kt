@@ -35,7 +35,7 @@ enum class LetterTile (val points: Int = 1, val vowel: Boolean = false) {
 
     companion object {
         fun basicWordValue(s: String): Int {
-            return s.toUpperCase().sumBy{ valueOf(it.toString()).points }
+            return s.uppercase().sumBy{ valueOf(it.toString()).points }
         }
     }
 }

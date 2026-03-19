@@ -1,6 +1,6 @@
 package njsoly.wordsearcher.gui
 
-import njsoly.log.SetupLogger
+
 import java.awt.event.ComponentEvent
 import java.awt.event.ComponentListener
 import javax.swing.JFrame
@@ -14,7 +14,7 @@ import javax.swing.WindowConstants
 open class WordSearcherWindow(title: String = "WordSearcherWindow") : JFrame(title) {
 
     val wordSearcherForm: WordSearcherForm = WordSearcherForm()
-    val logger: org.apache.log4j.Logger? = SetupLogger.setupLogger(this.javaClass)
+    val logger: org.apache.log4j.Logger? = LoggerFactory.getLogger(this.javaClass)
 
     init {
         SwingUtilities.invokeLater {

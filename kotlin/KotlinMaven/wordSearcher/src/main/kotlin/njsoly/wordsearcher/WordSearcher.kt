@@ -2,11 +2,10 @@
 
 package njsoly.wordsearcher
 
-//import org.slf4j.Logger
-
 import njsoly.fs.FileLinesLoader
-import njsoly.log.SetupLogger
-import org.apache.log4j.Logger
+
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
 import java.io.File
 import java.io.InputStream
 import java.io.PrintStream
@@ -64,7 +63,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         }
     }
 
-    internal fun isQuitMessage(inputString: String): Boolean = inputString.toLowerCase() in setOf("q", "quit")
+    internal fun isQuitMessage(inputString: String): Boolean = inputString.lowercase() in setOf("q", "quit")
 
     companion object {
         var DEBUG = false
@@ -72,7 +71,7 @@ open class WordSearcher (val filename: String = file.toRelativeString(File("."))
         val now: LocalDate = LocalDate.now()
         val file: File = File("twl.txt")
 
-        val LOGGER: Logger = SetupLogger.setupLogger(this::class.java)
+        val LOGGER: Logger = LoggerFactory.getLogger(WordSearcher::class.java)
 
         fun info(x: Any){
             if (LOGGER.isInfoEnabled) {

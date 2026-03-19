@@ -1,5 +1,8 @@
 curl/
 .gradle/
+
 target/
+out/
+
 #.idea/workspace.xml
 stocks/
