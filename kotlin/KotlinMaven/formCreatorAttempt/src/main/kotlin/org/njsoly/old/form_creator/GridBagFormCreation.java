@@ -1,3 +1,5 @@
+package org.njsoly.old.formCreatorAttempt;
+
 import kotlin.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +22,6 @@ import static java.awt.Color.*;
 import static java.awt.Font.BOLD;
 import static java.awt.Font.PLAIN;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-import static njsoly.util.ColorUtil.*;
 
 @SuppressWarnings("unused")
 public class GridBagFormCreation {
