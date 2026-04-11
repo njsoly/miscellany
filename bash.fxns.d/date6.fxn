@@ -1,0 +1,4 @@
+# yymmdd
+date6 () {
+    date +%y%m%d
+}
