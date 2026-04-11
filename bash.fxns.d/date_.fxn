@@ -1,4 +1,4 @@
 # yymmdd
-date6 () {
+date_ () {
     date +%y%m%d
 }
