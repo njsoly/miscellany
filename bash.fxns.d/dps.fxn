@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-dps ()
+dps () 
 { 
-    docker ps --format "table {{.ID}} {{.Command}}\t{{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.Size}}"
+    docker ps --filter "name=$CONTAINER_NAME" --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" --all
 }
