@@ -1,0 +1,5 @@
+whats_on_port () 
+{ 
+    port=$1;
+    lsof -ti:$1
+}
