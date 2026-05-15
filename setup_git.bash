@@ -3,8 +3,6 @@
 ## This should be idempotent and fast,                                   ##
 ## because I don't want to have to deal with checking whether to run it. ##
 
-git config --global user.email "njsoly@syntj.com"
-git config --global user.name "njsoly"
 git config --global alias.s "status"
 git config --global alias.co "checkout"
 git config --global alias.staged "diff --cached"
