@@ -2,11 +2,9 @@ package org.njsoly.tinker.leet;
 
 public class Connect4 {
 
-    private static final boolean DEBUG = false;
     int moveNumber = 0;
     int[][] gameBoard = new int[6][7];
     int gameWinner = -1;
-
 
 
     public String play(int column) {
@@ -16,17 +14,12 @@ public class Connect4 {
         }
 
         int player = moveNumber % 2 + 1;
-        System.out.println("\tPlayer " + player + " is playing column " + column);
 
         int row = nextAvailableSpace(column);
         if(row == -1) {
             return "Column full!";
         } else {
             gameBoard[row][column] = player;
-        }
-
-        if(DEBUG){
-            System.out.println("\tplayer " + player + " has played column " + column + ", row " + row);
         }
 
         boolean gameOver = isGameOver(row, column);
@@ -36,7 +29,6 @@ public class Connect4 {
         } else {
             return "Player " + (moveNumber++ % 2 + 1) + " has a turn";
         }
-
     }
 
     boolean isGameOver(int row, int column) {
@@ -68,12 +60,7 @@ public class Connect4 {
             } else break;
         }
 
-        boolean win = tilesBehind + tilesInFront >= 3;
-        if (win){
-            System.out.println("\tVertical win!");
-            return true;
-        }
-        return false;
+        return tilesBehind + tilesInFront >= 3;
     }
 
     boolean checkHorizontal(int row, int column) {
@@ -99,12 +86,8 @@ public class Connect4 {
             }
         }
 
-        boolean win = tilesBehind + tilesInFront >= 3;
-        if (win){
-            System.out.println("\tHorizontal win!");
-            return true;
-        }
-        return false;    }
+        return tilesBehind + tilesInFront >= 3;
+    }
 
     boolean checkDiagonal(int row, int column) {
         int player = gameBoard[row][column];
@@ -130,12 +113,7 @@ public class Connect4 {
             } else break;
         }
 
-        boolean win = tilesBehind + tilesInFront >= 3;
-        if (win){
-            System.out.println("\tDiagonal win!");
-            return true;
-        }
-        return false;
+        return tilesBehind + tilesInFront >= 3;
     }
 
     boolean checkBackDiagonal(int row, int column) {
@@ -162,12 +140,7 @@ public class Connect4 {
             } else break;
         }
 
-        boolean win = tilesBehind + tilesInFront >= 3;
-        if (win){
-            System.out.println("\tBack diagonal win!");
-            return true;
-        }
-        return false;
+        return tilesBehind + tilesInFront >= 3;
     }
 
     int nextAvailableSpace(int col){
@@ -186,5 +159,4 @@ public class Connect4 {
     String sayGameIsOver(){
         return "Game has finished!";
     }
-
 }

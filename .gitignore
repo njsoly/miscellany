@@ -51,6 +51,7 @@ lib/
 # java/kotlin
 kotlin/KotlinMaven/jaxrs-doclet *
 kotlin/njsoly - Darc*
+/*/target/
 
 #IDEA
 .idea/sonarlint/issuestore/
