@@ -2,7 +2,6 @@ package org.njsoly.tinker.leet.connect4
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.njsoly.tinker.leet.Connect4
 
 
 class ExampleSolutionTest {
