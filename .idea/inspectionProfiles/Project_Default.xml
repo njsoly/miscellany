@@ -2,6 +2,9 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="ConstPropertyName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="CronExpressionValidationInspection" enabled="true" level="ERROR" enabled_by_default="false">
+      <scope name="Open Files" level="ERROR" enabled="true" />
+    </inspection_tool>
     <inspection_tool class="LocalVariableName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="ObjectPrivatePropertyName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="PrivatePropertyName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
@@ -10,6 +13,36 @@
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
       <option name="processComments" value="true" />
+    </inspection_tool>
+    <inspection_tool class="UnsupportedDirective" enabled="true" level="WARNING" enabled_by_default="false" editorAttributes="WARNING_ATTRIBUTES">
+      <scope name="Production" level="ERROR" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleFileNameStyle" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleFunctionComment" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleFunctionKeywordStyle" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleFunctionNameStyle" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleFunctionParenStyle" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleMainFunction" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleMainMissing" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleShebang" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="bashproGoogleVariableNameStyle" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
     <inspection_tool class="bashproShellCheck" enabled="false" level="ERROR" enabled_by_default="false" />
   </profile>
