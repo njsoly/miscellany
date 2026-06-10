@@ -1,47 +1,45 @@
 package org.njsoly.tinker.leet
 
-import java.util.Arrays
 
+/**
+ *242. Valid Anagram
+ * Solved
+ * Easy
+ * Topics
+ * premium lock icon
+ * Companies
+ * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+ *
+ * https://leetcode.com/problems/valid-anagram/
+ *
+ *
+ * Example 1:
+ *
+ * Input: s = "anagram", t = "nagaram"
+ *
+ * Output: true
+ *
+ * Example 2:
+ *
+ * Input: s = "rat", t = "car"
+ *
+ * Output: false
+ *
+ *
+ *
+ * Constraints:
+ *
+ * 1 <= s.length, t.length <= 5 * 10^4
+ * s and t consist of lowercase English letters.
+ *
+ */
 class ValidAnagram {
-
-    /**
-     *242. Valid Anagram
-     * Solved
-     * Easy
-     * Topics
-     * premium lock icon
-     * Companies
-     * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-     *
-     *
-     *
-     * Example 1:
-     *
-     * Input: s = "anagram", t = "nagaram"
-     *
-     * Output: true
-     *
-     * Example 2:
-     *
-     * Input: s = "rat", t = "car"
-     *
-     * Output: false
-     *
-     *
-     *
-     * Constraints:
-     *
-     * 1 <= s.length, t.length <= 5 * 10^4
-     * s and t consist of lowercase English letters.
-     *
-     */
-
     class Solution {
         fun isAnagram(s: String, t: String): Boolean {
             if (s.length != t.length) return false
 
             val a = IntArray('z'.code + 1)
-            for(i in 0 .. s.length-1){
+            for(i in 0 ..< s.length){
                 a[s[i].code]++
                 a[t[i].code]--
             }
@@ -52,10 +50,6 @@ class ValidAnagram {
             }
             return true
         }
-
-//        fun isAnagram(s: String, t: String): Boolean {
-//            return s.toCharArray().sorted() == t.toCharArray().sorted()
-//        }
     }
 }
 
