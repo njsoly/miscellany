@@ -1,4 +1,4 @@
-package org.njsoly.tinker.leet
+package org.njsoly.tinker.leet.connect4
 
 class Connect4Kt {
     
