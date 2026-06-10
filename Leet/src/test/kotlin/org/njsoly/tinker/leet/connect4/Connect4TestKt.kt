@@ -1,7 +1,8 @@
-package org.njsoly.tinker.leet
+package org.njsoly.tinker.leet.connect4
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.njsoly.tinker.leet.Connect4Kt
 
 class Connect4TestKt {
 

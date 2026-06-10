@@ -1,4 +1,4 @@
-package org.njsoly.tinker.leet;
+package org.njsoly.tinker.leet.connect4;
 
 public class Connect4Tester {
 
